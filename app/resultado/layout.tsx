@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     'perfil profissional',
     'DNA da Profissão',
     'orientação de carreira',
+    'teste de carreira',
   ],
   robots: {
     index: true,
