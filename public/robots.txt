@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dnadaprofissao.com.br/sitemap.xml
