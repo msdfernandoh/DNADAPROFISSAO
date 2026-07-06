@@ -3,6 +3,18 @@
 import { useEffect, useState } from "react"
 import { Logo } from "./logo"
 import { ESCOLARIDADE_OPTIONS, G, type QuestionnaireType } from "@/lib/dna-data"
+import { BRAZIL_UFS } from "@/lib/brazil-ufs"
+import {
+  CITY_SELECT_OTHER,
+  formatCityForParticipant,
+  formatCityLabel,
+} from "@/lib/city-utils"
+
+interface CatalogCity {
+  id: string
+  name: string
+  state: string
+}
 
 interface RegistrationProps {
   onComplete: (
@@ -43,6 +55,11 @@ export function Registration({
     course: "",
     escolaridade: "",
   })
+  const [citySelect, setCitySelect] = useState("")
+  const [otherCityName, setOtherCityName] = useState("")
+  const [otherCityState, setOtherCityState] = useState("")
+  const [cityCatalog, setCityCatalog] = useState<CatalogCity[]>([])
+  const [citiesLoaded, setCitiesLoaded] = useState(false)
   const [err, setErr] = useState("")
   const [loading, setLoading] = useState(false)
   const [loadingType, setLoadingType] = useState<QuestionnaireType | null>(null)
@@ -65,6 +82,16 @@ export function Registration({
   }, [])
 
   useEffect(() => {
+    fetch("/api/cities")
+      .then(r => r.json())
+      .then((data: CatalogCity[]) => {
+        setCityCatalog(Array.isArray(data) ? data : [])
+      })
+      .catch(() => setCityCatalog([]))
+      .finally(() => setCitiesLoaded(true))
+  }, [])
+
+  useEffect(() => {
     if (dnaRapidoEnabledProp !== undefined) return
     fetch("/api/settings/public")
       .then(r => r.json())
@@ -72,6 +99,19 @@ export function Registration({
       .catch(() => setDnaRapidoEnabledLocal(false))
       .finally(() => setSettingsLoadedLocal(true))
   }, [dnaRapidoEnabledProp])
+
+  const resolveCityValue = (): string | null => {
+    if (!citySelect) return null
+    if (citySelect === CITY_SELECT_OTHER) {
+      const name = otherCityName.trim()
+      const uf = otherCityState.trim()
+      if (!name || !uf) return null
+      return formatCityForParticipant(name, uf)
+    }
+    const found = cityCatalog.find(c => c.id === citySelect)
+    if (!found) return null
+    return formatCityForParticipant(found.name, found.state)
+  }
 
   const validate = (): boolean => {
     if (!form.name.trim() || !form.phone.trim() || !form.email.trim()) {
@@ -91,15 +131,26 @@ export function Registration({
       setErr("Selecione sua escolaridade para continuar.")
       return false
     }
+    const cityValue = resolveCityValue()
+    if (!cityValue) {
+      if (citySelect === CITY_SELECT_OTHER) {
+        setErr("Informe a cidade e o estado quando escolher Outra.")
+      } else {
+        setErr("Selecione sua cidade ou use Outra para informar manualmente.")
+      }
+      return false
+    }
     setErr("")
     return true
   }
 
   const handle = (quizType: QuestionnaireType) => {
     if (!validate()) return
+    const cityValue = resolveCityValue()
+    if (!cityValue) return
     setLoading(true)
     setLoadingType(quizType)
-    onComplete(form, quizType)
+    onComplete({ ...form, city: cityValue }, quizType)
   }
 
   return (
@@ -184,19 +235,78 @@ export function Registration({
 
           <div>
             <label className="text-xs font-medium mb-1.5 block tracking-wide" style={{ color: G.gray }}>
-              Sua cidade
+              Sua cidade *
             </label>
-            <input
-              value={form.city}
-              onChange={e => setForm({ ...form, city: e.target.value })}
-              placeholder="Onde você mora?"
-              className="w-full rounded-xl px-5 py-3.5 text-sm outline-none transition-colors"
+            <select
+              value={citySelect}
+              onChange={e => {
+                const v = e.target.value
+                setCitySelect(v)
+                if (v !== CITY_SELECT_OTHER) {
+                  setOtherCityName("")
+                  setOtherCityState("")
+                }
+              }}
+              disabled={!citiesLoaded}
+              className="w-full rounded-xl px-5 py-3.5 text-sm outline-none transition-colors disabled:opacity-50"
               style={{
                 background: "rgba(26,32,53,.8)",
                 border: `1.5px solid ${G.grayDark}`,
-                color: G.white,
+                color: citySelect ? G.white : G.gray,
               }}
-            />
+            >
+              <option value="">
+                {!citiesLoaded ? "Carregando cidades..." : "Selecione sua cidade"}
+              </option>
+              <option value={CITY_SELECT_OTHER}>Outra — informar cidade e estado</option>
+              {cityCatalog.map(c => (
+                <option key={c.id} value={c.id}>
+                  {formatCityLabel(c.name, c.state)}
+                </option>
+              ))}
+            </select>
+            {citySelect === CITY_SELECT_OTHER && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
+                <div>
+                  <label className="text-[10px] font-medium mb-1 block" style={{ color: G.gray }}>
+                    Cidade
+                  </label>
+                  <input
+                    value={otherCityName}
+                    onChange={e => setOtherCityName(e.target.value)}
+                    placeholder="Nome da cidade"
+                    className="w-full rounded-xl px-4 py-3 text-sm outline-none"
+                    style={{
+                      background: "rgba(26,32,53,.8)",
+                      border: `1.5px solid ${G.grayDark}`,
+                      color: G.white,
+                    }}
+                  />
+                </div>
+                <div>
+                  <label className="text-[10px] font-medium mb-1 block" style={{ color: G.gray }}>
+                    Estado (UF)
+                  </label>
+                  <select
+                    value={otherCityState}
+                    onChange={e => setOtherCityState(e.target.value)}
+                    className="w-full rounded-xl px-4 py-3 text-sm outline-none"
+                    style={{
+                      background: "rgba(26,32,53,.8)",
+                      border: `1.5px solid ${G.grayDark}`,
+                      color: otherCityState ? G.white : G.gray,
+                    }}
+                  >
+                    <option value="">UF</option>
+                    {BRAZIL_UFS.map(uf => (
+                      <option key={uf} value={uf}>
+                        {uf}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            )}
           </div>
 
           <div>
