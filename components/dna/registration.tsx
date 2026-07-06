@@ -2,16 +2,20 @@
 
 import { useEffect, useState } from "react"
 import { Logo } from "./logo"
-import { G } from "@/lib/dna-data"
+import { ESCOLARIDADE_OPTIONS, G, type QuestionnaireType } from "@/lib/dna-data"
 
 interface RegistrationProps {
-  onComplete: (form: {
-    name: string
-    phone: string
-    email: string
-    city: string
-    course: string
-  }) => void
+  onComplete: (
+    form: {
+      name: string
+      phone: string
+      email: string
+      city: string
+      course: string
+      escolaridade: string
+    },
+    quizType: QuestionnaireType
+  ) => void
 }
 
 // Máscara de telefone BR: (00) 00000-0000 ou (00) 0000-0000
@@ -25,13 +29,22 @@ function maskPhone(value: string): string {
 }
 
 export function Registration({ onComplete }: RegistrationProps) {
-  const [form, setForm] = useState({ name: "", phone: "", email: "", city: "", course: "" })
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    city: "",
+    course: "",
+    escolaridade: "",
+  })
   const [err, setErr] = useState("")
   const [loading, setLoading] = useState(false)
+  const [loadingType, setLoadingType] = useState<QuestionnaireType | null>(null)
   const [courseList, setCourseList] = useState<string[]>([])
   const [coursesLoaded, setCoursesLoaded] = useState(false)
+  const [dnaRapidoEnabled, setDnaRapidoEnabled] = useState(false)
+  const [settingsLoaded, setSettingsLoaded] = useState(false)
 
-  // Carrega APENAS cursos cadastrados no banco
   useEffect(() => {
     fetch("/api/courses")
       .then(r => r.json())
@@ -42,23 +55,41 @@ export function Registration({ onComplete }: RegistrationProps) {
       .finally(() => setCoursesLoaded(true))
   }, [])
 
-  const handle = () => {
+  useEffect(() => {
+    fetch("/api/settings/public")
+      .then(r => r.json())
+      .then(j => setDnaRapidoEnabled(!!j.dnaRapidoEnabled))
+      .catch(() => setDnaRapidoEnabled(false))
+      .finally(() => setSettingsLoaded(true))
+  }, [])
+
+  const validate = (): boolean => {
     if (!form.name.trim() || !form.phone.trim() || !form.email.trim()) {
       setErr("Preencha nome, WhatsApp e email para continuar.")
-      return
+      return false
     }
     const phoneDigits = form.phone.replace(/\D/g, "")
     if (phoneDigits.length < 10 || phoneDigits.length > 11) {
       setErr("Insira um WhatsApp válido com DDD (10 ou 11 dígitos).")
-      return
+      return false
     }
     if (!form.email.includes("@") || !form.email.includes(".")) {
       setErr("Por favor, insira um email válido.")
-      return
+      return false
+    }
+    if (!form.escolaridade) {
+      setErr("Selecione sua escolaridade para continuar.")
+      return false
     }
     setErr("")
+    return true
+  }
+
+  const handle = (quizType: QuestionnaireType) => {
+    if (!validate()) return
     setLoading(true)
-    onComplete(form)
+    setLoadingType(quizType)
+    onComplete(form, quizType)
   }
 
   return (
@@ -160,6 +191,29 @@ export function Registration({ onComplete }: RegistrationProps) {
 
           <div>
             <label className="text-xs font-medium mb-1.5 block tracking-wide" style={{ color: G.gray }}>
+              Escolaridade *
+            </label>
+            <select
+              value={form.escolaridade}
+              onChange={e => setForm({ ...form, escolaridade: e.target.value })}
+              className="w-full rounded-xl px-5 py-3.5 text-sm outline-none transition-colors"
+              style={{
+                background: "rgba(26,32,53,.8)",
+                border: `1.5px solid ${G.grayDark}`,
+                color: form.escolaridade ? G.white : G.gray,
+              }}
+            >
+              <option value="">Selecione sua escolaridade</option>
+              {ESCOLARIDADE_OPTIONS.map(o => (
+                <option key={o.value} value={o.value}>
+                  {o.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="text-xs font-medium mb-1.5 block tracking-wide" style={{ color: G.gray }}>
               Qual profissão você quer testar?
             </label>
             <select
@@ -195,7 +249,7 @@ export function Registration({ onComplete }: RegistrationProps) {
           )}
 
           <button
-            onClick={handle}
+            onClick={() => handle("completo")}
             disabled={loading}
             className="w-full font-bold rounded-full py-4 transition-all hover:-translate-y-0.5 disabled:opacity-50"
             style={{
@@ -203,8 +257,29 @@ export function Registration({ onComplete }: RegistrationProps) {
               color: G.navy,
             }}
           >
-            {loading ? "Carregando..." : "Iniciar questionário"}
+            {loading && loadingType === "completo" ? "Carregando..." : "Iniciar questionário"}
           </button>
+
+          {settingsLoaded && dnaRapidoEnabled && (
+            <div className="flex flex-col gap-2 pt-1">
+              <p className="text-[11px] text-center leading-relaxed" style={{ color: G.gray }}>
+                Versão expressa para eventos e feiras.
+              </p>
+              <button
+                type="button"
+                onClick={() => handle("rapido")}
+                disabled={loading}
+                className="w-full font-bold rounded-full py-4 transition-all hover:-translate-y-0.5 disabled:opacity-50"
+                style={{
+                  background: "transparent",
+                  color: G.goldLight,
+                  border: `1.5px solid ${G.gold}`,
+                }}
+              >
+                {loading && loadingType === "rapido" ? "Carregando..." : "Iniciar DNA Rápido"}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ import { NextResponse } from "next/server"
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { name, phone, email, city, course_interest } = body
+    const { name, phone, email, city, course_interest, escolaridade, tipo_questionario } = body
 
     if (!name || !phone || !email) {
       return NextResponse.json(
@@ -17,17 +17,36 @@ export async function POST(request: Request) {
 
     const supabase = await createClient()
 
+    const tipo =
+      tipo_questionario === "rapido" || tipo_questionario === "completo"
+        ? tipo_questionario
+        : "completo"
+
+    const insertPayload: Record<string, unknown> = {
+      name,
+      phone,
+      email,
+      city: city || null,
+      course_interest: course_interest || null,
+      escolaridade: escolaridade || null,
+      tipo_questionario: tipo,
+      status: "Aguardando teste",
+      quiz_completed: false,
+    }
+
+    const { primary_profile, secondary_profile, percentages } = body
+    if (primary_profile && secondary_profile && percentages) {
+      insertPayload.primary_profile = primary_profile
+      insertPayload.secondary_profile = secondary_profile
+      insertPayload.percentages = percentages
+      insertPayload.quiz_completed = true
+      insertPayload.quiz_completed_at = new Date().toISOString()
+      insertPayload.status = "Novo"
+    }
+
     const { data, error } = await supabase
       .from("participants")
-      .insert({
-        name,
-        phone,
-        email,
-        city: city || null,
-        course_interest: course_interest || null,
-        status: "Aguardando teste",
-        quiz_completed: false,
-      })
+      .insert(insertPayload)
       .select()
       .single()
 
@@ -48,7 +67,7 @@ export async function POST(request: Request) {
 export async function PATCH(request: Request) {
   try {
     const body = await request.json()
-    const { id, primary_profile, secondary_profile, percentages } = body
+    const { id, primary_profile, secondary_profile, percentages, tipo_questionario } = body
 
     if (!id) {
       return NextResponse.json({ error: "id é obrigatório" }, { status: 400 })
@@ -56,16 +75,21 @@ export async function PATCH(request: Request) {
 
     const supabase = await createClient()
 
+    const updatePayload: Record<string, unknown> = {
+      primary_profile,
+      secondary_profile,
+      percentages,
+      quiz_completed: true,
+      quiz_completed_at: new Date().toISOString(),
+      status: "Novo",
+    }
+    if (tipo_questionario === "rapido" || tipo_questionario === "completo") {
+      updatePayload.tipo_questionario = tipo_questionario
+    }
+
     const { data, error } = await supabase
       .from("participants")
-      .update({
-        primary_profile,
-        secondary_profile,
-        percentages,
-        quiz_completed: true,
-        quiz_completed_at: new Date().toISOString(),
-        status: "Novo",
-      })
+      .update(updatePayload)
       .eq("id", id)
       .select()
       .single()

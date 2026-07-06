@@ -5,6 +5,7 @@ import { Landing } from "@/components/dna/landing"
 import { Registration } from "@/components/dna/registration"
 import { Quiz } from "@/components/dna/quiz"
 import { ThankYou } from "@/components/dna/thank-you"
+import type { QuestionnaireType } from "@/lib/dna-data"
 
 type Screen = "landing" | "register" | "quiz" | "thankyou"
 
@@ -14,6 +15,7 @@ interface UserData {
   email: string
   city: string
   course: string
+  escolaridade: string
 }
 
 interface QuizResult {
@@ -27,10 +29,11 @@ export default function DNAPage() {
   const [screen, setScreen] = useState<Screen>("landing")
   const [userData, setUserData] = useState<UserData | null>(null)
   const [participantId, setParticipantId] = useState<string | null>(null)
+  const [quizType, setQuizType] = useState<QuestionnaireType>("completo")
 
-  // 1) Submissão do formulário => cria registro com status "Aguardando teste"
-  const onRegisterComplete = async (form: UserData) => {
+  const onRegisterComplete = async (form: UserData, type: QuestionnaireType) => {
     setUserData(form)
+    setQuizType(type)
 
     try {
       const response = await fetch("/api/participants", {
@@ -42,6 +45,8 @@ export default function DNAPage() {
           email: form.email,
           city: form.city || null,
           course_interest: form.course || null,
+          escolaridade: form.escolaridade,
+          tipo_questionario: type,
         }),
       })
       const json = await response.json()
@@ -54,11 +59,9 @@ export default function DNAPage() {
       console.error("[v0] Erro de rede ao criar participante:", error)
     }
 
-    // Avança o usuário independente do resultado da gravação
     setScreen("quiz")
   }
 
-  // 2) Conclusão do quiz => PATCH no MESMO registro com o resultado
   const onQuizComplete = async (result: QuizResult) => {
     if (!userData) return
 
@@ -72,13 +75,13 @@ export default function DNAPage() {
             primary_profile: result.primary,
             secondary_profile: result.secondary,
             percentages: result.pct,
+            tipo_questionario: quizType,
           }),
         })
       } catch (error) {
         console.error("[v0] Erro ao atualizar resultado:", error)
       }
     } else {
-      // Fallback: se não temos ID (POST inicial falhou), criamos com tudo de uma vez
       try {
         await fetch("/api/participants", {
           method: "POST",
@@ -89,6 +92,11 @@ export default function DNAPage() {
             email: userData.email,
             city: userData.city || null,
             course_interest: userData.course || null,
+            escolaridade: userData.escolaridade,
+            tipo_questionario: quizType,
+            primary_profile: result.primary,
+            secondary_profile: result.secondary,
+            percentages: result.pct,
           }),
         })
       } catch (error) {
@@ -108,7 +116,7 @@ export default function DNAPage() {
   }
 
   if (screen === "quiz") {
-    return <Quiz onComplete={onQuizComplete} />
+    return <Quiz mode={quizType} onComplete={onQuizComplete} />
   }
 
   if (screen === "thankyou" && userData) {

@@ -14,6 +14,34 @@ export const G = {
 
 export type ProfileKey = "A" | "B" | "C" | "D" | "E"
 
+export type QuestionnaireType = "completo" | "rapido"
+
+export const ESCOLARIDADE_OPTIONS = [
+  { value: "ensino_medio_incompleto", label: "Ensino Médio Incompleto" },
+  { value: "ensino_medio_completo", label: "Ensino Médio Completo" },
+  { value: "cursando_graduacao", label: "Cursando Graduação" },
+  { value: "graduado", label: "Graduado" },
+  { value: "pos_graduado", label: "Pós-Graduado" },
+] as const
+
+export type EscolaridadeValue = (typeof ESCOLARIDADE_OPTIONS)[number]["value"]
+
+export function formatEscolaridade(value: string | null | undefined): string {
+  if (!value) return "—"
+  return ESCOLARIDADE_OPTIONS.find(o => o.value === value)?.label ?? value
+}
+
+/** Índices (0-based) em QUESTIONS para o DNA Rápido — 3+3+4 etapas */
+export const QUICK_QUESTION_INDICES = [0, 5, 8, 10, 11, 14, 15, 17, 19, 23] as const
+
+export const QUICK_QUIZ_STAGE_SIZES = [3, 3, 4] as const
+
+export function getQuickQuizStage(questionIndexInQuick: number): number {
+  if (questionIndexInQuick < 3) return 1
+  if (questionIndexInQuick < 6) return 2
+  return 3
+}
+
 // ─── 24 PERGUNTAS ───────────────────────────────────────────────────────
 export const QUESTIONS = [
   {

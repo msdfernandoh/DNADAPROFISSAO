@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { Logo } from "@/components/dna/logo"
 import { RadarChart } from "@/components/dna/radar-chart"
-import { G, PROFILES, STATUS_OPTS } from "@/lib/dna-data"
+import { G, PROFILES, STATUS_OPTS, formatEscolaridade } from "@/lib/dna-data"
 
 interface Participant {
   id: string
@@ -12,6 +12,8 @@ interface Participant {
   email: string
   city: string | null
   course_interest: string | null
+  escolaridade: string | null
+  tipo_questionario: string | null
   primary_profile: string | null
   secondary_profile: string | null
   percentages: Record<string, number> | null
@@ -33,6 +35,9 @@ export default function AdminPage() {
   const [search, setSearch] = useState("")
   const [selected, setSelected] = useState<Participant | null>(null)
   const [copyMsg, setCopyMsg] = useState("")
+  const [dnaRapidoButtonEnabled, setDnaRapidoButtonEnabled] = useState(false)
+  const [settingsSaving, setSettingsSaving] = useState(false)
+  const [settingsLoaded, setSettingsLoaded] = useState(false)
 
   // Verificar sessão ao carregar
   useEffect(() => {
@@ -96,8 +101,37 @@ export default function AdminPage() {
   useEffect(() => {
     if (authed) {
       fetchParticipants()
+      fetch("/api/admin/settings")
+        .then(r => r.json())
+        .then(j => {
+          if (typeof j.dnaRapidoButtonEnabled === "boolean") {
+            setDnaRapidoButtonEnabled(j.dnaRapidoButtonEnabled)
+          }
+        })
+        .catch(() => {})
+        .finally(() => setSettingsLoaded(true))
     }
   }, [authed])
+
+  const toggleDnaRapido = async () => {
+    const next = !dnaRapidoButtonEnabled
+    setSettingsSaving(true)
+    try {
+      const res = await fetch("/api/admin/settings", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ dnaRapidoButtonEnabled: next }),
+      })
+      const json = await res.json()
+      if (res.ok && typeof json.dnaRapidoButtonEnabled === "boolean") {
+        setDnaRapidoButtonEnabled(json.dnaRapidoButtonEnabled)
+      }
+    } catch (error) {
+      console.error("Error saving settings:", error)
+    } finally {
+      setSettingsSaving(false)
+    }
+  }
 
   const updateParticipant = async (id: string, updates: Partial<Participant>) => {
     try {
@@ -287,7 +321,15 @@ export default function AdminPage() {
                 <div className="text-sm mb-4" style={{ color: G.gray }}>
                   {selected.phone} - {selected.email}
                   {selected.city && ` - ${selected.city}`}
+                  {selected.escolaridade && ` - ${formatEscolaridade(selected.escolaridade)}`}
                   {selected.course_interest && ` - Interesse: ${selected.course_interest}`}
+                  {selected.tipo_questionario && (
+                    <span>
+                      {" "}
+                      · Questionário:{" "}
+                      {selected.tipo_questionario === "rapido" ? "DNA Rápido" : "Completo"}
+                    </span>
+                  )}
                 </div>
                 {quizDone && pr && sec ? (
                   <div className="flex flex-wrap gap-3">
@@ -623,6 +665,45 @@ export default function AdminPage() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Configurações */}
+        <div
+          className="rounded-xl p-5 mb-6 backdrop-blur-sm"
+          style={{
+            background: "rgba(26,32,53,.5)",
+            border: `1px solid ${G.purpleVib}33`,
+          }}
+        >
+          <div className="text-xs font-semibold mb-4 uppercase tracking-wider" style={{ color: G.goldLight }}>
+            Configurações
+          </div>
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <div className="text-sm font-bold" style={{ color: G.white }}>
+                DNA Rápido
+              </div>
+              <div className="text-xs mt-1" style={{ color: G.gray }}>
+                Ativar botão DNA Rápido na tela de cadastro
+              </div>
+            </div>
+            <button
+              type="button"
+              role="switch"
+              aria-checked={dnaRapidoButtonEnabled}
+              disabled={!settingsLoaded || settingsSaving}
+              onClick={toggleDnaRapido}
+              className="relative w-12 h-7 rounded-full transition-colors disabled:opacity-50 flex-shrink-0"
+              style={{
+                background: dnaRapidoButtonEnabled ? G.gold : G.grayDark,
+              }}
+            >
+              <span
+                className="absolute top-1 w-5 h-5 rounded-full bg-white transition-all"
+                style={{ left: dnaRapidoButtonEnabled ? "1.35rem" : "0.25rem" }}
+              />
+            </button>
+          </div>
         </div>
 
         {/* Search */}
