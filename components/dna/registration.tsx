@@ -16,6 +16,8 @@ interface RegistrationProps {
     },
     quizType: QuestionnaireType
   ) => void
+  dnaRapidoEnabled?: boolean
+  settingsLoaded?: boolean
 }
 
 // Máscara de telefone BR: (00) 00000-0000 ou (00) 0000-0000
@@ -28,7 +30,11 @@ function maskPhone(value: string): string {
   return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`
 }
 
-export function Registration({ onComplete }: RegistrationProps) {
+export function Registration({
+  onComplete,
+  dnaRapidoEnabled: dnaRapidoEnabledProp,
+  settingsLoaded: settingsLoadedProp,
+}: RegistrationProps) {
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -42,8 +48,11 @@ export function Registration({ onComplete }: RegistrationProps) {
   const [loadingType, setLoadingType] = useState<QuestionnaireType | null>(null)
   const [courseList, setCourseList] = useState<string[]>([])
   const [coursesLoaded, setCoursesLoaded] = useState(false)
-  const [dnaRapidoEnabled, setDnaRapidoEnabled] = useState(false)
-  const [settingsLoaded, setSettingsLoaded] = useState(false)
+  const [dnaRapidoEnabledLocal, setDnaRapidoEnabledLocal] = useState(false)
+  const [settingsLoadedLocal, setSettingsLoadedLocal] = useState(false)
+
+  const dnaRapidoEnabled = dnaRapidoEnabledProp ?? dnaRapidoEnabledLocal
+  const settingsLoaded = settingsLoadedProp ?? settingsLoadedLocal
 
   useEffect(() => {
     fetch("/api/courses")
@@ -56,12 +65,13 @@ export function Registration({ onComplete }: RegistrationProps) {
   }, [])
 
   useEffect(() => {
+    if (dnaRapidoEnabledProp !== undefined) return
     fetch("/api/settings/public")
       .then(r => r.json())
-      .then(j => setDnaRapidoEnabled(!!j.dnaRapidoEnabled))
-      .catch(() => setDnaRapidoEnabled(false))
-      .finally(() => setSettingsLoaded(true))
-  }, [])
+      .then(j => setDnaRapidoEnabledLocal(!!j.dnaRapidoEnabled))
+      .catch(() => setDnaRapidoEnabledLocal(false))
+      .finally(() => setSettingsLoadedLocal(true))
+  }, [dnaRapidoEnabledProp])
 
   const validate = (): boolean => {
     if (!form.name.trim() || !form.phone.trim() || !form.email.trim()) {

@@ -1,9 +1,16 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { Logo } from "@/components/dna/logo"
 import { RadarChart } from "@/components/dna/radar-chart"
-import { G, PROFILES, STATUS_OPTS, formatEscolaridade } from "@/lib/dna-data"
+import { G, PROFILES, STATUS_OPTS, QUESTIONS, formatEscolaridade } from "@/lib/dna-data"
+import {
+  DEFAULT_DNA_RAPIDO_QUESTION_INDICES,
+  MAX_DNA_RAPIDO_QUESTIONS,
+  MIN_DNA_RAPIDO_QUESTIONS,
+} from "@/lib/app-settings"
+
+const LEADS_PER_PAGE = 15
 
 interface Participant {
   id: string
@@ -37,8 +44,15 @@ export default function AdminPage() {
   const [selected, setSelected] = useState<Participant | null>(null)
   const [copyMsg, setCopyMsg] = useState("")
   const [dnaRapidoButtonEnabled, setDnaRapidoButtonEnabled] = useState(false)
+  const [selectedQuestionIndices, setSelectedQuestionIndices] = useState<number[]>([
+    ...DEFAULT_DNA_RAPIDO_QUESTION_INDICES,
+  ])
   const [settingsSaving, setSettingsSaving] = useState(false)
+  const [questionsSaving, setQuestionsSaving] = useState(false)
   const [settingsLoaded, setSettingsLoaded] = useState(false)
+  const [settingsMsg, setSettingsMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null)
+  const [cityFilter, setCityFilter] = useState("")
+  const [page, setPage] = useState(1)
 
   // Verificar sessão ao carregar
   useEffect(() => {
@@ -99,24 +113,38 @@ export default function AdminPage() {
     }
   }
 
+  const loadAdminSettings = async () => {
+    try {
+      const res = await fetch("/api/admin/settings")
+      const j = await res.json()
+      if (res.ok) {
+        if (typeof j.dnaRapidoButtonEnabled === "boolean") {
+          setDnaRapidoButtonEnabled(j.dnaRapidoButtonEnabled)
+        }
+        if (Array.isArray(j.dnaRapidoQuestionIndices)) {
+          setSelectedQuestionIndices(j.dnaRapidoQuestionIndices)
+        }
+      } else if (j.error) {
+        setSettingsMsg({ type: "err", text: j.error })
+      }
+    } catch {
+      setSettingsMsg({ type: "err", text: "Falha ao carregar configurações." })
+    } finally {
+      setSettingsLoaded(true)
+    }
+  }
+
   useEffect(() => {
     if (authed) {
       fetchParticipants()
-      fetch("/api/admin/settings")
-        .then(r => r.json())
-        .then(j => {
-          if (typeof j.dnaRapidoButtonEnabled === "boolean") {
-            setDnaRapidoButtonEnabled(j.dnaRapidoButtonEnabled)
-          }
-        })
-        .catch(() => {})
-        .finally(() => setSettingsLoaded(true))
+      loadAdminSettings()
     }
   }, [authed])
 
   const toggleDnaRapido = async () => {
     const next = !dnaRapidoButtonEnabled
     setSettingsSaving(true)
+    setSettingsMsg(null)
     try {
       const res = await fetch("/api/admin/settings", {
         method: "PATCH",
@@ -126,11 +154,80 @@ export default function AdminPage() {
       const json = await res.json()
       if (res.ok && typeof json.dnaRapidoButtonEnabled === "boolean") {
         setDnaRapidoButtonEnabled(json.dnaRapidoButtonEnabled)
+        setSettingsMsg({ type: "ok", text: "Configuração do DNA Rápido salva." })
+      } else {
+        setSettingsMsg({ type: "err", text: json.error || "Não foi possível salvar o toggle." })
       }
-    } catch (error) {
-      console.error("Error saving settings:", error)
+    } catch {
+      setSettingsMsg({ type: "err", text: "Erro de rede ao salvar configuração." })
     } finally {
       setSettingsSaving(false)
+      setTimeout(() => setSettingsMsg(null), 4000)
+    }
+  }
+
+  const toggleQuestionIndex = (index: number) => {
+    setSelectedQuestionIndices(prev => {
+      if (prev.includes(index)) {
+        return prev.filter(i => i !== index)
+      }
+      if (prev.length >= MAX_DNA_RAPIDO_QUESTIONS) return prev
+      return [...prev, index].sort((a, b) => a - b)
+    })
+  }
+
+  const saveQuickQuestions = async () => {
+    if (selectedQuestionIndices.length < MIN_DNA_RAPIDO_QUESTIONS) {
+      setSettingsMsg({
+        type: "err",
+        text: `Selecione pelo menos ${MIN_DNA_RAPIDO_QUESTIONS} perguntas.`,
+      })
+      return
+    }
+    setQuestionsSaving(true)
+    setSettingsMsg(null)
+    try {
+      const res = await fetch("/api/admin/settings", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ dnaRapidoQuestionIndices: selectedQuestionIndices }),
+      })
+      const json = await res.json()
+      if (res.ok && Array.isArray(json.dnaRapidoQuestionIndices)) {
+        setSelectedQuestionIndices(json.dnaRapidoQuestionIndices)
+        setSettingsMsg({ type: "ok", text: "Perguntas do DNA Rápido salvas com sucesso." })
+      } else {
+        setSettingsMsg({ type: "err", text: json.error || "Erro ao salvar perguntas." })
+      }
+    } catch {
+      setSettingsMsg({ type: "err", text: "Erro de rede ao salvar perguntas." })
+    } finally {
+      setQuestionsSaving(false)
+      setTimeout(() => setSettingsMsg(null), 4000)
+    }
+  }
+
+  const restoreRecommendedQuestions = async () => {
+    setQuestionsSaving(true)
+    setSettingsMsg(null)
+    try {
+      const res = await fetch("/api/admin/settings", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ restoreRecommendedQuestions: true }),
+      })
+      const json = await res.json()
+      if (res.ok && Array.isArray(json.dnaRapidoQuestionIndices)) {
+        setSelectedQuestionIndices(json.dnaRapidoQuestionIndices)
+        setSettingsMsg({ type: "ok", text: "Seleção recomendada restaurada." })
+      } else {
+        setSettingsMsg({ type: "err", text: json.error || "Erro ao restaurar." })
+      }
+    } catch {
+      setSettingsMsg({ type: "err", text: "Erro de rede ao restaurar." })
+    } finally {
+      setQuestionsSaving(false)
+      setTimeout(() => setSettingsMsg(null), 4000)
     }
   }
 
@@ -168,6 +265,41 @@ export default function AdminPage() {
   const formatDate = (date: string) => {
     return new Date(date).toLocaleDateString("pt-BR")
   }
+
+  const cityOptions = useMemo(() => {
+    const cities = new Set<string>()
+    participants.forEach(p => {
+      if (p.city?.trim()) cities.add(p.city.trim())
+    })
+    return [...cities].sort((a, b) => a.localeCompare(b, "pt-BR"))
+  }, [participants])
+
+  const filtered = useMemo(() => {
+    const q = search.toLowerCase()
+    return participants.filter(p => {
+      const matchSearch =
+        p.name.toLowerCase().includes(q) ||
+        p.phone.includes(search) ||
+        p.email.toLowerCase().includes(q)
+      const matchCity = !cityFilter || (p.city?.trim() || "") === cityFilter
+      return matchSearch && matchCity
+    })
+  }, [participants, search, cityFilter])
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / LEADS_PER_PAGE))
+  const safePage = Math.min(page, totalPages)
+  const paginated = useMemo(
+    () => filtered.slice((safePage - 1) * LEADS_PER_PAGE, safePage * LEADS_PER_PAGE),
+    [filtered, safePage]
+  )
+
+  useEffect(() => {
+    setPage(1)
+  }, [search, cityFilter])
+
+  useEffect(() => {
+    if (page > totalPages) setPage(totalPages)
+  }, [page, totalPages])
 
   // Loading da verificação de sessão
   if (authLoading) {
@@ -595,13 +727,6 @@ export default function AdminPage() {
   }
 
   // Main list view
-  const filtered = participants.filter(
-    p =>
-      p.name.toLowerCase().includes(search.toLowerCase()) ||
-      p.phone.includes(search) ||
-      p.email.toLowerCase().includes(search.toLowerCase())
-  )
-
   return (
     <div className="min-h-screen" style={{ background: G.navy }}>
       {/* Top bar */}
@@ -726,20 +851,107 @@ export default function AdminPage() {
               />
             </button>
           </div>
+
+          {settingsMsg && (
+            <p
+              className="text-xs mt-3"
+              style={{ color: settingsMsg.type === "ok" ? "#34D399" : "#F87171" }}
+            >
+              {settingsMsg.text}
+            </p>
+          )}
+
+          <div className="mt-6 pt-6" style={{ borderTop: `1px solid ${G.grayDark}44` }}>
+            <div className="text-sm font-bold mb-1" style={{ color: G.white }}>
+              Perguntas do DNA Rápido
+            </div>
+            <p className="text-xs mb-4" style={{ color: G.gray }}>
+              Escolha quais perguntas do questionário completo serão usadas na versão rápida (
+              {MIN_DNA_RAPIDO_QUESTIONS} a {MAX_DNA_RAPIDO_QUESTIONS}; recomendado: 10).
+            </p>
+            <p className="text-xs font-semibold mb-3" style={{ color: G.goldLight }}>
+              {selectedQuestionIndices.length} pergunta(s) selecionada(s)
+            </p>
+            <div
+              className="max-h-[280px] overflow-y-auto rounded-xl p-3 flex flex-col gap-2 mb-4"
+              style={{ background: "rgba(11,14,26,.5)", border: `1px solid ${G.grayDark}` }}
+            >
+              {QUESTIONS.map((item, index) => {
+                const checked = selectedQuestionIndices.includes(index)
+                return (
+                  <label
+                    key={index}
+                    className="flex items-start gap-3 cursor-pointer text-left p-2 rounded-lg hover:bg-white/5"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={checked}
+                      onChange={() => toggleQuestionIndex(index)}
+                      className="mt-1 shrink-0"
+                    />
+                    <span className="text-xs leading-relaxed" style={{ color: G.white }}>
+                      <span style={{ color: G.gold }}>Pergunta {index + 1}</span> — {item.q}
+                    </span>
+                  </label>
+                )
+              })}
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={saveQuickQuestions}
+                disabled={questionsSaving}
+                className="text-xs font-bold rounded-full px-5 py-2.5 disabled:opacity-50"
+                style={{
+                  background: `linear-gradient(135deg,${G.gold},${G.goldLight})`,
+                  color: G.navy,
+                }}
+              >
+                {questionsSaving ? "Salvando..." : "Salvar perguntas do DNA Rápido"}
+              </button>
+              <button
+                type="button"
+                onClick={restoreRecommendedQuestions}
+                disabled={questionsSaving}
+                className="text-xs font-semibold rounded-full px-5 py-2.5 disabled:opacity-50"
+                style={{ color: G.goldLight, border: `1px solid ${G.gold}55` }}
+              >
+                Restaurar seleção recomendada
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* Search */}
-        <input
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-          placeholder="🔍  Buscar por nome, WhatsApp ou email..."
-          className="w-full rounded-xl px-5 py-3.5 text-sm outline-none mb-5"
-          style={{
-            background: "rgba(26,32,53,.8)",
-            border: `1.5px solid ${G.grayDark}`,
-            color: G.white,
-          }}
-        />
+        <div className="flex flex-col sm:flex-row gap-3 mb-5">
+          <input
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            placeholder="🔍  Buscar por nome, WhatsApp ou email..."
+            className="flex-1 rounded-xl px-5 py-3.5 text-sm outline-none"
+            style={{
+              background: "rgba(26,32,53,.8)",
+              border: `1.5px solid ${G.grayDark}`,
+              color: G.white,
+            }}
+          />
+          <select
+            value={cityFilter}
+            onChange={e => setCityFilter(e.target.value)}
+            className="rounded-xl px-4 py-3.5 text-sm outline-none sm:min-w-[200px]"
+            style={{
+              background: "rgba(26,32,53,.8)",
+              border: `1.5px solid ${G.grayDark}`,
+              color: cityFilter ? G.white : G.gray,
+            }}
+          >
+            <option value="">Todas as cidades</option>
+            {cityOptions.map(c => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
+        </div>
 
         {/* Table */}
         <div
@@ -770,6 +982,12 @@ export default function AdminPage() {
                     WhatsApp
                   </th>
                   <th
+                    className="text-left text-xs font-semibold tracking-wide px-4 py-3 hidden md:table-cell"
+                    style={{ color: G.gray, borderBottom: `1px solid ${G.grayDark}` }}
+                  >
+                    Escolaridade
+                  </th>
+                  <th
                     className="text-left text-xs font-semibold tracking-wide px-4 py-3 hidden lg:table-cell"
                     style={{ color: G.gray, borderBottom: `1px solid ${G.grayDark}` }}
                   >
@@ -798,12 +1016,12 @@ export default function AdminPage() {
               <tbody>
                 {filtered.length === 0 && (
                   <tr>
-                    <td colSpan={6} className="text-center p-8" style={{ color: G.gray }}>
+                    <td colSpan={7} className="text-center p-8" style={{ color: G.gray }}>
                       Nenhum participante encontrado
                     </td>
                   </tr>
                 )}
-                {filtered.map(p => {
+                {paginated.map(p => {
                   const pr = p.primary_profile ? PROFILES[p.primary_profile] : null
                   const sec = p.secondary_profile ? PROFILES[p.secondary_profile] : null
                   const done = !!p.quiz_completed && !!pr
@@ -830,6 +1048,9 @@ export default function AdminPage() {
                               </span>
                             </>
                           )}
+                          <span className="md:hidden w-full mt-1" style={{ color: G.grayDark }}>
+                            Esc.: {formatEscolaridade(p.escolaridade)}
+                          </span>
                         </div>
                       </td>
                       <td
@@ -837,6 +1058,12 @@ export default function AdminPage() {
                         style={{ color: G.gray, borderBottom: `1px solid ${G.grayDark}22` }}
                       >
                         {p.phone}
+                      </td>
+                      <td
+                        className="px-4 py-3 text-xs hidden md:table-cell"
+                        style={{ color: G.gray, borderBottom: `1px solid ${G.grayDark}22` }}
+                      >
+                        {formatEscolaridade(p.escolaridade)}
                       </td>
                       <td
                         className="px-4 py-3 hidden lg:table-cell"
@@ -944,6 +1171,38 @@ export default function AdminPage() {
             </table>
           )}
         </div>
+
+        {filtered.length > 0 && (
+          <div className="flex flex-wrap items-center justify-between gap-3 mt-4 px-1">
+            <p className="text-xs" style={{ color: G.gray }}>
+              Mostrando {(safePage - 1) * LEADS_PER_PAGE + 1}–
+              {Math.min(safePage * LEADS_PER_PAGE, filtered.length)} de {filtered.length} lead(s)
+            </p>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                disabled={safePage <= 1}
+                onClick={() => setPage(p => Math.max(1, p - 1))}
+                className="text-xs font-semibold px-4 py-2 rounded-full disabled:opacity-40"
+                style={{ color: G.goldLight, border: `1px solid ${G.gold}55` }}
+              >
+                Anterior
+              </button>
+              <span className="text-xs" style={{ color: G.gray }}>
+                Página {safePage} de {totalPages}
+              </span>
+              <button
+                type="button"
+                disabled={safePage >= totalPages}
+                onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                className="text-xs font-semibold px-4 py-2 rounded-full disabled:opacity-40"
+                style={{ color: G.goldLight, border: `1px solid ${G.gold}55` }}
+              >
+                Próxima
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )

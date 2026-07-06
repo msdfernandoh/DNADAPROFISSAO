@@ -6,6 +6,7 @@ import { Registration } from "@/components/dna/registration"
 import { Quiz } from "@/components/dna/quiz"
 import { ThankYou } from "@/components/dna/thank-you"
 import type { QuestionnaireType } from "@/lib/dna-data"
+import { DEFAULT_DNA_RAPIDO_QUESTION_INDICES } from "@/lib/app-settings"
 import { normalizeVendorSlug } from "@/lib/vendor-utils"
 
 type Screen = "landing" | "register" | "quiz" | "thankyou"
@@ -41,6 +42,31 @@ export default function DNAPage() {
   const [quizType, setQuizType] = useState<QuestionnaireType>("completo")
   const [vendorSlug, setVendorSlug] = useState<string | null>(null)
   const [vendorContact, setVendorContact] = useState<VendorContact | null>(null)
+  const [publicSettings, setPublicSettings] = useState({
+    dnaRapidoEnabled: false,
+    quickQuestionIndices: [...DEFAULT_DNA_RAPIDO_QUESTION_INDICES] as number[],
+    loaded: false,
+  })
+
+  useEffect(() => {
+    fetch("/api/settings/public")
+      .then(r => r.json())
+      .then(j => {
+        setPublicSettings({
+          dnaRapidoEnabled: !!j.dnaRapidoEnabled,
+          quickQuestionIndices: Array.isArray(j.quickQuestionIndices)
+            ? j.quickQuestionIndices
+            : [...DEFAULT_DNA_RAPIDO_QUESTION_INDICES],
+          loaded: true,
+        })
+      })
+      .catch(() =>
+        setPublicSettings(s => ({
+          ...s,
+          loaded: true,
+        }))
+      )
+  }, [])
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -160,19 +186,30 @@ export default function DNAPage() {
   }
 
   if (screen === "register") {
-    return <Registration onComplete={onRegisterComplete} />
+    return (
+      <Registration
+        onComplete={onRegisterComplete}
+        dnaRapidoEnabled={publicSettings.dnaRapidoEnabled}
+        settingsLoaded={publicSettings.loaded}
+      />
+    )
   }
 
   if (screen === "quiz") {
-    return <Quiz mode={quizType} onComplete={onQuizComplete} />
+    return (
+      <Quiz
+        mode={quizType}
+        quickQuestionIndices={
+          quizType === "rapido" ? publicSettings.quickQuestionIndices : undefined
+        }
+        onComplete={onQuizComplete}
+      />
+    )
   }
 
   if (screen === "thankyou" && userData) {
     return (
-      <ThankYou
-        name={userData.name.split(" ")[0]}
-        vendor={vendorContact}
-      />
+      <ThankYou name={userData.name.split(" ")[0]} vendor={vendorContact} />
     )
   }
 

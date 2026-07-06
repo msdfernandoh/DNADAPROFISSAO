@@ -1,16 +1,16 @@
 "use client"
 
 import { useMemo, useState } from "react"
+import { DEFAULT_DNA_RAPIDO_QUESTION_INDICES, getQuickQuizStageInfo } from "@/lib/app-settings"
 import {
   G,
   QUESTIONS,
-  QUICK_QUESTION_INDICES,
-  getQuickQuizStage,
   type QuestionnaireType,
 } from "@/lib/dna-data"
 
 interface QuizProps {
   mode?: QuestionnaireType
+  quickQuestionIndices?: number[]
   onComplete: (result: {
     primary: string
     secondary: string
@@ -19,13 +19,17 @@ interface QuizProps {
   }) => void
 }
 
-export function Quiz({ mode = "completo", onComplete }: QuizProps) {
+export function Quiz({ mode = "completo", quickQuestionIndices, onComplete }: QuizProps) {
   const questions = useMemo(() => {
     if (mode === "rapido") {
-      return QUICK_QUESTION_INDICES.map(i => QUESTIONS[i])
+      const indices =
+        quickQuestionIndices?.length && quickQuestionIndices.length > 0
+          ? quickQuestionIndices
+          : [...DEFAULT_DNA_RAPIDO_QUESTION_INDICES]
+      return indices.map(i => QUESTIONS[i]).filter(Boolean)
     }
     return QUESTIONS
-  }, [mode])
+  }, [mode, quickQuestionIndices])
 
   const total = questions.length
   const [current, setCurrent] = useState(0)
@@ -37,7 +41,8 @@ export function Quiz({ mode = "completo", onComplete }: QuizProps) {
     mode === "rapido"
       ? Math.round(((current + 1) / total) * 100)
       : Math.round((current / total) * 100)
-  const stage = mode === "rapido" ? getQuickQuizStage(current) : null
+  const stageInfo =
+    mode === "rapido" && total > 0 ? getQuickQuizStageInfo(current, total) : null
 
   const choose = (l: string) => setSelected(l)
 
@@ -76,9 +81,9 @@ export function Quiz({ mode = "completo", onComplete }: QuizProps) {
         style={{ background: G.navyMid, borderBottom: `1px solid ${G.grayDark}` }}
       >
         <div className="max-w-[640px] mx-auto flex flex-col gap-2">
-          {mode === "rapido" && stage !== null && (
+          {stageInfo !== null && (
             <div className="text-xs font-semibold tracking-wide" style={{ color: G.goldLight }}>
-              Etapa {stage} de 3
+              Etapa {stageInfo.stage} de {stageInfo.totalStages}
             </div>
           )}
           <div className="flex items-center gap-4">
