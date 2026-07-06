@@ -205,6 +205,20 @@ export default function QuestionnaireDetailPage() {
         >
           Leads
         </Link>
+        <Link
+          href={`/admin/questionarios/${id}/relatorio`}
+          className="text-sm px-3 py-2 rounded-lg"
+          style={{ background: `${G.gold}18`, border: `1px solid ${G.gold}55`, color: G.goldLight }}
+        >
+          Relatório (textos)
+        </Link>
+        <Link
+          href={`/admin/questionarios/${id}/preview`}
+          className="text-sm px-3 py-2 rounded-lg"
+          style={{ background: "#22C55E18", border: "1px solid #22C55E55", color: "#86EFAC" }}
+        >
+          Preview HTML
+        </Link>
       </div>
 
       {loading ? (
