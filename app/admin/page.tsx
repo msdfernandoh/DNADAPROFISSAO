@@ -14,6 +14,7 @@ interface Participant {
   course_interest: string | null
   escolaridade: string | null
   tipo_questionario: string | null
+  vendor_slug: string | null
   primary_profile: string | null
   secondary_profile: string | null
   percentages: Record<string, number> | null
@@ -330,6 +331,9 @@ export default function AdminPage() {
                       {selected.tipo_questionario === "rapido" ? "DNA Rápido" : "Completo"}
                     </span>
                   )}
+                  {selected.vendor_slug && (
+                    <span> · Vendedor: {selected.vendor_slug}</span>
+                  )}
                 </div>
                 {quizDone && pr && sec ? (
                   <div className="flex flex-wrap gap-3">
@@ -607,6 +611,24 @@ export default function AdminPage() {
       >
         <Logo />
         <div className="flex items-center gap-3">
+          <a
+            href="/admin/vendedores"
+            className="text-xs font-semibold px-4 py-2 rounded-full transition-all hover:bg-white/5 flex items-center gap-1.5"
+            style={{
+              color: G.goldLight,
+              border: `1px solid ${G.gold}55`,
+            }}
+          >
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+              />
+            </svg>
+            Vendedores
+          </a>
           <a
             href="/admin/cursos"
             className="text-xs font-semibold px-4 py-2 rounded-full transition-all hover:bg-white/5 flex items-center gap-1.5"

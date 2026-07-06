@@ -1,12 +1,25 @@
 "use client"
 
 import { G } from "@/lib/dna-data"
+import { buildWhatsAppResultUrl } from "@/lib/vendor-utils"
+
+interface VendorInfo {
+  name: string
+  slug: string
+  phone: string
+}
 
 interface ThankYouProps {
   name: string
+  vendor?: VendorInfo | null
 }
 
-export function ThankYou({ name }: ThankYouProps) {
+export function ThankYou({ name, vendor }: ThankYouProps) {
+  const whatsappUrl =
+    vendor?.phone && vendor.phone.length >= 12
+      ? buildWhatsAppResultUrl(vendor.phone, name)
+      : null
+
   return (
     <div
       className="min-h-screen flex items-center justify-center p-6 text-center"
@@ -37,14 +50,50 @@ export function ThankYou({ name }: ThankYouProps) {
             Obrigado, <strong style={{ color: G.gold }}>{name}</strong>! 😊
           </p>
           <p className="text-base leading-relaxed mt-4" style={{ color: "#D1D5EF" }}>
-            Esse teste vai além de mostrar áreas que combinam com você. Ele revela como você pensa, age e onde naturalmente brilha. A clareza sobre o seu perfil é o primeiro passo para tomar decisões mais alinhadas com quem você realmente é.
+            Esse teste vai além de mostrar áreas que combinam com você. Ele revela como você pensa, age e onde
+            naturalmente brilha. A clareza sobre o seu perfil é o primeiro passo para tomar decisões mais
+            alinhadas com quem você realmente é.
           </p>
-          <p className="text-base leading-relaxed mt-4" style={{ color: "#D1D5EF" }}>
-            Em até <strong style={{ color: G.gold }}>1 dia útil</strong>, um consultor especializado vai entrar em contato com você para apresentar seu resultado completo e ajudar você a entender o que ele significa na prática.
-          </p>
-          <p className="text-base leading-relaxed mt-4 font-semibold" style={{ color: G.goldLight }}>
-            Fique atento(a) ao seu celular — sua análise personalizada está a caminho.
-          </p>
+
+          {whatsappUrl ? (
+            <>
+              <p className="text-base leading-relaxed mt-4 font-semibold" style={{ color: G.goldLight }}>
+                Envie uma mensagem agora e receba o resultado do seu teste pelo WhatsApp
+                {vendor?.name ? ` com ${vendor.name.split(" ")[0]}` : ""}.
+              </p>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 w-full flex items-center justify-center gap-2 font-bold rounded-full py-4 transition-all hover:-translate-y-0.5"
+                style={{
+                  background: "#25D366",
+                  color: "#fff",
+                  boxShadow: "0 8px 24px rgba(37,211,102,.35)",
+                }}
+              >
+                <span className="text-lg" aria-hidden>
+                  💬
+                </span>
+                Enviar mensagem no WhatsApp
+              </a>
+              <p className="text-xs mt-3 text-center leading-relaxed" style={{ color: G.gray }}>
+                Ao tocar no botão, o WhatsApp abrirá com uma mensagem pronta. É só enviar para receber seu
+                diagnóstico.
+              </p>
+            </>
+          ) : (
+            <>
+              <p className="text-base leading-relaxed mt-4" style={{ color: "#D1D5EF" }}>
+                Em até <strong style={{ color: G.gold }}>1 dia útil</strong>, um consultor especializado vai
+                entrar em contato com você para apresentar seu resultado completo e ajudar você a entender o
+                que ele significa na prática.
+              </p>
+              <p className="text-base leading-relaxed mt-4 font-semibold" style={{ color: G.goldLight }}>
+                Fique atento(a) ao seu celular — sua análise personalizada está a caminho.
+              </p>
+            </>
+          )}
         </div>
 
         <div

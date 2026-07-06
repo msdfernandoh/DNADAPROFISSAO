@@ -6,7 +6,8 @@ import { NextResponse } from "next/server"
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { name, phone, email, city, course_interest, escolaridade, tipo_questionario } = body
+    const { name, phone, email, city, course_interest, escolaridade, tipo_questionario, vendor_slug } =
+      body
 
     if (!name || !phone || !email) {
       return NextResponse.json(
@@ -30,6 +31,7 @@ export async function POST(request: Request) {
       course_interest: course_interest || null,
       escolaridade: escolaridade || null,
       tipo_questionario: tipo,
+      vendor_slug: vendor_slug || null,
       status: "Aguardando teste",
       quiz_completed: false,
     }

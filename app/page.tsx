@@ -1,11 +1,12 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Landing } from "@/components/dna/landing"
 import { Registration } from "@/components/dna/registration"
 import { Quiz } from "@/components/dna/quiz"
 import { ThankYou } from "@/components/dna/thank-you"
 import type { QuestionnaireType } from "@/lib/dna-data"
+import { normalizeVendorSlug } from "@/lib/vendor-utils"
 
 type Screen = "landing" | "register" | "quiz" | "thankyou"
 
@@ -25,11 +26,44 @@ interface QuizResult {
   pct: Record<string, number>
 }
 
+export interface VendorContact {
+  name: string
+  slug: string
+  phone: string
+}
+
+const VENDOR_STORAGE_KEY = "dna_vendor_slug"
+
 export default function DNAPage() {
   const [screen, setScreen] = useState<Screen>("landing")
   const [userData, setUserData] = useState<UserData | null>(null)
   const [participantId, setParticipantId] = useState<string | null>(null)
   const [quizType, setQuizType] = useState<QuestionnaireType>("completo")
+  const [vendorSlug, setVendorSlug] = useState<string | null>(null)
+  const [vendorContact, setVendorContact] = useState<VendorContact | null>(null)
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const fromUrl = params.get("v") || params.get("ref")
+    if (fromUrl) {
+      const slug = normalizeVendorSlug(fromUrl)
+      if (slug) {
+        setVendorSlug(slug)
+        try {
+          sessionStorage.setItem(VENDOR_STORAGE_KEY, slug)
+        } catch {
+          /* ignore */
+        }
+        return
+      }
+    }
+    try {
+      const stored = sessionStorage.getItem(VENDOR_STORAGE_KEY)
+      if (stored) setVendorSlug(normalizeVendorSlug(stored) || null)
+    } catch {
+      /* ignore */
+    }
+  }, [])
 
   const onRegisterComplete = async (form: UserData, type: QuestionnaireType) => {
     setUserData(form)
@@ -47,6 +81,7 @@ export default function DNAPage() {
           course_interest: form.course || null,
           escolaridade: form.escolaridade,
           tipo_questionario: type,
+          vendor_slug: vendorSlug,
         }),
       })
       const json = await response.json()
@@ -94,6 +129,7 @@ export default function DNAPage() {
             course_interest: userData.course || null,
             escolaridade: userData.escolaridade,
             tipo_questionario: quizType,
+            vendor_slug: vendorSlug,
             primary_profile: result.primary,
             secondary_profile: result.secondary,
             percentages: result.pct,
@@ -101,6 +137,18 @@ export default function DNAPage() {
         })
       } catch (error) {
         console.error("[v0] Erro no fallback de gravação:", error)
+      }
+    }
+
+    if (vendorSlug) {
+      try {
+        const res = await fetch(`/api/vendors/public?slug=${encodeURIComponent(vendorSlug)}`)
+        const json = await res.json()
+        if (json.vendor) {
+          setVendorContact(json.vendor)
+        }
+      } catch {
+        /* sem vendedor */
       }
     }
 
@@ -120,7 +168,12 @@ export default function DNAPage() {
   }
 
   if (screen === "thankyou" && userData) {
-    return <ThankYou name={userData.name.split(" ")[0]} />
+    return (
+      <ThankYou
+        name={userData.name.split(" ")[0]}
+        vendor={vendorContact}
+      />
+    )
   }
 
   return null
