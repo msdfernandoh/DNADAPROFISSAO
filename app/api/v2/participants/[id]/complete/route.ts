@@ -3,43 +3,22 @@ import { NextResponse } from "next/server"
 import { calculateQuestionnaireResult } from "@/lib/questionnaire-engine"
 import { loadQuestionnaireBundle } from "@/lib/questionnaire-platform/load-questionnaire-bundle"
 import {
-  consumeUnitCreditForParticipant,
-  CREDIT_LIMIT_MESSAGE,
-  unitHasCreditCapacity,
-} from "@/lib/questionnaire-platform/credits"
-import { resolveConsultantWhatsapp } from "@/lib/questionnaire-platform/resolve-public-funnel"
-import {
   bundleToEngineInput,
   codeToProfileId,
 } from "@/lib/questionnaire-platform/public-funnel"
 
-async function consultantWhatsappForParticipant(
+async function consultantWhatsappForVendor(
   supabase: Awaited<ReturnType<typeof createClient>>,
-  participant: { unit_id: string | null; seller_id: string | null }
-) {
-  let sellerWhatsapp: string | null = null
-  let unitWhatsapp: string | null = null
-  if (participant.seller_id) {
-    const { data: seller } = await supabase
-      .from("sellers_v2")
-      .select("whatsapp, active")
-      .eq("id", participant.seller_id)
-      .maybeSingle()
-    if (seller?.active) sellerWhatsapp = seller.whatsapp
-  }
-  if (participant.unit_id) {
-    const { data: unit } = await supabase
-      .from("units_v2")
-      .select("whatsapp_default")
-      .eq("id", participant.unit_id)
-      .maybeSingle()
-    unitWhatsapp = unit?.whatsapp_default ?? null
-  }
-  return resolveConsultantWhatsapp({
-    sellerId: participant.seller_id,
-    sellerWhatsapp,
-    unitWhatsapp,
-  })
+  vendorSlug: string | null
+): Promise<string | null> {
+  if (!vendorSlug) return null
+  const { data } = await supabase
+    .from("vendors")
+    .select("whatsapp, active")
+    .eq("slug", vendorSlug)
+    .maybeSingle()
+  if (!data?.active || !data.whatsapp) return null
+  return data.whatsapp
 }
 
 type RouteContext = { params: Promise<{ id: string }> }
@@ -52,7 +31,7 @@ export async function POST(_request: Request, context: RouteContext) {
 
     const { data: participant, error: pErr } = await supabase
       .from("participants_v2")
-      .select("id, questionnaire_id, quiz_completed, unit_id, seller_id")
+      .select("id, questionnaire_id, quiz_completed, vendor_slug")
       .eq("id", participantId)
       .maybeSingle()
 
@@ -79,7 +58,10 @@ export async function POST(_request: Request, context: RouteContext) {
           .eq("questionnaire_id", questionnaireId)
 
         const codeById = new Map((profiles ?? []).map(p => [p.id, p.code]))
-        const consultantWhatsapp = await consultantWhatsappForParticipant(supabase, participant)
+        const consultantWhatsapp = await consultantWhatsappForVendor(
+          supabase,
+          participant.vendor_slug
+        )
         return NextResponse.json({
           success: true,
           alreadyCompleted: true,
@@ -136,20 +118,6 @@ export async function POST(_request: Request, context: RouteContext) {
       )
     }
 
-    if (participant.unit_id) {
-      const { data: unit } = await supabase
-        .from("units_v2")
-        .select("id, active, monthly_credit_limit, credits_used")
-        .eq("id", participant.unit_id)
-        .maybeSingle()
-      if (!unit || !unit.active) {
-        return NextResponse.json({ error: "Unidade inativa." }, { status: 403 })
-      }
-      if (!unitHasCreditCapacity(unit)) {
-        return NextResponse.json({ error: CREDIT_LIMIT_MESSAGE }, { status: 403 })
-      }
-    }
-
     const engineInput = bundleToEngineInput(
       bundle.questionnaire,
       bundle.profiles,
@@ -194,19 +162,7 @@ export async function POST(_request: Request, context: RouteContext) {
       return NextResponse.json({ error: updErr.message }, { status: 500 })
     }
 
-    if (participant.unit_id) {
-      const consumed = await consumeUnitCreditForParticipant(
-        supabase,
-        participant.unit_id,
-        participantId,
-        null
-      )
-      if (!consumed.ok) {
-        return NextResponse.json({ error: consumed.error }, { status: 403 })
-      }
-    }
-
-    const consultantWhatsapp = await consultantWhatsappForParticipant(supabase, participant)
+    const consultantWhatsapp = await consultantWhatsappForVendor(supabase, participant.vendor_slug)
 
     return NextResponse.json({
       success: true,

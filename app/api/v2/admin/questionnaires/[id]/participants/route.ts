@@ -1,6 +1,6 @@
 import { createClient } from "@/lib/supabase/server"
 import { NextResponse } from "next/server"
-import { requireAdminAccess, isSuperAdmin, type AdminAccessContext } from "@/lib/questionnaire-platform/auth-v2"
+import { requireAdminAuth } from "@/lib/questionnaire-platform/auth"
 import {
   buildRankingFromResult,
   type LeadDetail,
@@ -9,16 +9,6 @@ import {
 } from "@/lib/questionnaire-platform/lead-types"
 
 type RouteContext = { params: Promise<{ id: string }> }
-
-function canAccessParticipant(
-  ctx: AdminAccessContext,
-  row: { unit_id?: string | null; seller_id?: string | null }
-) {
-  if (isSuperAdmin(ctx)) return true
-  if (ctx.role === "city_admin") return !!ctx.unitId && row.unit_id === ctx.unitId
-  if (ctx.role === "seller") return !!ctx.sellerId && row.seller_id === ctx.sellerId
-  return false
-}
 
 async function loadProfileMaps(supabase: Awaited<ReturnType<typeof createClient>>, questionnaireId: string) {
   const { data: profiles } = await supabase
@@ -141,9 +131,8 @@ async function loadAnswersForParticipant(
 }
 
 export async function GET(request: Request, context: RouteContext) {
-  const auth = await requireAdminAccess("seller")
-  if (auth instanceof NextResponse) return auth
-  const { ctx } = auth
+  const authError = await requireAdminAuth()
+  if (authError) return authError
 
   const { id: questionnaireId } = await context.params
   const { searchParams } = new URL(request.url)
@@ -175,9 +164,6 @@ export async function GET(request: Request, context: RouteContext) {
 
       if (pErr) return NextResponse.json({ error: pErr.message }, { status: 500 })
       if (!p) return NextResponse.json({ error: "Lead não encontrado." }, { status: 404 })
-      if (!canAccessParticipant(ctx, p)) {
-        return NextResponse.json({ error: "Sem permissão para este lead." }, { status: 403 })
-      }
 
       const { data: resRow } = await supabase
         .from("questionnaire_results")
@@ -196,30 +182,18 @@ export async function GET(request: Request, context: RouteContext) {
       return NextResponse.json({ data: detail, questionnaire })
     }
 
-    let listQuery = supabase
+    const { data: participants, error: listErr } = await supabase
       .from("participants_v2")
       .select("*")
       .eq("questionnaire_id", questionnaireId)
       .order("created_at", { ascending: false })
-
-    if (!isSuperAdmin(ctx)) {
-      if (ctx.role === "city_admin" && ctx.unitId) {
-        listQuery = listQuery.eq("unit_id", ctx.unitId)
-      } else if (ctx.role === "seller" && ctx.sellerId) {
-        listQuery = listQuery.eq("seller_id", ctx.sellerId)
-      } else {
-        return NextResponse.json({ data: [], questionnaire, filters: { statuses: [], mainProfiles: [] } })
-      }
-    }
-
-    const { data: participants, error: listErr } = await listQuery
 
     if (listErr) {
       return NextResponse.json({ error: listErr.message }, { status: 500 })
     }
 
     const ids = (participants ?? []).map(p => p.id)
-    let resultsByParticipant = new Map<string, LeadResultSummary | null>()
+    const resultsByParticipant = new Map<string, LeadResultSummary | null>()
 
     if (ids.length > 0) {
       const { data: results, error: rErr } = await supabase
@@ -232,10 +206,7 @@ export async function GET(request: Request, context: RouteContext) {
       }
 
       for (const row of results ?? []) {
-        resultsByParticipant.set(
-          row.participant_id,
-          mapResultRow(row, idToCode, profileMeta)
-        )
+        resultsByParticipant.set(row.participant_id, mapResultRow(row, idToCode, profileMeta))
       }
     }
 
@@ -260,9 +231,8 @@ export async function GET(request: Request, context: RouteContext) {
 }
 
 export async function PATCH(request: Request, context: RouteContext) {
-  const auth = await requireAdminAccess("seller")
-  if (auth instanceof NextResponse) return auth
-  const { ctx } = auth
+  const authError = await requireAdminAuth()
+  if (authError) return authError
 
   const { id: questionnaireId } = await context.params
 
@@ -290,20 +260,6 @@ export async function PATCH(request: Request, context: RouteContext) {
     }
 
     const supabase = await createClient()
-
-    const { data: existing } = await supabase
-      .from("participants_v2")
-      .select("id, unit_id, seller_id")
-      .eq("id", participantId)
-      .eq("questionnaire_id", questionnaireId)
-      .maybeSingle()
-
-    if (!existing) {
-      return NextResponse.json({ error: "Lead não encontrado neste questionário." }, { status: 404 })
-    }
-    if (!canAccessParticipant(ctx, existing)) {
-      return NextResponse.json({ error: "Sem permissão." }, { status: 403 })
-    }
 
     const { data, error } = await supabase
       .from("participants_v2")
