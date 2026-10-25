@@ -11,7 +11,7 @@ import {
   sampleQuestions,
   sampleWeights,
 } from "../lib/questionnaire-engine/__fixtures__/sample-questionnaire"
-import type { QuestionWithAlternatives } from "../lib/questionnaire-platform/question-types"
+import type { AlternativeWeightRow, QuestionWithAlternatives } from "../lib/questionnaire-platform/question-types"
 import type { QuestionnaireProfileRow, QuestionnaireRow } from "../lib/questionnaire-platform/validators"
 
 let passed = 0
@@ -63,7 +63,7 @@ function toProfileRows(): QuestionnaireProfileRow[] {
 }
 
 function toQuestionTree(weights = sampleWeights): QuestionWithAlternatives[] {
-  const weightsByAlt = new Map<string, typeof weights>()
+  const weightsByAlt = new Map<string, AlternativeWeightRow[]>()
   for (const w of weights) {
     const list = weightsByAlt.get(w.alternative_id) ?? []
     list.push({

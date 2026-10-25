@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server"
+import { createServiceClient as createClient } from "@/lib/supabase/service"
 import { NextResponse } from "next/server"
 import { requireAdminAuth } from "@/lib/questionnaire-platform/auth"
 import {
@@ -7,7 +7,6 @@ import {
   profileBelongsToQuestionnaire,
   questionnaireExists,
 } from "@/lib/questionnaire-platform/questionnaire-db-helpers"
-import type { QuestionnaireProfileRow } from "@/lib/questionnaire-platform/validators"
 
 type RouteContext = { params: Promise<{ id: string }> }
 
@@ -41,7 +40,7 @@ export async function PATCH(request: Request, context: RouteContext) {
       .select("id, code, active")
       .eq("questionnaire_id", questionnaireId)
 
-    const profileMap = new Map((profiles ?? []).map((p: QuestionnaireProfileRow) => [p.id, p]))
+    const profileMap = new Map((profiles ?? []).map(p => [p.id, p]))
 
     const rows: { alternative_id: string; profile_id: string; weight: number }[] = []
 

@@ -1,14 +1,8 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { cookies } from "next/headers"
-import { createClient } from "@/lib/supabase/server"
+import { isAdminAuthed } from "@/lib/questionnaire-platform/auth"
+import { createServiceClient as createClient } from "@/lib/supabase/service"
 
-const SESSION_COOKIE = "dna_admin_session"
-const SESSION_VALUE = "authenticated"
-
-async function isAuthed() {
-  const c = await cookies()
-  return c.get(SESSION_COOKIE)?.value === SESSION_VALUE
-}
+const isAuthed = isAdminAuthed
 
 /**
  * Parser CSV simples com suporte a aspas duplas, quebras de linha em campos

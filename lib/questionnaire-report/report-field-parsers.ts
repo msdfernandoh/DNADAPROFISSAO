@@ -94,7 +94,7 @@ export function parseSalaries(raw: string, fallback: SalaryRow[] = []): SalaryRo
       const parsed = JSON.parse(trimmed) as unknown
       if (Array.isArray(parsed)) {
         return parsed
-          .map(row => {
+          .map((row): SalaryRow | null => {
             const o = row as Partial<SalaryRow>
             if (!o?.role) return null
             return {

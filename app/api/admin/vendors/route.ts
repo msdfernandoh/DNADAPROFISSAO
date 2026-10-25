@@ -1,19 +1,13 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { cookies } from "next/headers"
-import { createClient } from "@/lib/supabase/server"
+import { isAdminAuthed } from "@/lib/questionnaire-platform/auth"
+import { createServiceClient as createClient } from "@/lib/supabase/service"
 import {
   isValidVendorSlug,
   normalizeVendorSlug,
   phoneToWhatsAppDigits,
 } from "@/lib/vendor-utils"
 
-const SESSION_COOKIE = "dna_admin_session"
-const SESSION_VALUE = "authenticated"
-
-async function isAuthed() {
-  const cookieStore = await cookies()
-  return cookieStore.get(SESSION_COOKIE)?.value === SESSION_VALUE
-}
+const isAuthed = isAdminAuthed
 
 export async function GET() {
   if (!(await isAuthed())) {

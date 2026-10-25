@@ -1,4 +1,5 @@
-import { createClient } from "@/lib/supabase/server"
+import { createServiceClient as createClient } from "@/lib/supabase/service"
+import { setParticipantSession, ownsParticipant } from "@/lib/security/participant-session"
 import { NextResponse } from "next/server"
 
 // POST: cria registro inicial assim que o formulário é preenchido
@@ -49,7 +50,7 @@ export async function POST(request: Request) {
     const { data, error } = await supabase
       .from("participants")
       .insert(insertPayload)
-      .select()
+      .select("id")
       .single()
 
     if (error) {
@@ -57,6 +58,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
+    await setParticipantSession(data.id, "v1")
     return NextResponse.json({ success: true, data })
   } catch (err) {
     console.error("[v0] API POST error:", err)
@@ -74,6 +76,8 @@ export async function PATCH(request: Request) {
     if (!id) {
       return NextResponse.json({ error: "id é obrigatório" }, { status: 400 })
     }
+
+    if (!(await ownsParticipant(id, "v1"))) return NextResponse.json({ error: "Não autorizado" }, { status: 401 })
 
     const supabase = await createClient()
 
@@ -93,7 +97,7 @@ export async function PATCH(request: Request) {
       .from("participants")
       .update(updatePayload)
       .eq("id", id)
-      .select()
+      .select("id")
       .single()
 
     if (error) {

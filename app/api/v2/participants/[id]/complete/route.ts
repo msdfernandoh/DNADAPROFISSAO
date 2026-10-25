@@ -1,4 +1,5 @@
-import { createClient } from "@/lib/supabase/server"
+import { createServiceClient as createClient } from "@/lib/supabase/service"
+import { ownsParticipant } from "@/lib/security/participant-session"
 import { NextResponse } from "next/server"
 import { calculateQuestionnaireResult } from "@/lib/questionnaire-engine"
 import { loadQuestionnaireBundle } from "@/lib/questionnaire-platform/load-questionnaire-bundle"
@@ -13,12 +14,12 @@ async function consultantWhatsappForVendor(
 ): Promise<string | null> {
   if (!vendorSlug) return null
   const { data } = await supabase
-    .from("vendors")
-    .select("whatsapp, active")
+    .from("sales_vendors")
+    .select("phone, active")
     .eq("slug", vendorSlug)
     .maybeSingle()
-  if (!data?.active || !data.whatsapp) return null
-  return data.whatsapp
+  if (!data?.active || !data.phone) return null
+  return data.phone
 }
 
 type RouteContext = { params: Promise<{ id: string }> }
@@ -27,6 +28,7 @@ export async function POST(_request: Request, context: RouteContext) {
   const { id: participantId } = await context.params
 
   try {
+    if (!(await ownsParticipant(participantId, "v2"))) return NextResponse.json({ error: "Não autorizado" }, { status: 401 })
     const supabase = await createClient()
 
     const { data: participant, error: pErr } = await supabase
@@ -85,7 +87,7 @@ export async function POST(_request: Request, context: RouteContext) {
     if (qMetaErr) {
       return NextResponse.json({ error: qMetaErr.message }, { status: 500 })
     }
-    if (!questionnaire || questionnaire.status !== "published") {
+    if (!questionnaire || !questionnaire.active || questionnaire.status !== "published") {
       return NextResponse.json({ error: "Questionário indisponível." }, { status: 403 })
     }
 

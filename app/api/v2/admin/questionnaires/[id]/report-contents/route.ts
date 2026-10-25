@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server"
+import { createServiceClient as createClient } from "@/lib/supabase/service"
 import { NextResponse } from "next/server"
 import { requireAdminAuth } from "@/lib/questionnaire-platform/auth"
 import { REPORT_EDITOR_TABS } from "@/lib/questionnaire-platform/report-editor-fields"

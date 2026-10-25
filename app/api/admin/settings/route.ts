@@ -1,6 +1,6 @@
-import { createClient } from "@/lib/supabase/server"
+import { createServiceClient as createClient } from "@/lib/supabase/service"
 import { NextResponse } from "next/server"
-import { cookies } from "next/headers"
+import { isAdminAuthed } from "@/lib/questionnaire-platform/auth"
 import {
   DEFAULT_DNA_RAPIDO_QUESTION_INDICES,
   normalizeQuickQuestionIndices,
@@ -11,13 +11,7 @@ import {
 } from "@/lib/app-settings"
 import { QUESTIONS } from "@/lib/dna-data"
 
-const SESSION_COOKIE = "dna_admin_session"
-const SESSION_VALUE = "authenticated"
-
-async function isAuthed() {
-  const cookieStore = await cookies()
-  return cookieStore.get(SESSION_COOKIE)?.value === SESSION_VALUE
-}
+const isAuthed = isAdminAuthed
 
 function mapSettingsRows(rows: { key: string; value: unknown }[] | null) {
   const byKey = new Map((rows || []).map(r => [r.key, r.value]))

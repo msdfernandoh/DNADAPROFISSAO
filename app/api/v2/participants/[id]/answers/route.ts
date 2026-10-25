@@ -1,4 +1,5 @@
-import { createClient } from "@/lib/supabase/server"
+import { createServiceClient as createClient } from "@/lib/supabase/service"
+import { ownsParticipant } from "@/lib/security/participant-session"
 import { NextResponse } from "next/server"
 import { parseAnswersBody } from "@/lib/questionnaire-platform/participant-validators"
 
@@ -14,6 +15,7 @@ export async function POST(request: Request, context: RouteContext) {
       return NextResponse.json({ error: parsed.error }, { status: 400 })
     }
 
+    if (!(await ownsParticipant(participantId, "v2"))) return NextResponse.json({ error: "Não autorizado" }, { status: 401 })
     const supabase = await createClient()
 
     const { data: participant, error: pErr } = await supabase

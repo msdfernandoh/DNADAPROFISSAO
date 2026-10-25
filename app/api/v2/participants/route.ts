@@ -1,4 +1,5 @@
-import { createClient } from "@/lib/supabase/server"
+import { createServiceClient as createClient } from "@/lib/supabase/service"
+import { setParticipantSession } from "@/lib/security/participant-session"
 import { NextResponse } from "next/server"
 import { validateParticipantBody } from "@/lib/questionnaire-platform/participant-validators"
 
@@ -47,13 +48,14 @@ export async function POST(request: Request) {
         status: "Aguardando teste",
         quiz_completed: false,
       })
-      .select("id, questionnaire_id, name, email, quiz_completed, created_at")
+      .select("id")
       .single()
 
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
+    await setParticipantSession(data.id, "v2")
     return NextResponse.json({ success: true, data }, { status: 201 })
   } catch (err) {
     console.error("[v2] participants POST:", err)
