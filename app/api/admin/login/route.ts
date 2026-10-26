@@ -1,9 +1,9 @@
-import { signSession, passwordMatches } from "@/lib/security/session"
+import { getAdminCredential, matchesAdminCredential } from "@/lib/security/admin-credential"
+import { signSession } from "@/lib/security/session"
 import { isAdminAuthed } from "@/lib/questionnaire-platform/auth"
 import { NextResponse } from "next/server"
 import { cookies } from "next/headers"
 
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD
 const SESSION_COOKIE = "dna_admin_session"
 
 
@@ -15,14 +15,15 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Senha inválida" }, { status: 400 })
     }
 
-    if (!ADMIN_PASSWORD) return NextResponse.json({ error: "Acesso administrativo ainda não configurado." }, { status: 503 })
+    const credential = await getAdminCredential()
+    if (!credential) return NextResponse.json({ error: "Acesso administrativo ainda não configurado." }, { status: 503 })
 
-    if (!passwordMatches(password, ADMIN_PASSWORD)) {
+    if (!(await matchesAdminCredential(password, credential))) {
       return NextResponse.json({ error: "Senha incorreta" }, { status: 401 })
     }
 
     const cookieStore = await cookies()
-    cookieStore.set(SESSION_COOKIE, signSession("admin", "legacy-admin"), {
+    cookieStore.set(SESSION_COOKIE, signSession("admin", credential.subject), {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",

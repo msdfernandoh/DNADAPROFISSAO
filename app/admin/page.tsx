@@ -805,6 +805,7 @@ export default function AdminPage() {
           <div className="text-xs hidden sm:block" style={{ color: G.gray }}>
             Painel Administrativo
           </div>
+          <a href="/admin/senha" className="text-xs font-semibold px-4 py-2 rounded-full" style={{ color: G.goldLight, border: "1px solid " + G.gold }}>Trocar senha</a>
           <button
             onClick={handleLogout}
             className="text-xs font-semibold px-4 py-2 rounded-full transition-all hover:bg-[#F87171]/10 flex items-center gap-1.5"

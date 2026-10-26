@@ -6,7 +6,7 @@ A estrutura e os dados já foram importados: 20 tabelas e 435 registros. Não ex
 
 SUPABASE_SERVICE_ROLE_KEY (ou SUPABASE_SECRET_KEY) deve existir somente no servidor. Rotas administrativas verificam sessão assinada; rotas de respostas/conclusão verificam sessão HttpOnly vinculada ao participante. Registros importados não recebem sessões públicas. A chave privada nunca deve receber prefixo NEXT_PUBLIC_.
 
-ADMIN_PASSWORD deve ser definida pelo responsável na Vercel para ativar o login; não há senha padrão. ADMIN_SESSION_SECRET é opcional: na ausência, as sessões usam HMAC com chave privada do Supabase e separação de domínio. Alterar esse segredo invalida as sessões atuais. Não inclua dados pessoais, dumps ou arquivos .env no Git.
+ADMIN_PASSWORD define a senha inicial pela Vercel; não há senha padrão no código. Após a primeira troca em /admin/senha, o hash salvo na chave privada admin_password_credential de app_settings passa a prevalecer sobre a variável. A troca exige sessão válida, senha atual e confirmação; revoga as outras sessões. Essa chave não aparece nas APIs de configurações públicas nem administrativas. ADMIN_SESSION_SECRET é opcional: na ausência, as sessões usam HMAC com chave privada do Supabase e separação de domínio. Alterar esse segredo invalida as sessões atuais. Não inclua dados pessoais, dumps ou arquivos .env no Git.
 
 O desenvolvimento local pendente da fase 10 na pasta DNA não faz parte desta publicação.
 

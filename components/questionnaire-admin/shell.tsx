@@ -73,6 +73,7 @@ export function QuestionnaireAdminShell({
             ) : null}
           </div>
           <div className="flex flex-wrap gap-2 text-sm">
+            <Link href="/admin/senha" className="px-3 py-2 rounded-lg" style={{ background: G.navyLight, border: "1px solid " + G.grayDark }}>Trocar senha</Link>
             <Link
               href="/admin/questionarios"
               className="px-3 py-2 rounded-lg"
