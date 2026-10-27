@@ -1,3 +1,4 @@
+import {pilotIdentity} from '@/lib/saas/pilot';
 import {cookies} from 'next/headers';
 import {createClient} from '@/lib/supabase/individual-server';
 import {v1Flags} from '@/lib/saas/flags';
@@ -16,7 +17,7 @@ export async function POST(request:Request){
  let db:Awaited<ReturnType<typeof createClient>>|null=null;
  try{db=await createClient();const verified=await db.auth.verifyOtp({token_hash:input.tokenHash,type:'recovery'});
  if(verified.error)return reply({error:'Link inválido ou expirado'},400);
- const identity=await loadVerifiedIdentity(db as unknown as IdentityClient);
+ const identity=pilotIdentity(await loadVerifiedIdentity(db as unknown as IdentityClient),process.env);
  if(!identity?.sessionId||(!identity.globalOwner&&!identity.memberships.length)){await db.auth.signOut({scope:'local'});return reply({error:'Acesso não autorizado'},403);}
  const store=await cookies();store.set(RECOVERY_COOKIE,recoveryGrant(identity.userId,identity.sessionId,process.env.DNA_RECOVERY_SECRET!),{httpOnly:true,secure:process.env.NODE_ENV==='production',sameSite:'strict',path:'/api/v1/identity',maxAge:600});
  return reply({ok:true});

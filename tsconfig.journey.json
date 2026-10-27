@@ -22,7 +22,8 @@
     "scripts/testing/**/*.ts",
     "lib/saas/**/*.ts",
     "scripts/test-saas-readiness.ts",
-    "scripts/test-p3-security.ts"
+    "scripts/test-p3-security.ts",
+    "scripts/test-pilot-access.ts"
   ],
   "exclude": [
     "node_modules",
