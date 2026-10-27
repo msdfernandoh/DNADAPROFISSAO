@@ -2,6 +2,8 @@ import { createServiceClient as createClient } from "@/lib/supabase/service"
 import { NextResponse } from "next/server"
 import { isAdminAuthed } from "@/lib/questionnaire-platform/auth"
 
+import { parseAdminParticipantUpdate } from "@/lib/security/admin-participant-update"
+
 const isAuthed = isAdminAuthed
 
 export async function GET() {
@@ -34,8 +36,13 @@ export async function PATCH(request: Request) {
   }
 
   try {
-    const body = await request.json()
-    const { id, ...updates } = body
+    let body: unknown
+    try { body = await request.json() } catch {
+      return NextResponse.json({ error: "JSON inválido" }, { status: 400 })
+    }
+    const parsed = parseAdminParticipantUpdate(body)
+    if (!parsed.ok) return NextResponse.json({ error: parsed.error }, { status: 400 })
+    const { id, updates } = parsed.data
 
     const supabase = await createClient()
 

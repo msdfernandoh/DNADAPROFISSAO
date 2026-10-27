@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { Logo } from "./logo"
 import { ESCOLARIDADE_OPTIONS, G, type QuestionnaireType } from "@/lib/dna-data"
 import { BRAZIL_UFS } from "@/lib/brazil-ufs"
@@ -27,7 +27,7 @@ interface RegistrationProps {
       escolaridade: string
     },
     quizType: QuestionnaireType
-  ) => void
+  ) => void | Promise<void>
   dnaRapidoEnabled?: boolean
   settingsLoaded?: boolean
 }
@@ -62,6 +62,7 @@ export function Registration({
   const [citiesLoaded, setCitiesLoaded] = useState(false)
   const [err, setErr] = useState("")
   const [loading, setLoading] = useState(false)
+  const submitting = useRef(false)
   const [loadingType, setLoadingType] = useState<QuestionnaireType | null>(null)
   const [courseList, setCourseList] = useState<string[]>([])
   const [coursesLoaded, setCoursesLoaded] = useState(false)
@@ -144,13 +145,23 @@ export function Registration({
     return true
   }
 
-  const handle = (quizType: QuestionnaireType) => {
+  const handle = async (quizType: QuestionnaireType) => {
+    if (submitting.current) return
     if (!validate()) return
     const cityValue = resolveCityValue()
     if (!cityValue) return
+    submitting.current = true
     setLoading(true)
     setLoadingType(quizType)
-    onComplete({ ...form, city: cityValue }, quizType)
+    try {
+      await onComplete({ ...form, city: cityValue }, quizType)
+    } catch (error) {
+      setErr(error instanceof Error ? error.message : "Não foi possível salvar o cadastro. Tente novamente.")
+    } finally {
+      submitting.current = false
+      setLoading(false)
+      setLoadingType(null)
+    }
   }
 
   return (
@@ -363,7 +374,7 @@ export function Registration({
           </div>
 
           {err && (
-            <p className="text-xs text-center" style={{ color: "#F87171" }}>
+            <p role="alert" className="text-xs text-center" style={{ color: "#F87171" }}>
               {err}
             </p>
           )}

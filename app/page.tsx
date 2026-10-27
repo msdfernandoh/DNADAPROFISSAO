@@ -8,6 +8,7 @@ import { ThankYou } from "@/components/dna/thank-you"
 import type { QuestionnaireType } from "@/lib/dna-data"
 import { DEFAULT_DNA_RAPIDO_QUESTION_INDICES } from "@/lib/app-settings"
 import { normalizeVendorSlug } from "@/lib/vendor-utils"
+import { registerParticipant, completeParticipant } from "@/lib/questionnaire-platform/participant-persistence"
 
 type Screen = "landing" | "register" | "quiz" | "thankyou"
 
@@ -95,76 +96,23 @@ export default function DNAPage() {
     setUserData(form)
     setQuizType(type)
 
-    try {
-      const response = await fetch("/api/participants", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.name,
-          phone: form.phone,
-          email: form.email,
-          city: form.city || null,
-          course_interest: form.course || null,
-          escolaridade: form.escolaridade,
-          tipo_questionario: type,
-          vendor_slug: vendorSlug,
-        }),
-      })
-      const json = await response.json()
-      if (response.ok && json.data?.id) {
-        setParticipantId(json.data.id)
-      } else {
-        console.error("[v0] Erro ao criar participante:", json.error)
-      }
-    } catch (error) {
-      console.error("[v0] Erro de rede ao criar participante:", error)
-    }
+    const id = await registerParticipant({
+      name: form.name, phone: form.phone, email: form.email, city: form.city || null,
+      course_interest: form.course || null, escolaridade: form.escolaridade,
+      tipo_questionario: type, vendor_slug: vendorSlug,
+    })
+    setParticipantId(id)
 
     setScreen("quiz")
   }
 
   const onQuizComplete = async (result: QuizResult) => {
-    if (!userData) return
+    if (!userData) throw new Error("Seu cadastro ainda não foi confirmado. Suas respostas continuam nesta tela.")
 
-    if (participantId) {
-      try {
-        await fetch("/api/participants", {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            id: participantId,
-            primary_profile: result.primary,
-            secondary_profile: result.secondary,
-            percentages: result.pct,
-            tipo_questionario: quizType,
-          }),
-        })
-      } catch (error) {
-        console.error("[v0] Erro ao atualizar resultado:", error)
-      }
-    } else {
-      try {
-        await fetch("/api/participants", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: userData.name,
-            phone: userData.phone,
-            email: userData.email,
-            city: userData.city || null,
-            course_interest: userData.course || null,
-            escolaridade: userData.escolaridade,
-            tipo_questionario: quizType,
-            vendor_slug: vendorSlug,
-            primary_profile: result.primary,
-            secondary_profile: result.secondary,
-            percentages: result.pct,
-          }),
-        })
-      } catch (error) {
-        console.error("[v0] Erro no fallback de gravação:", error)
-      }
-    }
+    await completeParticipant(participantId, {
+      primary_profile: result.primary, secondary_profile: result.secondary,
+      percentages: result.pct, tipo_questionario: quizType,
+    })
 
     if (vendorSlug) {
       try {

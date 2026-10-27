@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useMemo, useState, useRef } from "react"
 import { DEFAULT_DNA_RAPIDO_QUESTION_INDICES, getQuickQuizStageInfo } from "@/lib/app-settings"
 import {
   G,
@@ -16,7 +16,7 @@ interface QuizProps {
     secondary: string
     counts: Record<string, number>
     pct: Record<string, number>
-  }) => void
+  }) => void | Promise<void>
 }
 
 export function Quiz({ mode = "completo", quickQuestionIndices, onComplete }: QuizProps) {
@@ -35,6 +35,9 @@ export function Quiz({ mode = "completo", quickQuestionIndices, onComplete }: Qu
   const [current, setCurrent] = useState(0)
   const [answers, setAnswers] = useState<Record<number, string>>({})
   const [selected, setSelected] = useState<string | null>(null)
+  const [saving, setSaving] = useState(false)
+  const [saveError, setSaveError] = useState("")
+  const submitting = useRef(false)
 
   const q = questions[current]
   const pct =
@@ -44,9 +47,9 @@ export function Quiz({ mode = "completo", quickQuestionIndices, onComplete }: Qu
   const stageInfo =
     mode === "rapido" && total > 0 ? getQuickQuizStageInfo(current, total) : null
 
-  const choose = (l: string) => setSelected(l)
+  const choose = (l: string) => { if (!submitting.current) setSelected(l) }
 
-  const finishQuiz = (na: Record<number, string>) => {
+  const finishQuiz = async (na: Record<number, string>) => {
     const counts: Record<string, number> = { A: 0, B: 0, C: 0, D: 0, E: 0 }
     Object.values(na).forEach(v => counts[v]++)
 
@@ -56,11 +59,11 @@ export function Quiz({ mode = "completo", quickQuestionIndices, onComplete }: Qu
     })
 
     const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1])
-    onComplete({ primary: sorted[0][0], secondary: sorted[1][0], counts, pct: pcts })
+    await onComplete({ primary: sorted[0][0], secondary: sorted[1][0], counts, pct: pcts })
   }
 
-  const next = () => {
-    if (!selected) return
+  const next = async () => {
+    if (!selected || submitting.current) return
 
     const na = { ...answers, [current]: selected }
     setAnswers(na)
@@ -69,7 +72,12 @@ export function Quiz({ mode = "completo", quickQuestionIndices, onComplete }: Qu
       setCurrent(c => c + 1)
       setSelected(null)
     } else {
-      finishQuiz(na)
+      submitting.current = true
+      setSaving(true)
+      setSaveError("")
+      try { await finishQuiz(na) }
+      catch (error) { setSaveError(error instanceof Error ? error.message : "Não foi possível confirmar seu resultado. Tente novamente.") }
+      finally { submitting.current = false; setSaving(false) }
     }
   }
 
@@ -167,9 +175,10 @@ export function Quiz({ mode = "completo", quickQuestionIndices, onComplete }: Qu
             ))}
           </div>
 
+          {saveError && <p role="alert" className="text-sm mt-6" style={{ color: "#F87171" }}>{saveError}</p>}
           <button
             onClick={next}
-            disabled={!selected}
+            disabled={!selected || saving}
             className="w-full font-bold rounded-full py-4 mt-7 transition-all"
             style={{
               background: `linear-gradient(135deg,${G.gold},${G.goldLight})`,
@@ -177,7 +186,7 @@ export function Quiz({ mode = "completo", quickQuestionIndices, onComplete }: Qu
               opacity: selected ? 1 : 0.4,
             }}
           >
-            {current < total - 1 ? "Próxima pergunta" : "Ver meu resultado"}
+            {saving ? "Salvando resultado..." : current < total - 1 ? "Próxima pergunta" : saveError ? "Tentar salvar novamente" : "Ver meu resultado"}
           </button>
         </div>
       </div>
