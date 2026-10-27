@@ -1,0 +1,321 @@
+PASS official source fixtures unchanged by byte hash
+PASS official 15 questions,60 options,86 positive weights and reference catalog
+PASS fixture exact scores and ordered pair: Ana
+PASS fixture exact scores and ordered pair: Beatriz
+PASS fixture exact scores and ordered pair: Camila
+PASS fixture exact scores and ordered pair: Comparacao_A
+PASS fixture exact scores and ordered pair: Comparacao_B
+PASS scores match independent direct summation for 225 single-answer neighbors
+PASS Ana Beatriz Camila change topic reflection and commercial question
+PASS equal scores Comparacao A/B: substantive Q05 B/D and Q06 B/A changes
+PASS withdraw Q11 A: no old self-criticism interpretation or commercial prompt survives
+PASS withdraw Q05 B: no old routine block survives
+PASS ties without fabricated pair: tied_main
+PASS ties without fabricated pair: tied_secondary
+PASS all 20 ordered V1 references; opposite pairs differ; not final participant blocks
+PASS all 60 alternatives examined, traced, routed once; absent text is a gap
+PASS every interpretation references selected answer and no hypothetical rule leaks
+PASS 15 distinct primary evidence routes without repeated participant deepening
+PASS different context choices recorded only for review, not psychological conclusion
+PASS determinism, input purity and identical answers allowed identical analysis
+PASS canonical profile/option ordering cannot decide ties
+PASS insufficiency structural differs from invalid input and unresolved method
+PASS no inferred interest education courses or active offers
+PASS declared context preserved, does not change points or invent career matches
+PASS participant projection has no commercial prompts or internal sales data
+PASS reject incomplete
+PASS reject extra
+PASS reject duplicate
+PASS reject foreignAlternative
+PASS reject crossQuestion
+PASS reject externalQuestion
+PASS reject wrongRevision
+PASS malformed official schema rejected before calculation
+PASS runtime core is offline, no SDK env fetch application routes or database dependency
+PASS comparison API explains equal-score differences without names
+PASS comparison permits identical content for identical answers
+PASS comparison rejects mixed revisions and interpretation versions
+PASS unmatched conditions remain auditable without leaking their text
+
+38 passed, 0 failed
+PASS five readable participant previews with nine populated approved sections
+PASS part6 uses distinct meanings not names or synonyms
+PASS equal score A/B changed parts6 and7 with Q05/Q06 evidence
+PASS Beatriz usefulness and logic contextualized without contradiction
+PASS changing Q05 removes old editorial narrative and contextual bridge
+PASS changing Q06 removes old learning narrative and context
+PASS Q11 withdrawal never leaves old self-demand draft
+PASS every interpretation traced; process text never claims individual evidence
+PASS no repeated paragraphs and deep evidence never spread across participant sections
+PASS participant projection excludes technical keys IDs evidence and commercial directions
+PASS commercial output distinct, consultive and reading not inferred
+PASS deterministic drafts do not mutate or recalculate behavioral analysis
+PASS all fifteen answers examined; missing editorial coverage explicit
+PASS no courses invented and education gates never authorize an enrollment offer
+PASS tie preserves groups and no fabricated pair in editorial layer
+
+15 editorial tests passed, 0 failed
+PASS 60 alternatives inventoried without promoting draft to approved
+PASS base version files preserved byte-for-byte
+PASS original Q05 and Q06 narratives and Beatriz contextualization preserved
+PASS same answers do not force artificial variation
+PASS paragraph comparison distinguishes same evidence from shared fixed process
+PASS novelty Q05A covered without losing legacy themes
+PASS learning group and goal are supported without inferred modality or course
+PASS editable WhatsApp with actual release context not_released
+PASS editable WhatsApp with actual release context unknown
+PASS editable WhatsApp with actual release context released
+PASS reading state changes commercial only, never evidence or scores
+PASS tie readable opening preserves exact groups tied_main
+PASS tie readable opening preserves exact groups tied_secondary
+PASS all new claims cite selected evidence; participant text has no technical IDs
+PASS new audit never attributes unmatched conditions to selected text
+PASS opening explains supported interaction beyond profile names
+PASS scores and classifications stay unchanged with delivery and expansion
+
+17 v2 tests passed, 0 failed
+PASS ten impacted cases have nine nonempty participant sections without development copy
+PASS empty sections and development text rejected rather than silently filled
+PASS L+C C+P H+C section5 requires pair AND specific evidence
+PASS ties adapt section title and interpret situations without choosing pair
+PASS Ana Beatriz Camila and A/B parts6/7 remain byte-equivalent to v2
+PASS commercial summary addresses seller and no duplicate paragraphs across summary confirmation next
+PASS closure deterministic read-only and no invented courses
+PASS 107 courses,39 graduation,68 post, separate levels and identities
+PASS source facts pending external verification; inferred mappings pending Carla
+PASS education demo ensino_medio_completo
+PASS education demo cursando_graduacao
+PASS education demo graduado
+PASS education demo undefined
+PASS missing interests/objectives never inferred from behavioral profile
+PASS same declared context different scores selects same candidate IDs, different answer evidence changes explanation
+PASS zero-to-five boundary no arbitrary fixed profile list or silent truncation
+PASS all four institutions authorize 68 post catalog courses without enabling them
+PASS eligibility rejects mid incomplete/in progress/missing/invalid even browser claims eligible
+PASS disabled offer/global/institution/course/unit, wrong tenant and missing proof remain blocked
+PASS even all toggles on cannot promote unhomologated matrix into real offer
+PASS education and career layer never mutate behavioral scores
+
+21 closure/matrix tests passed, 0 failed
+PASS A defined programming interest yields specific ADS exploration not approved course
+PASS B declared technology area compares two distinct graduation activities
+PASS C no interest or objective yields useful experiences not course guesses
+PASS D complete graduation allows only exploratory post pending prior degree and course requirements
+PASS E no post course for schooling ensino_medio_incompleto
+PASS E no post course for schooling ensino_medio_completo
+PASS E no post course for schooling cursando_graduacao
+PASS E no post course for schooling undefined
+PASS E no post course for schooling forged
+PASS F equal profiles and points different answers produce different exploration without inventing area
+PASS same courses distinct course-specific explanation for equal scores with declared interest
+PASS changing main/secondary or scores alone never selects a profession
+PASS missing goal does not stop orientation or silently fill in objective
+PASS uncovered area does not expand associations by generic profile
+PASS declared interest does not imply an entire technology area
+PASS all fifteen choices have explicit audit outcome; source refs exactly selected
+PASS withdraw evidence removes its experience rather than persisting an unsupported claim
+PASS deterministic read-only core; declaration not modified by experiences
+PASS all three exploratory courses bounded by source and individual explanation no compatibility percentages
+PASS unknown prior degree and disabled offers never become admission approval
+PASS inconsistent context rejected instead of erasing explicit interest
+PASS preserved matrix 107 records and exact prior artifact bytes
+
+22 orientation tests passed, 0 failed
+✔ integrated score and nine populated sections: Ana (28.1114ms)
+✔ integrated score and nine populated sections: Beatriz (19.1377ms)
+✔ integrated score and nine populated sections: Camila (18.0496ms)
+✔ integrated score and nine populated sections: Comparacao_A (19.0162ms)
+✔ integrated score and nine populated sections: Comparacao_B (19.7007ms)
+✔ registration valid, absence of education remains absence, same field codes as application (0.149ms)
+✔ invalid registration and privileged fields rejected (0.3815ms)
+✔ incomplete duplicate extra foreign and revision-mixed responses rejected (0.3056ms)
+✔ integrated tie without forced pair: tied_main (18.5521ms)
+✔ integrated tie without forced pair: tied_secondary (19.4056ms)
+✔ same points different answers retain substantive differences in parts6 and7 (35.887ms)
+✔ deterministic and nonmutating integration; identical answers do not force differences (35.2949ms)
+✔ all evidence belongs to actual selected answers and stays internal (19.7268ms)
+✔ questionnaire projection has exactly15 questions and no weights (0.3431ms)
+✔ three orientation modes; no invented interest or padded courses (54.1894ms)
+✔ schooling outside scores and offers remain blocked: null (35.8018ms)
+✔ schooling outside scores and offers remain blocked: ensino_medio_incompleto (36.9603ms)
+✔ schooling outside scores and offers remain blocked: ensino_medio_completo (41.1382ms)
+✔ schooling outside scores and offers remain blocked: cursando_graduacao (37.2902ms)
+✔ schooling outside scores and offers remain blocked: graduado (40.6107ms)
+✔ schooling outside scores and offers remain blocked: pos_graduado (34.7217ms)
+✔ offer toggles cannot homologate proposed matrix or confirm enrollment (16.6917ms)
+✔ participant never obtains commercial or operator draft projection (17.5133ms)
+✔ release mediated and no payload can bypass content or audience gate (17.4555ms)
+✔ tenant unit seller and global-owner scopes deny crossing or self-promotion (0.1275ms)
+✔ release reading and assignment changes do not change analytic snapshot or scores (34.5551ms)
+✔ draft gaps are explicit and empty participant sections never rendered (18.0924ms)
+✔ fictional atomic completion retry and concurrency debit once (17.85ms)
+✔ last fictional credit across two evaluations never goes negative (16.8497ms)
+✔ persistence failure consumes nothing and retry preserves same validated result (17.9079ms)
+✔ 107 course artifact byte integrity preserved (16.6642ms)
+✔ snapshot cannot be changed after validation before an atomic completion (18.3978ms)
+✔ seller requires active explicit grant, allocated unit and own assigned lead (0.8471ms)
+✔ manual URL/query IDs cannot replace trusted stored scope (0.1088ms)
+✔ revocation, disabled unit and no membership deny next operation (0.132ms)
+✔ institution admin is not global and needs permitted action and assigned unit (0.0993ms)
+✔ explicit deny wins over allow; grant cannot cross tenant or membership (0.1387ms)
+✔ transfer removes former seller access without rewriting history (0.5102ms)
+✔ seller cannot transfer even with a forged broad grant; manager requires explicit grant (0.1077ms)
+✔ participant cannot read commercial and only sees own released homologated report (0.1023ms)
+✔ owner access is explicit, decision requires audit and cannot self-elevate (0.108ms)
+✔ password recovery is default off and cannot be enabled by public flag or short secret (0.1294ms)
+✔ recovery capability is signed, short-lived, bound to user AND session (2.8902ms)
+✔ login/recovery throttle expires, hashes identities and bounds capacity (0.322ms)
+✔ recovery redirect is fixed to validated configured origin, never Host or next (15.6333ms)
+✔ revoked session is denied before any membership read; session verifier failure fails closed (0.5989ms)
+✔ pilot defaults deny even when global access flag alone is enabled (0.7224ms)
+✔ pilot returns only live membership and grants for configured institution (0.6131ms)
+✔ pilot denies wrong or revoked identity/scope (0.1091ms)
+✔ pilot denies wrong or revoked identity/scope (0.0617ms)
+✔ pilot denies wrong or revoked identity/scope (0.0627ms)
+✔ pilot denies wrong or revoked identity/scope (0.5853ms)
+✔ pilot denies wrong or revoked identity/scope (0.1029ms)
+✔ pilot denies wrong or revoked identity/scope (0.0624ms)
+✔ explicit global ownership cannot bypass pilot list or membership (0.1367ms)
+✔ pilot rejects malformed allowlist and browser-style public config (0.1923ms)
+✔ flags default off and browser public variables cannot enable them (0.9863ms)
+✔ server validates Auth user before querying authorization rows (0.5059ms)
+✔ expired missing or deactivated identity cannot read (0.0923ms)
+✔ expired missing or deactivated identity cannot read (0.0629ms)
+✔ expired missing or deactivated identity cannot read (0.0816ms)
+✔ explicit active owner only, metadata role cannot grant ownership (0.2026ms)
+✔ deactivated owner profile never confers global access (0.1058ms)
+✔ scope_pending or inactive membership is not permission (0.2532ms)
+✔ disabled institutions revoke scope without cached state (0.1406ms)
+✔ roles are scoped per membership, not flattened across institutions (0.2273ms)
+✔ explicit action denial wins and foreign grant cannot cross membership (0.2006ms)
+✔ authorization DB failure fails closed: user_profiles (0.2269ms)
+✔ authorization DB failure fails closed: platform_owners (0.0541ms)
+✔ authorization DB failure fails closed: institution_memberships (0.0637ms)
+✔ authorization DB failure fails closed: institutions (0.0576ms)
+✔ authorization DB failure fails closed: user_permission_grants (0.047ms)
+✔ permission revocation is observed on next identity read (0.1126ms)
+✔ write origins require exact configured origin; null and attacker host do not authorize (16.9028ms)
+✔ server review fixture remains synthetic and blocked: Ana (28.4557ms)
+✔ server review fixture remains synthetic and blocked: Beatriz (18.5793ms)
+✔ server review fixture remains synthetic and blocked: Camila (19.839ms)
+✔ server review fixture remains synthetic and blocked: Comparacao_A (17.3389ms)
+✔ server review fixture remains synthetic and blocked: Comparacao_B (18.3924ms)
+✔ server review fixture remains synthetic and blocked: Empate_principal (20.1431ms)
+✔ server review fixture remains synthetic and blocked: Empate_secundario (18.8299ms)
+✔ unknown review case cannot select a real participant (0.1524ms)
+ℹ tests 82
+ℹ suites 0
+ℹ pass 82
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1722.3119
+✔ unauthenticated request is rejected before parsing or creating privileged client (29.7386ms)
+✔ existing panel status remains usable: Aguardando teste (9.4413ms)
+✔ existing panel status remains usable: Novo (9.1515ms)
+✔ existing panel status remains usable: Em análise (5.6963ms)
+✔ existing panel status remains usable: Resultado enviado (4.8859ms)
+✔ existing panel status remains usable: Em atendimento (4.6072ms)
+✔ existing panel status remains usable: Matriculado (6.9379ms)
+✔ notes preserve typed whitespace and permit clearing with empty string or null (18.0855ms)
+✔ status and notes may be sent together; input is not mutated (0.2623ms)
+✔ protected or unknown field rejected before DB access: institution_id (5.2382ms)
+✔ protected or unknown field rejected before DB access: unit_id (7.2087ms)
+✔ protected or unknown field rejected before DB access: seller_id (4.6715ms)
+✔ protected or unknown field rejected before DB access: vendor_slug (4.2806ms)
+✔ protected or unknown field rejected before DB access: primary_profile (4.9606ms)
+✔ protected or unknown field rejected before DB access: secondary_profile (6.1643ms)
+✔ protected or unknown field rejected before DB access: percentages (5.3975ms)
+✔ protected or unknown field rejected before DB access: quiz_completed (5.6307ms)
+✔ protected or unknown field rejected before DB access: quiz_completed_at (5.8531ms)
+✔ protected or unknown field rejected before DB access: name (6.028ms)
+✔ protected or unknown field rejected before DB access: email (5.5636ms)
+✔ protected or unknown field rejected before DB access: created_at (4.8601ms)
+✔ protected or unknown field rejected before DB access: role (6.2273ms)
+✔ invalid JSON returns 400 without privileged DB access (5.6019ms)
+✔ invalid shapes ids status notes and empty changes fail closed (72.391ms)
+✔ own __proto__ JSON key cannot be mass assigned (4.484ms)
+✔ database failure is not reported as success (5.5992ms)
+✔ valid edit targets participants and sends only supplied editable fields (8.5716ms)
+✔ recovery endpoints are 404 by default with no provider or cookie access (28.6979ms)
+✔ every recovery write rejects untrusted Origin undefined (22.7153ms)
+✔ every recovery write rejects untrusted Origin null (22.95ms)
+✔ every recovery write rejects untrusted Origin https://attacker.invalid (16.5655ms)
+✔ recovery rejects next redirect and role fields before provider access (52.8768ms)
+✔ reset always uses configured fixed redirect and generic no-enumeration response (38.5291ms)
+✔ throttled reset and confirmation do not call provider (16.297ms)
+✔ confirmation fixes OTP type to recovery and issues HttpOnly short session-bound grant (18.8798ms)
+✔ invalid token and forged OTP type cannot issue recovery grant (32.7707ms)
+✔ inactive identity after OTP verification is signed out, receives no grant (17.4487ms)
+✔ database failure after OTP clears issued session and never succeeds (14.4779ms)
+✔ ordinary login or forged recovery cookie cannot change password (47.0337ms)
+✔ confirmed recovery changes password, clears cookie, revokes sessions; replay fails (9.3198ms)
+✔ weak password or privilege payload rejected before provider access (18.3841ms)
+✔ HTTP parser rejects invalid and oversized payload without unbounded buffer (0.6228ms)
+✔ no persistence success accepted: http400 (31.9824ms)
+✔ no persistence success accepted: http500 (5.9452ms)
+✔ no persistence success accepted: invalidJson (5.4251ms)
+✔ no persistence success accepted: network (5.5706ms)
+✔ no persistence success accepted: missingId (5.0449ms)
+✔ no persistence success accepted: falseSuccess (5.5426ms)
+✔ no persistence success accepted: otherId (4.9806ms)
+✔ confirmed creation and completion use POST then PATCH with same id (6.7643ms)
+✔ completion without id never makes fallback POST or any request (5.5671ms)
+✔ actual page stays on current screen after failure: http400 (45.786ms)
+✔ actual page stays on current screen after failure: http500 (27.8323ms)
+✔ actual page stays on current screen after failure: invalidJson (27.1593ms)
+✔ actual page stays on current screen after failure: network (32.8272ms)
+✔ actual page stays on current screen after failure: missingId (28.3471ms)
+✔ actual page stays on current screen after failure: falseSuccess (24.4184ms)
+✔ actual page stays on current screen after failure: otherId (16.6809ms)
+✔ actual page advances only after matching persistence confirmation (18.1644ms)
+✔ registration retains form and clears pending state after failure; click can retry (18.1651ms)
+✔ quiz keeps answers and selection after save failure; retry uses same result (11.8415ms)
+✔ pending quiz completion rejects duplicate click without a second request (11.4332ms)
+✔ completion rejects another valid UUID returned by the server (3.0244ms)
+✔ registration rejects forged authority before DB: primary_profile (25.8298ms)
+✔ registration rejects forged authority before DB: secondary_profile (10.5871ms)
+✔ registration rejects forged authority before DB: percentages (9.9887ms)
+✔ registration rejects forged authority before DB: quiz_completed (8.6702ms)
+✔ registration rejects forged authority before DB: quiz_completed_at (10.0064ms)
+✔ registration rejects forged authority before DB: status (9.5819ms)
+✔ registration rejects forged authority before DB: institution_id (9.8007ms)
+✔ registration rejects forged authority before DB: unit_id (7.7629ms)
+✔ registration rejects forged authority before DB: seller_id (9.1573ms)
+✔ registration rejects forged authority before DB: role (8.3113ms)
+✔ registration rejects forged authority before DB: id (7.2049ms)
+✔ registration rejects forged authority before DB: __proto__ (9.5103ms)
+✔ malformed registration is rejected without DB access (7.1778ms)
+✔ malformed registration is rejected without DB access (6.417ms)
+✔ malformed registration is rejected without DB access (6.5006ms)
+✔ malformed registration is rejected without DB access (6.3884ms)
+✔ malformed registration is rejected without DB access (6.1621ms)
+✔ malformed registration is rejected without DB access (7.0105ms)
+✔ malformed registration is rejected without DB access (8.1236ms)
+✔ malformed registration is rejected without DB access (7.1099ms)
+✔ malformed registration is rejected without DB access (15.737ms)
+✔ malformed registration is rejected without DB access (7.5828ms)
+✔ existing registration creates only unfinished row and participant-bound session (12.5101ms)
+✔ failed registration never creates participant session or reports success (6.998ms)
+✔ all identity endpoints default to404 before accessing backend (24.0357ms)
+✔ CSRF null or absent configured origin blocked before auth call (35.9153ms)
+✔ browser claims cannot set ownership scope or enabled flags (36.2426ms)
+✔ bad credentials have generic error and no authorization read (8.4405ms)
+✔ inactive or unauthorized account session is signed out (10.3911ms)
+✔ identity read error never produces success (10.7408ms)
+✔ successful login requires identity and membership, GET exposes minimal own data without grants (7.7264ms)
+✔ internal page disabled returns404 before any identity or dynamic engine loading (15.7443ms)
+✔ legacy admin cookie cannot authorize internal review (8.5304ms)
+✔ institution admin cannot enter owner-only draft review even with flags on (9.3259ms)
+✔ authorization failure after sign-in clears issued local session (8.6124ms)
+✔ login throttling prevents provider calls (8.9851ms)
+✔ pilot rejects otherwise valid login and clears local session (8.8403ms)
+ℹ tests 100
+ℹ suites 0
+ℹ pass 100
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 804.5926

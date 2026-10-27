@@ -1,0 +1,17 @@
+{
+  "time": "2026-10-27T23:42:59.843Z",
+  "institution": "2de1fc01-8398-4633-86e4-5383b76b67bf",
+  "userIds": [
+    "51e26480-2ebe-42d8-9a8a-c7aacd16c21d",
+    "a9575df7-c864-4d74-b6e0-27610c95d2fc"
+  ],
+  "directAuth": true,
+  "revokedSessionDenied": true,
+  "webChecks": [
+    "no-membership denied",
+    "real website login/HttpOnly SSR and Sinop-only identity",
+    "team SSR page allowed; reports and recovery remain blocked",
+    "revoked pilot membership denied on next request",
+    "logout revokes original session even with copied cookies"
+  ]
+}

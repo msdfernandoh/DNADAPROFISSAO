@@ -1,0 +1,2 @@
+PASS additive migration, preserved helper/RLS, no anonymous EXECUTE, absent/valid/revoked session, rollback via REVOKE without data loss. Claims simulated; real JWT not tested.
+Fixture cluster stopped and removed.

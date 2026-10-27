@@ -1,0 +1,44 @@
+{
+  "status": "proposal_not_applied",
+  "institutionSlug": "unifecaf-sinop",
+  "unitSlug": "unifecaf-sinop-piloto",
+  "legacyLeadAssignment": "none",
+  "credits": "no_grants_or_consumption",
+  "profiles": {
+    "institution_admin": {
+      "scope": "authorized_institution_and_assigned_units",
+      "actions": [
+        "lead.read",
+        "lead.update",
+        "commercial_report.read"
+      ],
+      "transfer": "explicit_authorization_reason_and_audit_required"
+    },
+    "unit_manager": {
+      "scope": "assigned_unit_only",
+      "actions": [
+        "lead.read",
+        "lead.update",
+        "commercial_report.read"
+      ],
+      "transfer": "explicit_authorization_reason_and_audit_required"
+    },
+    "seller": {
+      "scope": "assigned_leads_in_assigned_unit_only",
+      "actions": [
+        "lead.read",
+        "lead.update",
+        "commercial_report.read"
+      ],
+      "transfer": false
+    }
+  },
+  "selfElevation": false,
+  "prerequisites": [
+    "P3 002 reviewed and validated",
+    "explicit current membership IDs approved",
+    "unit assignments approved",
+    "operational routes verify stored scope and audit",
+    "report content homologation before delivery"
+  ]
+}
