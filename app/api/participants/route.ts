@@ -1,16 +1,24 @@
 import { createServiceClient as createClient } from "@/lib/supabase/service"
 import { setParticipantSession, ownsParticipant } from "@/lib/security/participant-session"
 import { NextResponse } from "next/server"
+import { smallJson } from "@/lib/saas/http"
 
 // POST: cria registro inicial assim que o formulário é preenchido
 // (antes do quiz começar) - status "Aguardando teste"
 export async function POST(request: Request) {
   try {
-    const body = await request.json()
+    const body = await smallJson(request, 8192)
+    if (!body || Object.keys(body).some(key => ![
+      "name", "phone", "email", "city", "course_interest", "escolaridade",
+      "tipo_questionario", "vendor_slug",
+    ].includes(key))) {
+      return NextResponse.json({ error: "Dados de cadastro inválidos" }, { status: 400 })
+    }
     const { name, phone, email, city, course_interest, escolaridade, tipo_questionario, vendor_slug } =
       body
 
-    if (!name || !phone || !email) {
+    if (![name, phone, email].every(value => typeof value === "string" && value.trim() && value.length <= 250)
+      || [city, course_interest, escolaridade, vendor_slug].some(value => value != null && (typeof value !== "string" || value.length > 500))) {
       return NextResponse.json(
         { error: "name, phone e email são obrigatórios" },
         { status: 400 }
@@ -35,16 +43,6 @@ export async function POST(request: Request) {
       vendor_slug: vendor_slug || null,
       status: "Aguardando teste",
       quiz_completed: false,
-    }
-
-    const { primary_profile, secondary_profile, percentages } = body
-    if (primary_profile && secondary_profile && percentages) {
-      insertPayload.primary_profile = primary_profile
-      insertPayload.secondary_profile = secondary_profile
-      insertPayload.percentages = percentages
-      insertPayload.quiz_completed = true
-      insertPayload.quiz_completed_at = new Date().toISOString()
-      insertPayload.status = "Novo"
     }
 
     const { data, error } = await supabase
