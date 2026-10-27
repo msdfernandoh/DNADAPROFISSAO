@@ -1,0 +1,461 @@
+[
+  {
+    "nome": "Administração",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "4 anos",
+        "descricao_referencia": "Prepara para gerenciar negócios, liderar equipes e tomar decisões estratégicas, com possibilidades de atuação em diferentes setores ou no próprio empreendimento. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/administracao?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      },
+      "SEMIPRESENCIAL": {
+        "duracao": "4 anos",
+        "descricao_referencia": "Prepara para gerenciar empresas, liderar equipes e tomar decisões estratégicas, com formação aplicável a diferentes áreas organizacionais e ao empreendedorismo. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/administracao?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Administração Digital, Automação e IA",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "4 anos",
+        "descricao_referencia": "Conecta fundamentos de gestão a dados, inteligência artificial e automação. Ensina a melhorar processos e criar soluções para negócios usando ferramentas digitais, sem exigir formação como programador. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/administracao-digital-automacao-e-inteligencia-artificial?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Análise e Desenvolvimento de Sistemas",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "2 anos e meio",
+        "descricao_referencia": "Formação prática em programação, bancos de dados, metodologias ágeis e arquiteturas modernas para desenvolver, testar e aperfeiçoar sistemas web e aplicativos. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/analise-e-desenvolvimento-de-sistemas?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      },
+      "SEMIPRESENCIAL": {
+        "duracao": "2 anos e meio",
+        "descricao_referencia": "Ensina programação, bancos de dados e metodologias ágeis para construir sistemas web, aplicativos e soluções digitais completas, com abordagem prática. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/analise-e-desenvolvimento-de-sistemas?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Ciência de Dados",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "2 anos e meio",
+        "descricao_referencia": "Ensina a transformar grandes volumes de informação em conhecimento para decisões estratégicas. Aborda Python, R, estatística, visualização de dados, machine learning e modelos preditivos. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/ciencia-de-dados?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Ciências Contábeis",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "4 anos",
+        "descricao_referencia": "Forma profissionais para interpretar informações contábeis e apoiar o planejamento financeiro, a gestão tributária e a saúde econômica das organizações. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/ciencias-contabeis?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Computação em Nuvem",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "2 anos e meio",
+        "descricao_referencia": "Prepara para projetar e gerenciar infraestruturas digitais em nuvem, servidores e dados. Inclui automação, DevOps, containers e segurança. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/computacao-em-nuvem?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Creator & Digital Influencer",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "18 meses",
+        "descricao_referencia": "Ensina a criar conteúdo com estratégia, construir posicionamento nas redes, desenvolver comunidades, atrair parcerias e monetizar a presença digital com produtos e serviços. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/creator-digital-influencer?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Design Gráfico",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "2 anos",
+        "descricao_referencia": "Desenvolve competências para criar marcas, layouts, peças digitais, projetos editoriais e interfaces, com construção de repertório visual e portfólio. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/design-grafico?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Design de Interiores",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "2 anos",
+        "descricao_referencia": "Ensina a combinar iluminação, cores, materiais, mobiliário e circulação para criar ambientes residenciais, comerciais e corporativos com beleza, funcionalidade e identidade. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/design-de-interiores?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      },
+      "SEMIPRESENCIAL": {
+        "duracao": "2 anos",
+        "descricao_referencia": "Ensina a desenvolver ambientes residenciais, comerciais e corporativos, combinando iluminação, materiais, cores e mobiliário com funcionalidade e identidade. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/design-de-interiores?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Gestão Comercial",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "2 anos",
+        "descricao_referencia": "Prepara para planejar vendas, negociar, liderar equipes comerciais e desenvolver o relacionamento com clientes, utilizando comportamento do consumidor e inteligência de mercado. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/gestao-comercial?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Gestão Financeira",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "2 anos",
+        "descricao_referencia": "Ensina a planejar, analisar e controlar recursos financeiros com visão estratégica, contribuindo para o caixa, o crescimento e a saúde financeira das empresas. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/gestao-financeira?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Gestão Pública",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "2 anos",
+        "descricao_referencia": "Forma profissionais para planejar políticas públicas, organizar recursos e estruturar projetos voltados à população, com eficiência, transparência e responsabilidade. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/gestao-publica?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Gestão da Tecnologia da Informação",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "2 anos e meio",
+        "descricao_referencia": "Conecta tecnologia aos objetivos do negócio. Ensina a planejar projetos, liderar equipes e gerenciar infraestrutura, dados e segurança nas organizações. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/gestao-da-tecnologia-da-informacao?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      },
+      "SEMIPRESENCIAL": {
+        "duracao": "2 anos e meio",
+        "descricao_referencia": "Une conhecimento técnico e gestão para liderar projetos e equipes de TI. Trabalha governança, infraestrutura, sistemas, dados, segurança e estratégias digitais. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/gestao-da-tecnologia-da-informacao?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Gestão de Recursos Humanos",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "2 anos",
+        "descricao_referencia": "Prepara para atrair talentos, desenvolver equipes e trabalhar estrategicamente com clima e cultura organizacional. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/gestao-de-recursos-humanos?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      },
+      "SEMIPRESENCIAL": {
+        "duracao": "2 anos",
+        "descricao_referencia": "Ensina a atrair e desenvolver talentos, formar equipes e atuar com clima e cultura organizacional, colocando as pessoas no centro da gestão empresarial. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/gestao-de-recursos-humanos?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Gestão de Segurança Privada",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "2 anos",
+        "descricao_referencia": "Ensina a analisar riscos, estruturar projetos de proteção, gerenciar equipes e coordenar operações de segurança, com planejamento e capacidade de resposta. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/gestao-de-seguranca-privada?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Gestão de Segurança Pública",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "2 anos",
+        "descricao_referencia": "Desenvolve competências para planejar políticas de segurança, coordenar ações, administrar recursos e responder a crises com estratégia, inteligência e responsabilidade social. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/gestao-de-seguranca-publica?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Gestão do Agronegócio",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "2 anos",
+        "descricao_referencia": "Formação para gerenciar a cadeia do agronegócio. Aborda administração, custos, comercialização, logística, crédito rural, exportação, agricultura de precisão e tecnologias digitais aplicadas ao campo. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/gestao-do-agronegocio?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Inteligência Artificial e Automação Digital",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "18 meses",
+        "descricao_referencia": "Ensina fundamentos de IA, soluções no-code e low-code, integração de sistemas por APIs, UX/UI e segurança. Aplica IA generativa a projetos de desenvolvimento, prototipagem e análise de dados. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/inteligencia-artificial-e-automacao?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Logística",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "2 anos",
+        "descricao_referencia": "Prepara para controlar estoques, planejar transportes, organizar rotas e otimizar operações, buscando entregas no prazo e redução de custos. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/logistica?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Marketing",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "2 anos",
+        "descricao_referencia": "Ensina a compreender o consumidor, posicionar marcas e desenvolver estratégias de comunicação, combinando criatividade, análise de dados, tendências e canais digitais. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/marketing?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      },
+      "SEMIPRESENCIAL": {
+        "duracao": "2 anos",
+        "descricao_referencia": "Desenvolve competências para analisar o comportamento do consumidor, posicionar marcas e criar estratégias de comunicação, com criatividade, dados e visão de mercado. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/marketing?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Marketing Digital",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "2 anos",
+        "descricao_referencia": "Prepara para desenvolver estratégias com conteúdo, anúncios, redes sociais e SEO, utilizando dados para alcançar o público e avaliar resultados. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/marketing-digital?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Processos Gerenciais",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "2 anos",
+        "descricao_referencia": "Forma profissionais para planejar, organizar e controlar recursos e processos empresariais, com visão estratégica, liderança e foco em melhoria contínua. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/processos-gerenciais?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Segurança Cibernética",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "2 anos e meio",
+        "descricao_referencia": "Ensina a antecipar ataques digitais, identificar vulnerabilidades e proteger sistemas. Combina atividades práticas, simulações e estratégias de defesa. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/seguranca-cibernetica?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Sistemas de Informação",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "EAD": {
+        "duracao": "4 anos",
+        "descricao_referencia": "Conecta tecnologia e gestão para desenvolver sistemas, analisar dados e automatizar processos, melhorando a produtividade e a tomada de decisão nas organizações. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-ead/sistemas-de-informacao?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Arquitetura e Urbanismo",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "SEMIPRESENCIAL": {
+        "duracao": "5 anos",
+        "descricao_referencia": "Forma profissionais para planejar e desenvolver edificações, ambientes e espaços urbanos. Trabalha projetos arquitetônicos, urbanismo, sustentabilidade, conforto ambiental e representação gráfica. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/arquitetura-e-urbanismo?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Biomedicina",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "SEMIPRESENCIAL": {
+        "duracao": "4 anos",
+        "descricao_referencia": "Une ciência, tecnologia e saúde para atuar com diagnóstico, pesquisa e prevenção de doenças, incluindo análises clínicas, exames laboratoriais e investigação científica. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/biomedicina?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Educação Física — Bacharelado",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "SEMIPRESENCIAL": {
+        "duracao": "4 anos",
+        "descricao_referencia": "Prepara para trabalhar com saúde, desempenho físico e bem-estar, incluindo prescrição de treinos e acompanhamento de diferentes públicos com base científica. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/educacao-fisica-bacharelado?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Educação Física — Licenciatura",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "SEMIPRESENCIAL": {
+        "duracao": "4 anos",
+        "descricao_referencia": "Forma professores para atuar nas escolas, planejando aulas, projetos e atividades que promovam saúde, inclusão e desenvolvimento de crianças e jovens por meio do movimento. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/educacao-fisica-licenciatura?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Engenharia Civil",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "SEMIPRESENCIAL": {
+        "duracao": "5 anos",
+        "descricao_referencia": "Desenvolve conhecimentos para projetar, executar e gerenciar obras e estruturas. Aborda cálculo estrutural, materiais, topografia, geotecnia, ferramentas BIM e gestão de obras. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/engenharia-civil?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Engenharia Elétrica",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "SEMIPRESENCIAL": {
+        "duracao": "5 anos",
+        "descricao_referencia": "Prepara para projetar e gerenciar sistemas de geração, controle e distribuição de energia. Inclui circuitos, máquinas elétricas, automação, eletrônica de potência e energias renováveis. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/engenharia-eletrica?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Engenharia de Computação",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "SEMIPRESENCIAL": {
+        "duracao": "4 anos",
+        "descricao_referencia": "Integra hardware e software. Ensina programação, sistemas computacionais, circuitos, inteligência artificial, dados e computação em nuvem para desenvolver soluções tecnológicas. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/engenharia-de-computacao?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Engenharia de Produção",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "SEMIPRESENCIAL": {
+        "duracao": "5 anos",
+        "descricao_referencia": "Conecta gestão, tecnologia e operações para melhorar processos, produtividade e eficiência em indústrias e organizações, com análise, planejamento e resolução de problemas. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/engenharia-de-producao?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Estética e Cosmética",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "SEMIPRESENCIAL": {
+        "duracao": "2 anos e meio",
+        "descricao_referencia": "Aborda anatomia, cosmetologia, procedimentos faciais, corporais e capilares e equipamentos estéticos, com foco em segurança, atendimento humanizado e empreendedorismo. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/estetica-e-cosmetica?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Farmácia",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "SEMIPRESENCIAL": {
+        "duracao": "5 anos",
+        "descricao_referencia": "Prepara para trabalhar com medicamentos, cosméticos e produtos para a saúde, da pesquisa ao cuidado com o paciente. Inclui laboratório, análises clínicas, controle de qualidade e indústria. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/farmacia?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Fisioterapia",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "SEMIPRESENCIAL": {
+        "duracao": "5 anos",
+        "descricao_referencia": "Forma profissionais para prevenir, avaliar e reabilitar disfunções do movimento humano, utilizando técnicas e recursos terapêuticos para promover autonomia e qualidade de vida. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/fisioterapia?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Nutrição",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "SEMIPRESENCIAL": {
+        "duracao": "4 anos",
+        "descricao_referencia": "Prepara para avaliar o estado nutricional, planejar dietas e desenvolver estratégias alimentares com base científica, com atuação da clínica à indústria. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/nutricao?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Pedagogia",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "SEMIPRESENCIAL": {
+        "duracao": "4 anos",
+        "descricao_referencia": "Forma profissionais para planejar aulas, alfabetizar, acompanhar o desenvolvimento infantil e atuar na gestão escolar, integrando didática, psicologia da aprendizagem e prática pedagógica. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/pedagogia?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Radiologia",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "SEMIPRESENCIAL": {
+        "duracao": "3 anos",
+        "descricao_referencia": "Graduação tecnológica voltada a exames de imagem. Ensina a operar equipamentos de raio-X, tomografia, mamografia e ressonância magnética, com biossegurança e precisão técnica. [unifecaf.com.br](https://www.unifecaf.com.br/graduacao-semipresencial/radiologia?utm_source=chatgpt.com)",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  },
+  {
+    "nome": "Terapia Ocupacional",
+    "nivel": "graduacao",
+    "modalidades_referencia": {
+      "SEMIPRESENCIAL": {
+        "duracao": "4 anos",
+        "descricao_referencia": "Ensina a utilizar atividades cotidianas para recuperar, desenvolver ou adaptar habilidades, ajudando pessoas a conquistar autonomia e qualidade de vida.&#x20;",
+        "oferta_por_unidade": "A_CONFIRMAR"
+      }
+    }
+  }
+]

@@ -1,0 +1,886 @@
+{
+  "fixtureOrigin": "Fixture sintética adicional, semente 26102026; não integra Anexo D",
+  "vector": "CCCDCCCCCBBBACA",
+  "scores": {
+    "L": 22,
+    "C": 19,
+    "E": 1,
+    "H": 11,
+    "P": 13
+  },
+  "classification": {
+    "state": "defined",
+    "groups": [
+      {
+        "score": 22,
+        "profiles": [
+          "L"
+        ]
+      },
+      {
+        "score": 19,
+        "profiles": [
+          "C"
+        ]
+      },
+      {
+        "score": 13,
+        "profiles": [
+          "P"
+        ]
+      },
+      {
+        "score": 11,
+        "profiles": [
+          "H"
+        ]
+      },
+      {
+        "score": 1,
+        "profiles": [
+          "E"
+        ]
+      }
+    ],
+    "main": "L",
+    "secondaryCandidates": [
+      "C"
+    ],
+    "pair": "L+C"
+  },
+  "version": "dna-editorial-preview-2026-10-26.v2",
+  "sourceAnalysisKey": "1d51cf55deef83c77b982bf77dc95f14cfb6d66761cd26046b57d6d34e0a7b5c",
+  "approval": "pending_carla",
+  "productionReady": false,
+  "participant": {
+    "sections": [
+      {
+        "number": 1,
+        "title": "A identidade do seu DNA",
+        "paragraphs": [
+          {
+            "text": "O desenho das suas respostas aproxima Liderança e Negócios de Comunicador e Influente, nessa ordem de pontos. A leitura fica mais interessante quando saímos dos nomes e olhamos para as escolhas: duas pessoas podem chegar a esse mesmo desenho e precisar de conversas bem diferentes sobre seus próximos passos.",
+            "ruleId": "v2:opening:defined",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q01:C",
+              "dna-official-2026-10-26.v1:Q02:C",
+              "dna-official-2026-10-26.v1:Q03:C",
+              "dna-official-2026-10-26.v1:Q04:D",
+              "dna-official-2026-10-26.v1:Q05:C",
+              "dna-official-2026-10-26.v1:Q06:C",
+              "dna-official-2026-10-26.v1:Q07:C",
+              "dna-official-2026-10-26.v1:Q08:C",
+              "dna-official-2026-10-26.v1:Q09:C",
+              "dna-official-2026-10-26.v1:Q10:B",
+              "dna-official-2026-10-26.v1:Q11:B",
+              "dna-official-2026-10-26.v1:Q12:B",
+              "dna-official-2026-10-26.v1:Q13:A",
+              "dna-official-2026-10-26.v1:Q14:C",
+              "dna-official-2026-10-26.v1:Q15:A"
+            ],
+            "use": "synthesis",
+            "claimType": "process_information"
+          },
+          {
+            "text": "Na mudança de rotina, você levou em conta o efeito sobre pessoas próximas. A leitura a seguir considera esse cuidado ao lado das outras escolhas, sem concluir que todos os seus planos precisam seguir o mesmo caminho.",
+            "ruleId": "v2:opening:shared-change",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q04:D"
+            ],
+            "use": "synthesis",
+            "claimType": "contextual_interpretation"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Quem é você no cotidiano",
+        "paragraphs": [
+          {
+            "text": "Na situação da compra, o começo trouxe entusiasmo, mas a comparação prolongada poderia fazer o interesse diminuir. Talvez seja útil encurtar a lista: em vez de acompanhar muitas opções ao mesmo tempo, escolher dois ou três critérios para investigar.",
+            "ruleId": "everyday:novelty",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q09:C"
+            ],
+            "claimType": "contextual_interpretation",
+            "use": "deepening"
+          },
+          {
+            "text": "Isso não define como você decide em toda situação. É um convite para observar o que mantém uma escolha importante interessante depois que a novidade passa.",
+            "ruleId": "everyday:novelty",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q09:C"
+            ],
+            "claimType": "reflection",
+            "use": "deepening"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Como os outros podem enxergar você",
+        "paragraphs": [
+          {
+            "text": "Nas situações de ajuda e de tarefas acumuladas, você escolheu agir de forma concreta e dividir o que pudesse ser resolvido por outras pessoas. Em um trabalho em grupo, isso pode aparecer como procurar quem consegue ajudar e encaminhar o que precisa acontecer.",
+            "ruleId": "relations:care-and-coordinate",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q08:C",
+              "dna-official-2026-10-26.v1:Q07:C"
+            ],
+            "claimType": "contextual_interpretation",
+            "use": "deepening"
+          },
+          {
+            "text": "Essa leitura não diz que você deve assumir tudo. Combinar responsabilidades pode tornar a ajuda mais útil, sem decidir pelo outro o que ele precisa.",
+            "ruleId": "relations:care-and-coordinate",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q08:C",
+              "dna-official-2026-10-26.v1:Q07:C"
+            ],
+            "claimType": "reflection",
+            "use": "deepening"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "title": "Como você funciona diante de decisões e dificuldades",
+        "paragraphs": [
+          {
+            "text": "Diante do problema em casa, você escolheu resolver o que fosse possível; no compromisso com a data errada, escolheu aproveitar o tempo de outra maneira. Nessas duas situações, a reação caminha para uma ação disponível, mesmo que o plano original tenha mudado.",
+            "ruleId": "difficulty:act-and-adapt",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q10:B",
+              "dna-official-2026-10-26.v1:Q11:B"
+            ],
+            "claimType": "contextual_interpretation",
+            "use": "deepening"
+          },
+          {
+            "text": "Uma conferência útil pode ser distinguir o que precisa ser resolvido agora do que pode esperar. Adaptar a rota não exige fingir que o imprevisto foi agradável.",
+            "ruleId": "difficulty:act-and-adapt",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q10:B",
+              "dna-official-2026-10-26.v1:Q11:B"
+            ],
+            "claimType": "reflection",
+            "use": "deepening"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "title": "Suas duas forças em ação",
+        "paragraphs": []
+      },
+      {
+        "number": 6,
+        "title": "O que te movimenta e o que pode te travar",
+        "paragraphs": [
+          {
+            "text": "No projeto que ficou pelo caminho, você destacou a demora para perceber resultados. Talvez o ponto a investigar seja como reconhecer avanço enquanto a conclusão ainda está distante. Um percurso longo pode ficar mais compreensível quando suas etapas deixam de parecer uma espera sem sinal de mudança.",
+            "ruleId": "motivation:progress",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q05:C"
+            ],
+            "claimType": "contextual_interpretation",
+            "use": "deepening"
+          },
+          {
+            "text": "Imagine aprender uma habilidade e registrar algo pequeno que antes não conseguia fazer. Esse marco não precisa ser um resultado extraordinário; pode ser completar uma tarefa com menos ajuda ou entender uma etapa que parecia confusa.",
+            "ruleId": "motivation:progress",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q05:C"
+            ],
+            "claimType": "contextual_interpretation",
+            "use": "deepening"
+          },
+          {
+            "text": "Se começasse um projeto agora, que sinal mostraria que está caminhando? Definir esse sinal pode ajudar a acompanhar o processo sem exigir que o resultado final apareça logo no início.",
+            "ruleId": "motivation:progress",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q05:C"
+            ],
+            "claimType": "reflection",
+            "use": "deepening"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "title": "Seu jeito de aprender e crescer",
+        "paragraphs": [
+          {
+            "text": "Ao começar uma habilidade, você escolheu procurar pessoas com quem aprender. Uma conversa em que alguém mostra como fez e escuta a sua dúvida pode ajudar a manter o processo interessante. Isso não exige uma turma presencial: a troca pode acontecer de diferentes formas.",
+            "ruleId": "v2:learning-group",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q06:C"
+            ],
+            "use": "deepening",
+            "claimType": "contextual_interpretation"
+          },
+          {
+            "text": "Vale experimentar uma pequena tarefa e depois conversar sobre o que ficou difícil. A companhia pode abrir espaço para perguntas, sem tirar de você a oportunidade de tentar.",
+            "ruleId": "v2:learning-group",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q06:C"
+            ],
+            "use": "deepening",
+            "claimType": "reflection"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "title": "Possíveis caminhos profissionais",
+        "paragraphs": [
+          {
+            "text": "Escolher uma formação envolve mais do que reconhecer um perfil. Vale olhar para as atividades do dia a dia da área, o que você quer aprender e quais requisitos precisa atender. Um nome de curso, sozinho, não conta como essa experiência será para você.",
+            "ruleId": "careers:no-invented-matches",
+            "evidenceRefs": [],
+            "claimType": "process_information",
+            "use": "synthesis"
+          },
+          {
+            "text": "Esta prévia ainda não indica cursos. A relação entre interesses, atividades e ofertas precisa ser revisada antes de produzir recomendações. Para conversar sobre pós-graduação, também será preciso informar a escolaridade: as opções de matrícula exigem graduação ou pós-graduação concluída, além dos requisitos do curso.",
+            "ruleId": "careers:no-invented-matches",
+            "evidenceRefs": [],
+            "claimType": "process_information",
+            "use": "synthesis"
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "title": "Seu próximo passo",
+        "paragraphs": [
+          {
+            "text": "Você não precisa sair desta leitura com uma profissão escolhida. Pode começar reconhecendo uma situação que fez sentido e outra que gostaria de entender melhor. Levar um exemplo seu para uma conversa costuma tornar a reflexão mais concreta do que procurar uma descrição que explique tudo.",
+            "ruleId": "closing:small-investigation",
+            "evidenceRefs": [],
+            "claimType": "process_information",
+            "use": "synthesis"
+          },
+          {
+            "text": "Ao conhecer uma formação, observe uma atividade real que ela envolve e as dúvidas que isso desperta em você. Esse primeiro contato pode ajudar a decidir o que merece ser explorado com mais calma, sem precisar transformar curiosidade em compromisso.",
+            "ruleId": "closing:small-investigation",
+            "evidenceRefs": [],
+            "claimType": "process_information",
+            "use": "synthesis"
+          }
+        ]
+      }
+    ]
+  },
+  "commercial": {
+    "sections": [
+      {
+        "number": 1,
+        "title": "Resumo individual",
+        "paragraphs": [
+          {
+            "text": "O desenho das suas respostas aproxima Liderança e Negócios de Comunicador e Influente, nessa ordem de pontos. A leitura fica mais interessante quando saímos dos nomes e olhamos para as escolhas: duas pessoas podem chegar a esse mesmo desenho e precisar de conversas bem diferentes sobre seus próximos passos.",
+            "ruleId": "v2:commercial:summary",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q01:C",
+              "dna-official-2026-10-26.v1:Q02:C",
+              "dna-official-2026-10-26.v1:Q03:C",
+              "dna-official-2026-10-26.v1:Q04:D",
+              "dna-official-2026-10-26.v1:Q05:C",
+              "dna-official-2026-10-26.v1:Q06:C",
+              "dna-official-2026-10-26.v1:Q07:C",
+              "dna-official-2026-10-26.v1:Q08:C",
+              "dna-official-2026-10-26.v1:Q09:C",
+              "dna-official-2026-10-26.v1:Q10:B",
+              "dna-official-2026-10-26.v1:Q11:B",
+              "dna-official-2026-10-26.v1:Q12:B",
+              "dna-official-2026-10-26.v1:Q13:A",
+              "dna-official-2026-10-26.v1:Q14:C",
+              "dna-official-2026-10-26.v1:Q15:A"
+            ],
+            "use": "synthesis",
+            "claimType": "process_information"
+          },
+          {
+            "text": "Ponto para escutar: No projeto interrompido, a demora para perceber resultados teve importância. Pergunte como a pessoa reconhece avanços; isso não indica predisposição a comprar sob urgência.",
+            "ruleId": "commercial:Q05:C:brief-summary",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q05:C"
+            ],
+            "claimType": "contextual_interpretation",
+            "use": "synthesis"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Interesses e pontos a confirmar",
+        "paragraphs": [
+          {
+            "text": "No projeto interrompido, a demora para perceber resultados teve importância. Pergunte como a pessoa reconhece avanços; isso não indica predisposição a comprar sob urgência.",
+            "ruleId": "commercial:Q05:C",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q05:C"
+            ],
+            "claimType": "contextual_interpretation",
+            "use": "synthesis"
+          },
+          {
+            "text": "Há informações de cadastro ainda não declaradas. Confirme interesse profissional, escolaridade, formação anterior quando pertinente e objetivo antes de personalizar uma oferta. Não preencher esses dados pelo perfil.",
+            "ruleId": "v2:commercial:missing-context",
+            "evidenceRefs": [],
+            "use": "synthesis",
+            "claimType": "process_information"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Mensagem inicial editável",
+        "paragraphs": [
+          {
+            "text": "Seu relatório do DNA já foi disponibilizado. Você conseguiu ler ou prefere ajuda para acessar?",
+            "ruleId": "v2:commercial:message:released:unknown",
+            "evidenceRefs": [],
+            "use": "synthesis",
+            "claimType": "process_information"
+          },
+          {
+            "text": "Sugestão editável: adapte ao que foi efetivamente combinado. Copiar não envia mensagem nem registra leitura.",
+            "ruleId": "v2:commercial:editable-message",
+            "evidenceRefs": [],
+            "use": "synthesis",
+            "claimType": "process_information"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "title": "Perguntas de atendimento",
+        "paragraphs": [
+          {
+            "text": "O que ajudaria você a perceber evolução num projeto longo?",
+            "ruleId": "commercial:question:Q05:C",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q05:C"
+            ],
+            "claimType": "reflection",
+            "use": "deepening"
+          },
+          {
+            "text": "Que tipo de troca com outras pessoas ajuda você a aprender?",
+            "ruleId": "v2:commercial:learning-question:C",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q06:C"
+            ],
+            "use": "deepening",
+            "claimType": "reflection"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "title": "Orientações condicionais",
+        "paragraphs": [
+          {
+            "text": "Antes do contato, confirme se o relatório foi disponibilizado. Se não leu, facilite o acesso; se leu e se reconheceu, escute o que chamou atenção; se discordou, acolha e registre sua percepção. Sem informação, pergunte. Abrir um link não comprova leitura.",
+            "ruleId": "commercial:reading",
+            "evidenceRefs": [],
+            "claimType": "process_information",
+            "use": "synthesis"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "title": "Profissões e cursos a explorar",
+        "paragraphs": [
+          {
+            "text": "Nenhum curso foi recomendado nesta prévia. Primeiro confirme interesses e objetivo; depois consulte a matriz aprovada e a oferta atual da instituição/unidade. Só graduação ou pós concluída permitem opções de matrícula em pós; escolaridade ausente exige coleta. A futura integração deve validar isso no servidor e exigir comprovação de graduação na matrícula.",
+            "ruleId": "commercial:careers",
+            "evidenceRefs": [],
+            "claimType": "process_information",
+            "use": "synthesis"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "title": "O que evitar na abordagem",
+        "paragraphs": [
+          {
+            "text": "Não usar pressão de prazo nem prometer retorno rápido para responder ao tema de progresso.",
+            "ruleId": "commercial:avoid:Q05:C",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q05:C"
+            ],
+            "claimType": "process_information",
+            "use": "synthesis"
+          },
+          {
+            "text": "Não tratar pontuação como aptidão, usar dificuldades como pressão ou apresentar uma hipótese como fato atual. O relato da pessoa durante a conversa tem prioridade para orientar o atendimento.",
+            "ruleId": "commercial:avoid",
+            "evidenceRefs": [],
+            "claimType": "process_information",
+            "use": "synthesis"
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "title": "Próximo passo sugerido",
+        "paragraphs": [
+          {
+            "text": "Se a pessoa quiser conhecer uma formação, explique etapas e exemplos de aprendizagem sem prometer resultados rápidos. Descubra quais marcos ela considera significativos.",
+            "ruleId": "commercial:approach:Q05:C",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q05:C"
+            ],
+            "claimType": "contextual_interpretation",
+            "use": "synthesis"
+          },
+          {
+            "text": "Confirme acesso e leitura, escute o interesse e combine um próximo contato apenas se fizer sentido para a pessoa. Não presumir data, envio de mensagem, matrícula ou disponibilidade de oferta.",
+            "ruleId": "commercial:next",
+            "evidenceRefs": [],
+            "claimType": "process_information",
+            "use": "synthesis"
+          },
+          {
+            "text": "Pergunte se a troca procurada envolve discussão, demonstração ou ajuda com dúvidas; não inferir preferência obrigatória por presencial.",
+            "ruleId": "v2:commercial:learning-approach:C",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q06:C"
+            ],
+            "use": "synthesis",
+            "claimType": "contextual_interpretation"
+          },
+          {
+            "text": "Após confirmar interesse, combine explicar como acontecem as interações na formação que ela deseja conhecer.",
+            "ruleId": "v2:commercial:learning-next:C",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q06:C"
+            ],
+            "use": "synthesis",
+            "claimType": "contextual_interpretation"
+          },
+          {
+            "text": "Se a pessoa mencionar trabalho em equipe, pergunte que responsabilidades gosta de assumir. A cena de organizar uma festa não demonstra cargo de liderança ou aptidão profissional.",
+            "ruleId": "v2:commercial:leadership-limit",
+            "evidenceRefs": [
+              "dna-official-2026-10-26.v1:Q15:A"
+            ],
+            "use": "synthesis",
+            "claimType": "contextual_interpretation"
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "title": "Acompanhamento",
+        "paragraphs": [
+          {
+            "text": "Exemplo fictício sem atendimento, responsável operacional, retorno ou matrícula registrados. A situação de referência é Aguardando atendimento. Na integração futura, registrar contato e mudanças com usuário, data e histórico, respeitando escopo e preferências de comunicação.",
+            "ruleId": "commercial:history",
+            "evidenceRefs": [],
+            "claimType": "process_information",
+            "use": "synthesis"
+          }
+        ]
+      }
+    ]
+  },
+  "internal": {
+    "evidence": [
+      {
+        "id": "dna-official-2026-10-26.v1:Q01:C",
+        "questionId": "Q01",
+        "alternativeId": "Q01:C",
+        "revision": "dna-official-2026-10-26.v1",
+        "letter": "C",
+        "scenario": "O cenário do bônus inesperado",
+        "selectedText": "Fico empolgada para usar isso em uma experiência que quebre a rotina: planejar uma viagem, um jantar especial ou um passeio para recarregar as energias.",
+        "claimType": "declared",
+        "primarySection": 2
+      },
+      {
+        "id": "dna-official-2026-10-26.v1:Q02:C",
+        "questionId": "Q02",
+        "alternativeId": "Q02:C",
+        "revision": "dna-official-2026-10-26.v1",
+        "letter": "C",
+        "scenario": "O eletrodoméstico ou móvel desmontado",
+        "selectedText": "Se perceber que vai tomar muito tempo ou dar muito trabalho manual, prefiro agilizar: chamo alguém que entende, divido a tarefa com alguém ou pago um profissional para resolver logo.",
+        "claimType": "declared",
+        "primarySection": 7
+      },
+      {
+        "id": "dna-official-2026-10-26.v1:Q03:C",
+        "questionId": "Q03",
+        "alternativeId": "Q03:C",
+        "revision": "dna-official-2026-10-26.v1",
+        "letter": "C",
+        "scenario": "O final de semana ideal",
+        "selectedText": "Não quero deixar nada rigidamente planejado. Prefiro ficar livre para decidir na hora o que der vontade de fazer, sem horários ou obrigações.",
+        "claimType": "declared",
+        "primarySection": 6
+      },
+      {
+        "id": "dna-official-2026-10-26.v1:Q04:D",
+        "questionId": "Q04",
+        "alternativeId": "Q04:D",
+        "revision": "dna-official-2026-10-26.v1",
+        "letter": "D",
+        "scenario": "A proposta de mudança radical",
+        "selectedText": "Minha mente vai direto nas pessoas que dependem de mim ou que estão ao meu redor. Só consigo aceitar se eu tiver certeza de que essa mudança não vai desestruturar ou prejudicar quem eu amo.",
+        "claimType": "declared",
+        "primarySection": 2
+      },
+      {
+        "id": "dna-official-2026-10-26.v1:Q05:C",
+        "questionId": "Q05",
+        "alternativeId": "Q05:C",
+        "revision": "dna-official-2026-10-26.v1",
+        "letter": "C",
+        "scenario": "O projeto abandonado",
+        "selectedText": "Senti que o processo começou a ficar longo, lento ou burocrático demais. Eu precisava ver algum resultado prático ou evolução mais rápido para continuar engajada.",
+        "claimType": "declared",
+        "primarySection": 6
+      },
+      {
+        "id": "dna-official-2026-10-26.v1:Q06:C",
+        "questionId": "Q06",
+        "alternativeId": "Q06:C",
+        "revision": "dna-official-2026-10-26.v1",
+        "letter": "C",
+        "scenario": "Aprender algo do zero",
+        "selectedText": "Procuro um grupo, uma comunidade ou um amigo que já faça isso. Para mim, aprender junto com outras pessoas, trocando dicas e conversando, torna o processo muito mais motivador.",
+        "claimType": "declared",
+        "primarySection": 7
+      },
+      {
+        "id": "dna-official-2026-10-26.v1:Q07:C",
+        "questionId": "Q07",
+        "alternativeId": "Q07:C",
+        "revision": "dna-official-2026-10-26.v1",
+        "letter": "C",
+        "scenario": "A lista de tarefas acumuladas",
+        "selectedText": "Encabeço a missão: se puder pagar alguém para resolver um desses problemas, ou pedir para alguém fazer no meu lugar enquanto eu resolvo o principal, prefiro agilizar para me livrar logo disso.",
+        "claimType": "declared",
+        "primarySection": 3
+      },
+      {
+        "id": "dna-official-2026-10-26.v1:Q08:C",
+        "questionId": "Q08",
+        "alternativeId": "Q08:C",
+        "revision": "dna-official-2026-10-26.v1",
+        "letter": "C",
+        "scenario": "O amigo deprimido",
+        "selectedText": "Me coloco à disposição de forma prática: \"Estou indo aí na sua casa\", \"Quer que eu compre um remédio?\", \"Quer comer algo?\". Prefiro agir fisicamente para ajudar a pessoa no que for útil.",
+        "claimType": "declared",
+        "primarySection": 3
+      },
+      {
+        "id": "dna-official-2026-10-26.v1:Q09:C",
+        "questionId": "Q09",
+        "alternativeId": "Q09:C",
+        "revision": "dna-official-2026-10-26.v1",
+        "letter": "C",
+        "scenario": "O plano de uma grande compra",
+        "selectedText": "Fico super empolgada no começo, pesquiso várias opções lindas e converso com todo mundo sobre isso. Em alguns momentos o processo fica cansativo e, se demorar demais, eu acabo deixando para lá ou focando em outra coisa na hora.",
+        "claimType": "declared",
+        "primarySection": 2
+      },
+      {
+        "id": "dna-official-2026-10-26.v1:Q10:B",
+        "questionId": "Q10",
+        "alternativeId": "Q10:B",
+        "revision": "dna-official-2026-10-26.v1",
+        "letter": "B",
+        "scenario": "O imprevisto doméstico",
+        "selectedText": "Entro no modo automático de execução. Desligo o registro, limpo o que dá, aviso sobre o atraso sem sofrimento e já começo a resolver o conserto ali mesmo. Resolvo primeiro, me estresso depois.",
+        "claimType": "declared",
+        "primarySection": 4
+      },
+      {
+        "id": "dna-official-2026-10-26.v1:Q11:B",
+        "questionId": "Q11",
+        "alternativeId": "Q11:B",
+        "revision": "dna-official-2026-10-26.v1",
+        "letter": "B",
+        "scenario": "O erro no compromisso",
+        "selectedText": "Fico brava na hora, mas respiro fundo e mudo o chip imediatamente. Já que estou ali na rua, aproveito para resolver outra coisa, fazer um lanche ou invento um plano B para o meu tempo não ser perdido.",
+        "claimType": "declared",
+        "primarySection": 4
+      },
+      {
+        "id": "dna-official-2026-10-26.v1:Q12:B",
+        "questionId": "Q12",
+        "alternativeId": "Q12:B",
+        "revision": "dna-official-2026-10-26.v1",
+        "letter": "B",
+        "scenario": "O conflito no grupo de WhatsApp",
+        "selectedText": "Sinto um desconforto enorme com o clima pesado. Minha vontade é intervir, mandar uma mensagem privada para tentar acalmar os ânimos ou mandar uma piada/meme no grupo para quebrar o gelo e mudar o foco.",
+        "claimType": "declared",
+        "primarySection": 4
+      },
+      {
+        "id": "dna-official-2026-10-26.v1:Q13:A",
+        "questionId": "Q13",
+        "alternativeId": "Q13:A",
+        "revision": "dna-official-2026-10-26.v1",
+        "letter": "A",
+        "scenario": "O momento de tédio",
+        "selectedText": "Se eu ficar muito tempo parada sem fazer nada produtivo, começo a ficar agoniada. Logo invento um projeto, vou estudar algo, arrumar um armário ou planejar a minha semana. Preciso sentir que estou me movimentando.",
+        "claimType": "declared",
+        "primarySection": 6
+      },
+      {
+        "id": "dna-official-2026-10-26.v1:Q14:C",
+        "questionId": "Q14",
+        "alternativeId": "Q14:C",
+        "revision": "dna-official-2026-10-26.v1",
+        "letter": "C",
+        "scenario": "O elogio recebido (Peso Reduzido contra Viés de Autoimagem)",
+        "selectedText": "\"Você tem um coração gigante. É a pessoa mais generosa, empática e acolhedora que eu conheço. Sabe ouvir como ninguém e sempre se importa de verdade com os outros.\"",
+        "claimType": "declared",
+        "primarySection": 3
+      },
+      {
+        "id": "dna-official-2026-10-26.v1:Q15:A",
+        "questionId": "Q15",
+        "alternativeId": "Q15:A",
+        "revision": "dna-official-2026-10-26.v1",
+        "letter": "A",
+        "scenario": "A organização da festa (Ajustada com Humanizado Puro)",
+        "selectedText": "Eu assumo o comando e coloco ordem: divido quem vai comprar o quê, defino o local, cobro o dinheiro da galera no Pix e garanto que o evento saia do papel rápido.",
+        "claimType": "declared",
+        "primarySection": 3
+      }
+    ],
+    "selectedRules": [
+      {
+        "id": "everyday:novelty",
+        "section": 2,
+        "theme": "interesse ao longo da escolha",
+        "evidenceRefs": [
+          "dna-official-2026-10-26.v1:Q09:C"
+        ]
+      },
+      {
+        "id": "relations:care-and-coordinate",
+        "section": 3,
+        "theme": "ajuda concreta e organização",
+        "evidenceRefs": [
+          "dna-official-2026-10-26.v1:Q08:C",
+          "dna-official-2026-10-26.v1:Q07:C"
+        ]
+      },
+      {
+        "id": "difficulty:act-and-adapt",
+        "section": 4,
+        "theme": "resolver o necessário e ajustar a rota",
+        "evidenceRefs": [
+          "dna-official-2026-10-26.v1:Q10:B",
+          "dna-official-2026-10-26.v1:Q11:B"
+        ]
+      },
+      {
+        "id": "motivation:progress",
+        "section": 6,
+        "theme": "reconhecer avanço durante o percurso",
+        "evidenceRefs": [
+          "dna-official-2026-10-26.v1:Q05:C"
+        ]
+      },
+      {
+        "id": "v2:learning-group",
+        "section": 7,
+        "theme": "troca para aprender",
+        "evidenceRefs": [
+          "dna-official-2026-10-26.v1:Q06:C"
+        ]
+      }
+    ],
+    "examinedQuestions": [
+      "Q01",
+      "Q02",
+      "Q03",
+      "Q04",
+      "Q05",
+      "Q06",
+      "Q07",
+      "Q08",
+      "Q09",
+      "Q10",
+      "Q11",
+      "Q12",
+      "Q13",
+      "Q14",
+      "Q15"
+    ],
+    "gaps": [
+      {
+        "section": null,
+        "reason": "Todos os textos novos são propostas editoriais para aprovação da Carla; não homologados."
+      },
+      {
+        "section": 8,
+        "reason": "Matriz de graduação/pós, relevância, requisitos e disponibilidade ainda não integrados; nenhuma recomendação foi gerada."
+      },
+      {
+        "section": 5,
+        "reason": "Aprofundamento ainda sem regra fundamentada neste lote."
+      },
+      {
+        "section": 2,
+        "reason": "Evidência Q01=C examinada; aprofundamento editorial específico permanece pendente."
+      },
+      {
+        "section": 7,
+        "reason": "Evidência Q02=C examinada; aprofundamento editorial específico permanece pendente."
+      },
+      {
+        "section": 6,
+        "reason": "Evidência Q03=C examinada; aprofundamento editorial específico permanece pendente."
+      },
+      {
+        "section": 4,
+        "reason": "Evidência Q12=B examinada; aprofundamento editorial específico permanece pendente."
+      },
+      {
+        "section": 6,
+        "reason": "Evidência Q13=A examinada; aprofundamento editorial específico permanece pendente."
+      },
+      {
+        "section": 3,
+        "reason": "Evidência Q14=C examinada; aprofundamento editorial específico permanece pendente."
+      },
+      {
+        "section": 3,
+        "reason": "Evidência Q15=A examinada; aprofundamento editorial específico permanece pendente."
+      }
+    ],
+    "contextualInterpretations": [],
+    "eligibility": {
+      "status": "needs_education",
+      "enrollmentOfferAllowed": false,
+      "requiresServerValidation": true,
+      "requiresOfferAndCourseRequirements": true,
+      "requiresDegreeProofAtEnrollment": true
+    }
+  },
+  "delivery": {
+    "release": "released",
+    "reading": "unknown"
+  },
+  "whatsapp": {
+    "editable": true,
+    "text": "Seu relatório do DNA já foi disponibilizado. Você conseguiu ler ou prefere ajuda para acessar?",
+    "automaticSend": false
+  },
+  "audit": [
+    {
+      "ruleId": "v2:care-listening",
+      "matched": false,
+      "selected": false,
+      "reason": "Condição não atendida"
+    },
+    {
+      "ruleId": "v2:care-solutions",
+      "matched": false,
+      "selected": false,
+      "reason": "Condição não atendida"
+    },
+    {
+      "ruleId": "v2:care-include",
+      "matched": false,
+      "selected": false,
+      "reason": "Condição não atendida"
+    },
+    {
+      "ruleId": "v2:group-direction",
+      "matched": true,
+      "selected": false,
+      "reason": "Aprofundamento da base v1 preservado"
+    },
+    {
+      "ruleId": "v2:group-connection",
+      "matched": false,
+      "selected": false,
+      "reason": "Condição não atendida"
+    },
+    {
+      "ruleId": "v2:conflict-understand",
+      "matched": false,
+      "selected": false,
+      "reason": "Condição não atendida"
+    },
+    {
+      "ruleId": "v2:conflict-ease",
+      "matched": true,
+      "selected": false,
+      "reason": "Aprofundamento da base v1 preservado"
+    },
+    {
+      "ruleId": "v2:conflict-distance",
+      "matched": false,
+      "selected": false,
+      "reason": "Condição não atendida"
+    },
+    {
+      "ruleId": "v2:motivation-novelty",
+      "matched": false,
+      "selected": false,
+      "reason": "Condição não atendida"
+    },
+    {
+      "ruleId": "v2:learning-group",
+      "matched": true,
+      "selected": true,
+      "reason": "Lote v2 selecionado"
+    },
+    {
+      "ruleId": "v2:learning-purpose",
+      "matched": false,
+      "selected": false,
+      "reason": "Condição não atendida"
+    },
+    {
+      "ruleId": "v2:learning-experiment",
+      "matched": false,
+      "selected": false,
+      "reason": "Condição não atendida"
+    },
+    {
+      "ruleId": "v2:learning-reason",
+      "matched": false,
+      "selected": false,
+      "reason": "Condição não atendida"
+    },
+    {
+      "ruleId": "v2:learning-do",
+      "matched": false,
+      "selected": false,
+      "reason": "Condição não atendida"
+    },
+    {
+      "ruleId": "v2:next-curiosity",
+      "matched": false,
+      "selected": false,
+      "reason": "Condição não atendida"
+    },
+    {
+      "ruleId": "v2:next-quiet",
+      "matched": false,
+      "selected": false,
+      "reason": "Condição não atendida"
+    },
+    {
+      "ruleId": "v2:next-manual",
+      "matched": false,
+      "selected": false,
+      "reason": "Condição não atendida"
+    }
+  ]
+}

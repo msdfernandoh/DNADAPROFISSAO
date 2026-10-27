@@ -1,0 +1,9 @@
+'use client';
+import { useState } from 'react';
+import { G } from '@/lib/dna-data';
+export function IndividualAccess(){
+ const [error,setError]=useState(''),[busy,setBusy]=useState(false);
+ async function submit(event:React.FormEvent<HTMLFormElement>){event.preventDefault();if(busy)return;const data=new FormData(event.currentTarget);setBusy(true);setError('');try{const r=await fetch('/api/v1/identity',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:data.get('email'),password:data.get('password')})});if(!r.ok){setError(r.status===401?'Não foi possível entrar. Confira seus dados.':'Acesso indisponível. Consulte o administrador.');return;}window.location.assign('/equipe');}catch{setError('Não foi possível conectar. Tente novamente.');}finally{setBusy(false);}}
+ return <form onSubmit={submit} className="flex flex-col gap-5 w-full max-w-md"><h1 className="font-serif text-3xl" style={{color:G.gold}}>Acesso individual</h1><label>E-mail<input required name="email" type="email" autoComplete="username" className="block w-full rounded p-3 text-black"/></label><label>Senha<input required name="password" type="password" autoComplete="current-password" className="block w-full rounded p-3 text-black"/></label>{error&&<p role="alert">{error}</p>}<button disabled={busy} className="rounded p-3 font-bold" style={{background:G.gold,color:G.navy}}>{busy?'Entrando...':'Entrar'}</button></form>;
+}
+export function IndividualSignOut(){const[error,setError]=useState('');return <div><button className="underline" onClick={async()=>{try{const r=await fetch('/api/v1/identity',{method:'DELETE'});if(!r.ok)throw new Error();window.location.assign('/equipe/acesso');}catch{setError('Não foi possível encerrar a sessão. Tente novamente.');}}}>Sair da conta</button>{error&&<p role="alert">{error}</p>}</div>}

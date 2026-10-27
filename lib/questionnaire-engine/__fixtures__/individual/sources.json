@@ -1,0 +1,22 @@
+[
+  {
+    "original": "ANEXO_A_15_PERGUNTAS_OFICIAIS.json",
+    "target": "questions.json",
+    "sha256": "001d199247de085a430a4c6941f7c7ce92d1c2a92592805b7fbb6f1f82c37a04"
+  },
+  {
+    "original": "ANEXO_C_CATALOGO_GRADUACAO_REFERENCIA.json",
+    "target": "catalog.json",
+    "sha256": "31d63df45e25bd6203c5e5004069a7dd0a75163dbb8130aeecd33308092e4617"
+  },
+  {
+    "original": "ANEXO_D_FIXTURES_TESTE.json",
+    "target": "cases.json",
+    "sha256": "fba338fe94a0b93b0b56531fd24e4913f123f737e55d146124203ac90cfe2022"
+  },
+  {
+    "original": "DNA_TUDO_PARA_CODEX.txt",
+    "sha256": "2f0fa767b1cff50d974cb8edf2baf8d7dfb536887cfe8ff8870227c5e4891fc4",
+    "extraction": "20 seções do Anexo B; texto literal; nota superada de entrega excluída das referências de pares"
+  }
+]

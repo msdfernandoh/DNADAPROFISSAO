@@ -1,0 +1,33 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "incremental": false,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "target": "ES2020",
+    "rootDir": ".",
+    "outDir": ".local-tests/individual",
+    "plugins": [],
+    "types": [
+      "node"
+    ],
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
+  },
+  "include": [
+    "lib/questionnaire-engine/individual/**/*.ts",
+    "scripts/test-individual-interpretation.ts",
+    "scripts/test-editorial-preview.ts",
+    "scripts/test-editorial-v2.ts",
+    "scripts/test-editorial-careers.ts",
+    "lib/questionnaire-engine/careers/**/*.ts",
+    "scripts/test-professional-orientation.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    ".next",
+    ".local-tests"
+  ]
+}

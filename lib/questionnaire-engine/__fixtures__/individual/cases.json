@@ -1,0 +1,161 @@
+{
+  "origem": "Fixtures sintéticas construídas sobre o banco de 15 perguntas anexado. Não são respostas de pessoas reais, nem provas psicométricas.",
+  "calculadora": "soma direta de pesos de alternativas; desempates pendentes de validação final.",
+  "casos": [
+    {
+      "nome": "Ana",
+      "ficticio": true,
+      "respostas": {
+        "Q01": "A",
+        "Q02": "B",
+        "Q03": "A",
+        "Q04": "A",
+        "Q05": "B",
+        "Q06": "A",
+        "Q07": "A",
+        "Q08": "A",
+        "Q09": "A",
+        "Q10": "C",
+        "Q11": "A",
+        "Q12": "C",
+        "Q13": "A",
+        "Q14": "A",
+        "Q15": "B"
+      },
+      "pontuacao_esperada": {
+        "L": 15,
+        "C": 5,
+        "E": 35,
+        "H": 5,
+        "P": 4
+      },
+      "principal_esperado": "E",
+      "secundario_esperado": "L",
+      "evidencia_individual_distintiva": "Q05=B"
+    },
+    {
+      "nome": "Beatriz",
+      "ficticio": true,
+      "respostas": {
+        "Q01": "A",
+        "Q02": "B",
+        "Q03": "A",
+        "Q04": "A",
+        "Q05": "D",
+        "Q06": "A",
+        "Q07": "A",
+        "Q08": "A",
+        "Q09": "A",
+        "Q10": "C",
+        "Q11": "A",
+        "Q12": "C",
+        "Q13": "A",
+        "Q14": "A",
+        "Q15": "B"
+      },
+      "pontuacao_esperada": {
+        "L": 15,
+        "C": 5,
+        "E": 36,
+        "H": 4,
+        "P": 4
+      },
+      "principal_esperado": "E",
+      "secundario_esperado": "L",
+      "evidencia_individual_distintiva": "Q05=D"
+    },
+    {
+      "nome": "Camila",
+      "ficticio": true,
+      "respostas": {
+        "Q01": "A",
+        "Q02": "B",
+        "Q03": "A",
+        "Q04": "A",
+        "Q05": "C",
+        "Q06": "A",
+        "Q07": "A",
+        "Q08": "A",
+        "Q09": "A",
+        "Q10": "C",
+        "Q11": "A",
+        "Q12": "C",
+        "Q13": "A",
+        "Q14": "A",
+        "Q15": "B"
+      },
+      "pontuacao_esperada": {
+        "L": 19,
+        "C": 5,
+        "E": 35,
+        "H": 4,
+        "P": 1
+      },
+      "principal_esperado": "E",
+      "secundario_esperado": "L",
+      "evidencia_individual_distintiva": "Q05=C"
+    },
+    {
+      "nome": "Comparacao_A",
+      "ficticio": true,
+      "respostas": {
+        "Q01": "B",
+        "Q02": "B",
+        "Q03": "D",
+        "Q04": "D",
+        "Q05": "B",
+        "Q06": "B",
+        "Q07": "D",
+        "Q08": "C",
+        "Q09": "C",
+        "Q10": "A",
+        "Q11": "B",
+        "Q12": "B",
+        "Q13": "A",
+        "Q14": "C",
+        "Q15": "D"
+      },
+      "pontuacao_esperada": {
+        "L": 9,
+        "C": 12,
+        "E": 9,
+        "H": 15,
+        "P": 20
+      },
+      "principal_esperado": "P",
+      "secundario_esperado": "H",
+      "evidencia_individual_distintiva": "pontuação igual; alternativas diferentes"
+    },
+    {
+      "nome": "Comparacao_B",
+      "ficticio": true,
+      "respostas": {
+        "Q01": "D",
+        "Q02": "D",
+        "Q03": "E",
+        "Q04": "D",
+        "Q05": "D",
+        "Q06": "A",
+        "Q07": "C",
+        "Q08": "C",
+        "Q09": "B",
+        "Q10": "B",
+        "Q11": "B",
+        "Q12": "B",
+        "Q13": "C",
+        "Q14": "C",
+        "Q15": "B"
+      },
+      "pontuacao_esperada": {
+        "L": 9,
+        "C": 12,
+        "E": 9,
+        "H": 15,
+        "P": 20
+      },
+      "principal_esperado": "P",
+      "secundario_esperado": "H",
+      "evidencia_individual_distintiva": "pontuação igual; alternativas diferentes"
+    }
+  ]
+}

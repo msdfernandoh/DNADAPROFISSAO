@@ -1,0 +1,178 @@
+[
+  {
+    "id": "explore:room",
+    "when": {
+      "Q05": "B"
+    },
+    "theme": "Espaço para experimentar",
+    "observation": "Na lembrança do projeto, a rotina dificultou a continuidade; isso não informa como está sua semana hoje.",
+    "experience": "Escolha uma atividade curta que ainda não conhece e combine um momento possível para experimentá-la, sem assumir um compromisso longo.",
+    "question": "O que você conseguiu experimentar e o que precisaria mudar para ter espaço para isso?",
+    "professionalActivity": "Investigar como uma tarefa de aprendizagem cabe numa rotina real, antes de avaliar uma formação."
+  },
+  {
+    "id": "explore:application",
+    "when": {
+      "Q05": "D"
+    },
+    "theme": "Utilidade do conhecimento",
+    "observation": "Na lembrança do projeto, faltou enxergar aplicação. Vale descobrir quais problemas você teria vontade de compreender melhor.",
+    "experience": "Peça a alguém de uma área que explique uma tarefa real e mostre um exemplo simples de como um conhecimento ajuda a realizá-la.",
+    "question": "Qual parte da tarefa despertou curiosidade e qual não faria sentido para você?",
+    "professionalActivity": "Observar a ligação entre uma explicação e a execução de uma tarefa profissional, sem escolher uma área por você."
+  },
+  {
+    "id": "explore:progress",
+    "when": {
+      "Q05": "C"
+    },
+    "theme": "Reconhecer etapas",
+    "observation": "Na lembrança do projeto, a demora para perceber resultado teve importância; isso pode orientar como você acompanha uma experiência nova.",
+    "experience": "Divida uma experiência curta em duas etapas e registre o que conseguiu compreender ou fazer ao terminar cada uma.",
+    "question": "Que sinal de avanço tornou a experiência mais interessante?",
+    "professionalActivity": "Conhecer como uma tarefa profissional é dividida em etapas e como seu andamento é acompanhado."
+  },
+  {
+    "id": "explore:novelty",
+    "when": {
+      "Q05": "A"
+    },
+    "theme": "Interesse depois do começo",
+    "observation": "A perda da novidade apareceu na sua resposta sobre um projeto. Isso não significa que toda atividade repetida será desinteressante.",
+    "experience": "Observe uma mesma tarefa em dois momentos: o começo e uma etapa de rotina. Pergunte o que muda e o que permanece importante.",
+    "question": "O que continuou fazendo sentido quando a parte nova terminou?",
+    "professionalActivity": "Investigar a rotina de uma atividade, além da apresentação inicial de uma profissão."
+  },
+  {
+    "id": "explore:understand",
+    "when": {
+      "Q06": "A"
+    },
+    "theme": "Entender o percurso",
+    "observation": "Na habilidade nova, você escolheu compreender a lógica antes de tentar.",
+    "experience": "Assista a uma demonstração curta com explicação das etapas e depois tente uma parte, anotando uma dúvida concreta.",
+    "question": "Entender o motivo de cada etapa aumentou sua vontade de continuar? Em qual tarefa?",
+    "professionalActivity": "Examinar uma instrução ou processo de trabalho e conhecer por que cada etapa existe."
+  },
+  {
+    "id": "explore:try",
+    "when": {
+      "Q06": "B"
+    },
+    "theme": "Conhecer fazendo",
+    "observation": "Na habilidade nova, você preferiu experimentar e corrigir durante a tentativa.",
+    "experience": "Conheça uma tarefa introdutória sem risco, com orientação e possibilidade de corrigir. Depois peça a explicação do que aconteceu.",
+    "question": "Você gostou da tarefa em si ou apenas da oportunidade de tentar algo novo?",
+    "professionalActivity": "Testar uma atividade introdutória supervisionada, sem tratar o desempenho inicial como aptidão."
+  },
+  {
+    "id": "explore:exchange",
+    "when": {
+      "Q06": "C"
+    },
+    "theme": "Aprender em troca",
+    "observation": "Na habilidade nova, você escolheu aprender com outras pessoas.",
+    "experience": "Converse com alguém sobre uma tarefa que ele realiza e peça uma demonstração em que possa fazer perguntas.",
+    "question": "O interesse ficou na atividade, na troca com a pessoa ou nos dois?",
+    "professionalActivity": "Observar uma tarefa em colaboração e investigar se o conteúdo também desperta interesse."
+  },
+  {
+    "id": "explore:goal",
+    "when": {
+      "Q06": "D"
+    },
+    "theme": "Uma finalidade para explorar",
+    "observation": "Você preferiu aprender uma habilidade com uma finalidade clara, sem que isso defina uma profissão.",
+    "experience": "Escolha um pequeno problema do cotidiano que gostaria de compreender e procure uma demonstração de como alguém trabalha com um problema semelhante.",
+    "question": "Que parte desse trabalho você gostaria de conhecer melhor, sem precisar decidir um curso agora?",
+    "professionalActivity": "Relacionar uma tarefa a um problema concreto antes de investigar uma formação."
+  },
+  {
+    "id": "explore:sequence",
+    "when": {
+      "Q07": "A"
+    },
+    "theme": "Organização de etapas",
+    "observation": "No dia de tarefas, você escolheu preparar um percurso e horários.",
+    "experience": "Compare duas sequências para uma tarefa coletiva simples e explique o que cada ordem facilita ou dificulta.",
+    "question": "Você gostaria de investigar atividades que envolvem organizar etapas, ou só faria isso quando necessário?",
+    "professionalActivity": "Conhecer tarefas de planejamento de recursos e etapas; isso não significa interesse já declarado em gestão ou logística."
+  },
+  {
+    "id": "explore:listen",
+    "when": {
+      "Q08": "A"
+    },
+    "theme": "Escuta numa conversa",
+    "observation": "Na cena de uma pessoa próxima em dificuldade, você preferiu escutar.",
+    "experience": "Converse com alguém sobre o dia a dia de um trabalho com atendimento e pergunte também pelas tarefas que acontecem antes e depois da conversa.",
+    "question": "O que despertou interesse: a conversa, o problema tratado ou outra atividade desse trabalho?",
+    "professionalActivity": "Investigar atividades de atendimento sem inferir vocação para saúde, educação ou qualquer área."
+  },
+  {
+    "id": "explore:practical-help",
+    "when": {
+      "Q08": "C"
+    },
+    "theme": "Ajuda concreta",
+    "observation": "Na cena de apoio a alguém, você escolheu agir de maneira prática.",
+    "experience": "Observe uma tarefa de apoio com começo e fim claros e pergunte que conhecimento é necessário para realizá-la com segurança.",
+    "question": "Que tipo de tarefa seria interessante para você conhecer e qual preferiria não assumir?",
+    "professionalActivity": "Explorar ações de apoio e execução, sem atribuir habilidade profissional pela resposta."
+  },
+  {
+    "id": "explore:compare",
+    "when": {
+      "Q09": "A"
+    },
+    "theme": "Critérios para escolher",
+    "observation": "Na compra importante, você escolheu comparar detalhes antes de decidir.",
+    "experience": "Converse sobre duas formas de resolver um problema real simples e anote qual informação muda a decisão.",
+    "question": "Você teria curiosidade de trabalhar com esse tipo de comparação ou prefere fazê-la apenas em escolhas pessoais?",
+    "professionalActivity": "Investigar tarefas de comparação e análise; a resposta não prova interesse por dados ou finanças."
+  },
+  {
+    "id": "explore:adapt",
+    "when": {
+      "Q11": "B"
+    },
+    "theme": "Ajustar uma rota",
+    "observation": "No compromisso na data errada, você escolheu aproveitar o tempo de outra maneira.",
+    "experience": "Peça um exemplo de como uma equipe ajusta um plano depois de um imprevisto e pergunte o que precisa ser preservado.",
+    "question": "Você se interessou pela organização do trabalho, pela execução ou por outro aspecto?",
+    "professionalActivity": "Conhecer como se reorganizam tarefas e compromissos, sem presumir preferência por uma profissão."
+  },
+  {
+    "id": "explore:understand-views",
+    "when": {
+      "Q12": "C"
+    },
+    "theme": "Entender pontos de vista",
+    "observation": "Na discussão do grupo, você escolheu observar os diferentes pontos de vista antes de participar.",
+    "experience": "Escute dois relatos sobre uma tarefa compartilhada e pergunte quais informações cada pessoa considera importantes.",
+    "question": "O conteúdo da tarefa despertou curiosidade ou seu interesse ficou em entender a conversa?",
+    "professionalActivity": "Conhecer atividades de levantamento de informações sem atribuir uma área por comportamento."
+  },
+  {
+    "id": "explore:curiosity",
+    "when": {
+      "Q13": "C"
+    },
+    "theme": "Escolher uma curiosidade",
+    "observation": "No tempo livre, você escolheu acompanhar ideias e curiosidades.",
+    "experience": "Escolha uma pergunta que gostaria de investigar e conheça uma tarefa real relacionada, sem se comprometer com uma formação.",
+    "question": "Depois de ver a tarefa, que pergunta ficou e o que deixou de interessar?",
+    "professionalActivity": "Transformar curiosidade em uma observação concreta, sem completar um interesse que você ainda não declarou."
+  },
+  {
+    "id": "explore:resources",
+    "when": {
+      "Q15": "B"
+    },
+    "theme": "Recursos para uma atividade",
+    "observation": "Na festa, você escolheu cuidar de quantidades, contas e horários.",
+    "experience": "Observe como se estimam materiais e prazos para uma atividade simples; compare o planejado com o que aconteceu.",
+    "question": "O que gostaria de investigar mais: quantidades, organização, execução ou nenhuma dessas partes?",
+    "professionalActivity": "Conhecer tarefas de estimativa e acompanhamento, sem concluir interesse em contabilidade ou administração."
+  }
+]

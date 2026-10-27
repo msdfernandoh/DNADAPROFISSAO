@@ -1,0 +1,68 @@
+[
+  {
+    "id": "orientation-example-1",
+    "name": "Análise e Desenvolvimento de Sistemas",
+    "level": "graduacao",
+    "declared": [
+      "programação",
+      "sistemas"
+    ],
+    "area": [
+      "tecnologia"
+    ],
+    "task": "Desenvolver e testar uma pequena aplicação que resolve uma tarefa, como registrar e consultar pedidos.",
+    "investigate": "Peça uma demonstração de uma funcionalidade simples e observe se quer entender como foi construída.",
+    "source": "programação, bancos de dados, metodologias ágeis",
+    "difference": "O foco a investigar é construir e aperfeiçoar sistemas e aplicativos.",
+    "goals": [
+      "primeira formação",
+      "mudar de área",
+      "explorar possibilidades"
+    ],
+    "approval": "proposed_pending_carla"
+  },
+  {
+    "id": "orientation-example-2",
+    "name": "Ciência de Dados",
+    "level": "graduacao",
+    "declared": [
+      "dados",
+      "estatística"
+    ],
+    "area": [
+      "tecnologia"
+    ],
+    "task": "Examinar um conjunto de informações, comparar resultados e comunicar o que eles mostram.",
+    "investigate": "Conheça um exemplo de análise e uma visualização; pergunte de onde vêm os dados e o que a comparação permite concluir.",
+    "source": "estatística, visualização de dados, machine learning",
+    "difference": "O foco a investigar é transformar informações em análise, e não tomar o desenvolvimento de um aplicativo como objetivo principal.",
+    "goals": [
+      "primeira formação",
+      "mudar de área",
+      "explorar possibilidades"
+    ],
+    "approval": "proposed_pending_carla"
+  },
+  {
+    "id": "orientation-example-3",
+    "name": "Full Stack Development — Design Engineering e Deployment",
+    "level": "pos_graduacao",
+    "declared": [
+      "programação",
+      "sistemas"
+    ],
+    "area": [
+      "tecnologia"
+    ],
+    "task": "Acompanhar o desenvolvimento de uma aplicação do projeto à disponibilização.",
+    "investigate": "Peça um exemplo do percurso completo de uma aplicação e confirme conhecimentos de entrada e formação anterior exigidos.",
+    "source": "desenvolvimento completo de aplicações, do projeto à implementação e disponibilização",
+    "difference": "É uma especialização cujo percurso precisa ser comparado com a formação anterior e os requisitos específicos; não substitui a conferência de ingresso.",
+    "goals": [
+      "especializar",
+      "crescer na área",
+      "explorar possibilidades"
+    ],
+    "approval": "proposed_pending_carla"
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "incremental": false,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "target": "ES2020",
+    "rootDir": ".",
+    "outDir": ".local-tests/journey",
+    "plugins": [],
+    "types": [
+      "node"
+    ],
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
+  },
+  "include": [
+    "lib/questionnaire-engine/integration/**/*.ts",
+    "scripts/test-integrated-journey.ts",
+    "scripts/testing/**/*.ts",
+    "lib/saas/**/*.ts",
+    "scripts/test-saas-readiness.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    ".next",
+    ".local-tests"
+  ]
+}

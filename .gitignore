@@ -16,3 +16,6 @@ node_modules
 .vercel
 tsconfig.tsbuildinfo
 *.tsbuildinfo
+
+# Compilação de testes locais
+/.local-tests/

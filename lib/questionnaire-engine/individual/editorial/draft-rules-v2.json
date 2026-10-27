@@ -1,0 +1,206 @@
+[
+  {
+    "id": "v2:learning-group",
+    "section": 7,
+    "theme": "troca para aprender",
+    "when": {
+      "Q06": "C"
+    },
+    "paragraphs": [
+      "Ao começar uma habilidade, você escolheu procurar pessoas com quem aprender. Uma conversa em que alguém mostra como fez e escuta a sua dúvida pode ajudar a manter o processo interessante. Isso não exige uma turma presencial: a troca pode acontecer de diferentes formas.",
+      "Vale experimentar uma pequena tarefa e depois conversar sobre o que ficou difícil. A companhia pode abrir espaço para perguntas, sem tirar de você a oportunidade de tentar."
+    ]
+  },
+  {
+    "id": "v2:learning-purpose",
+    "section": 7,
+    "theme": "objetivo como ponto de partida",
+    "when": {
+      "Q06": "D"
+    },
+    "paragraphs": [
+      "Na habilidade nova, você preferiu começar com uma finalidade clara. Saber o que quer fazer pode ajudar a escolher um primeiro exercício e entender quais explicações serão necessárias no caminho.",
+      "Um objetivo pode orientar sem obrigar a pular etapas. Qual tarefa pequena mostraria que você começou a aprender, mesmo antes de conseguir o resultado completo?"
+    ]
+  },
+  {
+    "id": "v2:learning-experiment",
+    "section": 7,
+    "theme": "experimentar e conferir",
+    "when": {
+      "Q02": "A"
+    },
+    "paragraphs": [
+      "Ao imaginar a montagem de um produto, você preferiu testar antes de recorrer às instruções. Nesse tipo de tarefa, ver uma peça funcionar pode trazer uma compreensão que a explicação inicial ainda não trouxe.",
+      "Experimentar não exige dispensar orientação. Quando houver risco, dúvida ou algo que não encaixa, interromper e conferir as instruções também faz parte de aprender na prática."
+    ]
+  },
+  {
+    "id": "v2:learning-reason",
+    "section": 7,
+    "theme": "entender a estrutura",
+    "when": {
+      "Q06": "A"
+    },
+    "paragraphs": [
+      "Na habilidade nova, você preferiu compreender a lógica antes de tentar. Conhecer a razão de uma etapa pode tornar o começo mais claro, como acompanhar uma demonstração em que alguém explica o que está fazendo.",
+      "Depois da explicação, uma tentativa pequena ajuda a descobrir o que você realmente entendeu. O primeiro exercício não precisa sair pronto para que tenha valor."
+    ]
+  },
+  {
+    "id": "v2:learning-do",
+    "section": 7,
+    "theme": "tentativa com retorno",
+    "when": {
+      "Q06": "B"
+    },
+    "paragraphs": [
+      "Ao imaginar uma habilidade nova, você escolheu começar fazendo e corrigir durante a experiência. Um exercício curto, com retorno sobre o que aconteceu, pode ser uma maneira de aproximar a explicação daquilo que você observa.",
+      "Isso não diz que a teoria não serve para você. Talvez uma dúvida nascida da tentativa seja justamente o que dá sentido à próxima explicação."
+    ]
+  },
+  {
+    "id": "v2:motivation-novelty",
+    "section": 6,
+    "theme": "interesse depois da novidade",
+    "when": {
+      "Q05": "A"
+    },
+    "paragraphs": [
+      "Ao lembrar de um projeto interrompido, você apontou a perda da novidade e a repetição. O tema a investigar pode ser o que torna o percurso interessante depois do entusiasmo inicial, sem concluir que todo compromisso terá o mesmo destino.",
+      "Talvez ajude escolher uma tarefa com uma pergunta diferente ou observar um detalhe que ainda não havia percebido. O que faria a próxima etapa ter um propósito para você, mesmo quando já não parece uma descoberta?"
+    ]
+  },
+  {
+    "id": "v2:care-listening",
+    "section": 3,
+    "theme": "ajuda pela escuta",
+    "when": {
+      "Q08": "A"
+    },
+    "paragraphs": [
+      "Na cena de um amigo precisando de apoio, você escolheu escutar antes de encaminhar uma solução. Em uma conversa difícil, essa presença pode dar espaço para a pessoa explicar o que está vivendo, sem precisar chegar imediatamente a uma resposta.",
+      "O cuidado também pode incluir perguntar que tipo de ajuda ela deseja. Não sabemos como os outros enxergam você; essa é uma possibilidade de contribuição indicada por aquela escolha, não uma obrigação de acolher todo mundo."
+    ]
+  },
+  {
+    "id": "v2:care-solutions",
+    "section": 3,
+    "theme": "organizar possibilidades com alguém",
+    "when": {
+      "Q08": "B"
+    },
+    "paragraphs": [
+      "Na conversa com alguém próximo em dificuldade, você escolheu procurar saídas e organizar um caminho possível. Uma ajuda assim pode tornar um problema menos confuso quando a pessoa também quer pensar em soluções.",
+      "Antes de montar o plano, vale conferir: ela quer pensar no que fazer agora ou precisa primeiro ser ouvida? Essa pergunta permite ajustar a ajuda, sem presumir que uma solução é sempre o melhor começo."
+    ]
+  },
+  {
+    "id": "v2:care-include",
+    "section": 3,
+    "theme": "participação e acolhimento",
+    "when": {
+      "Q15": "E"
+    },
+    "paragraphs": [
+      "Na preparação da festa, você escolheu cuidar para que as pessoas se sentissem incluídas. Em uma atividade de grupo, isso pode aparecer em algo simples: perguntar se alguém ficou de fora de um combinado ou precisa de outra forma de participar.",
+      "Incluir não exige adivinhar o gosto de todos. Dar espaço para cada pessoa dizer o que precisa pode ser mais útil do que assumir essa responsabilidade por ela."
+    ]
+  },
+  {
+    "id": "v2:group-direction",
+    "section": 3,
+    "theme": "colocar o grupo em movimento",
+    "when": {
+      "Q15": "A"
+    },
+    "paragraphs": [
+      "Na festa de última hora, você escolheu organizar responsabilidades para que o encontro acontecesse. Em outra atividade coletiva, esse impulso pode ajudar a transformar uma ideia em tarefas que as pessoas conseguem reconhecer.",
+      "Antes de distribuir tudo, vale perguntar o que cada pessoa pode assumir e como prefere participar. Tomar a frente de uma etapa não precisa significar decidir o encontro inteiro por todos."
+    ]
+  },
+  {
+    "id": "v2:group-connection",
+    "section": 3,
+    "theme": "convite e aproximação",
+    "when": {
+      "Q15": "C"
+    },
+    "paragraphs": [
+      "Ao imaginar a festa, sua escolha ficou nos convites, na conversa e na aproximação entre as pessoas. Um primeiro contato leve pode ajudar alguém a encontrar espaço num grupo que ainda não conhece.",
+      "Nem todo mundo quer participar no mesmo ritmo. Observar e perguntar também pode fazer parte de criar um ambiente em que a pessoa se sinta à vontade."
+    ]
+  },
+  {
+    "id": "v2:conflict-understand",
+    "section": 4,
+    "theme": "compreender antes de se posicionar",
+    "when": {
+      "Q12": "C"
+    },
+    "paragraphs": [
+      "Na discussão do grupo, você escolheu observar os pontos de vista antes de falar. Esse intervalo pode ajudar a separar o que você realmente entendeu daquilo que parece claro apenas no calor das mensagens.",
+      "Se decidir participar, talvez uma pergunta sobre o que aconteceu seja um começo melhor do que tentar encerrar a conversa com uma conclusão rápida. Não é preciso supor que você deve resolver o conflito."
+    ]
+  },
+  {
+    "id": "v2:conflict-ease",
+    "section": 4,
+    "theme": "abrir espaço numa conversa tensa",
+    "when": {
+      "Q12": "B"
+    },
+    "paragraphs": [
+      "Diante do clima pesado no grupo, você escolheu tentar aliviar a conversa. Uma mensagem privada ou uma mudança de tom podem abrir espaço para falar, mas o efeito depende do momento e de quem está envolvido.",
+      "Antes de recorrer ao humor, pode valer perguntar se a pessoa quer conversar. O cuidado com o ambiente não torna você responsável por manter todas as relações em harmonia."
+    ]
+  },
+  {
+    "id": "v2:conflict-distance",
+    "section": 4,
+    "theme": "escolher o próprio envolvimento",
+    "when": {
+      "Q12": "A"
+    },
+    "paragraphs": [
+      "Na discussão do grupo, você preferiu não se envolver. Em certas situações, limitar a participação pode ser uma escolha sobre onde colocar a própria energia, sem que isso explique todas as suas relações.",
+      "Vale distinguir um conflito em que você pode se afastar de um combinado que exige sua participação. O que, naquela situação, tornaria importante responder ou pedir uma pausa?"
+    ]
+  },
+  {
+    "id": "v2:next-curiosity",
+    "section": 9,
+    "theme": "transformar curiosidade em investigação",
+    "when": {
+      "Q13": "C"
+    },
+    "paragraphs": [
+      "Na situação de tempo livre, você escolheu acompanhar ideias e curiosidades. Um próximo passo possível é escolher uma dessas perguntas e conhecer uma atividade real de uma área que desperte interesse, sem precisar decidir uma formação agora.",
+      "Depois, observe o que ficou mais interessante e o que perdeu o encanto ao conhecer melhor. Descobrir o que não quer explorar também pode ajudar a orientar a próxima conversa."
+    ]
+  },
+  {
+    "id": "v2:next-quiet",
+    "section": 9,
+    "theme": "espaço para organizar uma pergunta",
+    "when": {
+      "Q03": "D"
+    },
+    "paragraphs": [
+      "Ao imaginar o descanso, você preferiu um tempo mais calmo para colocar os pensamentos em ordem. Se isso fizer sentido hoje, esse espaço pode servir para escolher uma dúvida profissional que você queira investigar, sem precisar responder a todas de uma vez.",
+      "A dúvida pode ser concreta: como é uma tarefa daquela área ou o que se aprende numa formação? Conhecer um exemplo pode ser suficiente para decidir se vale continuar explorando."
+    ]
+  },
+  {
+    "id": "v2:next-manual",
+    "section": 9,
+    "theme": "observar uma atividade concreta",
+    "when": {
+      "Q03": "E"
+    },
+    "paragraphs": [
+      "Na cena de descanso, você escolheu atividades práticas no próprio ritmo. Para explorar uma área profissional, uma possibilidade é começar observando uma tarefa concreta e perceber o que chama sua atenção, sem transformar um gosto do cotidiano em indicação automática de carreira.",
+      "Você não precisa se identificar com tudo que encontrar. O objetivo desse primeiro contato é descobrir quais perguntas merecem uma conversa mais longa."
+    ]
+  }
+]

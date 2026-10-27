@@ -1,0 +1,13 @@
+{
+  "preservedBase": "v1",
+  "hashes": {
+    "compose-editorial.ts": "512b092dcc80608858e59181a546b175db64abb0d80e74c8abba61e0f2b176c2",
+    "draft-rules.json": "c60b748750bb89b3472a09491d4c319aeec3c3c593efe30868a2e3164917171c",
+    "types.ts": "fdb27136db1df0be25f28c5e4180da6f9070e7d677e64682428b0ca4ffe5286b"
+  },
+  "snapshotFiles": {
+    "compose-editorial.ts": "compose-editorial.ts.txt",
+    "types.ts": "types.ts.txt",
+    "draft-rules.json": "draft-rules.json"
+  }
+}

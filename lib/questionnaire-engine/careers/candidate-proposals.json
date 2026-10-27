@@ -1,0 +1,164 @@
+[
+  {
+    "id": "proposed-course-link-01",
+    "courseName": "Análise e Desenvolvimento de Sistemas",
+    "level": "graduacao",
+    "interestTerms": [
+      "programação",
+      "sistemas"
+    ],
+    "objectiveTerms": [
+      "primeira formação",
+      "mudar de área",
+      "explorar possibilidades"
+    ],
+    "sourceRationale": "A descrição recebida cita programação, bancos de dados e desenvolvimento de sistemas web e aplicativos.",
+    "status": "proposed_pending_carla"
+  },
+  {
+    "id": "proposed-course-link-02",
+    "courseName": "Ciência de Dados",
+    "level": "graduacao",
+    "interestTerms": [
+      "dados",
+      "estatística"
+    ],
+    "objectiveTerms": [
+      "primeira formação",
+      "mudar de área",
+      "explorar possibilidades"
+    ],
+    "sourceRationale": "A descrição recebida cita estatística, visualização de dados e modelos preditivos.",
+    "status": "proposed_pending_carla"
+  },
+  {
+    "id": "proposed-course-link-03",
+    "courseName": "Administração",
+    "level": "graduacao",
+    "interestTerms": [
+      "gestão",
+      "negócios"
+    ],
+    "objectiveTerms": [
+      "primeira formação",
+      "mudar de área",
+      "explorar possibilidades",
+      "crescer na área"
+    ],
+    "sourceRationale": "A descrição recebida cita gestão de negócios, equipes e decisões estratégicas.",
+    "status": "proposed_pending_carla"
+  },
+  {
+    "id": "proposed-course-link-04",
+    "courseName": "Gestão de Recursos Humanos",
+    "level": "graduacao",
+    "interestTerms": [
+      "recursos humanos",
+      "gestão de pessoas"
+    ],
+    "objectiveTerms": [
+      "primeira formação",
+      "mudar de área",
+      "explorar possibilidades",
+      "crescer na área"
+    ],
+    "sourceRationale": "A descrição recebida cita talentos, equipes e cultura organizacional.",
+    "status": "proposed_pending_carla"
+  },
+  {
+    "id": "proposed-course-link-05",
+    "courseName": "Logística",
+    "level": "graduacao",
+    "interestTerms": [
+      "logística",
+      "estoques"
+    ],
+    "objectiveTerms": [
+      "primeira formação",
+      "mudar de área",
+      "explorar possibilidades",
+      "crescer na área"
+    ],
+    "sourceRationale": "A descrição recebida cita estoques, transportes, rotas e operações.",
+    "status": "proposed_pending_carla"
+  },
+  {
+    "id": "proposed-course-link-06",
+    "courseName": "Marketing Digital",
+    "level": "graduacao",
+    "interestTerms": [
+      "marketing digital"
+    ],
+    "objectiveTerms": [
+      "primeira formação",
+      "mudar de área",
+      "explorar possibilidades"
+    ],
+    "sourceRationale": "A descrição recebida cita conteúdo, anúncios, redes sociais e SEO.",
+    "status": "proposed_pending_carla"
+  },
+  {
+    "id": "proposed-course-link-07",
+    "courseName": "Gestão de Projetos",
+    "level": "pos_graduacao",
+    "interestTerms": [
+      "gestão de projetos",
+      "cronogramas"
+    ],
+    "objectiveTerms": [
+      "especializar",
+      "crescer na área",
+      "explorar possibilidades"
+    ],
+    "sourceRationale": "A descrição recebida cita escopo, cronograma, custos e equipes.",
+    "status": "proposed_pending_carla"
+  },
+  {
+    "id": "proposed-course-link-08",
+    "courseName": "MBA Gestão Estratégica de Pessoas",
+    "level": "pos_graduacao",
+    "interestTerms": [
+      "recursos humanos",
+      "gestão de pessoas"
+    ],
+    "objectiveTerms": [
+      "especializar",
+      "crescer na área",
+      "explorar possibilidades"
+    ],
+    "sourceRationale": "A descrição recebida cita recrutamento, seleção, treinamento e competências.",
+    "status": "proposed_pending_carla"
+  },
+  {
+    "id": "proposed-course-link-09",
+    "courseName": "Full Stack Development — Design Engineering e Deployment",
+    "level": "pos_graduacao",
+    "interestTerms": [
+      "programação",
+      "sistemas"
+    ],
+    "objectiveTerms": [
+      "especializar",
+      "crescer na área",
+      "explorar possibilidades"
+    ],
+    "sourceRationale": "A descrição recebida cita desenvolvimento completo de aplicações.",
+    "status": "proposed_pending_carla"
+  },
+  {
+    "id": "proposed-course-link-10",
+    "courseName": "Alfabetização e Letramento",
+    "level": "pos_graduacao",
+    "interestTerms": [
+      "alfabetização",
+      "leitura e escrita"
+    ],
+    "objectiveTerms": [
+      "especializar",
+      "crescer na área",
+      "explorar possibilidades"
+    ],
+    "sourceRationale": "A descrição recebida cita planejamento e intervenções para leitura, escrita e numeramento.",
+    "status": "proposed_pending_carla"
+  }
+]

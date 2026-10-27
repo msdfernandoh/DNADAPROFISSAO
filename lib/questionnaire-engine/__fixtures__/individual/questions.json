@@ -1,0 +1,553 @@
+[
+  {
+    "number": 1,
+    "title": "O cenário do bônus inesperado",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sinto um alívio imediato no peito. Guardo ou deixo parado na conta por um tempo; preciso respirar com calma e ponderar as opções antes de decidir o que fazer.",
+        "weights": {
+          "E": 4
+        }
+      },
+      {
+        "letter": "B",
+        "text": "Penso em tirar do papel algo que estou adiando há muito tempo — pode ser um projeto próprio, uma melhoria na minha carreira ou um movimento para eu sair do lugar.",
+        "weights": {
+          "L": 4,
+          "P": 1
+        }
+      },
+      {
+        "letter": "C",
+        "text": "Fico empolgada para usar isso em uma experiência que quebre a rotina: planejar uma viagem, um jantar especial ou um passeio para recarregar as energias.",
+        "weights": {
+          "C": 4
+        }
+      },
+      {
+        "letter": "D",
+        "text": "Penso logo em como esse valor pode ajudar em casa, resolver uma pendência de alguém que amo ou fazer um agrado para quem está sempre comigo.",
+        "weights": {
+          "H": 4
+        }
+      },
+      {
+        "letter": "E",
+        "text": "Uso para resolver um problemão prático da minha rotina atual (consertar algo em casa, trocar um aparelho que está travando, comprar algo realmente útil).",
+        "weights": {
+          "P": 4
+        }
+      }
+    ],
+    "situation": "Imagine que você recebeu um valor em dinheiro que não estava nos seus planos (um bônus, uma comissão antiga ou um acerto). Qual é a primeira reação real da sua mente?"
+  },
+  {
+    "number": 2,
+    "title": "O eletrodoméstico ou móvel desmontado",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Abro a caixa e começo a mexer por intuição. Gosto de testar, encaixar e ver como funciona na prática. Só vou atrás de tutorial ou manual se sobrar peça ou travar muito.",
+        "weights": {
+          "P": 4
+        }
+      },
+      {
+        "letter": "B",
+        "text": "Antes de tocar em qualquer peça, procuro um vídeo detalhado ou leio as instruções para entender a lógica da montagem inteira. Preciso saber o passo a passo para não errar.",
+        "weights": {
+          "E": 4
+        }
+      },
+      {
+        "letter": "C",
+        "text": "Se perceber que vai tomar muito tempo ou dar muito trabalho manual, prefiro agilizar: chamo alguém que entende, divido a tarefa com alguém ou pago um profissional para resolver logo.",
+        "weights": {
+          "L": 4
+        }
+      },
+      {
+        "letter": "D",
+        "text": "Acho mais legal fazer disso um momento dinâmico. Chamo alguém para me ajudar, coloco uma música, vou conversando e transformo a montagem em uma atividade de parceria.",
+        "weights": {
+          "C": 3,
+          "H": 2
+        }
+      }
+    ],
+    "situation": "Chegou uma caixa na sua casa com um produto que precisa ser instalado ou montado por você. Como você reage?"
+  },
+  {
+    "number": 3,
+    "title": "O final de semana ideal",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Quero ver gente, dar risada, sair da mesmice e ter momentos descontraídos com amigos ou família para esquecer o peso da semana.",
+        "weights": {
+          "C": 4
+        }
+      },
+      {
+        "letter": "B",
+        "text": "Quero aproveitar o tempo livre para resolver pendências pessoais, adiantar algumas metas ou planejar os passos das semanas que estão por vir.",
+        "weights": {
+          "L": 4,
+          "E": 1
+        }
+      },
+      {
+        "letter": "C",
+        "text": "Não quero deixar nada rigidamente planejado. Prefiro ficar livre para decidir na hora o que der vontade de fazer, sem horários ou obrigações.",
+        "weights": {
+          "C": 3,
+          "P": 2
+        }
+      },
+      {
+        "letter": "D",
+        "text": "Quero um tempo calmo e silencioso para mim. Ler, assistir algo que estimule minha mente, organizar meu espaço e colocar os pensamentos em ordem.",
+        "weights": {
+          "E": 4
+        }
+      },
+      {
+        "letter": "E",
+        "text": "Quero focar em descansar o corpo e fazer atividades manuais ou práticas que me acalmem (cozinhar algo gostoso, cuidar das minhas coisas, organizar a casa no meu ritmo).",
+        "weights": {
+          "P": 4
+        }
+      }
+    ],
+    "situation": "É sexta-feira à noite e você está pensando no seu final de semana. O que você realmente quer que aconteça nos próximos dois dias?"
+  },
+  {
+    "number": 4,
+    "title": "A proposta de mudança radical",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sinto um frio na barriga, mas me empolgo com o movimento. Penso logo no crescimento que isso pode me trazer e nas novas portas que vão se abrir para o meu futuro.",
+        "weights": {
+          "L": 4
+        }
+      },
+      {
+        "letter": "B",
+        "text": "A primeira coisa que faço é colocar no papel: custos, estabilidade, os prós e os contras. Só consigo cogitar a mudança se o cenário me der segurança e clareza.",
+        "weights": {
+          "E": 4
+        }
+      },
+      {
+        "letter": "C",
+        "text": "Fico animada com a novidade e com a chance de conhecer pessoas e lugares novos, mas logo me pergunto se eu realmente vou me adaptar e me sentir pertencente a esse novo estilo de vida.",
+        "weights": {
+          "C": 4
+        }
+      },
+      {
+        "letter": "D",
+        "text": "Minha mente vai direto nas pessoas que dependem de mim ou que estão ao meu redor. Só consigo aceitar se eu tiver certeza de que essa mudança não vai desestruturar ou prejudicar quem eu amo.",
+        "weights": {
+          "H": 4
+        }
+      },
+      {
+        "letter": "E",
+        "text": "Penso em como seria o dia a dia prático dessa nova realidade. Se a rotina de trabalho for muito engessada ou o processo lento demais, prefiro recusar e manter minha autonomia atual.",
+        "weights": {
+          "P": 4
+        }
+      }
+    ],
+    "situation": "Imagine que surge uma oportunidade inesperada para você mudar radicalmente de área de atuação, de rotina ou até de cidade. Qual é a primeira coisa que passa pela sua cabeça?"
+  },
+  {
+    "number": 5,
+    "title": "O projeto abandonado",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A empolgação passou rápido, o assunto perdeu a novidade e aquilo virou uma rotina repetitiva. Perdi completamente o interesse e nunca mais pensei nisso. 😂",
+        "weights": {
+          "C": 4
+        }
+      },
+      {
+        "letter": "B",
+        "text": "Minha rotina diária engoliu meu tempo. Fiquei exausta com o trabalho, casa ou obrigações e o projeto virou um peso insuportável na minha semana.",
+        "weights": {
+          "P": 4,
+          "H": 1
+        }
+      },
+      {
+        "letter": "C",
+        "text": "Senti que o processo começou a ficar longo, lento ou burocrático demais. Eu precisava ver algum resultado prático ou evolução mais rápido para continuar engajada.",
+        "weights": {
+          "L": 4,
+          "P": 1
+        }
+      },
+      {
+        "letter": "D",
+        "text": "Percebi que o conteúdo era muito abstrato ou teórico. Não consegui ver onde eu usaria aquilo no meu dia a dia ou como aquilo me traria um retorno financeiro real.",
+        "weights": {
+          "P": 4,
+          "E": 1
+        }
+      }
+    ],
+    "situation": "Sabe aquele projeto, curso, livro ou rotina que você começou com muita energia e empolgação, mas acabou deixando pelo caminho após algumas semanas? Olhando para trás, o que aconteceu de verdade?"
+  },
+  {
+    "number": 6,
+    "title": "Aprender algo do zero",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Prefiro entender a lógica por trás. Compro um livro, assisto a aulas teóricas, pesquiso a estrutura e quero entender as regras antes de tentar fazer.",
+        "weights": {
+          "E": 4
+        }
+      },
+      {
+        "letter": "B",
+        "text": "Vou direto para a prática. Quero pegar no instrumento, testar os ingredientes ou errar na quadra. Aprendo melhor na base da tentativa, erro e correção imediata.",
+        "weights": {
+          "P": 4,
+          "L": 1
+        }
+      },
+      {
+        "letter": "C",
+        "text": "Procuro um grupo, uma comunidade ou um amigo que já faça isso. Para mim, aprender junto com outras pessoas, trocando dicas e conversando, torna o processo muito mais motivador.",
+        "weights": {
+          "C": 3,
+          "H": 2
+        }
+      },
+      {
+        "letter": "D",
+        "text": "Defino uma meta clara do porquê estou aprendendo aquilo (ex: \"quero usar isso para um projeto X\") e busco um caminho focado em alcançar esse resultado rápido.",
+        "weights": {
+          "L": 3,
+          "E": 2
+        }
+      }
+    ],
+    "situation": "Imagine que você decidiu aprender uma habilidade totalmente nova do zero (um esporte diferente, um instrumento musical, culinária avançada ou um novo software). Como você prefere iniciar esse processo?"
+  },
+  {
+    "number": 7,
+    "title": "A lista de tarefas acumuladas",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Mapeio os endereços, crio um itinerário lógico para economizar tempo, calculo os horários e sigo o plano rigidamente para resolver tudo com a máxima eficiência.",
+        "weights": {
+          "E": 3,
+          "L": 2
+        }
+      },
+      {
+        "letter": "B",
+        "text": "Sinto um peso enorme e uma exaustão só de olhar. Vou empurrando ao longo do dia, faço o que dá na telha e, se a energia acabar, deixo o resto para a semana que vem sem culpa.",
+        "weights": {
+          "C": 3,
+          "P": 2
+        }
+      },
+      {
+        "letter": "C",
+        "text": "Encabeço a missão: se puder pagar alguém para resolver um desses problemas, ou pedir para alguém fazer no meu lugar enquanto eu resolvo o principal, prefiro agilizar para me livrar logo disso.",
+        "weights": {
+          "L": 4
+        }
+      },
+      {
+        "letter": "D",
+        "text": "Resolvo as tarefas, mas se no caminho eu encontrar um conhecido, parar para tomar um café ou surgir um imprevisto leve que mude o roteiro, eu mudo o plano com tranquilidade e aproveito o momento.",
+        "weights": {
+          "C": 3,
+          "H": 2
+        }
+      }
+    ],
+    "situation": "É seu dia de folga, mas você acumulou 5 tarefas chatas e burocráticas para resolver na rua (ir ao banco, resolver um documento no cartório, fazer compras grandes, etc.). Como você reage diante dessa lista?"
+  },
+  {
+    "number": 8,
+    "title": "O amigo deprimido",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Ouço com toda a atenção do mundo, deixo ele desabafar o tempo que precisar, acolho a dor dele e tento fazer com que ele se sinta totalmente compreendido e amado naquele momento.",
+        "weights": {
+          "H": 4,
+          "C": 1
+        }
+      },
+      {
+        "letter": "B",
+        "text": "Ouço o desabafo, mas minha mente já começa a desenho de uma solução. Tento acalmar a pessoa mostrando saídas lógicas, criando um plano de ação prático para ela resolver a situação no dia seguinte.",
+        "weights": {
+          "L": 3,
+          "E": 2
+        }
+      },
+      {
+        "letter": "C",
+        "text": "Me coloco à disposição de forma prática: \"Estou indo aí na sua casa\", \"Quer que eu compre um remédio?\", \"Quer comer algo?\". Prefiro agir fisicamente para ajudar a pessoa no que for útil.",
+        "weights": {
+          "P": 4,
+          "H": 1
+        }
+      },
+      {
+        "letter": "D",
+        "text": "Tento usar o otimismo para mudar a energia da pessoa. Converso, conto histórias, lembro de superações passadas e tento distraí-la ou arrancar um sorriso para aliviar o clima pesado.",
+        "weights": {
+          "C": 4
+        }
+      }
+    ],
+    "situation": "Um amigo muito próximo te liga ou manda mensagem no meio da noite visivelmente mal, chorando por causa de um problema pessoal grave. Qual é a sua postura natural nessa situação?"
+  },
+  {
+    "number": 9,
+    "title": "O plano de uma grande compra",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Entro em modo obsessivo de pesquisa. Passo semanas comparando cada detalhe técnico, leio dezenas de avaliações, faço planilhas e só compro quando tenho certeza absoluta de que é a opção mais segura e inteligente.",
+        "weights": {
+          "E": 4
+        }
+      },
+      {
+        "letter": "B",
+        "text": "Se eu perceber uma oportunidade muito boa ou sentir que aquilo vai destravar a minha vida e me dar o retorno que preciso, eu fecho o negócio rápido. Não fico cozinhando a decisão por meses se o objetivo estiver claro.",
+        "weights": {
+          "L": 3,
+          "P": 2
+        }
+      },
+      {
+        "letter": "C",
+        "text": "Fico super empolgada no começo, pesquiso várias opções lindas e converso com todo mundo sobre isso. Em alguns momentos o processo fica cansativo e, se demorar demais, eu acabo deixando para lá ou focando em outra coisa na hora.",
+        "weights": {
+          "C": 4
+        }
+      }
+    ],
+    "situation": "Você decidiu fazer uma compra grande e importante para a sua vida (trocar de carro, comprar um computador caro ou planejar uma mudança). Como você se comporta durante o processo?"
+  },
+  {
+    "number": 10,
+    "title": "O imprevisto doméstico",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sinto uma descarga instantânea de estresse. Minha cabeça dá um nó na hora e eu demoro um tempo para conseguir respirar e reorganizar o dia depois de um susto desses.",
+        "weights": {
+          "H": 3
+        }
+      },
+      {
+        "letter": "B",
+        "text": "Entro no modo automático de execução. Desligo o registro, limpo o que dá, aviso sobre o atraso sem sofrimento e já começo a resolver o conserto ali mesmo. Resolvo primeiro, me estresso depois.",
+        "weights": {
+          "P": 3,
+          "L": 2
+        }
+      },
+      {
+        "letter": "C",
+        "text": "Minha mente já começa a calcular o custo, o tempo de reparo e quem é a melhor pessoa para resolver isso para mim. Ligo para um profissional ou para alguém que possa me ajudar na hora enquanto eu sigo meu caminho.",
+        "weights": {
+          "L": 3,
+          "E": 2
+        }
+      },
+      {
+        "letter": "D",
+        "text": "Minha primeira preocupação é se isso vai afetar as outras pessoas de casa ou quem está me esperando no compromisso. Tento avisar todo mundo com muito carinho para que ninguém se prejudique pelo meu imprevisto.",
+        "weights": {
+          "H": 4,
+          "C": 1
+        }
+      }
+    ],
+    "situation": "Você está saindo de casa com o tempo cravado para um compromisso importante e, de repente, um cano estoura alagando a cozinha ou o chuveiro queima no meio do inverno. Qual é a sua reação imediata interna?"
+  },
+  {
+    "number": 11,
+    "title": "O erro no compromisso",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Fico arrasada comigo mesma. Começo a me culpar mentalmente pelo erro, fico remoendo o descuido o dia todo e pensando em como eu pude ser tão desatenta. O humor cai na hora.",
+        "weights": {
+          "E": 4
+        }
+      },
+      {
+        "letter": "B",
+        "text": "Fico brava na hora, mas respiro fundo e mudo o chip imediatamente. Já que estou ali na rua, aproveito para resolver outra coisa, fazer um lanche ou invento um plano B para o meu tempo não ser perdido.",
+        "weights": {
+          "P": 3,
+          "C": 1
+        }
+      },
+      {
+        "letter": "C",
+        "text": "Tento dar um jeitinho na hora. Converso com a recepção com um sorriso no rosto, conto o meu perrengue de forma leve, tento encaixar uma vaga de última hora ou dou um jeito de ser atendida mesmo estando errada.",
+        "weights": {
+          "C": 4
+        }
+      }
+    ],
+    "situation": "Você se arruma, enfrenta o trânsito, chega ao local de uma consulta ou reunião importante e, ao falar com a recepção, percebe que errou feio: o compromisso era no mesmo horário, só que no dia anterior (ou na semana que vem). O que você faz?"
+  },
+  {
+    "number": 12,
+    "title": "O conflito no grupo de WhatsApp",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Entro em modo espectador. Acho aquela lavação de roupa suja uma perda de tempo total, muto o grupo e deixo eles se resolverem lá. Não gasto um pingo da minha energia com aquilo.",
+        "weights": {
+          "P": 4,
+          "E": 1
+        }
+      },
+      {
+        "letter": "B",
+        "text": "Sinto um desconforto enorme com o clima pesado. Minha vontade é intervir, mandar uma mensagem privada para tentar acalmar os ânimos ou mandar uma piada/meme no grupo para quebrar o gelo e mudar o foco.",
+        "weights": {
+          "C": 4,
+          "H": 2
+        }
+      },
+      {
+        "letter": "C",
+        "text": "Fico observando em silêncio e analisando quem está com a razão. Tento entender o ponto de vista de cada um e o motivo do mal-entendido, mas só falo algo se for uma opinião muito neutra e justa.",
+        "weights": {
+          "E": 4
+        }
+      }
+    ],
+    "situation": "O grupo de WhatsApp da família, dos amigos ou de um evento começa a pegar fogo. Duas pessoas entram em uma discussão feia, trocando textões e indiretas pesadas. Qual é a sua reação real enquanto lê as mensagens?"
+  },
+  {
+    "number": 13,
+    "title": "O momento de tédio",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Se eu ficar muito tempo parada sem fazer nada produtivo, começo a ficar agoniada. Logo invento um projeto, vou estudar algo, arrumar um armário ou planejar a minha semana. Preciso sentir que estou me movimentando.",
+        "weights": {
+          "L": 4,
+          "E": 1
+        }
+      },
+      {
+        "letter": "B",
+        "text": "Aproveito para desligar o mundo. Deito no sofá, assisto a uma série leve, navego pelas redes sociais sem rumo e deixo o tempo passar sem culpa nenhuma. Se der para dormir, melhor ainda.",
+        "weights": {
+          "P": 4,
+          "C": 1
+        }
+      },
+      {
+        "letter": "C",
+        "text": "Minha mente começa a borbulhar de ideias ou pensamentos soltos. Sinto vontade de criar algo, ligar para alguém para conversar, buscar uma novidade na internet ou pesquisar um assunto aleatório que me deu curiosidade.",
+        "weights": {
+          "C": 4
+        }
+      }
+    ],
+    "situation": "Você tenta descansar e se vê com algumas horas completamente livres na sua semana. Não tem nenhuma obrigação pendente, ninguém te chamou para sair e a sua casa está organizada. O silêncio e o vazio se instalam. O que a sua mente faz?"
+  },
+  {
+    "number": 14,
+    "title": "O elogio recebido (Peso Reduzido contra Viés de Autoimagem)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "\"Você é uma pessoa muito inteligente, focada e disciplinada. Quando você bota uma coisa na cabeça ou faz um plano, você vai lá e faz acontecer.\"",
+        "weights": {
+          "L": 2,
+          "E": 1
+        }
+      },
+      {
+        "letter": "B",
+        "text": "\"Você tem uma energia incrível e uma luz que contagia o ambiente. É impossível ficar triste perto de você, você conversa com todo mundo e anima qualquer lugar.\"",
+        "weights": {
+          "C": 2
+        }
+      },
+      {
+        "letter": "C",
+        "text": "\"Você tem um coração gigante. É a pessoa mais generosa, empática e acolhedora que eu conheço. Sabe ouvir como ninguém e sempre se importa de verdade com os outros.\"",
+        "weights": {
+          "H": 2
+        }
+      },
+      {
+        "letter": "D",
+        "text": "\"Você é pau pra toda obra, super prática e resolve os perrengues sem enrolação. Se eu tiver um problema real e precisar de uma solução direta, você é a primeira pessoa para quem eu ligo.\"",
+        "weights": {
+          "P": 2
+        }
+      }
+    ],
+    "situation": "Quando as pessoas que convivem com você no dia a dia vão elogiar quem você é, qual dessas frases mais combina com o que você costuma ouvir (ou gostaria de ouvir)?"
+  },
+  {
+    "number": 15,
+    "title": "A organização da festa (Ajustada com Humanizado Puro)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Eu assumo o comando e coloco ordem: divido quem vai comprar o quê, defino o local, cobro o dinheiro da galera no Pix e garanto que o evento saia do papel rápido.",
+        "weights": {
+          "L": 4
+        }
+      },
+      {
+        "letter": "B",
+        "text": "Fico responsável pela planilha e pelas contas. Calculo a quantidade exata de comida e bebida por pessoa para não faltar e nem sobrar, pesquiso os melhores preços e organizo os horários.",
+        "weights": {
+          "E": 4
+        }
+      },
+      {
+        "letter": "C",
+        "text": "Meu foco é a energia do evento: cuido do grupo do WhatsApp, faço os convites, escolho a música, agito as pessoas para irem e garanto que todo mundo se divirta e se conheça na festa.",
+        "weights": {
+          "C": 4
+        }
+      },
+      {
+        "letter": "D",
+        "text": "Prefiro ajudar nos bastidores práticos: vou junto comprar as coisas, ajudo a carregar as caixas, arrumo o espaço, limpo ou preparo o que for preciso. Só quero ser útil para o negócio dar certo.",
+        "weights": {
+          "P": 4
+        }
+      },
+      {
+        "letter": "E",
+        "text": "Meu foco é garantir que ninguém fique de fora, que todo mundo se sinta bem acolhido e confortável no grupo. Preocupo-me em agradar o gosto de cada um e em manter o clima super gostoso e sem atritos.",
+        "weights": {
+          "H": 4
+        }
+      }
+    ],
+    "situation": "Um grupo de amigos decide organizar uma festa surpresa ou um churrasco de confraternização de última hora. Qual papel você assume mais naturalmente na preparação?"
+  }
+]

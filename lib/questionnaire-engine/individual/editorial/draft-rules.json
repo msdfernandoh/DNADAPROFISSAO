@@ -1,0 +1,196 @@
+[
+  {
+    "id": "everyday:research",
+    "section": 2,
+    "theme": "critério antes de decidir",
+    "when": {
+      "Q09": "A"
+    },
+    "paragraphs": [
+      "Na hora de uma compra importante, você escolheu comparar detalhes antes de decidir. É como abrir algumas opções no celular, ler avaliações e tentar descobrir o que realmente muda de uma para outra. Nesse cenário, pesquisar parece servir para tornar a escolha mais clara.",
+      "A reflexão aqui é perceber quando a informação já ajuda a escolher e quando a busca por mais um detalhe começa a adiar a decisão. O que precisaria estar claro para você dar o próximo passo?"
+    ]
+  },
+  {
+    "id": "everyday:novelty",
+    "section": 2,
+    "theme": "interesse ao longo da escolha",
+    "when": {
+      "Q09": "C"
+    },
+    "paragraphs": [
+      "Na situação da compra, o começo trouxe entusiasmo, mas a comparação prolongada poderia fazer o interesse diminuir. Talvez seja útil encurtar a lista: em vez de acompanhar muitas opções ao mesmo tempo, escolher dois ou três critérios para investigar.",
+      "Isso não define como você decide em toda situação. É um convite para observar o que mantém uma escolha importante interessante depois que a novidade passa."
+    ]
+  },
+  {
+    "id": "everyday:opportunity",
+    "section": 2,
+    "theme": "decisão com finalidade clara",
+    "when": {
+      "Q09": "B"
+    },
+    "paragraphs": [
+      "Na compra importante, você escolheu avançar quando a oportunidade ajudasse a alcançar algo concreto. A decisão, nesse contexto, parece ganhar sentido quando fica claro o que ela pode destravar.",
+      "Antes de seguir, pode valer uma conferência curta: o que essa escolha resolve, o que ela exige e o que ainda falta saber? Agilidade e cuidado podem caber na mesma decisão."
+    ]
+  },
+  {
+    "id": "relations:organize",
+    "section": 3,
+    "theme": "contribuição visível ao grupo",
+    "when": {
+      "Q07": "A",
+      "Q15": "B"
+    },
+    "paragraphs": [
+      "Organizar o trajeto das tarefas e fazer as contas de uma festa foram escolhas que apareceram nas suas respostas. Em um grupo, essa contribuição pode ser bem concreta: lembrar quantas pessoas vão, o que falta comprar e como aproveitar melhor o tempo.",
+      "Esse é um jeito possível de ajudar as coisas a acontecer. Não sabemos como as pessoas de fato enxergam você; vale perguntar se elas percebem esse cuidado com os detalhes como uma ajuda e como preferem participar da organização."
+    ]
+  },
+  {
+    "id": "relations:help-practically",
+    "section": 3,
+    "theme": "presença por ações",
+    "when": {
+      "Q08": "C",
+      "Q15": "D"
+    },
+    "paragraphs": [
+      "Ao imaginar alguém próximo precisando de ajuda, você escolheu oferecer uma ação concreta. Na organização da festa, preferiu os bastidores práticos. Há um ponto em comum nessas cenas: colaborar fazendo algo que possa ser útil naquele momento.",
+      "Pode ser levar o que está faltando, preparar um espaço ou acompanhar uma tarefa. Antes de assumir, uma pergunta simples ajuda: a pessoa quer que você faça junto, faça por ela ou apenas fique por perto?"
+    ]
+  },
+  {
+    "id": "relations:care-and-coordinate",
+    "section": 3,
+    "theme": "ajuda concreta e organização",
+    "when": {
+      "Q08": "C",
+      "Q07": "C"
+    },
+    "paragraphs": [
+      "Nas situações de ajuda e de tarefas acumuladas, você escolheu agir de forma concreta e dividir o que pudesse ser resolvido por outras pessoas. Em um trabalho em grupo, isso pode aparecer como procurar quem consegue ajudar e encaminhar o que precisa acontecer.",
+      "Essa leitura não diz que você deve assumir tudo. Combinar responsabilidades pode tornar a ajuda mais útil, sem decidir pelo outro o que ele precisa."
+    ]
+  },
+  {
+    "id": "difficulty:self-demand",
+    "section": 4,
+    "theme": "aprender com um erro sem prolongá-lo",
+    "when": {
+      "Q11": "A"
+    },
+    "paragraphs": [
+      "No compromisso marcado no dia errado, você escolheu uma reação em que a cobrança continuava depois do erro. Às vezes a situação já terminou, mas a cabeça ainda volta ao que poderia ter sido diferente.",
+      "Se essa cena fizer sentido para você, experimente separar aprendizado de repetição: anotar o ajuste que ajudaria na próxima vez e encerrar a revisão ali. Não é preciso transformar um desencontro de agenda em uma conclusão sobre quem você é."
+    ]
+  },
+  {
+    "id": "difficulty:pause-and-restart",
+    "section": 4,
+    "theme": "reorganizar o dia depois de um susto",
+    "when": {
+      "Q10": "A",
+      "Q11": "B"
+    },
+    "paragraphs": [
+      "Suas escolhas mostram duas cenas diferentes: um imprevisto doméstico pede um tempo para reorganizar o dia; um compromisso na data errada abre espaço para um plano B. Isso pode fazer sentido sem que uma resposta anule a outra: o tamanho e o tipo do problema mudam.",
+      "Talvez ajude reconhecer qual situação pede uma pausa e qual permite aproveitar o tempo de outro jeito. A proposta é ajustar a resposta ao que aconteceu, sem exigir a mesma reação para todo contratempo."
+    ],
+    "kind": "contextual"
+  },
+  {
+    "id": "difficulty:act-and-adapt",
+    "section": 4,
+    "theme": "resolver o necessário e ajustar a rota",
+    "when": {
+      "Q10": "B",
+      "Q11": "B"
+    },
+    "paragraphs": [
+      "Diante do problema em casa, você escolheu resolver o que fosse possível; no compromisso com a data errada, escolheu aproveitar o tempo de outra maneira. Nessas duas situações, a reação caminha para uma ação disponível, mesmo que o plano original tenha mudado.",
+      "Uma conferência útil pode ser distinguir o que precisa ser resolvido agora do que pode esperar. Adaptar a rota não exige fingir que o imprevisto foi agradável."
+    ]
+  },
+  {
+    "id": "motivation:room",
+    "section": 6,
+    "theme": "espaço real para um projeto",
+    "when": {
+      "Q05": "B"
+    },
+    "paragraphs": [
+      "Quando um projeto ficou pelo caminho, você apontou o peso da rotina. Por isso, vale olhar menos para a ideia de “ter mais disciplina” e mais para o espaço que aquele plano conseguiria ocupar na semana. Querer continuar e ter condições de continuar podem ser coisas diferentes.",
+      "Imagine reservar um pequeno horário para algo seu e perceber que ele sempre acaba sendo usado para resolver outra demanda. A experiência pode ajudar a enxergar o que precisa mudar ao redor do projeto, em vez de aumentar a cobrança sobre você.",
+      "Essa resposta fala de uma situação lembrada no teste; não significa que sua rotina hoje seja a mesma. Se quisesse retomar um plano, qual seria um primeiro espaço possível, sem precisar reorganizar a vida inteira de uma vez?"
+    ]
+  },
+  {
+    "id": "motivation:usefulness",
+    "section": 6,
+    "theme": "valor percebido na aplicação",
+    "when": {
+      "Q05": "D"
+    },
+    "paragraphs": [
+      "Ao lembrar de um projeto interrompido, você apontou que não enxergava onde o conteúdo seria usado. A questão, então, pode estar na ligação entre aprender algo e perceber para que aquilo serve. Isso é diferente de rejeitar estudo ou teoria.",
+      "Pense em uma aula que apresenta uma ideia e depois mostra um problema real que ela ajuda a resolver. Talvez esse caminho torne o aprendizado mais interessante: entender o conceito e reconhecer sua utilidade no cotidiano.",
+      "Para explorar uma formação, vale levar uma pergunta concreta: que atividade eu conseguiria compreender ou realizar melhor com esse conhecimento? A resposta pode ajudar a avaliar o conteúdo sem depender apenas do nome do curso."
+    ]
+  },
+  {
+    "id": "motivation:progress",
+    "section": 6,
+    "theme": "reconhecer avanço durante o percurso",
+    "when": {
+      "Q05": "C"
+    },
+    "paragraphs": [
+      "No projeto que ficou pelo caminho, você destacou a demora para perceber resultados. Talvez o ponto a investigar seja como reconhecer avanço enquanto a conclusão ainda está distante. Um percurso longo pode ficar mais compreensível quando suas etapas deixam de parecer uma espera sem sinal de mudança.",
+      "Imagine aprender uma habilidade e registrar algo pequeno que antes não conseguia fazer. Esse marco não precisa ser um resultado extraordinário; pode ser completar uma tarefa com menos ajuda ou entender uma etapa que parecia confusa.",
+      "Se começasse um projeto agora, que sinal mostraria que está caminhando? Definir esse sinal pode ajudar a acompanhar o processo sem exigir que o resultado final apareça logo no início."
+    ]
+  },
+  {
+    "id": "learning:logic-after-manual",
+    "section": 7,
+    "theme": "entender antes de experimentar",
+    "when": {
+      "Q02": "B",
+      "Q06": "A"
+    },
+    "paragraphs": [
+      "Você escolheu procurar instruções antes de montar algo e compreender a lógica ao aprender uma habilidade. Nessas situações, conhecer o caminho antes de tentar parece fazer diferença. Uma demonstração explicada pode ser um ponto de partida útil.",
+      "Isso não significa ficar só na explicação. Depois de entender a sequência, experimentar uma etapa pequena permite conferir o que ficou claro e o que merece uma nova pergunta. Aprender pode ser esse movimento entre compreender e tentar."
+    ]
+  },
+  {
+    "id": "learning:manual-and-experiment",
+    "section": 7,
+    "theme": "mudar a forma de começar conforme a tarefa",
+    "when": {
+      "Q02": "B",
+      "Q06": "B"
+    },
+    "paragraphs": [
+      "Para montar um produto, você preferiu consultar instruções; para aprender uma habilidade nova, escolheu testar e corrigir. Não é necessário transformar essas respostas em uma contradição. Uma montagem com peças e etapas pode pedir um roteiro, enquanto uma habilidade pode ficar mais clara na tentativa.",
+      "Um caminho a experimentar seria usar uma orientação curta para começar e, em seguida, fazer uma parte por conta própria. Depois, voltar à explicação com uma dúvida concreta. Você não precisa usar um único jeito de aprender em toda tarefa."
+    ],
+    "kind": "contextual"
+  },
+  {
+    "id": "learning:company-and-logic",
+    "section": 7,
+    "theme": "troca com outras pessoas e compreensão",
+    "when": {
+      "Q02": "D",
+      "Q06": "A"
+    },
+    "paragraphs": [
+      "Você escolheu transformar a montagem em uma atividade de parceria e começar uma habilidade nova entendendo sua lógica. As duas escolhas podem se encontrar em uma experiência simples: aprender com alguém que explica o motivo de cada passo e deixa espaço para perguntar.",
+      "Estar em companhia e querer compreender não são preferências concorrentes. Talvez uma conversa ou demonstração bem explicada ajude a começar; depois, testar uma parte por conta própria permite perceber o que você já consegue fazer."
+    ],
+    "kind": "contextual"
+  }
+]
