@@ -1,0 +1,11 @@
+import {readdirSync} from 'node:fs';
+import {spawn} from 'node:child_process';import {createRequire} from 'node:module';import {resolve} from 'node:path';import assert from 'node:assert/strict';
+if(readdirSync('.').some(n=>/^\.env($|\.)/i.test(n)&&n!=='.env.example'))throw Error('Run only in a clean build copy without env files');
+const require=createRequire(import.meta.url),root=resolve('.'),origin='http://127.0.0.1:4195';
+const env=Object.fromEntries(['SystemRoot','WINDIR','TEMP','TMP','PATH','Path','LANG'].filter(k=>process.env[k]).map(k=>[k,process.env[k]]));
+Object.assign(env,{NODE_ENV:'production',NEXT_TELEMETRY_DISABLED:'1',NEXT_PUBLIC_SUPABASE_URL:'http://127.0.0.1:9',NEXT_PUBLIC_SUPABASE_ANON_KEY:'fictional-public-key',DNA_APP_ORIGIN:origin});
+const server=spawn(process.execPath,[require.resolve('next/dist/bin/next'),'start','--hostname','127.0.0.1','--port','4195'],{cwd:root,env,stdio:['ignore','pipe','pipe']});let logs='';server.stdout.on('data',b=>logs+=b);server.stderr.on('data',b=>logs+=b);server.on('error',e=>{logs+=e.message});
+try{let ready=false;for(let n=0;n<100;n++){if(server.exitCode!==null)throw Error(logs);try{const r=await fetch(origin);if(r.status===200){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,200));}assert(ready,'Local server unavailable');
+const cases=[['GET','/',200],...['/equipe','/equipe/acesso','/equipe/recuperar','/equipe/recuperar/confirmar','/equipe/recuperar/senha','/admin/integracao-v1'].map(p=>['GET',p,404]),...['GET','POST','DELETE'].map(m=>[m,'/api/v1/identity',404]),...['/api/v1/identity/recovery','/api/v1/identity/recovery/confirm','/api/v1/identity/password'].map(p=>['POST',p,404])];
+for(const [method,path,status]of cases){const r=await fetch(origin+path,{method,redirect:'manual',headers:{Origin:origin},...(method==='POST'?{body:'{}'}:{})});assert.equal(r.status,status,method+' '+path);console.log('PASS '+method+' '+path+' '+r.status);}console.log(cases.length+' real local HTTP checks passed, flags OFF.');
+}finally{server.kill();}

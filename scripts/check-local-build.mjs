@@ -1,0 +1,11 @@
+import { spawnSync } from 'node:child_process';
+import { readdirSync } from 'node:fs';
+import { createRequire } from 'node:module';
+import { resolve,dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..'),require=createRequire(import.meta.url);
+if(readdirSync(root).some(name=>/^\.env($|\.)/i.test(name)&&name!=='.env.example'))throw new Error('Env files present; review before local build.');
+const env=Object.fromEntries(['SystemRoot','WINDIR','TEMP','TMP','PATH','Path','LANG'].filter(k=>process.env[k]).map(k=>[k,process.env[k]]));
+Object.assign(env,{NODE_ENV:'production',NEXT_TELEMETRY_DISABLED:'1',NEXT_PUBLIC_SUPABASE_URL:'http://127.0.0.1:9',NEXT_PUBLIC_SUPABASE_ANON_KEY:'local-build-fictional-public-key'});
+const r=spawnSync(process.execPath,[require.resolve('next/dist/bin/next'),'build','--webpack'],{cwd:root,env,stdio:'inherit'});
+if(r.error)throw r.error;process.exitCode=r.status||0;

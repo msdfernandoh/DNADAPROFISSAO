@@ -21,7 +21,8 @@
     "scripts/test-integrated-journey.ts",
     "scripts/testing/**/*.ts",
     "lib/saas/**/*.ts",
-    "scripts/test-saas-readiness.ts"
+    "scripts/test-saas-readiness.ts",
+    "scripts/test-p3-security.ts"
   ],
   "exclude": [
     "node_modules",

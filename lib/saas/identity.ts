@@ -1,10 +1,11 @@
 export type Membership = { id: string; institution_id: string; user_id: string; role_code: 'institution_admin' | 'unit_manager' | 'seller'; active: boolean; scope_pending: boolean };
 export type PermissionGrant = { membership_id: string; institution_id: string; resource: string; action: string; scope_type: 'institution' | 'assigned_leads'; allowed: boolean };
-export type VerifiedIdentity = { userId: string; displayName: string; globalOwner: boolean; memberships: Membership[]; grants: PermissionGrant[]; institutionIds: string[] };
+export type VerifiedIdentity = { userId: string; sessionId?: string; displayName: string; globalOwner: boolean; memberships: Membership[]; grants: PermissionGrant[]; institutionIds: string[] };
 export type QueryResult = { data: unknown; error: unknown };
 export interface IdentityQuery extends PromiseLike<QueryResult> { eq(column: string, value: unknown): IdentityQuery; in(column: string, values: string[]): IdentityQuery; maybeSingle(): PromiseLike<QueryResult> }
 export interface IdentityClient {
  auth: { getUser(): Promise<{ data: { user: { id: string } | null }; error: unknown }> };
+ rpc(name: string): PromiseLike<QueryResult>;
  from(table: string): { select(columns: string): IdentityQuery };
 }
 export class IdentityUnavailable extends Error {}
@@ -15,6 +16,10 @@ export async function loadVerifiedIdentity(client: IdentityClient): Promise<Veri
  const auth = await client.auth.getUser();
  if (auth.error || !auth.data.user?.id) return null;
  const userId=auth.data.user.id;
+ // A valid unexpired JWT alone is insufficient after logout/revocation.
+ const session=await client.rpc('dna_current_session');
+ if(session.error)throw new IdentityUnavailable('Session verification unavailable');
+ const proof=row(session.data);if(!proof||proof.user_id!==userId||typeof proof.session_id!=='string'||!proof.session_id)return null;
  const profileResult=await client.from('user_profiles').select('id, display_name, active').eq('id',userId).maybeSingle();
  if(profileResult.error)throw new IdentityUnavailable('Identity read unavailable');
  const profile=row(profileResult.data);if(!profile||profile.id!==userId||profile.active!==true)return null;
@@ -32,7 +37,7 @@ export async function loadVerifiedIdentity(client: IdentityClient): Promise<Veri
  let grants:PermissionGrant[]=[];
  if(memberships.length){const result=await client.from('user_permission_grants').select('membership_id, institution_id, resource, action, scope_type, allowed').in('membership_id',memberships.map(m=>m.id));if(result.error)throw new IdentityUnavailable('Permission read unavailable');
  grants=rows(result.data).filter(g=>memberships.some(m=>m.id===g.membership_id&&m.institution_id===g.institution_id)&&typeof g.allowed==='boolean'&&['institution','assigned_leads'].includes(String(g.scope_type))&&typeof g.resource==='string'&&typeof g.action==='string') as unknown as PermissionGrant[];}
- return {userId,displayName:typeof profile.display_name==='string'?profile.display_name:'',globalOwner:owner?.user_id===userId&&owner.active===true,memberships,grants,institutionIds};
+ return {userId,sessionId:proof.session_id,displayName:typeof profile.display_name==='string'?profile.display_name:'',globalOwner:owner?.user_id===userId&&owner.active===true,memberships,grants,institutionIds};
 }
 export function canReviewDrafts(identity:VerifiedIdentity|null): boolean { return identity?.globalOwner===true; }
 /** Scoped foundation only. Lead/unit permissions remain disabled until their schema and RLS are validated. */
