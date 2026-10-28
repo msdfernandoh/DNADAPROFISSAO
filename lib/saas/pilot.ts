@@ -11,5 +11,5 @@ export function pilotIdentity(identity:VerifiedIdentity|null,env:FeatureEnvironm
  const memberships=identity.memberships.filter(m=>m.user_id===identity.userId&&m.active&&!m.scope_pending&&m.institution_id===institution&&identity.institutionIds.includes(institution));
  // A global-owner record is not sufficient for a pilot login: current institutional membership is mandatory.
  if(!memberships.length)return null;
- return {...identity,globalOwner:false,memberships,institutionIds:[institution],grants:identity.grants.filter(g=>g.institution_id===institution&&memberships.some(m=>m.id===g.membership_id))};
+ return {...identity,globalOwner:identity.globalOwner,memberships,institutionIds:[institution],grants:identity.grants.filter(g=>g.institution_id===institution&&memberships.some(m=>m.id===g.membership_id))};
 }

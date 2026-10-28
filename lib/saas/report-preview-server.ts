@@ -5,6 +5,7 @@ import {createServiceClient} from '@/lib/supabase/service';
 import {loadVerifiedIdentity,type IdentityClient} from './identity';
 import {pilotIdentity} from './pilot';
 import {participantDraftPreview,commercialReport,type IntegratedJourney} from '../questionnaire-engine/integration/journey';
+import {approvedParticipantReport} from './approved-report';
 /** Private draft only: authorization is checked on the stored target before reading a snapshot. */
 export async function previewStoredEvaluation(id:string){
  if(!evaluationFlags(process.env).draftPreview)throw Error('Preview disabled');
@@ -21,5 +22,9 @@ export async function previewStoredEvaluation(id:string){
  const j=r.v1_snapshot as IntegratedJourney;
  if(j.snapshot!==r.v1_snapshot_key||j.analysis?.revision!==r.v1_revision||j.scope?.participantId!==p.id||j.scope.institutionId!==p.institution_id||j.scope.unitId!==p.unit_id||j.scope.assignedUserId!==p.assigned_user_id||j.readiness?.contentHomologated!==false)throw Error('Snapshot unavailable');
  const actor={id:identity.userId,active:true,role:p.assigned_user_id===identity.userId?'seller' as const:'manager' as const,institutionIds:[p.institution_id],unitIds:[p.unit_id]};
- return {status:'draft_awaiting_homologation' as const,participant:participantDraftPreview(j,actor),commercial:commercialReport(j,actor),offersActive:false as const};
+ const approvalResult=await db.from('report_revision_approvals').select('revision,editorial_version,source_hash,approved_by,approved_at,active').eq('revision',r.v1_revision).eq('active',true).maybeSingle();
+ if(approvalResult.error)throw Error('Approval unavailable');
+ const a=approvalResult.data;
+ const approved=a?approvedParticipantReport(j,actor,{revision:a.revision,editorialVersion:a.editorial_version,sourceHash:a.source_hash,approvedBy:a.approved_by,approvedAt:a.approved_at,active:a.active}):null;
+ return {status:approved?'approved' as const:'draft_awaiting_homologation' as const,participant:approved||participantDraftPreview(j,actor),commercial:commercialReport(j,actor),offersActive:false as const};
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { DM_Sans, Playfair_Display } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
+import { PublicAnalytics } from "@/components/PublicAnalytics"
 import './globals.css'
 
 const dmSans = DM_Sans({ 
@@ -54,7 +54,7 @@ export default function RootLayout({
     <html lang="pt-BR" className={`${dmSans.variable} ${playfair.variable}`}>
       <body className="font-sans antialiased bg-[#0B0E1A] text-[#F5F7FF]">
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        {process.env.NODE_ENV === 'production' && <PublicAnalytics />}
       </body>
     </html>
   )
