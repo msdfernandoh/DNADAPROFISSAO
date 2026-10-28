@@ -1,0 +1,23 @@
+import Link from 'next/link';
+import {restoredProfiles,restoredPairs,restoreHumanized} from '@/lib/questionnaire-engine/individual/editorial/restore-humanized';
+import {buildRestoredReview} from '@/lib/questionnaire-engine/integration/restored-review-cases';
+
+export function RestoredProfiles(){return <div className="max-w-6xl mx-auto px-5 space-y-10">{restoredProfiles().map(p=><article className="border-t border-slate-600 py-8 space-y-5" key={p.code}>
+ <p className="text-amber-200 text-sm">PERFIL {p.code} · ADAPTAÇÃO EM REVISÃO</p><h2 className="font-serif text-3xl">{p.name}</h2><p className="text-xl leading-relaxed max-w-3xl">{p.opening}</p>
+ <blockquote className="font-serif text-2xl border-l-2 border-amber-400 pl-6 max-w-3xl">{p.analogy}</blockquote><p className="text-xs text-amber-100">Abertura, cenas, analogia e pontes novas, aguardando Carla. Referências preexistentes preservadas ao final.</p>
+ <h3 className="font-serif text-2xl">Cenas para se reconhecer</h3>{p.scenes.map(s=><p className="max-w-3xl leading-relaxed" key={s}>{s}</p>)}
+ <div className="grid md:grid-cols-2 gap-8"><section><h3 className="font-semibold">Forças da referência original</h3><ul className="list-disc pl-5 space-y-2">{p.strengths.map(s=><li key={s}>{s}</li>)}</ul></section><section><h3 className="font-semibold">Quando a força pesa</h3><ul className="list-disc pl-5 space-y-2">{p.attention.map(s=><li key={s}>{s}</li>)}</ul></section></div>
+ <div className="space-y-4 max-w-3xl"><p><b>Decisões. </b>{p.decisions}</p><p><b>Relações. </b>{p.relations}</p><p><b>Aprendizagem. </b>{p.learning}</p><p className="text-amber-100">{p.reflection}</p></div>
+ <details><summary>Fonte literal preservada para comparação</summary><p className="text-sm">{p.source}. A versão antiga contém afirmações absolutas; recuperá-la não significa aprová-las.</p><p>{p.original.opening}</p><p>{p.original.analogy}</p></details>
+ </article>)}</div>;}
+
+export function RestoredPairs(){const list=restoredPairs();return <div className="max-w-6xl mx-auto px-5 space-y-8">
+ <p>Os quatro blocos originais do Anexo B foram preservados. Os complementos estão identificados como novos. As cenas são referências para reflexão e não episódios atribuídos à vida de alguém.</p>
+ <nav aria-label="Combinações" className="flex flex-wrap gap-3">{list.map(p=><a className="underline text-amber-200" href={'#par-'+p.code} key={p.code}>{p.code}</a>)}</nav>
+ {list.map(p=>{const {journey}=buildRestoredReview(p.code),r=restoreHumanized(journey),refs=r.participant[4].paragraphs.flatMap(p=>p.evidenceRefs);return <article id={'par-'+p.code} key={p.code} className="border-t border-slate-600 py-8 space-y-5 scroll-mt-6">
+ <p className="text-amber-200">{p.code} · {p.title}</p><h2 className="font-serif text-3xl">{p.displayTitle}</h2><p className="text-xs">Título: novo, aguardando Carla.</p>
+ <div className="grid md:grid-cols-2 gap-8"><section className="space-y-4"><h3 className="font-serif text-2xl">Uma cena cotidiana</h3><p>{p.scene}</p><h3 className="font-serif text-2xl">As forças juntas</h3><p>{p.synergy}</p><h3 className="font-serif text-2xl">Quando uma puxa para cada lado</h3><p>{p.tension}</p><h3 className="font-serif text-2xl">Uma ação para experimentar</h3><p>{p.action}</p><p className="text-xs text-slate-400">Quatro blocos recuperados literalmente de {p.literalSource}.</p></section>
+ <section className="space-y-4"><h3 className="font-serif text-2xl">Uma imagem para pensar</h3><blockquote className="font-serif text-xl border-l-2 border-amber-400 pl-5">{p.analogy}</blockquote><h3 className="font-serif text-2xl">Uma contradição humana</h3><p>{p.contradiction}</p><h3 className="font-serif text-2xl">No trabalho e na rotina</h3><p>{p.routine}</p><h3 className="font-serif text-2xl">Um ponto de atenção</h3><p>Antes de reconhecer essa tensão como sua, compare-a com uma situação que viveu. Em que contexto ela aparece e em qual não aparece?</p><p className="text-xs text-amber-100">Analogia, contradição, rotina e pergunta de atenção: novos complementos em revisão.</p></section></div>
+ <details><summary>Respostas que sustentam o exemplo fictício {p.code}</summary><p className="text-sm">O motor confirmou este par com 15 respostas válidas. A narrativa individual usa as escolhas abaixo em lugar de atribuir a cena de referência ao participante.</p>{journey.analysis.evidence.filter(e=>refs.includes(e.id)).map(e=><p className="text-sm mt-3" key={e.id}><b>{e.questionId} · alternativa {e.letter}:</b> {e.selectedText}</p>)}</details>
+ <Link className="underline text-amber-200 inline-block" href={'?case='+encodeURIComponent(p.code)+'&view=participante'}>Ler relatório completo de {p.code}</Link>
+ </article>;})}</div>;}
