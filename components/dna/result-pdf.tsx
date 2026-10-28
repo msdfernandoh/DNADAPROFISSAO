@@ -1,5 +1,7 @@
 "use client"
 
+import { ProfessionalMarketSources } from "@/components/questionnaire-report/ProfessionalMarketSources"
+
 import { PROFILES, COURSES_BY_PROFILE, type ProfileKey } from "@/lib/dna-data"
 import { useRef, useState } from "react"
 import html2canvas from "html2canvas"
@@ -112,8 +114,6 @@ export function ResultPDF({ name, primaryProfile, secondaryProfile, percentages 
   const firstName = name.split(" ")[0]
   // Tema dinâmico do perfil (cada perfil tem identidade visual própria)
   const T = primary.theme
-  const fmtMoney = (v: number) =>
-    `R$ ${v.toLocaleString("pt-BR", { minimumFractionDigits: 0 })}`
 
   const generatePDF = async () => {
     if (!containerRef.current) return
@@ -906,132 +906,18 @@ export function ResultPDF({ name, primaryProfile, secondaryProfile, percentages 
 
         {/* ───── PÁGINA SALÁRIOS — IMPACTO DE MERCADO ───── */}
         <Page id="p-salaries" bg={C.bgPage}>
-          <div className="h-full flex flex-col p-12">
-            <div className="flex justify-between items-center pb-5 border-b" style={{ borderColor: `${T.primary}66` }}>
+          <div className="h-full flex flex-col p-14">
+            <div className="flex justify-between items-center pb-5 border-b" style={{ borderColor: T.primary }}>
               <Logo small />
-              <div className="text-[10px] tracking-[0.2em] font-bold" style={{ color: T.primaryDark }}>
-                SALÁRIOS DE MERCADO
-              </div>
+              <div className="text-[10px] tracking-[0.2em] font-bold" style={{ color: T.primaryDark }}>MERCADO PROFISSIONAL</div>
             </div>
-
-            <div className="flex-1 flex flex-col py-6">
-              <div className="text-[11px] tracking-[0.3em] font-bold mb-3" style={{ color: T.primaryDark }}>
-                ━━━ DADOS REAIS DE MERCADO · BRASIL 2024/25
-              </div>
-
-              <h2
-                className="font-black leading-tight mb-3"
-                style={{
-                  fontFamily: "'Playfair Display', serif",
-                  fontSize: 40,
-                  color: C.purple,
-                }}
-              >
-                Quanto ganha quem<br />
-                <span style={{ color: T.primaryDark }}>vive seu DNA, {firstName}?</span>
+            <div className="flex-1 py-6">
+              <h2 className="font-black leading-tight mb-5" style={{ fontFamily: "'Playfair Display', serif", fontSize: 36, color: C.purple }}>
+                Explore o mercado,<br />{firstName}
               </h2>
-
-              <p className="text-[14px] leading-relaxed mb-5 max-w-[640px]" style={{ color: C.textDark }}>
-                As profissões alinhadas com o seu perfil <strong style={{ color: T.primaryDark }}>{primary.name}</strong> oferecem remunerações que vão muito além do salário médio brasileiro. Veja os números:
-              </p>
-
-              {/* Hero card com salário máximo */}
-              <div
-                className="rounded-2xl p-6 mb-5 relative overflow-hidden"
-                style={{
-                  background: `linear-gradient(135deg, ${T.primaryDark}, ${C.navy})`,
-                  border: `2px solid ${T.primary}`,
-                }}
-              >
-                <div
-                  className="absolute"
-                  style={{
-                    top: -40,
-                    right: -40,
-                    fontSize: 200,
-                    opacity: 0.08,
-                    lineHeight: 1,
-                  }}
-                >
-                  {T.coverEmoji}
-                </div>
-                <div className="relative">
-                  <div className="text-[10px] tracking-[0.3em] font-bold mb-1" style={{ color: T.primaryLight }}>
-                    POTENCIAL DE GANHO MENSAL
-                  </div>
-                  <div className="flex items-baseline gap-2 flex-wrap">
-                    <div
-                      className="font-black leading-none"
-                      style={{
-                        fontFamily: "'Playfair Display', serif",
-                        fontSize: 64,
-                        background: `linear-gradient(135deg, ${T.primaryLight}, ${C.white})`,
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                      }}
-                    >
-                      {fmtMoney(primary.topSalary)}+
-                    </div>
-                    <div className="text-[14px]" style={{ color: T.primaryLight }}>
-                      / mês
-                    </div>
-                  </div>
-                  <div className="text-[12px] mt-2" style={{ color: C.cream }}>
-                    com formação correta, experiência e perfil alinhado
-                  </div>
-                </div>
-              </div>
-
-              {/* Tabela de salários */}
-              <div className="rounded-2xl overflow-hidden" style={{ background: C.white, border: `1px solid ${T.primary}44` }}>
-                <div className="grid grid-cols-12 px-5 py-3" style={{ background: `${T.primaryDark}`, color: C.white }}>
-                  <div className="col-span-7 text-[10px] tracking-[0.2em] font-bold">PROFISSÃO</div>
-                  <div className="col-span-5 text-[10px] tracking-[0.2em] font-bold text-right">FAIXA SALARIAL</div>
-                </div>
-                {primary.salaries.map((s, i) => (
-                  <div
-                    key={i}
-                    className="grid grid-cols-12 px-5 py-3 items-center"
-                    style={{
-                      borderTop: i === 0 ? "none" : `1px solid ${T.primary}22`,
-                    }}
-                  >
-                    <div className="col-span-7">
-                      <div className="text-[13px] font-bold" style={{ color: C.textDark }}>
-                        {s.role}
-                      </div>
-                      {s.note && (
-                        <div className="text-[10px] italic" style={{ color: C.textMuted }}>
-                          {s.note}
-                        </div>
-                      )}
-                    </div>
-                    <div className="col-span-5 text-right">
-                      <div className="text-[14px] font-black" style={{ color: T.primaryDark, fontFamily: "'Playfair Display', serif" }}>
-                        {fmtMoney(s.min)} – {fmtMoney(s.max)}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div
-                className="rounded-xl p-4 mt-5 flex items-start gap-3"
-                style={{
-                  background: `${T.primary}11`,
-                  border: `1px solid ${T.primary}55`,
-                }}
-              >
-                <div className="text-[20px]">💡</div>
-                <p className="text-[12px] leading-relaxed" style={{ color: C.textDark }}>
-                  <strong style={{ color: T.primaryDark }}>{firstName}</strong>, esses números não são teoria — são dados reais coletados em pesquisas de mercado, sites de vagas (Glassdoor, Catho) e relatórios da Robert Half. <strong>O que separa quem ganha o mínimo de quem ganha o máximo é a formação e o autoconhecimento.</strong> E você acabou de dar o primeiro passo.
-                </p>
-              </div>
+              <ProfessionalMarketSources />
             </div>
-
-            <div className="text-center text-[10px]" style={{ color: C.textMuted }}>
-              Fontes: Robert Half · Catho · Glassdoor · Pesquisa Salarial 2024/25 · Brasil
-            </div>
+            <div className="text-center text-[10px]" style={{ color: '#505973' }}>Fontes de consulta · sem promessa de salário, vaga ou concurso aberto</div>
           </div>
         </Page>
 
@@ -1135,7 +1021,7 @@ export function ResultPDF({ name, primaryProfile, secondaryProfile, percentages 
                   ✦ O DETALHE QUE MUDA TUDO
                 </div>
                 <p className="text-[14px] leading-relaxed" style={{ color: C.cream }}>
-                  Com o seu perfil <strong style={{ color: T.primaryLight }}>{primary.name}</strong> e a formação correta, profissionais como você chegam a ganhar até <strong style={{ color: T.primaryLight, fontFamily: "'Playfair Display', serif", fontSize: 18 }}>{fmtMoney(primary.topSalary)}+</strong> por mês. Os salários nessas áreas são <em>surpreendentes</em> — e estão ao seu alcance.
+                  Escolha uma atividade que queira conhecer melhor. Consulte a formação exigida e as oportunidades da sua região; depois, converse com um profissional da área para decidir seu próximo passo.
                 </p>
               </div>
 
