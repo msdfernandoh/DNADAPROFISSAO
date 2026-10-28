@@ -1,0 +1,81 @@
+▲ Next.js 16.2.6 (webpack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 8.1s
+  Running TypeScript ...
+  Finished TypeScript in 5.7s ...
+  Collecting page data using 15 workers ...
+  Generating static pages using 15 workers (0/26) ...
+  Generating static pages using 15 workers (6/26)
+  Generating static pages using 15 workers (12/26)
+  Generating static pages using 15 workers (19/26)
+✓ Generating static pages using 15 workers (26/26) in 364ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /admin
+├ ○ /admin/cidades
+├ ○ /admin/cursos
+├ ƒ /admin/integracao-v1
+├ ○ /admin/questionarios
+├ ƒ /admin/questionarios/[id]
+├ ƒ /admin/questionarios/[id]/leads
+├ ƒ /admin/questionarios/[id]/perfis
+├ ƒ /admin/questionarios/[id]/perguntas
+├ ƒ /admin/questionarios/[id]/preview
+├ ƒ /admin/questionarios/[id]/relatorio
+├ ○ /admin/questionarios/novo
+├ ○ /admin/senha
+├ ○ /admin/vendedores
+├ ƒ /api/admin/login
+├ ƒ /api/admin/participants
+├ ƒ /api/admin/password
+├ ƒ /api/admin/settings
+├ ƒ /api/admin/vendors
+├ ƒ /api/cities
+├ ƒ /api/courses
+├ ƒ /api/courses/import
+├ ƒ /api/participants
+├ ƒ /api/settings/public
+├ ƒ /api/v1/evaluations/[id]/complete
+├ ƒ /api/v1/evaluations/[id]/preview
+├ ƒ /api/v1/identity
+├ ƒ /api/v1/identity/password
+├ ƒ /api/v1/identity/recovery
+├ ƒ /api/v1/identity/recovery/confirm
+├ ƒ /api/v2/admin/questionnaires
+├ ƒ /api/v2/admin/questionnaires/[id]
+├ ƒ /api/v2/admin/questionnaires/[id]/participants
+├ ƒ /api/v2/admin/questionnaires/[id]/profiles
+├ ƒ /api/v2/admin/questionnaires/[id]/publish
+├ ƒ /api/v2/admin/questionnaires/[id]/questions
+├ ƒ /api/v2/admin/questionnaires/[id]/questions/[questionId]
+├ ƒ /api/v2/admin/questionnaires/[id]/questions/[questionId]/alternatives
+├ ƒ /api/v2/admin/questionnaires/[id]/report-contents
+├ ƒ /api/v2/admin/questionnaires/[id]/report-preview
+├ ƒ /api/v2/admin/questionnaires/[id]/unpublish
+├ ƒ /api/v2/admin/questionnaires/[id]/weights
+├ ƒ /api/v2/participants
+├ ƒ /api/v2/participants/[id]/answers
+├ ƒ /api/v2/participants/[id]/complete
+├ ƒ /api/v2/questionnaires/public/[slug]
+├ ƒ /api/vendors/public
+├ ƒ /equipe
+├ ƒ /equipe/acesso
+├ ƒ /equipe/avaliacoes/[id]
+├ ƒ /equipe/recuperar
+├ ƒ /equipe/recuperar/confirmar
+├ ƒ /equipe/recuperar/senha
+├ ƒ /q/[slug]
+├ ○ /resultado
+├ ○ /robots.txt
+└ ○ /sitemap.xml
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand

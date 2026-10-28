@@ -1,6 +1,8 @@
 # Aprovação do ensaio de recuperação — piloto Sinop
 
-Preparação autorizada; criação de projeto, cópia e cobrança NÃO autorizadas.
+**STATUS ATUAL: proposta de outro projeto CANCELADA pela direção em 28/10/2026. Não criar recurso, não copiar backup e não contratar serviço. O restante é referência histórica da opção avaliada, não instrução de execução.**
+
+A direção autorizou reapresentar a P3 002 sob controles incrementais e sem custo, registrando a ausência de restore comprovado. A revisão automática rejeitou novamente a aplicação por falta dessa prova. Nenhuma mudança estrutural foi feita.
 
 ## Destino proposto
 - Recurso: projeto temporário Supabase independente, via Restore to a New Project, não branch e nunca restauração sobre a origem.

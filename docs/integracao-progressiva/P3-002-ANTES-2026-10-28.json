@@ -1,0 +1,645 @@
+{
+  "p3": false,
+  "rls": [
+    {
+      "acl": [
+        "postgres=arwdDxtm/postgres",
+        "service_role=arwdDxtm/postgres"
+      ],
+      "table": "credit_events_v2",
+      "enabled": true
+    },
+    {
+      "acl": [
+        "postgres=arwdDxtm/postgres",
+        "service_role=arwdDxtm/postgres"
+      ],
+      "table": "participants_v2",
+      "enabled": true
+    },
+    {
+      "acl": [
+        "postgres=arwdDxtm/postgres",
+        "service_role=arwdDxtm/postgres"
+      ],
+      "table": "questionnaire_results",
+      "enabled": true
+    },
+    {
+      "acl": [
+        "postgres=arwdDxtm/postgres",
+        "service_role=arwdDxtm/postgres"
+      ],
+      "table": "units_v2",
+      "enabled": true
+    }
+  ],
+  "counts": {
+    "v2": 0,
+    "units": 0,
+    "legacy": 173,
+    "credits": 0,
+    "results": 0
+  },
+  "columns": [
+    {
+      "table": "institution_memberships",
+      "name": "id",
+      "type": "uuid",
+      "nullable": "NO",
+      "default": "gen_random_uuid()"
+    },
+    {
+      "table": "institution_memberships",
+      "name": "institution_id",
+      "type": "uuid",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "institution_memberships",
+      "name": "user_id",
+      "type": "uuid",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "institution_memberships",
+      "name": "active",
+      "type": "boolean",
+      "nullable": "NO",
+      "default": "true"
+    },
+    {
+      "table": "institution_memberships",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "nullable": "NO",
+      "default": "now()"
+    },
+    {
+      "table": "institution_memberships",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "nullable": "NO",
+      "default": "now()"
+    },
+    {
+      "table": "institution_memberships",
+      "name": "role_code",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "institution_memberships",
+      "name": "scope_pending",
+      "type": "boolean",
+      "nullable": "NO",
+      "default": "true"
+    },
+    {
+      "table": "participants_v2",
+      "name": "id",
+      "type": "uuid",
+      "nullable": "NO",
+      "default": "gen_random_uuid()"
+    },
+    {
+      "table": "participants_v2",
+      "name": "questionnaire_id",
+      "type": "uuid",
+      "nullable": "YES",
+      "default": null
+    },
+    {
+      "table": "participants_v2",
+      "name": "name",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "participants_v2",
+      "name": "phone",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "participants_v2",
+      "name": "email",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "participants_v2",
+      "name": "city",
+      "type": "text",
+      "nullable": "YES",
+      "default": null
+    },
+    {
+      "table": "participants_v2",
+      "name": "course_interest",
+      "type": "text",
+      "nullable": "YES",
+      "default": null
+    },
+    {
+      "table": "participants_v2",
+      "name": "escolaridade",
+      "type": "text",
+      "nullable": "YES",
+      "default": null
+    },
+    {
+      "table": "participants_v2",
+      "name": "vendor_slug",
+      "type": "text",
+      "nullable": "YES",
+      "default": null
+    },
+    {
+      "table": "participants_v2",
+      "name": "status",
+      "type": "text",
+      "nullable": "NO",
+      "default": "'Aguardando teste'::text"
+    },
+    {
+      "table": "participants_v2",
+      "name": "notes",
+      "type": "text",
+      "nullable": "YES",
+      "default": null
+    },
+    {
+      "table": "participants_v2",
+      "name": "quiz_completed",
+      "type": "boolean",
+      "nullable": "NO",
+      "default": "false"
+    },
+    {
+      "table": "participants_v2",
+      "name": "quiz_completed_at",
+      "type": "timestamp with time zone",
+      "nullable": "YES",
+      "default": null
+    },
+    {
+      "table": "participants_v2",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "nullable": "NO",
+      "default": "now()"
+    },
+    {
+      "table": "participants_v2",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "nullable": "NO",
+      "default": "now()"
+    },
+    {
+      "table": "participants_v2",
+      "name": "unit_id",
+      "type": "uuid",
+      "nullable": "YES",
+      "default": null
+    },
+    {
+      "table": "participants_v2",
+      "name": "seller_id",
+      "type": "uuid",
+      "nullable": "YES",
+      "default": null
+    },
+    {
+      "table": "participants_v2",
+      "name": "source_link",
+      "type": "text",
+      "nullable": "YES",
+      "default": null
+    },
+    {
+      "table": "units_v2",
+      "name": "id",
+      "type": "uuid",
+      "nullable": "NO",
+      "default": "gen_random_uuid()"
+    },
+    {
+      "table": "units_v2",
+      "name": "name",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "units_v2",
+      "name": "slug",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "units_v2",
+      "name": "whatsapp_default",
+      "type": "text",
+      "nullable": "YES",
+      "default": null
+    },
+    {
+      "table": "units_v2",
+      "name": "monthly_credit_limit",
+      "type": "integer",
+      "nullable": "NO",
+      "default": "0"
+    },
+    {
+      "table": "units_v2",
+      "name": "credits_used",
+      "type": "integer",
+      "nullable": "NO",
+      "default": "0"
+    },
+    {
+      "table": "units_v2",
+      "name": "active",
+      "type": "boolean",
+      "nullable": "NO",
+      "default": "true"
+    },
+    {
+      "table": "units_v2",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "nullable": "NO",
+      "default": "now()"
+    },
+    {
+      "table": "units_v2",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "nullable": "NO",
+      "default": "now()"
+    },
+    {
+      "table": "user_permission_grants",
+      "name": "id",
+      "type": "uuid",
+      "nullable": "NO",
+      "default": "gen_random_uuid()"
+    },
+    {
+      "table": "user_permission_grants",
+      "name": "membership_id",
+      "type": "uuid",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "user_permission_grants",
+      "name": "institution_id",
+      "type": "uuid",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "user_permission_grants",
+      "name": "resource",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "user_permission_grants",
+      "name": "action",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "user_permission_grants",
+      "name": "scope_type",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "user_permission_grants",
+      "name": "allowed",
+      "type": "boolean",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "user_permission_grants",
+      "name": "granted_by",
+      "type": "uuid",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "user_permission_grants",
+      "name": "reason",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "user_permission_grants",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "nullable": "NO",
+      "default": "now()"
+    }
+  ],
+  "helpers": [
+    {
+      "acl": [
+        "postgres=X/postgres",
+        "authenticated=X/postgres"
+      ],
+      "def": "CREATE OR REPLACE FUNCTION dna_private.is_platform_owner()\n RETURNS boolean\n LANGUAGE sql\n STABLE SECURITY DEFINER\n SET search_path TO ''\nAS $function$\n SELECT EXISTS(SELECT 1 FROM public.platform_owners o JOIN public.user_profiles p ON p.id=o.user_id WHERE o.user_id=(SELECT auth.uid()) AND o.active AND p.active)\n$function$\n",
+      "name": "is_platform_owner"
+    },
+    {
+      "acl": [
+        "postgres=X/postgres",
+        "authenticated=X/postgres"
+      ],
+      "def": "CREATE OR REPLACE FUNCTION dna_private.has_institution_membership(target uuid)\n RETURNS boolean\n LANGUAGE sql\n STABLE SECURITY DEFINER\n SET search_path TO ''\nAS $function$\n SELECT EXISTS(SELECT 1 FROM public.institution_memberships m JOIN public.user_profiles p ON p.id=m.user_id JOIN public.institutions i ON i.id=m.institution_id WHERE m.user_id=(SELECT auth.uid()) AND m.institution_id=target AND m.active AND p.active AND i.active)\n$function$\n",
+      "name": "has_institution_membership"
+    },
+    {
+      "acl": [
+        "postgres=X/postgres",
+        "authenticated=X/postgres"
+      ],
+      "def": "CREATE OR REPLACE FUNCTION dna_private.is_institution_admin(target uuid)\n RETURNS boolean\n LANGUAGE sql\n STABLE SECURITY DEFINER\n SET search_path TO ''\nAS $function$\n SELECT EXISTS(SELECT 1 FROM public.institution_memberships m JOIN public.user_profiles p ON p.id=m.user_id JOIN public.institutions i ON i.id=m.institution_id WHERE m.user_id=(SELECT auth.uid()) AND m.institution_id=target AND m.active AND p.active AND i.active AND NOT m.scope_pending AND m.role_code='institution_admin')\n$function$\n",
+      "name": "is_institution_admin"
+    },
+    {
+      "acl": [
+        "postgres=X/postgres",
+        "authenticated=X/postgres"
+      ],
+      "def": "CREATE OR REPLACE FUNCTION dna_private.is_active_user()\n RETURNS boolean\n LANGUAGE sql\n STABLE SECURITY DEFINER\n SET search_path TO ''\nAS $function$\n SELECT EXISTS(SELECT 1 FROM public.user_profiles p WHERE p.id=(SELECT auth.uid()) AND p.active)\n$function$\n",
+      "name": "is_active_user"
+    }
+  ],
+  "policies": [
+    {
+      "cmd": "SELECT",
+      "qual": "(key = ANY (ARRAY['dna_rapido_button_enabled'::text, 'dna_rapido_question_indices'::text]))",
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "tablename": "app_settings",
+      "permissive": "PERMISSIVE",
+      "policyname": "dna_public_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "(active AND (status = 'published'::text))",
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "tablename": "questionnaires",
+      "permissive": "PERMISSIVE",
+      "policyname": "dna_public_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "(active AND (EXISTS ( SELECT 1\n   FROM questionnaires q\n  WHERE ((q.id = questionnaire_profiles.questionnaire_id) AND q.active AND (q.status = 'published'::text)))))",
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "tablename": "questionnaire_profiles",
+      "permissive": "PERMISSIVE",
+      "policyname": "dna_public_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "(active AND (EXISTS ( SELECT 1\n   FROM questionnaires q\n  WHERE ((q.id = questions.questionnaire_id) AND q.active AND (q.status = 'published'::text)))))",
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "tablename": "questions",
+      "permissive": "PERMISSIVE",
+      "policyname": "dna_public_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "(active AND (EXISTS ( SELECT 1\n   FROM questions q\n  WHERE ((q.id = alternatives.question_id) AND q.active))))",
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "tablename": "alternatives",
+      "permissive": "PERMISSIVE",
+      "policyname": "dna_public_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "((EXISTS ( SELECT 1\n   FROM alternatives a\n  WHERE ((a.id = alternative_weights.alternative_id) AND a.active))) AND (EXISTS ( SELECT 1\n   FROM questionnaire_profiles p\n  WHERE ((p.id = alternative_weights.profile_id) AND p.active))))",
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "tablename": "alternative_weights",
+      "permissive": "PERMISSIVE",
+      "policyname": "dna_public_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "(dna_private.is_platform_owner() OR dna_private.has_institution_membership(id))",
+      "roles": [
+        "authenticated"
+      ],
+      "tablename": "institutions",
+      "permissive": "PERMISSIVE",
+      "policyname": "dna_institutions_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "(dna_private.is_platform_owner() OR ((id = ( SELECT auth.uid() AS uid)) AND dna_private.is_active_user()))",
+      "roles": [
+        "authenticated"
+      ],
+      "tablename": "user_profiles",
+      "permissive": "PERMISSIVE",
+      "policyname": "dna_profiles_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "dna_private.is_platform_owner()",
+      "roles": [
+        "authenticated"
+      ],
+      "tablename": "platform_owners",
+      "permissive": "PERMISSIVE",
+      "policyname": "dna_owners_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "(dna_private.is_platform_owner() OR dna_private.is_institution_admin(institution_id) OR ((user_id = ( SELECT auth.uid() AS uid)) AND dna_private.is_active_user()))",
+      "roles": [
+        "authenticated"
+      ],
+      "tablename": "institution_memberships",
+      "permissive": "PERMISSIVE",
+      "policyname": "dna_memberships_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "(dna_private.is_platform_owner() OR dna_private.is_institution_admin(institution_id) OR ((EXISTS ( SELECT 1\n   FROM institution_memberships m\n  WHERE ((m.id = user_permission_grants.membership_id) AND (m.user_id = ( SELECT auth.uid() AS uid))))) AND dna_private.is_active_user()))",
+      "roles": [
+        "authenticated"
+      ],
+      "tablename": "user_permission_grants",
+      "permissive": "PERMISSIVE",
+      "policyname": "dna_permission_grants_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "dna_private.is_platform_owner()",
+      "roles": [
+        "authenticated"
+      ],
+      "tablename": "access_audit_events",
+      "permissive": "PERMISSIVE",
+      "policyname": "dna_audit_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "true",
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "tablename": "cities",
+      "permissive": "PERMISSIVE",
+      "policyname": "dna_public_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "true",
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "tablename": "courses",
+      "permissive": "PERMISSIVE",
+      "policyname": "dna_public_read",
+      "schemaname": "public",
+      "with_check": null
+    }
+  ],
+  "constraints": [
+    {
+      "def": "PRIMARY KEY (id)",
+      "name": "participants_v2_pkey",
+      "table": "participants_v2"
+    },
+    {
+      "def": "FOREIGN KEY (questionnaire_id) REFERENCES questionnaires(id)",
+      "name": "participants_v2_questionnaire_id_fkey",
+      "table": "participants_v2"
+    },
+    {
+      "def": "FOREIGN KEY (seller_id) REFERENCES sellers_v2(id) ON DELETE SET NULL",
+      "name": "participants_v2_seller_id_fkey",
+      "table": "participants_v2"
+    },
+    {
+      "def": "FOREIGN KEY (unit_id) REFERENCES units_v2(id) ON DELETE SET NULL",
+      "name": "participants_v2_unit_id_fkey",
+      "table": "participants_v2"
+    },
+    {
+      "def": "CHECK ((credits_used >= 0))",
+      "name": "units_v2_credits_used_nonneg",
+      "table": "units_v2"
+    },
+    {
+      "def": "CHECK ((monthly_credit_limit >= 0))",
+      "name": "units_v2_monthly_limit_nonneg",
+      "table": "units_v2"
+    },
+    {
+      "def": "PRIMARY KEY (id)",
+      "name": "units_v2_pkey",
+      "table": "units_v2"
+    },
+    {
+      "def": "UNIQUE (slug)",
+      "name": "units_v2_slug_key",
+      "table": "units_v2"
+    },
+    {
+      "def": "UNIQUE (id, institution_id)",
+      "name": "institution_memberships_id_institution_id_key",
+      "table": "institution_memberships"
+    },
+    {
+      "def": "FOREIGN KEY (institution_id) REFERENCES institutions(id) ON DELETE RESTRICT",
+      "name": "institution_memberships_institution_id_fkey",
+      "table": "institution_memberships"
+    },
+    {
+      "def": "UNIQUE (institution_id, user_id)",
+      "name": "institution_memberships_institution_id_user_id_key",
+      "table": "institution_memberships"
+    },
+    {
+      "def": "PRIMARY KEY (id)",
+      "name": "institution_memberships_pkey",
+      "table": "institution_memberships"
+    },
+    {
+      "def": "CHECK ((role_code = ANY (ARRAY['institution_admin'::text, 'unit_manager'::text, 'seller'::text])))",
+      "name": "institution_memberships_role_code_check",
+      "table": "institution_memberships"
+    },
+    {
+      "def": "FOREIGN KEY (user_id) REFERENCES user_profiles(id) ON DELETE RESTRICT",
+      "name": "institution_memberships_user_id_fkey",
+      "table": "institution_memberships"
+    }
+  ]
+}

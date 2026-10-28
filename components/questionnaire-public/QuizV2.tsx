@@ -1,16 +1,17 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useMemo, useRef, useState } from "react"
 import { G } from "@/lib/dna-data"
 import type { PublicQuestion } from "@/lib/questionnaire-platform/public-funnel"
 
 type Props = {
   questions: PublicQuestion[]
   participantId: string
+  submitAnswers?: (answers: {questionId:string;alternativeId:string}[]) => Promise<{state:'committed'|'no_credit'}>
   onDone: (meta?: { consultantWhatsapp?: string | null }) => void
 }
 
-export function QuizV2({ questions, participantId, onDone }: Props) {
+export function QuizV2({ questions, participantId, onDone, submitAnswers }: Props) {
   const sorted = useMemo(
     () => [...questions].sort((a, b) => a.order - b.order),
     [questions]
@@ -21,13 +22,14 @@ export function QuizV2({ questions, participantId, onDone }: Props) {
   const [submitting, setSubmitting] = useState(false)
   const [err, setErr] = useState<string | null>(null)
 
+  const pending = useRef(false)
   const current = sorted[index]
   const total = sorted.length
   const progress = total > 0 ? ((index + 1) / total) * 100 : 0
   const selected = current ? answers[current.id] : undefined
 
   const goNext = async () => {
-    if (!current) return
+    if (!current || pending.current) return
     if (!selected) {
       setErr("Selecione uma alternativa para continuar.")
       return
@@ -40,6 +42,7 @@ export function QuizV2({ questions, participantId, onDone }: Props) {
       return
     }
 
+    pending.current = true
     setSubmitting(true)
     try {
       const missing = sorted.filter(q => !answers[q.id])
@@ -54,6 +57,17 @@ export function QuizV2({ questions, participantId, onDone }: Props) {
           questionId: q.id,
           alternativeId: answers[q.id],
         })),
+      }
+
+      if (submitAnswers) {
+        const receipt = await submitAnswers(payload.answers)
+        if (receipt.state === 'no_credit') {
+          setErr("As respostas foram salvas, mas a avaliação ainda não foi concluída por falta de créditos disponíveis.")
+          return
+        }
+        if (receipt.state !== 'committed') throw new Error("Conclusão sem confirmação")
+        onDone()
+        return
       }
 
       const saveRes = await fetch(`/api/v2/participants/${participantId}/answers`, {
@@ -80,6 +94,7 @@ export function QuizV2({ questions, participantId, onDone }: Props) {
     } catch {
       setErr("Falha de rede. Tente novamente.")
     } finally {
+      pending.current = false
       setSubmitting(false)
     }
   }
@@ -140,6 +155,8 @@ export function QuizV2({ questions, participantId, onDone }: Props) {
               <button
                 key={alt.id}
                 type="button"
+                disabled={submitting}
+                aria-pressed={active}
                 onClick={() => {
                   setAnswers(a => ({ ...a, [current.id]: alt.id }))
                   setErr(null)
@@ -158,7 +175,7 @@ export function QuizV2({ questions, participantId, onDone }: Props) {
         </div>
 
         {err ? (
-          <p className="text-xs text-center" style={{ color: "#F87171" }}>
+          <p role="alert" className="text-xs text-center" style={{ color: "#F87171" }}>
             {err}
           </p>
         ) : null}
