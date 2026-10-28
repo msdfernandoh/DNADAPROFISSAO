@@ -52,6 +52,11 @@ try{
  await db.query("UPDATE public.institution_memberships SET role_code='seller'");await assert.rejects(register(reg));pass('seller cannot create despite forged or leftover create grant');
  await db.query("UPDATE public.institution_memberships SET role_code='institution_admin',active=false");await assert.rejects(register(reg));pass('revoked membership immediately denied');
  assert.equal((await db.query('SELECT count(*)::integer AS n FROM public.credit_events_v2')).rows[0].n,0);assert.equal((await db.query('SELECT count(*)::integer AS n FROM public.participants_v2')).rows[0].n,1);pass('registration has no credit event or completed result');
+ await db.exec(await fs.readFile('supabase/migrations/20261028170522_dna_authorized_credit_summary.sql','utf8'));
+ await db.query("UPDATE public.institution_memberships SET role_code='institution_admin',active=true");
+ await db.query("INSERT INTO public.credit_events_v2(institution_id,type,amount) VALUES($1,'v1_grant',1000)",[tenant]);
+ await db.exec('SET ROLE authenticated');let summary=(await db.query('SELECT public.dna_credit_summary($1) AS value',[tenant])).rows[0].value;await db.exec('RESET ROLE');assert.equal(summary.balance,1000);assert.equal(summary.events.length,1);
+ await db.query("UPDATE public.institution_memberships SET role_code='seller'");await db.exec('SET ROLE authenticated');await assert.rejects(db.query('SELECT public.dna_credit_summary($1)',[tenant]));await db.exec('RESET ROLE');pass('credit balance exact and denied to seller');
  console.log(JSON.stringify({passed:checks,productionAccess:false}));
 
 }finally{await db.close();console.log('Local PostgreSQL closed; fictitious records only.');}
