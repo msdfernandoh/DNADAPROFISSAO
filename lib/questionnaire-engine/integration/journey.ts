@@ -1,3 +1,4 @@
+import {profileDisplaySummary} from './profile-summary';
 import { createHash } from 'node:crypto';
 import officialQuestions from '../__fixtures__/individual/questions.json';
 import { createIndividualInstrument } from '../individual/instrument';
@@ -133,7 +134,7 @@ export function participantDraftPreview(j: IntegratedJourney, actor: ReportActor
     if (!canReadReport(actor, j.scope, 'commercial'))
         throw new JourneyInputError('Prévia restrita à equipe autorizada.');
     const valid = j.editorial.participant.sections.filter(s => !j.readiness.missingSections.includes(s.number) && !j.readiness.unsafeSections.includes(s.number));
-    return { audience: 'participant' as const, name: j.registration.name, scores: { ...j.analysis.scores }, classification: JSON.parse(JSON.stringify(j.analysis.classification)) as typeof j.analysis.classification,
+    return { audience: 'participant' as const, name: j.registration.name, profiles: profileDisplaySummary(j.analysis), scores: { ...j.analysis.scores }, classification: JSON.parse(JSON.stringify(j.analysis.classification)) as typeof j.analysis.classification,
         sections: valid.map(s => ({ number: s.number, title: s.title, paragraphs: s.paragraphs.map(p => p.text).filter(t => t.trim()) })),
         orientation: { introduction: j.orientation.introduction, experiments: j.orientation.experiments.map(e => ({ theme: e.theme, observation: e.observation, experience: e.experience, question: e.question, professionalActivity: e.professionalActivity })), questions: j.orientation.questions.filter(t => t.trim()) },
         courses: j.orientation.exploratoryCourses.map(c => ({ name: c.courseName, level: c.level, why: c.whyIncluded, activity: c.concreteActivity, investigate: c.whatToInvestigate, individualPrompt: c.individualPrompt.text, enrollmentOfferAllowed: false as const }))

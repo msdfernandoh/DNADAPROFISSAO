@@ -1,0 +1,16 @@
+PASS GET / 200
+PASS POST /api/v1/evaluations/00000000-0000-4000-8000-000000000001/complete 404
+PASS GET /api/v1/evaluations/00000000-0000-4000-8000-000000000001/preview 404
+PASS GET /equipe 404
+PASS GET /equipe/acesso 404
+PASS GET /equipe/recuperar 404
+PASS GET /equipe/recuperar/confirmar 404
+PASS GET /equipe/recuperar/senha 404
+PASS GET /admin/integracao-v1 404
+PASS GET /api/v1/identity 404
+PASS POST /api/v1/identity 404
+PASS DELETE /api/v1/identity 404
+PASS POST /api/v1/identity/recovery 404
+PASS POST /api/v1/identity/recovery/confirm 404
+PASS POST /api/v1/identity/password 404
+15 real local HTTP checks passed, flags OFF.
