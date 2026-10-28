@@ -1,6 +1,7 @@
 "use client"
 
 import { Logo } from "./logo"
+import Link from "next/link"
 import { G, PROFILES } from "@/lib/dna-data"
 
 interface LandingProps {
@@ -16,8 +17,12 @@ export function Landing({ onStart }: LandingProps) {
       }}
     >
       {/* Header */}
-      <header className="flex items-center justify-between p-6">
+      <header className="flex flex-wrap items-center justify-between gap-4 p-4 sm:p-6">
         <Logo />
+        <nav aria-label="Acesso principal" className="flex flex-wrap items-center gap-3">
+        <Link href="/equipe/acesso" className="inline-flex min-h-11 items-center rounded-full border px-4 py-2 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4" style={{color:G.gold,borderColor:`${G.gold}66`}}>
+          Entrar — Equipe
+        </Link>
         <button
           onClick={onStart}
           className="font-semibold text-sm border rounded-full px-7 py-2.5 transition-all hover:border-opacity-100"
@@ -29,6 +34,7 @@ export function Landing({ onStart }: LandingProps) {
         >
           Iniciar agora
         </button>
+        </nav>
       </header>
 
       {/* Hero */}
