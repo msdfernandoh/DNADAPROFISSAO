@@ -1,0 +1,10 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';
+import {recoveredCompletion} from '../lib/saas/persisted-completion';
+import {INTEGRATED_REVISION} from '../lib/questionnaire-engine/integration/journey';
+const e={id:'fixture',institution_id:'sinop',unit_id:'unit',v1_revision:INTEGRATED_REVISION,quiz_completed:true};
+const r={participant_id:e.id,v1_revision:e.v1_revision,v1_snapshot_key:'a'.repeat(64),v1_debit_id:'fixture-debit'};
+const d={id:r.v1_debit_id,participant_id:e.id,institution_id:e.institution_id,unit_id:e.unit_id,type:'v1_consume',amount:-1};
+test('reopening a completed evaluation returns minimal persisted confirmation without a new debit or report',()=>{const before=JSON.stringify({e,r,d});assert.deepEqual(recoveredCompletion(e,r,d),{state:'committed'});assert.equal(JSON.stringify({e,r,d}),before);});
+test('unfinished evaluation never claims completion',()=>{assert.equal(recoveredCompletion({...e,quiz_completed:false},null,null),null);assert.throws(()=>recoveredCompletion({...e,quiz_completed:false},r,d));});
+for(const [name,change]of Object.entries({foreign_participant:{participant_id:'other'},foreign_institution:{institution_id:'other'},foreign_unit:{unit_id:'other'},wrong_event:{type:'v1_grant'},wrong_amount:{amount:1},wrong_debit:{id:'other'}}))test('persisted completion rejects '+name,()=>{assert.throws(()=>recoveredCompletion(e,r,{...d,...change}));});
+test('missing, historical and malformed receipts do not report successful completion',()=>{assert.throws(()=>recoveredCompletion(e,null,d));assert.throws(()=>recoveredCompletion(e,r,null));assert.throws(()=>recoveredCompletion(e,{...r,v1_snapshot_key:''},d));assert.throws(()=>recoveredCompletion(e,{...r,v1_revision:'legacy'},d));assert.throws(()=>recoveredCompletion({...e,v1_revision:'legacy'},r,d));});

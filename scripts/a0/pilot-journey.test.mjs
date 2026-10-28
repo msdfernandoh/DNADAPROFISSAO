@@ -5,7 +5,7 @@ const flags=load('lib/saas/flags.ts'),origin='https://example.invalid',env={DNA_
 test('pilot page OFF refuses before resolving params or reading backend',async()=>{let calls=0;const api=load('app/equipe/avaliacoes/[id]/page.tsx',{'next/navigation':{notFound(){throw Error('404')}},'@/lib/saas/flags':flags,'@/lib/saas/pilot-evaluation-server':{async loadPilotEvaluation(){calls++;throw Error('Unexpected')}},'@/components/saas/PilotEvaluation':{},'react/jsx-runtime':{}});await assert.rejects(()=>api.default({params:Promise.resolve({id})}),/404/);assert.equal(calls,0);});
 for(const [label,cfg,e]of [['off',{},{}],['invalid id',{id:'bad'},env],['no identity',{identity:null},env],['no pilot',{pilot:false},env],['RPC denied',{},env],['RPC error',{rpcError:{}},env]])test('pilot stored read denied before privileged client: '+label,async()=>{
  let services=0;const db={async rpc(){return{data:false,error:cfg.rpcError||null}}};
- const module=load('lib/saas/pilot-evaluation-server.ts',{'server-only':{},'./flags':flags,'@/lib/supabase/individual-server':{async createClient(){return db}},'@/lib/supabase/service':{async createServiceClient(){services++;throw Error('not expected')}},'./identity':{async loadVerifiedIdentity(){return Object.hasOwn(cfg,'identity')?cfg.identity:{userId:id,institutionIds:['sinop']}}},'./pilot':{pilotIdentity:x=>cfg.pilot===false?null:x},'../questionnaire-engine/integration/journey':{INTEGRATED_REVISION:'official',journeyQuestions(){throw Error('not expected')},validateRegistration(){throw Error('not expected')}},'../questionnaire-engine/integration/frozen-revision':{frozenRevision(){throw Error('not expected')}}},{},e);
+ const module=load('lib/saas/pilot-evaluation-server.ts',{'server-only':{},'./flags':flags,'./persisted-completion':{recoveredCompletion(){throw Error('not expected')}},'@/lib/supabase/individual-server':{async createClient(){return db}},'@/lib/supabase/service':{async createServiceClient(){services++;throw Error('not expected')}},'./identity':{async loadVerifiedIdentity(){return Object.hasOwn(cfg,'identity')?cfg.identity:{userId:id,institutionIds:['sinop']}}},'./pilot':{pilotIdentity:x=>cfg.pilot===false?null:x},'../questionnaire-engine/integration/journey':{INTEGRATED_REVISION:'official',journeyQuestions(){throw Error('not expected')},validateRegistration(){throw Error('not expected')}},'../questionnaire-engine/integration/frozen-revision':{frozenRevision(){throw Error('not expected')}}},{},e);
  await assert.rejects(()=>module.loadPilotEvaluation(cfg.id||id));assert.equal(services,0);
 });
 const receipt={state:'committed',debitId:id,snapshotKey:'a'.repeat(64),replay:false};
@@ -22,3 +22,33 @@ test('pending atomic completion blocks duplicate invocation before rerender',asy
 test('legacy QuizV2 default retains answer-save then complete flow',async()=>{const paths=[];let done=0;const q=quiz(async url=>{paths.push(url);return Response.json({data:{}})});await finish(q.render({onDone(){done++}})).props.onClick();assert.deepEqual(paths,['/api/v2/participants/'+id+'/answers','/api/v2/participants/'+id+'/complete']);assert.equal(done,1);});
 
 test('answer controls are locked during pending submission and expose selected state',()=>{const q=quiz();q.h.values[2]=true;const options=nodes(q.render({onDone(){}})).filter(n=>n.type==='button'&&Object.hasOwn(n.props,'aria-pressed'));assert.equal(options.length,1);assert.equal(options[0].props.disabled,true);assert.equal(options[0].props['aria-pressed'],true);});
+
+function storedLoader({completed=true,resultChange={},debitChange={},resultError=null}={}){
+ const operations=[];
+ const participant={id,institution_id:'sinop',unit_id:'unit',v1_revision:'official',v1_registration:{name:'Fixture'},quiz_completed:completed};
+ const result={participant_id:id,v1_revision:'official',v1_snapshot_key:'a'.repeat(64),v1_debit_id:'debit',...resultChange};
+ const debit={id:'debit',participant_id:id,institution_id:'sinop',unit_id:'unit',type:'v1_consume',amount:-1,...debitChange};
+ const stored={'participants_v2':participant,'institutions':{id:'sinop'},'units_v2':{id:'unit'},'questionnaire_results':completed?result:null,'credit_events_v2':debit};
+ const db={from(table){operations.push('read:'+table);return{select(columns){if(/v1_snapshot($|,)/.test(columns))throw Error('Full report must not be loaded');return{eq(){return this},async maybeSingle(){return{data:stored[table],error:table==='questionnaire_results'?resultError:null}}}}}}};
+ const verify=(e,r,d)=>{if(!e.quiz_completed)return null;if(!r||!d||r.participant_id!==e.id||d.institution_id!==e.institution_id||d.unit_id!==e.unit_id||d.amount!==-1)throw Error('Inconsistent');return{state:'committed'}};
+ const module=load('lib/saas/pilot-evaluation-server.ts',{
+ 'server-only':{},'./flags':flags,'./persisted-completion':{recoveredCompletion:verify},
+ '@/lib/supabase/individual-server':{async createClient(){return{async rpc(){operations.push('authorize');return{data:true,error:null}}}}},
+ '@/lib/supabase/service':{async createServiceClient(){operations.push('service');return db}},
+ './identity':{async loadVerifiedIdentity(){operations.push('identity');return{userId:id,institutionIds:['sinop']}}},
+ './pilot':{pilotIdentity:i=>i},
+ '../questionnaire-engine/integration/journey':{INTEGRATED_REVISION:'official',validateRegistration:r=>r,journeyQuestions(){operations.push('questions');return[{id:'Q01',situation:'Fixture',title:'Fixture',number:1,options:[{id:'Q01:A',text:'Fixture'}]}]}},
+ '../questionnaire-engine/integration/frozen-revision':{frozenRevision(){operations.push('frozen')}}},{},env);
+ return{module,operations};
+}
+test('authorized reload confirms persisted completion without replay, scores, full snapshot or questions',async()=>{
+ const h=storedLoader(),result=await h.module.loadPilotEvaluation(id);
+ assert.equal(result.completed,true);assert.equal(result.questions.length,0);assert.equal(h.operations.indexOf('authorize')<h.operations.indexOf('service'),true);
+ assert(!h.operations.includes('questions'));assert(!('debitId'in result));assert(!('snapshot'in result));assert(!('scores'in result));
+});
+test('unfinished pilot continues to official questions without reading ledger',async()=>{const h=storedLoader({completed:false}),r=await h.module.loadPilotEvaluation(id);assert.equal(r.completed,false);assert.equal(r.questions.length,1);assert(!h.operations.includes('read:credit_events_v2'));});
+for(const cfg of [{debitChange:{institution_id:'other'}},{debitChange:{unit_id:'other'}},{debitChange:{amount:0}},{resultChange:{participant_id:'other'}},{resultError:{message:'db'}}])test('reload does not show success with inconsistent or unavailable persistence '+JSON.stringify(cfg),async()=>{const h=storedLoader(cfg);await assert.rejects(()=>h.module.loadPilotEvaluation(id));});
+test('completed pilot page renders saved confirmation instead of another quiz',async()=>{
+ const page=load('app/equipe/avaliacoes/[id]/page.tsx',{'next/navigation':{notFound(){throw Error('404')}},'@/lib/saas/flags':flags,'@/lib/saas/pilot-evaluation-server':{async loadPilotEvaluation(){return{participantId:id,name:'Fixture',revision:'official',completed:true,questions:[]}}},'@/components/saas/PilotEvaluation':{PilotEvaluation:'PilotQuiz'},'react/jsx-runtime':jsx},{},env);
+ const tree=await page.default({params:Promise.resolve({id})}),elements=nodes(tree);assert(elements.some(n=>n.props?.role==='status'));assert(!elements.some(n=>n.type==='PilotQuiz'));
+});

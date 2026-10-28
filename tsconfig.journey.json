@@ -26,7 +26,8 @@
     "scripts/test-pilot-access.ts",
     "scripts/test-p4-completion.ts",
     "scripts/test-profile-summary.ts",
-    "scripts/test-registration-draft.ts"
+    "scripts/test-registration-draft.ts",
+    "scripts/test-persisted-completion.ts"
   ],
   "exclude": [
     "node_modules",
