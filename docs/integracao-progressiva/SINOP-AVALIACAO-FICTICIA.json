@@ -1,0 +1,488 @@
+{
+  "source": "disposable PostgreSQL persisted snapshot; no production records",
+  "revision": "dna-official-2026-10-26.v1",
+  "sourceHash": "2a1c84320d8994a2dc095dfc262d642d9c981bba38393f10ed1cb68aee97d7b2",
+  "receipt": {
+    "state": "committed",
+    "replay": false,
+    "debitId": "5cf1416a-8c5e-4616-b3a2-f664d7cd4cef",
+    "snapshotKey": "e433371c79a3e044d792f45b68a02a756957081846f2bd65dcce62ce258eb214"
+  },
+  "participant": {
+    "audience": "participant",
+    "name": "Ana (fictícia)",
+    "scores": {
+      "C": 5,
+      "E": 35,
+      "H": 5,
+      "L": 15,
+      "P": 4
+    },
+    "classification": {
+      "main": "E",
+      "pair": "E+L",
+      "state": "defined",
+      "groups": [
+        {
+          "score": 35,
+          "profiles": [
+            "E"
+          ]
+        },
+        {
+          "score": 15,
+          "profiles": [
+            "L"
+          ]
+        },
+        {
+          "score": 5,
+          "profiles": [
+            "C",
+            "H"
+          ]
+        },
+        {
+          "score": 4,
+          "profiles": [
+            "P"
+          ]
+        }
+      ],
+      "secondaryCandidates": [
+        "L"
+      ]
+    },
+    "sections": [
+      {
+        "number": 1,
+        "title": "A identidade do seu DNA",
+        "paragraphs": [
+          "Você escolheu compreender a lógica antes de começar uma habilidade e enxergar crescimento numa oportunidade de mudança. Talvez goste de saber por onde está indo sem perder a vontade de sair do lugar. Entender e avançar podem se ajudar: uma explicação torna o primeiro passo mais claro, e um objetivo dá sentido ao que você procura entender."
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Quem é você no cotidiano",
+        "paragraphs": [
+          "Na hora de uma compra importante, você escolheu comparar detalhes antes de decidir. É como abrir algumas opções no celular, ler avaliações e tentar descobrir o que realmente muda de uma para outra. Nesse cenário, pesquisar parece servir para tornar a escolha mais clara.",
+          "A reflexão aqui é perceber quando a informação já ajuda a escolher e quando a busca por mais um detalhe começa a adiar a decisão. O que precisaria estar claro para você dar o próximo passo?"
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Como os outros podem enxergar você",
+        "paragraphs": [
+          "Organizar o trajeto das tarefas e fazer as contas de uma festa foram escolhas que apareceram nas suas respostas. Em um grupo, essa contribuição pode ser bem concreta: lembrar quantas pessoas vão, o que falta comprar e como aproveitar melhor o tempo.",
+          "Esse é um jeito possível de ajudar as coisas a acontecer. Não sabemos como as pessoas de fato enxergam você; vale perguntar se elas percebem esse cuidado com os detalhes como uma ajuda e como preferem participar da organização."
+        ]
+      },
+      {
+        "number": 4,
+        "title": "Como você funciona diante de decisões e dificuldades",
+        "paragraphs": [
+          "No compromisso marcado no dia errado, você escolheu uma reação em que a cobrança continuava depois do erro. Às vezes a situação já terminou, mas a cabeça ainda volta ao que poderia ter sido diferente.",
+          "Se essa cena fizer sentido para você, experimente separar aprendizado de repetição: anotar o ajuste que ajudaria na próxima vez e encerrar a revisão ali. Não é preciso transformar um desencontro de agenda em uma conclusão sobre quem você é."
+        ]
+      },
+      {
+        "number": 5,
+        "title": "Suas duas forças em ação",
+        "paragraphs": [
+          "Ao imaginar um dinheiro inesperado, você preferiu uma pausa para avaliar; diante de uma mudança de área ou rotina, escolheu considerar o crescimento possível. As duas cenas podem conviver: uma escolha oferece espaço para ponderar, enquanto outra desperta vontade de avançar.",
+          "Talvez valha observar como você reconhece a hora de passar da avaliação para a ação. Não precisamos supor que uma dessas respostas governe todas as suas decisões."
+        ]
+      },
+      {
+        "number": 6,
+        "title": "O que te movimenta e o que pode te travar",
+        "paragraphs": [
+          "Quando um projeto ficou pelo caminho, você apontou o peso da rotina. Por isso, vale olhar menos para a ideia de “ter mais disciplina” e mais para o espaço que aquele plano conseguiria ocupar na semana. Querer continuar e ter condições de continuar podem ser coisas diferentes.",
+          "Imagine reservar um pequeno horário para algo seu e perceber que ele sempre acaba sendo usado para resolver outra demanda. A experiência pode ajudar a enxergar o que precisa mudar ao redor do projeto, em vez de aumentar a cobrança sobre você.",
+          "Essa resposta fala de uma situação lembrada no teste; não significa que sua rotina hoje seja a mesma. Se quisesse retomar um plano, qual seria um primeiro espaço possível, sem precisar reorganizar a vida inteira de uma vez?"
+        ]
+      },
+      {
+        "number": 7,
+        "title": "Seu jeito de aprender e crescer",
+        "paragraphs": [
+          "Você escolheu procurar instruções antes de montar algo e compreender a lógica ao aprender uma habilidade. Nessas situações, conhecer o caminho antes de tentar parece fazer diferença. Uma demonstração explicada pode ser um ponto de partida útil.",
+          "Isso não significa ficar só na explicação. Depois de entender a sequência, experimentar uma etapa pequena permite conferir o que ficou claro e o que merece uma nova pergunta. Aprender pode ser esse movimento entre compreender e tentar."
+        ]
+      },
+      {
+        "number": 8,
+        "title": "Possíveis caminhos profissionais",
+        "paragraphs": [
+          "Ao conhecer uma formação, vale olhar para o que as pessoas fazem no dia a dia da área e para o que você gostaria de aprender. Uma conversa sobre uma tarefa real pode despertar interesse ou ajudar a perceber que aquele caminho não é o que procura. Os requisitos de ingresso também merecem atenção: para pós-graduação, é necessário ter graduação ou pós-graduação concluída e atender às exigências do curso."
+        ]
+      },
+      {
+        "number": 9,
+        "title": "Seu próximo passo",
+        "paragraphs": [
+          "Você não precisa sair desta leitura com uma profissão escolhida. Pode começar reconhecendo uma situação que fez sentido e outra que gostaria de entender melhor. Levar um exemplo seu para uma conversa costuma tornar a reflexão mais concreta do que procurar uma descrição que explique tudo.",
+          "Ao conhecer uma formação, observe uma atividade real que ela envolve e as dúvidas que isso desperta em você. Esse primeiro contato pode ajudar a decidir o que merece ser explorado com mais calma, sem precisar transformar curiosidade em compromisso."
+        ]
+      }
+    ],
+    "orientation": {
+      "introduction": "Você não precisa chegar com uma profissão em mente. Podemos começar por uma experiência pequena e observar o que ela desperta em você, sem concluir que seu jeito de responder determina uma carreira.",
+      "experiments": [
+        {
+          "theme": "Espaço para experimentar",
+          "observation": "Na lembrança do projeto, a rotina dificultou a continuidade; isso não informa como está sua semana hoje.",
+          "experience": "Escolha uma atividade curta que ainda não conhece e combine um momento possível para experimentá-la, sem assumir um compromisso longo.",
+          "question": "O que você conseguiu experimentar e o que precisaria mudar para ter espaço para isso?",
+          "professionalActivity": "Investigar como uma tarefa de aprendizagem cabe numa rotina real, antes de avaliar uma formação."
+        },
+        {
+          "theme": "Entender o percurso",
+          "observation": "Na habilidade nova, você escolheu compreender a lógica antes de tentar.",
+          "experience": "Assista a uma demonstração curta com explicação das etapas e depois tente uma parte, anotando uma dúvida concreta.",
+          "question": "Entender o motivo de cada etapa aumentou sua vontade de continuar? Em qual tarefa?",
+          "professionalActivity": "Examinar uma instrução ou processo de trabalho e conhecer por que cada etapa existe."
+        },
+        {
+          "theme": "Organização de etapas",
+          "observation": "No dia de tarefas, você escolheu preparar um percurso e horários.",
+          "experience": "Compare duas sequências para uma tarefa coletiva simples e explique o que cada ordem facilita ou dificulta.",
+          "question": "Você gostaria de investigar atividades que envolvem organizar etapas, ou só faria isso quando necessário?",
+          "professionalActivity": "Conhecer tarefas de planejamento de recursos e etapas; isso não significa interesse já declarado em gestão ou logística."
+        }
+      ],
+      "questions": [
+        "Qual é sua escolaridade atual? Antes de oferecer pós, precisamos confirmar se a graduação foi concluída.",
+        "O que você gostaria de descobrir agora: conhecer uma atividade, iniciar uma formação ou aprofundar algo que já faz?",
+        "Depois de observar ou experimentar uma dessas tarefas, alguma despertou vontade de conhecer melhor? Você também pode dizer que nenhuma chamou atenção."
+      ]
+    },
+    "courses": []
+  },
+  "commercial": {
+    "audience": "commercial",
+    "registration": {
+      "city": null,
+      "name": "Ana (fictícia)",
+      "email": "personagem@example.invalid",
+      "phone": "00000000000",
+      "objective": null,
+      "priorCourse": null,
+      "declaredArea": null,
+      "escolaridade": null,
+      "course_interest": null,
+      "orientationMode": "undefined_interest"
+    },
+    "delivery": {
+      "reading": "unknown",
+      "release": "not_released",
+      "blockedReason": "mediated_delivery",
+      "effectiveRelease": "not_released"
+    },
+    "sections": [
+      {
+        "number": 1,
+        "title": "Resumo individual",
+        "paragraphs": [
+          "Use o resultado como ponto de partida para escutar, não como conclusão sobre aptidão. Investigue as condições atuais para abrir espaço a um projeto. A prioridade é descobrir o que a pessoa quer explorar agora; não decidir uma área por ela."
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Interesses e pontos a confirmar",
+        "paragraphs": [
+          "Confirme com a pessoa se a situação lembrada no projeto ainda ajuda a explicar o que procura hoje. Registre suas palavras e corrija a leitura quando ela não fizer sentido.",
+          "Há informações de cadastro ainda não declaradas. Confirme interesse profissional, escolaridade, formação anterior quando pertinente e objetivo antes de personalizar uma oferta. Não preencher esses dados pelo perfil."
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Mensagem inicial editável",
+        "paragraphs": [
+          "Seu DNA está concluído. Posso combinar com você como receber o relatório?",
+          "Sugestão editável: adapte ao que foi efetivamente combinado. Copiar não envia mensagem nem registra leitura."
+        ]
+      },
+      {
+        "number": 4,
+        "title": "Perguntas de atendimento",
+        "paragraphs": [
+          "Uma rotina de estudos caberia como na sua semana hoje?",
+          "Que explicação ajudaria você a compreender como essa aprendizagem funciona?",
+          "Ao conhecer uma área, que importância tem para você escutar e ajudar outras pessoas?"
+        ]
+      },
+      {
+        "number": 5,
+        "title": "Orientações condicionais",
+        "paragraphs": [
+          "Antes do contato, confirme se o relatório foi disponibilizado. Se não leu, facilite o acesso; se leu e se reconheceu, escute o que chamou atenção; se discordou, acolha e registre sua percepção. Sem informação, pergunte. Abrir um link não comprova leitura."
+        ]
+      },
+      {
+        "number": 6,
+        "title": "Profissões e cursos a explorar",
+        "paragraphs": [
+          "Nenhum curso foi recomendado nesta prévia. Primeiro confirme interesses e objetivo; depois consulte a matriz aprovada e a oferta atual da instituição/unidade. Só graduação ou pós concluída permitem opções de matrícula em pós; escolaridade ausente exige coleta. A futura integração deve validar isso no servidor e exigir comprovação de graduação na matrícula."
+        ]
+      },
+      {
+        "number": 7,
+        "title": "O que evitar na abordagem",
+        "paragraphs": [
+          "Não chamar a pessoa de desorganizada nem concluir que abandonará um curso.",
+          "Não tratar pontuação como aptidão, usar dificuldades como pressão ou apresentar uma hipótese como fato atual. O relato da pessoa durante a conversa tem prioridade para orientar o atendimento."
+        ]
+      },
+      {
+        "number": 8,
+        "title": "Próximo passo sugerido",
+        "paragraphs": [
+          "Combine a forma de disponibilizar o relatório antes de perguntar sobre sua leitura. Se houver interesse em continuar, escolha com ela uma das perguntas de atendimento e combine uma ação ou retorno concreto. Só registre prazo e canal depois do combinado."
+        ]
+      },
+      {
+        "number": 9,
+        "title": "Acompanhamento",
+        "paragraphs": [
+          "Exemplo fictício sem atendimento, responsável operacional, retorno ou matrícula registrados. A situação de referência é Aguardando atendimento. Na integração futura, registrar contato e mudanças com usuário, data e histórico, respeitando escopo e preferências de comunicação."
+        ]
+      }
+    ],
+    "whatsapp": {
+      "text": "Seu DNA está concluído. Posso combinar com você como receber o relatório?",
+      "editable": true,
+      "automaticSend": false
+    },
+    "exploration": [],
+    "experiments": [
+      {
+        "id": "explore:room",
+        "theme": "Espaço para experimentar",
+        "approval": "proposed_pending_carla",
+        "question": "O que você conseguiu experimentar e o que precisaria mudar para ter espaço para isso?",
+        "experience": "Escolha uma atividade curta que ainda não conhece e combine um momento possível para experimentá-la, sem assumir um compromisso longo.",
+        "observation": "Na lembrança do projeto, a rotina dificultou a continuidade; isso não informa como está sua semana hoje.",
+        "evidenceRefs": [
+          "dna-official-2026-10-26.v1:Q05:B"
+        ],
+        "inferredInterest": false,
+        "professionalActivity": "Investigar como uma tarefa de aprendizagem cabe numa rotina real, antes de avaliar uma formação."
+      },
+      {
+        "id": "explore:understand",
+        "theme": "Entender o percurso",
+        "approval": "proposed_pending_carla",
+        "question": "Entender o motivo de cada etapa aumentou sua vontade de continuar? Em qual tarefa?",
+        "experience": "Assista a uma demonstração curta com explicação das etapas e depois tente uma parte, anotando uma dúvida concreta.",
+        "observation": "Na habilidade nova, você escolheu compreender a lógica antes de tentar.",
+        "evidenceRefs": [
+          "dna-official-2026-10-26.v1:Q06:A"
+        ],
+        "inferredInterest": false,
+        "professionalActivity": "Examinar uma instrução ou processo de trabalho e conhecer por que cada etapa existe."
+      },
+      {
+        "id": "explore:sequence",
+        "theme": "Organização de etapas",
+        "approval": "proposed_pending_carla",
+        "question": "Você gostaria de investigar atividades que envolvem organizar etapas, ou só faria isso quando necessário?",
+        "experience": "Compare duas sequências para uma tarefa coletiva simples e explique o que cada ordem facilita ou dificulta.",
+        "observation": "No dia de tarefas, você escolheu preparar um percurso e horários.",
+        "evidenceRefs": [
+          "dna-official-2026-10-26.v1:Q07:A"
+        ],
+        "inferredInterest": false,
+        "professionalActivity": "Conhecer tarefas de planejamento de recursos e etapas; isso não significa interesse já declarado em gestão ou logística."
+      }
+    ],
+    "followUp": {
+      "status": "Aguardando atendimento",
+      "responsible": null,
+      "interactions": [],
+      "nextContact": null,
+      "enrollmentConfirmed": false
+    },
+    "review": {
+      "blockers": [
+        "Homologação editorial e metodológica da Carla pendente.",
+        "Associações e requisitos acadêmicos pendentes."
+      ],
+      "unsafeSections": [],
+      "missingSections": [],
+      "productionReady": false,
+      "contentHomologated": false
+    },
+    "evidence": [
+      {
+        "id": "everyday:research",
+        "theme": "critério antes de decidir",
+        "section": 2,
+        "evidenceRefs": [
+          "dna-official-2026-10-26.v1:Q09:A"
+        ]
+      },
+      {
+        "id": "relations:organize",
+        "theme": "contribuição visível ao grupo",
+        "section": 3,
+        "evidenceRefs": [
+          "dna-official-2026-10-26.v1:Q07:A",
+          "dna-official-2026-10-26.v1:Q15:B"
+        ]
+      },
+      {
+        "id": "difficulty:self-demand",
+        "theme": "aprender com um erro sem prolongá-lo",
+        "section": 4,
+        "evidenceRefs": [
+          "dna-official-2026-10-26.v1:Q11:A"
+        ]
+      },
+      {
+        "id": "motivation:room",
+        "theme": "espaço real para um projeto",
+        "section": 6,
+        "evidenceRefs": [
+          "dna-official-2026-10-26.v1:Q05:B"
+        ]
+      },
+      {
+        "id": "learning:logic-after-manual",
+        "theme": "entender antes de experimentar",
+        "section": 7,
+        "evidenceRefs": [
+          "dna-official-2026-10-26.v1:Q02:B",
+          "dna-official-2026-10-26.v1:Q06:A"
+        ]
+      }
+    ],
+    "responseAudit": [
+      {
+        "reason": "Resposta examinada; não há experiência fundamentada correspondente neste lote.",
+        "questionId": "Q01",
+        "alternativeId": "Q01:A",
+        "matchingRules": [],
+        "selectedRules": []
+      },
+      {
+        "reason": "Resposta examinada; não há experiência fundamentada correspondente neste lote.",
+        "questionId": "Q02",
+        "alternativeId": "Q02:B",
+        "matchingRules": [],
+        "selectedRules": []
+      },
+      {
+        "reason": "Resposta examinada; não há experiência fundamentada correspondente neste lote.",
+        "questionId": "Q03",
+        "alternativeId": "Q03:A",
+        "matchingRules": [],
+        "selectedRules": []
+      },
+      {
+        "reason": "Resposta examinada; não há experiência fundamentada correspondente neste lote.",
+        "questionId": "Q04",
+        "alternativeId": "Q04:A",
+        "matchingRules": [],
+        "selectedRules": []
+      },
+      {
+        "reason": "Experiência selecionada",
+        "questionId": "Q05",
+        "alternativeId": "Q05:B",
+        "matchingRules": [
+          "explore:room"
+        ],
+        "selectedRules": [
+          "explore:room"
+        ]
+      },
+      {
+        "reason": "Experiência selecionada",
+        "questionId": "Q06",
+        "alternativeId": "Q06:A",
+        "matchingRules": [
+          "explore:understand"
+        ],
+        "selectedRules": [
+          "explore:understand"
+        ]
+      },
+      {
+        "reason": "Experiência selecionada",
+        "questionId": "Q07",
+        "alternativeId": "Q07:A",
+        "matchingRules": [
+          "explore:sequence"
+        ],
+        "selectedRules": [
+          "explore:sequence"
+        ]
+      },
+      {
+        "reason": "Condição encontrada; tema não priorizado para evitar lista extensa.",
+        "questionId": "Q08",
+        "alternativeId": "Q08:A",
+        "matchingRules": [
+          "explore:listen"
+        ],
+        "selectedRules": []
+      },
+      {
+        "reason": "Condição encontrada; tema não priorizado para evitar lista extensa.",
+        "questionId": "Q09",
+        "alternativeId": "Q09:A",
+        "matchingRules": [
+          "explore:compare"
+        ],
+        "selectedRules": []
+      },
+      {
+        "reason": "Resposta examinada; não há experiência fundamentada correspondente neste lote.",
+        "questionId": "Q10",
+        "alternativeId": "Q10:C",
+        "matchingRules": [],
+        "selectedRules": []
+      },
+      {
+        "reason": "Resposta examinada; não há experiência fundamentada correspondente neste lote.",
+        "questionId": "Q11",
+        "alternativeId": "Q11:A",
+        "matchingRules": [],
+        "selectedRules": []
+      },
+      {
+        "reason": "Condição encontrada; tema não priorizado para evitar lista extensa.",
+        "questionId": "Q12",
+        "alternativeId": "Q12:C",
+        "matchingRules": [
+          "explore:understand-views"
+        ],
+        "selectedRules": []
+      },
+      {
+        "reason": "Resposta examinada; não há experiência fundamentada correspondente neste lote.",
+        "questionId": "Q13",
+        "alternativeId": "Q13:A",
+        "matchingRules": [],
+        "selectedRules": []
+      },
+      {
+        "reason": "Resposta examinada; não há experiência fundamentada correspondente neste lote.",
+        "questionId": "Q14",
+        "alternativeId": "Q14:A",
+        "matchingRules": [],
+        "selectedRules": []
+      },
+      {
+        "reason": "Condição encontrada; tema não priorizado para evitar lista extensa.",
+        "questionId": "Q15",
+        "alternativeId": "Q15:B",
+        "matchingRules": [
+          "explore:resources"
+        ],
+        "selectedRules": []
+      }
+    ]
+  }
+}

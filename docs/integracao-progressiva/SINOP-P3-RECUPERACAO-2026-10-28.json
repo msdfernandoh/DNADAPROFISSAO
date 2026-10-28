@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-10-28T09:47:12.649Z",
+  "project": "ejcpumiypodpdmhiulwk",
+  "latestPhysicalBackup": {
+    "id": 2093853934,
+    "completed": "2026-10-28T06:17:31.791Z"
+  },
+  "pitr": false,
+  "fullRestoreProven": false,
+  "p3ScopeIsolatedTestGroups": 11,
+  "nonDestructiveDisableProven": true,
+  "productionApply": "REJECTED_BY_AUTOMATIC_REVIEW_NOT_EXECUTED",
+  "reason": "Recovery evidence insufficient for structural production changes; do not retry through another executor",
+  "counts": {
+    "historicalParticipants": 173,
+    "units": 0,
+    "participantsV2": 0,
+    "results": 0,
+    "credits": 0
+  },
+  "oldHelpersHash": "61fa2cab5a7b31e3d41d22640662ba79"
+}

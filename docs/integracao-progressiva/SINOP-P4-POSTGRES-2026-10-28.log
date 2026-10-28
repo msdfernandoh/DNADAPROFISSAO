@@ -1,0 +1,24 @@
+PostgreSQL 17.10 on x86_64-windows, compiled by msvc-19.44.35226, 64-bit; listen=127.0.0.1
+PASS P4 changed answers on completed evaluation rejected without second debit
+PASS P4 enabled unit cap blocks completion and retains answers despite positive institution balance
+PASS P4 consumed credit history cannot be deleted
+PASS P4 frozen source mismatch and moving completed answers rejected
+PASS P4 injected result failure rolls back draft, result, participant state and debit
+PASS P4 failure at final audit rolls back already written result, completion, draft and debit
+PASS P3 allocated admin, manager and assigned seller authorized
+PASS P3 foreign institution, unassigned unit and manually changed participant ID denied
+PASS P3 previous seller loses access after stored reassignment
+PASS P3 revoked membership denied on next database request
+PASS P3 deactivated profile denied
+PASS P3 expired session denied
+PASS P3 explicit denial wins over allow
+PASS P3 database ACL blocks self elevation and direct lead reads
+PASS P3 participant denied commercial report
+PASS P3 explicitly granted owner authorized globally with audit
+PASS P3 RLS remains enabled on participant, result and credit tables
+PASS P3 actual RLS SELECT filters all foreign profiles
+PASS P4 exactly two valid debits after replay, competition, invalid inputs and injected failure
+PASS P4 zero credit preserves 15 answers; 12 concurrent replays; last-credit competition across two units; tampering denied; full rollback after debit; immutable snapshots/answers; service-only RPC; revoked session.
+PASS 13 additional PostgreSQL P3/P4 check groups. JWT claims simulated: real Supabase JWT/email tests remain pending.
+
+Temporary cluster stopped and removed; no production access.
