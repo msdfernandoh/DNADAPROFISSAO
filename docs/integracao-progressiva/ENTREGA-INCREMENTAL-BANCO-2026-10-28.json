@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-28",
+  "project": "ejcpumiypodpdmhiulwk",
+  "migrationsApplied": [
+    "20261028154932",
+    "20261028155601",
+    "20261028155602",
+    "20261028155603",
+    "20261028160306",
+    "20261028160720",
+    "20261028160721",
+    "20261028161415"
+  ],
+  "verifiedProduction": {
+    "historicalParticipants": 173,
+    "newEvaluations": 0,
+    "creditEvents": 0,
+    "sinopUnits": 1,
+    "frozenOptions": 60,
+    "revisionCompletionEnabled": false,
+    "completionRpc": {
+      "anon": false,
+      "authenticated": false,
+      "service_role": true
+    },
+    "scopeTable": {
+      "rls": true,
+      "anonSelect": false,
+      "authenticatedSelect": false
+    }
+  },
+  "validation": {
+    "typescript": "passed",
+    "build": "passed; clean copy without credentials",
+    "existingSuites": {
+      "individual": 113,
+      "journey": 131,
+      "handlers": 148
+    },
+    "postgresWasm": {
+      "foundationGroups": 6,
+      "authorizationGroups": 11,
+      "registrationAndListGroups": 8,
+      "atomicAndDraft": "passed; serial queued execution; independent-connection concurrency not rerun"
+    },
+    "localHttpFlagsOff": 16,
+    "realJwt": "not executed; local env contains empty credential placeholders; no synthetic identity created"
+  },
+  "release": {
+    "previousReportsSha": "48f4f1e9e41bd95182445768bc2e014c2e0f28b0",
+    "newCode": "pending push/deploy verification"
+  },
+  "remaining": {
+    "pilotAccess": "confirm authorized accounts and scoped actions; current pilot allowlist contains one seller",
+    "creditTest": "authorized quantity/accounting required; zero balance preserved",
+    "reports": "Carla approval pending; previews remain private",
+    "functionalAcceptance": "no real participant registered or completed; product not declared ready"
+  },
+  "securityAdvisors": {
+    "errors": 0,
+    "warnings": "intentional authenticated SECURITY DEFINER RPCs with live session/scope checks; leaked password protection disabled"
+  }
+}

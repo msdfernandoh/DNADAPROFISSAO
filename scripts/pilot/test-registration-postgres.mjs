@@ -1,0 +1,57 @@
+import assert from 'node:assert/strict';
+import * as fs from 'node:fs/promises';
+import {createRequire} from 'node:module';
+const require=createRequire(import.meta.url);
+if(!process.env.DNA_TEST_PGLITE_MODULE)throw Error('Explicit local PGlite module required');
+const {PGlite}=require(process.env.DNA_TEST_PGLITE_MODULE);
+const db=new PGlite();
+const client={query:async(sql,args)=>args?db.query(sql,args):(await db.exec(sql)).at(-1)};
+const id=n=>'00000000-0000-4000-8000-'+String(n).padStart(12,'0');
+let checks=0;const pass=t=>{checks++;console.log('PASS '+t)};
+try{
+ const name=(await db.query(`SELECT current_database() AS name`)).rows[0].name;
+ if(!/^[a-z0-9_]+$/.test(name))throw Error('Unexpected local database name');
+ const fixture=(await fs.readFile('scripts/pilot/fictitious-baseline.sql','utf8')).replace("current_database()<>'dna_p4_ficticio'", "current_database()<>'"+name+"'");
+ await db.exec(fixture);
+
+ await db.exec(await fs.readFile('scripts/pilot/fictitious-session.sql','utf8'));
+ for(const file of ['20261028154932_dna_operational_scope_foundation.sql','20261028155601_dna_operational_authorization.sql','20261028155602_dna_atomic_completion.sql','20261028160306_dna_evaluation_autosave.sql'])await db.exec(await fs.readFile('supabase/migrations/'+file,'utf8'));
+ await db.exec(`ALTER TABLE public.questionnaires ALTER COLUMN id SET DEFAULT gen_random_uuid(),ADD COLUMN name text,ADD COLUMN slug text UNIQUE,ADD COLUMN status text,ADD COLUMN version integer,ADD COLUMN active boolean,ADD COLUMN scoring_mode text;
+ ALTER TABLE public.questions ALTER COLUMN id SET DEFAULT gen_random_uuid(),ADD COLUMN text text,ADD COLUMN description text,ADD COLUMN "order" integer,ADD COLUMN active boolean;
+ ALTER TABLE public.alternatives ALTER COLUMN id SET DEFAULT gen_random_uuid(),ADD COLUMN text text,ADD COLUMN "order" integer,ADD COLUMN active boolean;
+ ALTER TABLE public.questionnaire_profiles ALTER COLUMN id SET DEFAULT gen_random_uuid(),ADD COLUMN name text,ADD COLUMN sort_order integer,ADD COLUMN active boolean;
+ ALTER TABLE public.participants_v2 ALTER COLUMN id SET DEFAULT gen_random_uuid(),ADD COLUMN name text,ADD COLUMN phone text,ADD COLUMN email text,ADD COLUMN city text,ADD COLUMN escolaridade text,ADD COLUMN course_interest text;`);
+ await db.exec(await fs.readFile('supabase/migrations/20261028160720_dna_frozen_revision_mapping.sql','utf8'));
+ assert.equal((await db.query(`SELECT count(*)::integer AS n FROM public.questions`)).rows[0].n,15);
+ const r=(await db.query(`SELECT * FROM dna_private.evaluation_revisions`)).rows[0];assert.equal(r.completion_enabled,false);
+ assert.equal((await db.query("SELECT count(*)::integer AS n FROM public.questionnaires WHERE active OR status='published'")).rows[0].n,0);pass('official revision mapped with fifteen questions and no public activation');
+ const actual=(await db.query(`SELECT question_key,alternative_key,weights FROM dna_private.revision_options ORDER BY question_key,alternative_key`)).rows;
+ const official=JSON.parse(await fs.readFile('lib/questionnaire-engine/__fixtures__/individual/questions.json','utf8'));
+ const expected=official.flatMap(q=>q.options.map(o=>({question_key:'Q'+String(q.number).padStart(2,'0'),alternative_key:'Q'+String(q.number).padStart(2,'0')+':'+o.letter,weights:o.weights})));
+ assert.deepEqual(actual,expected);pass('all frozen alternatives and weights match existing source exactly');
+ await db.exec(await fs.readFile('supabase/migrations/20261028160721_dna_registration_draft.sql','utf8'));
+ const actor=id(1),tenant=id(2),unit=id(3),member=id(4),session=id(5);
+ await db.query('INSERT INTO auth.users VALUES($1)',[actor]);await db.query('INSERT INTO public.user_profiles(id) VALUES($1)',[actor]);
+ await db.query(`INSERT INTO auth.sessions VALUES($1,$2,now()+interval '1 hour')`,[session,actor]);
+ await db.query(`INSERT INTO public.institutions(id,name) VALUES($1,'Fictitious')`,[tenant]);
+ await db.query(`INSERT INTO public.units_v2(id,institution_id) VALUES($1,$2)`,[unit,tenant]);
+ await db.query(`INSERT INTO public.institution_memberships VALUES($1,$2,$3,'institution_admin',true,false)`,[member,tenant,actor]);
+ await db.query(`INSERT INTO public.membership_unit_scopes VALUES($1,$2,$3,true)`,[member,tenant,unit]);
+ await db.query(`INSERT INTO public.user_permission_grants(membership_id,institution_id,resource,action,scope_type,allowed) VALUES($1,$2,'lead','create','institution',true)`,[member,tenant]);
+ await db.query("SELECT set_config('request.jwt.claims',$1,false)",[JSON.stringify({sub:actor,session_id:session,exp:Math.floor(Date.now()/1000)+3600})]);
+ const reg={name:'Pessoa Fictícia',phone:'66999990000',email:'fixture@example.invalid',orientationMode:'undefined_interest',city:null,escolaridade:null,course_interest:null,objective:null,priorCourse:null,declaredArea:null};
+ const register=async value=>{await db.exec('SET ROLE authenticated');try{return await db.query('SELECT public.dna_register_evaluation_draft($1,$2,$3) AS id',[unit,r.revision,value]);}finally{await db.exec('RESET ROLE');}};
+ await db.exec(await fs.readFile('supabase/migrations/20261028161415_dna_authorized_evaluation_list.sql','utf8'));
+ const result=await register(reg);assert.ok(result.rows[0].id);pass('authorized admin registration persists server-derived institution and unit');
+ await db.exec('SET ROLE authenticated');
+ assert.equal((await db.query('SELECT * FROM public.dna_list_evaluations($1)',[tenant])).rows.length,0);await db.exec('RESET ROLE');
+ await db.query("INSERT INTO public.user_permission_grants(membership_id,institution_id,resource,action,scope_type,allowed) VALUES($1,$2,'lead','read','institution',true)",[member,tenant]);
+ await db.exec('SET ROLE authenticated');assert.equal((await db.query('SELECT * FROM public.dna_list_evaluations($1)',[tenant])).rows.length,1);
+ await assert.rejects(db.query('SELECT * FROM public.dna_list_evaluations($1)',[id(90)]));await db.exec('RESET ROLE');pass('evaluation list requires read permission and rejects foreign institution');
+ await assert.rejects(register({...reg,institution_id:tenant}));await assert.rejects(register({...reg,phone:'x'}));await assert.rejects(register({...reg,email:'invalid'}));pass('scope injection and invalid required fields rejected');
+ await db.query("UPDATE public.institution_memberships SET role_code='seller'");await assert.rejects(register(reg));pass('seller cannot create despite forged or leftover create grant');
+ await db.query("UPDATE public.institution_memberships SET role_code='institution_admin',active=false");await assert.rejects(register(reg));pass('revoked membership immediately denied');
+ assert.equal((await db.query('SELECT count(*)::integer AS n FROM public.credit_events_v2')).rows[0].n,0);assert.equal((await db.query('SELECT count(*)::integer AS n FROM public.participants_v2')).rows[0].n,1);pass('registration has no credit event or completed result');
+ console.log(JSON.stringify({passed:checks,productionAccess:false}));
+
+}finally{await db.close();console.log('Local PostgreSQL closed; fictitious records only.');}

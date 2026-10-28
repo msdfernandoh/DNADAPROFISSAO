@@ -1,0 +1,109 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {createRequire} from 'node:module';
+import assert from 'node:assert/strict';
+const require=createRequire(import.meta.url);
+const {PGlite}=require(process.env.DNA_TEST_PGLITE_MODULE);
+const {buildReviewCase}=require('../../.local-tests/journey/lib/questionnaire-engine/integration/review-cases.js'),{prepareAtomicCompletion}=require('../../.local-tests/journey/lib/saas/completion-service.js');
+const db=new PGlite();const dbName=(await db.query('SELECT current_database() AS name')).rows[0].name;
+let queue=Promise.resolve();
+function sql(text,expectFailure=false){
+ const work=queue.then(async()=>{
+  text=text.replace("current_database()<>'dna_p4_ficticio'","current_database()<>'"+dbName+"'");
+  try{const result=await db.exec(text);if(expectFailure)throw Error('Expected SQL denial');return result.flatMap(s=>(s.rows||[]).map(row=>Object.values(row).map(v=>v===null?'':typeof v==='object'?JSON.stringify(v):typeof v==='boolean'?(v?'t':'f'):String(v)).join('|'))).join('\n').trim();}
+  catch(error){if(expectFailure&&['P0001','42501','23514','23503'].includes(error.code))return 'denied';throw error;}
+  finally{await db.exec('ROLLBACK;RESET ROLE;RESET request.jwt.claims;');}
+ });queue=work.catch(()=>{});return work;
+}
+try{
+const uuid=n=>'00000000-0000-4000-8000-'+String(n).padStart(12,'0');
+const actor=uuid(1),sid=uuid(2),inst=uuid(3),unit=uuid(4),qid=uuid(5),revision='dna-official-2026-10-26.v1';
+const quote=v=>"'"+String(v).replaceAll("'","''")+"'";
+await sql(await readFile(new URL('../pilot/fictitious-baseline.sql',import.meta.url),'utf8'));
+await sql(await readFile(new URL('../pilot/fictitious-session.sql',import.meta.url),'utf8'));
+await sql(await readFile(new URL('../../supabase/migrations/20261028154932_dna_operational_scope_foundation.sql',import.meta.url),'utf8'));
+await sql(await readFile(new URL('../../supabase/migrations/20261028155601_dna_operational_authorization.sql',import.meta.url),'utf8'));
+await sql(await readFile(new URL('../../supabase/migrations/20261028155602_dna_atomic_completion.sql',import.meta.url),'utf8'));
+await sql(await readFile(new URL('../../supabase/migrations/20261028160306_dna_evaluation_autosave.sql',import.meta.url),'utf8'));
+const fixture=buildReviewCase('Ana');const questions=JSON.parse(await readFile(new URL('../../lib/questionnaire-engine/__fixtures__/individual/questions.json',import.meta.url),'utf8'));
+let seed=`INSERT INTO auth.users VALUES('${actor}');INSERT INTO public.user_profiles VALUES('${actor}','Fictício',true);INSERT INTO public.platform_owners VALUES('${actor}',true);INSERT INTO auth.sessions VALUES('${sid}','${actor}',now()+interval '1 hour');INSERT INTO public.institutions(id,name) VALUES('${inst}','Fictícia');INSERT INTO public.units_v2(id,name,institution_id) VALUES('${unit}','Fictícia','${inst}');INSERT INTO public.questionnaires VALUES('${qid}');INSERT INTO dna_private.evaluation_revisions VALUES('${revision}','${qid}',true,'2a1c84320d8994a2dc095dfc262d642d9c981bba38393f10ed1cb68aee97d7b2');`;
+for(const [index,code]of ['L','C','E','H','P'].entries())seed+=`INSERT INTO public.questionnaire_profiles VALUES('${uuid(20+index)}','${qid}','${code}');`;
+for(const q of questions){const questionId=uuid(100+q.number),key='Q'+String(q.number).padStart(2,'0');seed+=`INSERT INTO public.questions VALUES('${questionId}','${qid}');`;for(const [oi,o]of q.options.entries()){const alt=uuid(1000+q.number*10+oi);seed+=`INSERT INTO public.alternatives VALUES('${alt}','${questionId}');INSERT INTO dna_private.revision_options VALUES('${revision}','${key}','${key+':'+o.letter}','${questionId}','${alt}',${quote(JSON.stringify(o.weights))});`;}}
+const identity={userId:actor,sessionId:sid,globalOwner:true,displayName:'Fictício',institutionIds:[],memberships:[],grants:[]},commands=[];
+for(let n=0;n<8;n++){const pid=uuid(500+n);seed+=`INSERT INTO public.participants_v2(id,questionnaire_id,unit_id,institution_id,participant_user_id,v1_revision,v1_registration) VALUES('${pid}','${qid}','${unit}','${inst}','${actor}','${revision}',${quote(JSON.stringify(fixture.registration))});`;const stored={scope:{participantId:pid,institutionId:inst,institutionActive:true,unitId:unit,participantUserId:actor,assignedUserId:null,reportReleased:false,contentHomologated:false},questionnaireId:qid,revision,registration:fixture.registration,institutionName:'Fictícia',unitName:'Fictícia',units:[]};commands.push(prepareAtomicCompletion({revision,answers:fixture.analysis.evidence.map(e=>({questionId:e.questionId,alternativeId:e.alternativeId}))},identity,stored));}
+await sql(seed);
+const draftClaims={sub:actor,session_id:sid,exp:Math.floor(Date.now()/1000)+3600};
+const draft=(answers,pid=commands[0].participantId)=>"SET ROLE authenticated;SET request.jwt.claims="+quote(JSON.stringify(draftClaims))+";SELECT public.dna_save_evaluation_draft("+quote(pid)+","+quote(revision)+","+quote(JSON.stringify(answers))+"::jsonb);";
+await sql(draft(commands[0].answers.slice(0,4)));
+assert.equal(await sql("SELECT jsonb_array_length(v1_draft_answers) FROM public.participants_v2 WHERE id="+quote(commands[0].participantId)),'4');
+await sql(draft([{questionId:'Q01',alternativeId:'Q02:A'}]),true);
+await sql(draft([commands[0].answers[0],commands[0].answers[0]]),true);
+await sql("SET ROLE anon;SELECT public.dna_save_evaluation_draft("+quote(commands[0].participantId)+","+quote(revision)+",'[]');",true);
+assert.equal(await sql('SELECT count(*) FROM public.credit_events_v2'),'0');
+console.log('PASS draft persists partial answers; invalid/duplicate choices and anon denied; no credit event');
+const complete=c=>`SET ROLE service_role;SELECT public.dna_complete_evaluation_v1(${quote(JSON.stringify(c))}::jsonb);`;
+const receipt=async c=>JSON.parse((await sql(complete(c))).split('\n').at(-1));
+assert.equal((await receipt(commands[0])).state,'no_credit');assert.equal(await sql('SELECT count(*) FROM public.questionnaire_results'),'0');assert.equal(await sql('SELECT count(*) FROM public.questionnaire_answers'),'15');
+await sql(`INSERT INTO public.credit_events_v2(institution_id,type,amount) VALUES('${inst}','v1_grant',2);`);
+if(process.env.DNA_P4_CAPTURE_ONLY==='true'){
+ const done=await receipt(commands[0]);assert.equal(done.state,'committed');
+ const persisted=JSON.parse(await sql(`SELECT v1_snapshot::text FROM public.questionnaire_results WHERE participant_id='${commands[0].participantId}'`));
+ const {participantDraftPreview,commercialReport}=require('../../.local-tests/journey/lib/questionnaire-engine/integration/journey.js');
+ const reviewer={id:actor,active:true,role:'platform_owner',explicitGlobalOwner:true,institutionIds:[],unitIds:[]};
+ const participant=participantDraftPreview(persisted,reviewer),commercial=commercialReport(persisted,reviewer);
+ assert.equal(participant.sections.length,9);
+ const proof={source:'disposable PostgreSQL persisted snapshot; no production records',revision,sourceHash:commands[0].revisionSourceHash,receipt:done,participant,commercial};
+ await writeFile('docs/integracao-progressiva/SINOP-AVALIACAO-FICTICIA.json',JSON.stringify(proof,null,2)+'\n');
+ const esc=x=>String(x).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+ const sections=xs=>xs.map(x=>'<section><h2>'+esc(x.number+'. '+x.title)+'</h2>'+x.paragraphs.map(t=>'<p>'+esc(t)+'</p>').join('')+'</section>').join('');
+ await writeFile('docs/integracao-progressiva/SINOP-PREVIA-CARLA.html','<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sinop — prévia privada para Carla</title><style>body{max-width:920px;margin:32px auto;padding:16px;font:18px/1.6 system-ui;color:#202b34}section{border-top:1px solid #ccc;padding:16px 0}pre{white-space:pre-wrap;font-size:13px}aside{background:#fff0c2;padding:16px}</style><h1>Prévia privada: Ana fictícia</h1><aside>Rascunho não homologado. Snapshot recuperado do PostgreSQL descartável após conclusão atômica. Não é relatório entregue ao público. Crédito utilizado somente em ledger fictício; nenhuma oferta ativa.</aside><h2>Visão do participante</h2>'+sections(participant.sections)+'<h2>Exclusivo da equipe comercial</h2>'+sections(commercial.sections)+'<details><summary>Evidências e pendências internas</summary><pre>'+esc(JSON.stringify({evidence:commercial.evidence,review:commercial.review},null,2))+'</pre></details></html>');
+ console.log('PASS full fictional evaluation persisted atomically; nine participant sections and separate commercial draft recovered from PostgreSQL; private local review exported.');
+ process.exit(0);
+}
+const same=await Promise.all(Array.from({length:12},()=>receipt(commands[0])));assert.equal(same.filter(r=>!r.replay).length,1);assert.equal(new Set(same.map(r=>r.debitId)).size,1);await sql(draft(commands[0].answers),true);console.log('PASS completed evaluation refuses draft overwrite');
+const competingUnit=uuid(6);await sql(`INSERT INTO public.units_v2(id,name,institution_id) VALUES('${competingUnit}','Fictícia outra unidade','${inst}');UPDATE public.participants_v2 SET unit_id='${competingUnit}' WHERE id='${commands[2].participantId}'`);commands[2]=prepareAtomicCompletion({revision,answers:fixture.analysis.evidence.map(e=>({questionId:e.questionId,alternativeId:e.alternativeId}))},identity,{scope:{...commands[2].snapshot.scope,unitId:competingUnit},questionnaireId:qid,revision,registration:fixture.registration,institutionName:'Fictícia',unitName:'Outra unidade',units:[]});
+const competing=await Promise.all([receipt(commands[1]),receipt(commands[2])]);assert.equal(competing.filter(r=>r.state==='committed').length,1);assert.equal(competing.filter(r=>r.state==='no_credit').length,1);
+assert.equal(await sql("SELECT count(*) FROM public.credit_events_v2 WHERE type='v1_consume'"),'2');
+for(const change of [{scores:{L:999}},{institutionId:uuid(999)},{sessionId:uuid(999)},{answers:commands[3].answers.slice(1)}])await sql(complete({...commands[3],...change}),true);
+await sql(`INSERT INTO public.credit_events_v2(institution_id,type,amount) VALUES('${inst}','v1_grant',1);CREATE FUNCTION public.fixture_fail_result() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RAISE EXCEPTION 'Injected fixture failure';END $$;CREATE TRIGGER fixture_fail BEFORE INSERT ON public.questionnaire_results FOR EACH ROW EXECUTE FUNCTION public.fixture_fail_result();`);
+const before=await sql("SELECT count(*) FROM public.credit_events_v2 WHERE type='v1_consume'");await sql(complete(commands[3]),true);assert.equal(await sql("SELECT count(*) FROM public.credit_events_v2 WHERE type='v1_consume'"),before);assert.equal(await sql(`SELECT quiz_completed FROM public.participants_v2 WHERE id='${commands[3].participantId}'`),'f');await sql('DROP TRIGGER fixture_fail ON public.questionnaire_results;DROP FUNCTION public.fixture_fail_result();');
+await sql(`UPDATE public.questionnaire_results SET scores='{}' WHERE participant_id='${commands[0].participantId}'`,true);await sql(`DELETE FROM public.questionnaire_answers WHERE participant_id='${commands[0].participantId}'`,true);
+await sql("SET ROLE authenticated;SELECT public.dna_complete_evaluation_v1('{}');",true);
+// Additional P4 cases run under the same disposable database.
+const other=buildReviewCase('Beatriz');const conflict=prepareAtomicCompletion({revision,answers:other.analysis.evidence.map(e=>({questionId:e.questionId,alternativeId:e.alternativeId}))},identity,{scope:commands[0].snapshot.scope,questionnaireId:qid,revision,registration:fixture.registration,institutionName:'Fictícia',unitName:'Fictícia',units:[]});await sql(complete(conflict),true);console.log('PASS P4 changed answers on completed evaluation rejected without second debit');
+await sql(`UPDATE public.institutions SET credit_mode='unit_cap' WHERE id='${inst}';UPDATE public.units_v2 SET credit_cap=2 WHERE id='${unit}'`);assert.equal((await receipt(commands[4])).state,'no_credit');assert.equal(await sql(`SELECT count(*) FROM public.questionnaire_answers WHERE participant_id='${commands[4].participantId}'`),'15');assert.equal(await sql(`SELECT quiz_completed FROM public.participants_v2 WHERE id='${commands[4].participantId}'`),'f');await sql(`UPDATE public.institutions SET credit_mode='shared' WHERE id='${inst}'`);console.log('PASS P4 enabled unit cap blocks completion and retains answers despite positive institution balance');
+await sql("DELETE FROM public.credit_events_v2 WHERE type='v1_consume'",true);console.log('PASS P4 consumed credit history cannot be deleted');
+await sql(complete({...commands[3],revisionSourceHash:'changed-content'}),true);
+await sql(`UPDATE public.questionnaire_answers SET participant_id='${commands[6].participantId}' WHERE participant_id='${commands[0].participantId}'`,true);
+console.log('PASS P4 frozen source mismatch and moving completed answers rejected');
+assert.equal(await sql(`SELECT count(*) FROM public.questionnaire_answers WHERE participant_id='${commands[3].participantId}'`),'0');assert.equal(await sql(`SELECT count(*) FROM public.questionnaire_results WHERE participant_id='${commands[3].participantId}'`),'0');console.log('PASS P4 injected result failure rolls back draft, result, participant state and debit');
+await sql(`CREATE FUNCTION public.fixture_fail_audit() RETURNS trigger LANGUAGE plpgsql AS $audit$ BEGIN IF NEW.action='evaluation_completed' THEN RAISE EXCEPTION 'Injected late audit failure';END IF;RETURN NEW;END $audit$;CREATE TRIGGER fixture_fail_audit BEFORE INSERT ON public.access_audit_events FOR EACH ROW EXECUTE FUNCTION public.fixture_fail_audit();`);await sql(complete(commands[5]),true);assert.equal(await sql(`SELECT quiz_completed FROM public.participants_v2 WHERE id='${commands[5].participantId}'`),'f');assert.equal(await sql(`SELECT count(*) FROM public.questionnaire_results WHERE participant_id='${commands[5].participantId}'`),'0');assert.equal(await sql(`SELECT count(*) FROM public.credit_events_v2 WHERE participant_id='${commands[5].participantId}'`),'0');assert.equal(await sql(`SELECT count(*) FROM public.questionnaire_answers WHERE participant_id='${commands[5].participantId}'`),'0');await sql('DROP TRIGGER fixture_fail_audit ON public.access_audit_events;DROP FUNCTION public.fixture_fail_audit();');console.log('PASS P4 failure at final audit rolls back already written result, completion, draft and debit');
+// P3 real PostgreSQL roles/ACL/RLS; claims are simulated, never presented as Supabase JWT proof.
+const testLog=[];function passed(name){testLog.push(name);console.log('PASS '+name);}
+const adminA=uuid(41),sellerA=uuid(42),managerA=uuid(43),instB=uuid(44),unitB=uuid(45),unitA2=uuid(46),mAdmin=uuid(51),mSeller=uuid(52),mManager=uuid(53),leadA=uuid(61),leadB=uuid(62),leadA2=uuid(63);
+let accessSeed=`INSERT INTO public.institutions(id,name) VALUES('${instB}','Fictícia B');INSERT INTO public.units_v2(id,name,institution_id) VALUES('${unitB}','B','${instB}'),('${unitA2}','A2','${inst}');`;
+for(const [user,member,role]of [[adminA,mAdmin,'institution_admin'],[sellerA,mSeller,'seller'],[managerA,mManager,'unit_manager']])accessSeed+=`INSERT INTO auth.users VALUES('${user}');INSERT INTO public.user_profiles VALUES('${user}','Fictício',true);INSERT INTO auth.sessions VALUES('${uuid(Number(user.slice(-12))+100)}','${user}',now()+interval '1 hour');INSERT INTO public.institution_memberships VALUES('${member}','${inst}','${user}','${role}',true,false);INSERT INTO public.membership_unit_scopes VALUES('${member}','${inst}','${unit}',true);INSERT INTO public.user_permission_grants(membership_id,institution_id,resource,action,scope_type,allowed) VALUES('${member}','${inst}','commercial_report','read','${role==='seller'?'assigned_leads':'institution'}',true);`;
+for(const [pid,tenant,un]of [[leadA,inst,unit],[leadB,instB,unitB],[leadA2,inst,unitA2]])accessSeed+=`INSERT INTO public.participants_v2(id,questionnaire_id,unit_id,institution_id,assigned_user_id) VALUES('${pid}','${qid}','${un}','${tenant}','${sellerA}');`;
+await sql(accessSeed);
+const claimFor=user=>({sub:user,session_id:uuid(Number(user.slice(-12))+100),exp:Math.floor(Date.now()/1000)+3600});
+const asUser=(user,text)=>`SET ROLE authenticated;SET request.jwt.claims=${quote(JSON.stringify(claimFor(user)))};${text}`;
+const allowed=async(user,pid,resource='commercial_report',action='read')=>(await sql(asUser(user,`SELECT public.dna_authorize_participant('${pid}',${quote(resource)},${quote(action)});`))).split('\n').at(-1)==='t';
+assert(await allowed(adminA,leadA));assert(await allowed(sellerA,leadA));assert(await allowed(managerA,leadA));passed('P3 allocated admin, manager and assigned seller authorized');
+for(const user of [adminA,sellerA,managerA]){assert(!await allowed(user,leadB));assert(!await allowed(user,leadA2));assert(!await allowed(user,uuid(999)));}passed('P3 foreign institution, unassigned unit and manually changed participant ID denied');
+await sql(`UPDATE public.participants_v2 SET assigned_user_id='${managerA}' WHERE id='${leadA}'`);assert(!await allowed(sellerA,leadA));assert(await allowed(managerA,leadA));passed('P3 previous seller loses access after stored reassignment');
+await sql(`UPDATE public.institution_memberships SET active=false WHERE id='${mAdmin}'`);assert(!await allowed(adminA,leadA));await sql(`UPDATE public.institution_memberships SET active=true WHERE id='${mAdmin}'`);passed('P3 revoked membership denied on next database request');
+await sql(`UPDATE public.user_profiles SET active=false WHERE id='${managerA}'`);assert(!await allowed(managerA,leadA));await sql(`UPDATE public.user_profiles SET active=true WHERE id='${managerA}'`);passed('P3 deactivated profile denied');
+await sql(`UPDATE auth.sessions SET not_after=now()-interval '1 second' WHERE user_id='${managerA}'`);assert(!await allowed(managerA,leadA));await sql(`UPDATE auth.sessions SET not_after=now()+interval '1 hour' WHERE user_id='${managerA}'`);passed('P3 expired session denied');
+await sql(`INSERT INTO public.user_permission_grants(membership_id,institution_id,resource,action,scope_type,allowed) VALUES('${mManager}','${inst}','commercial_report','read','institution',false)`);assert(!await allowed(managerA,leadA));await sql(`DELETE FROM public.user_permission_grants WHERE membership_id='${mManager}' AND NOT allowed`);passed('P3 explicit denial wins over allow');
+await sql(asUser(sellerA,`UPDATE public.institution_memberships SET role_code='institution_admin' WHERE id='${mSeller}'`),true);await sql(asUser(adminA,'SELECT * FROM public.participants_v2'),true);passed('P3 database ACL blocks self elevation and direct lead reads');
+const participantClaims={sub:actor,session_id:sid,exp:Math.floor(Date.now()/1000)+3600};const participantRpc=pid=>`SET ROLE authenticated;SET request.jwt.claims=${quote(JSON.stringify(participantClaims))};SELECT public.dna_authorize_participant('${pid}','commercial_report','read');`;
+await sql(`UPDATE public.platform_owners SET active=false WHERE user_id='${actor}'`);assert.equal((await sql(participantRpc(commands[0].participantId))).split('\n').at(-1),'f');passed('P3 participant denied commercial report');
+await sql(`UPDATE public.platform_owners SET active=true WHERE user_id='${actor}'`);assert.equal((await sql(participantRpc(leadB))).split('\n').at(-1),'t');passed('P3 explicitly granted owner authorized globally with audit');
+assert.equal(await sql("SELECT count(*) FROM pg_class WHERE oid IN ('public.participants_v2'::regclass,'public.questionnaire_results'::regclass,'public.credit_events_v2'::regclass) AND relrowsecurity"),'3');passed('P3 RLS remains enabled on participant, result and credit tables');
+await sql('GRANT SELECT ON public.user_profiles TO authenticated;GRANT EXECUTE ON FUNCTION dna_private.is_active_user() TO authenticated;CREATE POLICY fixture_own_profile ON public.user_profiles FOR SELECT TO authenticated USING(id=auth.uid() AND dna_private.is_active_user());');assert.equal((await sql(asUser(sellerA,'SELECT count(*) FROM public.user_profiles'))).split('\n').at(-1),'1');passed('P3 actual RLS SELECT filters all foreign profiles');
+const finalLedger=await sql("SELECT count(*) FROM public.credit_events_v2 WHERE type='v1_consume'");assert.equal(finalLedger,'2');passed('P4 exactly two valid debits after replay, competition, invalid inputs and injected failure');
+const claims={sub:actor,session_id:sid,exp:Math.floor(Date.now()/1000)+3600};
+assert.notEqual(await sql(`SET ROLE authenticated;SET request.jwt.claims=${quote(JSON.stringify(claims))};SELECT public.dna_current_session();`),'');await sql(`DELETE FROM auth.sessions WHERE id='${sid}'`);assert.equal((await sql(`SET ROLE authenticated;SET request.jwt.claims=${quote(JSON.stringify(claims))};SELECT public.dna_current_session() IS NULL;`)).split('\n').at(-1),'t');
+console.log('PASS P4 zero credit preserves 15 answers; 12 queued replays; last-credit attempts across two units; tampering denied; full rollback after debit; immutable snapshots/answers; service-only RPC; revoked session.');
+console.log('PASS '+testLog.length+' additional PostgreSQL P3/P4 check groups. JWT claims simulated: real Supabase JWT/email tests remain pending.');
+
+}finally{await db.close();console.log('Local WASM PostgreSQL closed. Serial execution; no independent-connection concurrency claimed.');}

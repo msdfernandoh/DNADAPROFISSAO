@@ -8,17 +8,22 @@ type Props = {
   questions: PublicQuestion[]
   participantId: string
   submitAnswers?: (answers: {questionId:string;alternativeId:string}[]) => Promise<{state:'committed'|'no_credit'}>
+  initialAnswers?: Record<string,string>
+  saveDraft?: (answers: {questionId:string;alternativeId:string}[]) => Promise<void>
   onDone: (meta?: { consultantWhatsapp?: string | null }) => void
 }
 
-export function QuizV2({ questions, participantId, onDone, submitAnswers }: Props) {
+export function QuizV2({ questions, participantId, onDone, submitAnswers, initialAnswers = {}, saveDraft }: Props) {
   const sorted = useMemo(
     () => [...questions].sort((a, b) => a.order - b.order),
     [questions]
   )
 
-  const [index, setIndex] = useState(0)
-  const [answers, setAnswers] = useState<Record<string, string>>({})
+  const [index, setIndex] = useState(() => {
+    const firstMissing = sorted.findIndex(q => !initialAnswers[q.id])
+    return firstMissing < 0 ? Math.max(0, sorted.length - 1) : firstMissing
+  })
+  const [answers, setAnswers] = useState<Record<string, string>>(initialAnswers)
   const [submitting, setSubmitting] = useState(false)
   const [err, setErr] = useState<string | null>(null)
 
@@ -37,6 +42,19 @@ export function QuizV2({ questions, participantId, onDone, submitAnswers }: Prop
     setErr(null)
 
     const isLast = index >= total - 1
+    if (saveDraft) {
+      pending.current = true
+      setSubmitting(true)
+      try {
+        await saveDraft(sorted.filter(q => answers[q.id]).map(q => ({questionId:q.id,alternativeId:answers[q.id]})))
+      } catch {
+        setErr("Não foi possível salvar. Tente novamente antes de sair.")
+        return
+      } finally {
+        pending.current = false
+        setSubmitting(false)
+      }
+    }
     if (!isLast) {
       setIndex(i => i + 1)
       return

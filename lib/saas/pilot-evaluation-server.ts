@@ -16,7 +16,7 @@ export async function loadPilotEvaluation(id:string){
  const permission=await client.rpc('dna_authorize_participant',{p_participant:id,p_resource:'lead',p_action:'update'});
  if(permission.error||permission.data!==true)throw Error('Unavailable');
  const db=await createServiceClient();
- const {data:p,error}=await db.from('participants_v2').select('id,institution_id,unit_id,v1_revision,v1_registration,quiz_completed').eq('id',id).maybeSingle();
+ const {data:p,error}=await db.from('participants_v2').select('id,institution_id,unit_id,v1_revision,v1_registration,quiz_completed,v1_draft_answers').eq('id',id).maybeSingle();
  if(error||!p?.institution_id||!identity.institutionIds.includes(p.institution_id)||!p.unit_id||p.v1_revision!==INTEGRATED_REVISION||!p.v1_registration)throw Error('Unavailable');
  const [institution,unit]=await Promise.all([db.from('institutions').select('id').eq('id',p.institution_id).eq('active',true).maybeSingle(),db.from('units_v2').select('id').eq('id',p.unit_id).eq('institution_id',p.institution_id).eq('active',true).maybeSingle()]);
  if(institution.error||unit.error||!institution.data||!unit.data)throw Error('Unavailable');
@@ -26,5 +26,5 @@ export async function loadPilotEvaluation(id:string){
  let debit=null;
  if(r?.v1_debit_id){const receipt=await db.from('credit_events_v2').select('id,participant_id,institution_id,unit_id,type,amount').eq('id',r.v1_debit_id).maybeSingle();if(receipt.error)throw Error('Completion unavailable');debit=receipt.data;}
  const completion=recoveredCompletion(p,r,debit);
- return {participantId:p.id,name:registration.name,revision:p.v1_revision,completed:completion!==null,questions:completion?[]:journeyQuestions().map(q=>({id:q.id,text:q.situation,description:q.title,order:q.number,required:true,type:'single_choice',alternatives:q.options.map((a,i)=>({id:a.id,question_id:q.id,text:a.text,order:i+1}))}))};
+ return {participantId:p.id,name:registration.name,revision:p.v1_revision,completed:completion!==null,initialAnswers:Object.fromEntries((Array.isArray(p.v1_draft_answers)?p.v1_draft_answers:[]).filter((a:{questionId?:string;alternativeId?:string})=>typeof a.questionId==='string'&&typeof a.alternativeId==='string').map((a:{questionId:string;alternativeId:string})=>[a.questionId,a.alternativeId])),questions:completion?[]:journeyQuestions().map(q=>({id:q.id,text:q.situation,description:q.title,order:q.number,required:true,type:'single_choice',alternatives:q.options.map((a,i)=>({id:a.id,question_id:q.id,text:a.text,order:i+1}))}))};
 }
