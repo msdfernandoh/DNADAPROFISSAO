@@ -20,7 +20,7 @@ try{
  ALTER TABLE public.questions ALTER COLUMN id SET DEFAULT gen_random_uuid(),ADD COLUMN text text,ADD COLUMN description text,ADD COLUMN "order" integer,ADD COLUMN active boolean;
  ALTER TABLE public.alternatives ALTER COLUMN id SET DEFAULT gen_random_uuid(),ADD COLUMN text text,ADD COLUMN "order" integer,ADD COLUMN active boolean;
  ALTER TABLE public.questionnaire_profiles ALTER COLUMN id SET DEFAULT gen_random_uuid(),ADD COLUMN name text,ADD COLUMN sort_order integer,ADD COLUMN active boolean;
- ALTER TABLE public.participants_v2 ALTER COLUMN id SET DEFAULT gen_random_uuid(),ADD COLUMN name text,ADD COLUMN phone text,ADD COLUMN email text,ADD COLUMN city text,ADD COLUMN escolaridade text,ADD COLUMN course_interest text;`);
+ ALTER TABLE public.participants_v2 ALTER COLUMN id SET DEFAULT gen_random_uuid(),ADD COLUMN name text,ADD COLUMN phone text,ADD COLUMN email text,ADD COLUMN city text,ADD COLUMN escolaridade text,ADD COLUMN course_interest text,ADD COLUMN status text DEFAULT 'Aguardando teste',ADD COLUMN notes text;`);
  await db.exec(await fs.readFile('supabase/migrations/20261028160720_dna_frozen_revision_mapping.sql','utf8'));
  assert.equal((await db.query(`SELECT count(*)::integer AS n FROM public.questions`)).rows[0].n,15);
  const r=(await db.query(`SELECT * FROM dna_private.evaluation_revisions`)).rows[0];assert.equal(r.completion_enabled,false);
@@ -57,6 +57,20 @@ try{
  await db.query("INSERT INTO public.credit_events_v2(institution_id,type,amount) VALUES($1,'v1_grant',1000)",[tenant]);
  await db.exec('SET ROLE authenticated');let summary=(await db.query('SELECT public.dna_credit_summary($1) AS value',[tenant])).rows[0].value;await db.exec('RESET ROLE');assert.equal(summary.balance,1000);assert.equal(summary.events.length,1);
  await db.query("UPDATE public.institution_memberships SET role_code='seller'");await db.exec('SET ROLE authenticated');await assert.rejects(db.query('SELECT public.dna_credit_summary($1)',[tenant]));await db.exec('RESET ROLE');pass('credit balance exact and denied to seller');
+ await db.exec(await fs.readFile('supabase/migrations/20261028172514_dna_scoped_follow_up.sql','utf8'));
+ await db.query("UPDATE public.institution_memberships SET role_code='institution_admin'");
+ await db.query("INSERT INTO public.user_permission_grants(membership_id,institution_id,resource,action,scope_type,allowed) VALUES($1,$2,'lead','update','institution',true)",[member,tenant]);
+ const pid=result.rows[0].id;
+ await db.exec('SET ROLE authenticated');let current=(await db.query('SELECT public.dna_get_follow_up($1) AS value',[pid])).rows[0].value;
+ assert.equal(current.status,'Aguardando teste');assert.equal(current.canUpdate,true);
+ await db.query('SELECT public.dna_update_follow_up($1,$2,$3)',[pid,{status:'Em atendimento',notes:'Fictitious follow-up note'},current.updatedAt]);
+ let saved=(await db.query('SELECT public.dna_get_follow_up($1) AS value',[pid])).rows[0].value;assert.equal(saved.status,'Em atendimento');assert.equal(saved.history.length,1);
+ await assert.rejects(db.query('SELECT public.dna_update_follow_up($1,$2,$3)',[pid,{status:'Novo'},current.updatedAt]));
+ await assert.rejects(db.query('SELECT public.dna_update_follow_up($1,$2,$3)',[pid,{assigned_user_id:actor},saved.updatedAt]));
+ await assert.rejects(db.query('SELECT public.dna_update_follow_up($1,$2,$3)',[pid,{status:'forged'},saved.updatedAt]));await db.exec('RESET ROLE');
+ await db.query("UPDATE public.institution_memberships SET role_code='seller'");await db.query('UPDATE public.participants_v2 SET assigned_user_id=NULL WHERE id=$1',[pid]);
+ await db.exec('SET ROLE authenticated');await assert.rejects(db.query('SELECT public.dna_get_follow_up($1)',[pid]));await db.exec('RESET ROLE');
+ pass('follow-up saves with history, rejects stale changes, scope injection and unassigned seller');
  console.log(JSON.stringify({passed:checks,productionAccess:false}));
 
 }finally{await db.close();console.log('Local PostgreSQL closed; fictitious records only.');}

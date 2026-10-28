@@ -1,0 +1,11 @@
+'use client';
+import {useState} from 'react';
+import {useRouter} from 'next/navigation';
+import {STATUS_OPTS} from '@/lib/dna-data';
+export function FollowUp({id,status,notes,updatedAt,canUpdate}:{id:string;status:string;notes:string|null;updatedAt:string;canUpdate:boolean}){
+ const [busy,setBusy]=useState(false),[message,setMessage]=useState('');const router=useRouter();
+ return <form className="space-y-4" onSubmit={async e=>{
+  e.preventDefault();if(busy)return;const data=new FormData(e.currentTarget);setBusy(true);setMessage('');
+  try{const r=await fetch('/api/v1/evaluations/'+id+'/follow-up',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({status:data.get('status'),notes:data.get('notes'),updatedAt})}),result=await r.json();if(!r.ok||!result.saved)throw Error(result.error||'Falha ao salvar');setMessage('Atendimento salvo.');router.refresh();}catch(err){setMessage(err instanceof Error?err.message:'Falha ao salvar');}finally{setBusy(false);}
+ }}><fieldset disabled={busy||!canUpdate} className="space-y-4"><label className="block">Situação<select name="status" defaultValue={status} className="block w-full p-3 rounded border bg-slate-900 text-white">{STATUS_OPTS.map(s=><option key={s}>{s}</option>)}</select></label><label className="block">Notas do atendimento<textarea name="notes" defaultValue={notes||''} maxLength={5000} rows={6} className="block w-full p-3 rounded border bg-slate-900 text-white"/></label>{canUpdate&&<button className="rounded-full bg-purple-900 text-white px-6 py-3" type="submit">{busy?'Salvando…':'Salvar atendimento'}</button>}</fieldset>{message&&<p role="status">{message}</p>}</form>;
+}
