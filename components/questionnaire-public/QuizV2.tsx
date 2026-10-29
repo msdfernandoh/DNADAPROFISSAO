@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useRef, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import { G } from "@/lib/dna-data"
 import type { PublicQuestion } from "@/lib/questionnaire-platform/public-funnel"
 import {questionDisplayText,questionDisplayTitle} from '@/lib/questionnaire-engine/integration/question-display'
@@ -30,6 +30,13 @@ export function QuizV2({ questions, participantId, onDone, submitAnswers, initia
   const [err, setErr] = useState<string | null>(null)
 
   const pending = useRef(false)
+  const questionHeading = useRef<HTMLHeadingElement>(null)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.scrollTo({top:0,behavior:"auto"})
+      questionHeading.current?.focus({preventScroll:true})
+    }
+  }, [index])
   const current = sorted[index]
   const total = sorted.length
   const progress = total > 0 ? ((index + 1) / total) * 100 : 0
@@ -161,7 +168,7 @@ export function QuizV2({ questions, participantId, onDone, submitAnswers, initia
         className={styles.card}
       >
         {current.description&&<p className={styles.topic}>{questionDisplayTitle(current.description)}</p>}
-        <h1 className={styles.question}>{questionDisplayText(current.text)}</h1>
+        <h1 ref={questionHeading} tabIndex={-1} className={styles.question}>{questionDisplayText(current.text)}</h1>
         {current.description ? (
           <p className={styles.hint}>Qual opção mais se aproxima do seu jeito? Toque para escolher.</p>
         ) : null}
