@@ -26,8 +26,12 @@ export async function storedParticipantReport(id:string){
  if(published.publication){
   const [i,u,a]=await Promise.all([db.from('institutions').select('active').eq('id',p.institution_id).maybeSingle(),db.from('units_v2').select('active').eq('id',p.unit_id).eq('institution_id',p.institution_id).maybeSingle(),db.from('report_editorial_approvals').select('version,source_hash,active').eq('version',published.publication.version).eq('active',true).maybeSingle()]);
   if(i.error||u.error||a.error||!i.data?.active||!u.data?.active||!a.data||a.data.source_hash!==published.publication.sourceHash)throw Error('Unavailable');
-  const publication=await currentStoredPublication(db,published);return publishedParticipantReport({...published,publication},publication.version);
+  const publication=await currentStoredPublication(db,published);if(!publication)throw Error('Editorial unavailable');return publishedParticipantReport({...published,publication},publication.version);
  }
+ const [activeInstitution,activeUnit]=await Promise.all([db.from('institutions').select('active').eq('id',p.institution_id).maybeSingle(),db.from('units_v2').select('active').eq('id',p.unit_id).eq('institution_id',p.institution_id).maybeSingle()]);
+ if(activeInstitution.error||activeUnit.error||!activeInstitution.data?.active||!activeUnit.data?.active)throw Error('Unavailable');
+ const additional=await currentStoredPublication(db,published);
+ if(additional)return publishedParticipantReport({...published,publication:additional},additional.version);
  const [institution,unit,approval]=await Promise.all([
   db.from('institutions').select('active').eq('id',p.institution_id).maybeSingle(),
   db.from('units_v2').select('active').eq('id',p.unit_id).eq('institution_id',p.institution_id).maybeSingle(),

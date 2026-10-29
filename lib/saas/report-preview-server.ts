@@ -28,9 +28,11 @@ export async function previewStoredEvaluation(id:string){
  if(delivered.publication){
   const approval=await db.from('report_editorial_approvals').select('version,source_hash,active').eq('version',delivered.publication.version).eq('active',true).maybeSingle();
   if(approval.error||!approval.data||approval.data.source_hash!==delivered.publication.sourceHash)throw Error('Approval unavailable');
-  const publication=await currentStoredPublication(db,delivered);
+  const publication=await currentStoredPublication(db,delivered);if(!publication)throw Error('Editorial unavailable');
   return {status:'approved' as const,published:true as const,participant:publishedParticipantReport({...delivered,publication},publication.version),commercial:{sections:publication.commercial,whatsapp:publication.whatsapp,courses:publication.courses},offersActive:false as const};
  }
+ const additional=await currentStoredPublication(db,delivered);
+ if(additional)return {status:'approved' as const,published:true as const,participant:publishedParticipantReport({...delivered,publication:additional},additional.version),commercial:{sections:additional.commercial,whatsapp:additional.whatsapp,courses:additional.courses},offersActive:false as const};
  const approvalResult=await db.from('report_revision_approvals').select('revision,editorial_version,source_hash,approved_by,approved_at,active').eq('revision',r.v1_revision).eq('active',true).maybeSingle();
  if(approvalResult.error)throw Error('Approval unavailable');
  const a=approvalResult.data;
