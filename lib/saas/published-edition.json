@@ -1,0 +1,11 @@
+{
+  "version": "dna-restored-humanized-2026-10-28.v2.public-1",
+  "sourceHash": "2d92ff20d55445a1df410eb3ed1fad65b7854723880d30d1957baf82863c9fd2",
+  "files": [
+    "lib/saas/published-editorial.ts",
+    "lib/questionnaire-engine/individual/editorial/restore-humanized.ts",
+    "lib/questionnaire-engine/individual/editorial/restored-context.ts",
+    "lib/questionnaire-engine/individual/editorial/restored-pairs.json",
+    "lib/questionnaire-engine/individual/editorial/restored-sources.json"
+  ]
+}

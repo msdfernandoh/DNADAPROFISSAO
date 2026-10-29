@@ -77,7 +77,7 @@ export function Landing({ onStart }: LandingProps) {
           className="text-sm leading-relaxed max-w-[600px] mx-auto mb-5 animate-fadeUp"
           style={{ color: G.gray, animationDelay: ".2s" }}
         >
-          Através de situações simples do cotidiano, essa análise identifica padrões do seu comportamento e áreas profissionais com maior compatibilidade com seu perfil.
+          Quinze situações do cotidiano ajudam você a olhar para suas escolhas, reconhecer suas forças e investigar possibilidades profissionais.
         </p>
 
         <p
@@ -104,7 +104,7 @@ export function Landing({ onStart }: LandingProps) {
           className="text-xs mt-4 animate-fadeUp"
           style={{ color: G.gray, animationDelay: ".4s" }}
         >
-          24 perguntas • Aproximadamente 8 minutos • 100% gratuito
+          15 situações do cotidiano • Seu novo DNA da Profissão®
         </p>
       </div>
 
