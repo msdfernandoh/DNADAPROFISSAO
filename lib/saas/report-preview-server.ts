@@ -1,3 +1,4 @@
+import {currentStoredPublication} from './current-publication-server';
 import 'server-only';
 import {evaluationFlags} from './flags';
 import {createClient} from '@/lib/supabase/individual-server';
@@ -27,8 +28,8 @@ export async function previewStoredEvaluation(id:string){
  if(delivered.publication){
   const approval=await db.from('report_editorial_approvals').select('version,source_hash,active').eq('version',delivered.publication.version).eq('active',true).maybeSingle();
   if(approval.error||!approval.data||approval.data.source_hash!==delivered.publication.sourceHash)throw Error('Approval unavailable');
-  const publication=verifyPublishedEditorial(delivered,approval.data.version);
-  return {status:'approved' as const,published:true as const,participant:publishedParticipantReport(delivered,approval.data.version),commercial:{sections:publication.commercial,whatsapp:publication.whatsapp,courses:publication.courses},offersActive:false as const};
+  const publication=await currentStoredPublication(db,delivered);
+  return {status:'approved' as const,published:true as const,participant:publishedParticipantReport({...delivered,publication},publication.version),commercial:{sections:publication.commercial,whatsapp:publication.whatsapp,courses:publication.courses},offersActive:false as const};
  }
  const approvalResult=await db.from('report_revision_approvals').select('revision,editorial_version,source_hash,approved_by,approved_at,active').eq('revision',r.v1_revision).eq('active',true).maybeSingle();
  if(approvalResult.error)throw Error('Approval unavailable');

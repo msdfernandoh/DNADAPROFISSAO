@@ -6,7 +6,7 @@ if(!process.env.DNA_TEST_PGLITE_MODULE)throw Error('Explicit disposable database
 const {PGlite}=require(process.env.DNA_TEST_PGLITE_MODULE),db=new PGlite();
 const {createJourney,INTEGRATED_REVISION}=require('../../.local-tests/journey/lib/questionnaire-engine/integration/journey.js');
 const {buildReviewCase}=require('../../.local-tests/journey/lib/questionnaire-engine/integration/review-cases.js');
-const {composePublishedEditorial,verifyPublishedEditorial,PUBLIC_EDITION}=require('../../.local-tests/journey/lib/saas/published-editorial.js');
+const {composePublishedEditorial,verifyPublishedEditorial,PUBLIC_EDITION,PUBLIC_EDITION_SOURCE_HASH}=require('../../.local-tests/journey/lib/saas/published-editorial.js');
 const id=n=>'00000000-0000-4000-8000-'+String(n).padStart(12,'0');
 const migration='20261029023309_dna_public_official_journey.sql';let checks=0;
 const pass=text=>{checks++;console.log('PASS '+text);};
@@ -31,6 +31,8 @@ try{
  const before=(await db.query('SELECT row_to_json(p) AS value FROM public.participants_v2 p WHERE id=$1',[id(90)])).rows[0].value;
  await db.exec(await readFile('supabase/migrations/'+migration,'utf8'));
  assert.equal((await db.query('SELECT public.dna_public_entry_context() AS c')).rows[0].c,null);pass('public entry stays OFF until explicit approved activation');
+ await db.query("INSERT INTO public.report_editorial_approvals(version,source_hash,approved_by,active) VALUES($1,$2,'Disposable fixture',true) ON CONFLICT(version) DO UPDATE SET source_hash=excluded.source_hash",[PUBLIC_EDITION,PUBLIC_EDITION_SOURCE_HASH]);
+ await db.query("UPDATE dna_private.public_entrypoints SET editorial_version=$1",[PUBLIC_EDITION]);
  await db.exec(`UPDATE dna_private.evaluation_revisions SET completion_enabled=true;UPDATE public.report_editorial_approvals SET active=true;UPDATE dna_private.public_entrypoints SET enabled=true;`);
  const c=(await db.query('SELECT public.dna_public_entry_context() AS c')).rows[0].c;assert.equal(c.assignedUserId,seller);assert.equal(c.unitId,unit);pass('public context uses active stored institution, unit, revision, edition and seller');
  for(const role of ['anon','authenticated']){await db.exec('SET ROLE '+role);await assert.rejects(db.query('SELECT public.dna_public_entry_context()'));await assert.rejects(db.query('SELECT public.dna_register_public_evaluation($1)',[{}]));await db.exec('RESET ROLE');}pass('anonymous and authenticated database clients cannot invoke privileged public adapters');
@@ -62,6 +64,6 @@ try{
  console.log(JSON.stringify({checks,disposableDatabase:true,productionWrites:false}));
  if(process.env.DNA_TEST_CITY_ROUTING==='true'){
   await db.exec('UPDATE dna_private.public_entrypoints SET enabled=true');
-  const {cityRoutingChecks}=await import('./city-routing-checks.mjs');console.log('PASS city routing '+JSON.stringify(await cityRoutingChecks(db,{id,tenant,unit,seller,member})));
+  const {cityRoutingChecks}=await import('./city-routing-checks.mjs');const cityChecks=await cityRoutingChecks(db,{id,tenant,unit,seller,member});console.log('PASS city routing '+JSON.stringify(cityChecks));const {teamDashboardChecks}=await import('./team-dashboard-checks.mjs');console.log('PASS team dashboard '+JSON.stringify(await teamDashboardChecks(db,{id,tenant,unit,seller,member,...cityChecks})));
  }
 }finally{await db.close();}

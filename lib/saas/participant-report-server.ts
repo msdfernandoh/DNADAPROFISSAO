@@ -1,3 +1,4 @@
+import {currentStoredPublication} from './current-publication-server';
 import 'server-only';
 import {createHash} from 'node:crypto';
 import {createServiceClient} from '@/lib/supabase/service';
@@ -25,7 +26,7 @@ export async function storedParticipantReport(id:string){
  if(published.publication){
   const [i,u,a]=await Promise.all([db.from('institutions').select('active').eq('id',p.institution_id).maybeSingle(),db.from('units_v2').select('active').eq('id',p.unit_id).eq('institution_id',p.institution_id).maybeSingle(),db.from('report_editorial_approvals').select('version,source_hash,active').eq('version',published.publication.version).eq('active',true).maybeSingle()]);
   if(i.error||u.error||a.error||!i.data?.active||!u.data?.active||!a.data||a.data.source_hash!==published.publication.sourceHash)throw Error('Unavailable');
-  return publishedParticipantReport(published,a.data.version);
+  const publication=await currentStoredPublication(db,published);return publishedParticipantReport({...published,publication},publication.version);
  }
  const [institution,unit,approval]=await Promise.all([
   db.from('institutions').select('active').eq('id',p.institution_id).maybeSingle(),

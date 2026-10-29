@@ -1,11 +1,12 @@
+import {composePublishedEditorial as composePreviousEditorial,PUBLIC_EDITION as PREVIOUS_EDITION,PUBLIC_EDITION_SOURCE_HASH as PREVIOUS_SOURCE_HASH} from './published-editorial-20261028';
 import {createHash} from 'node:crypto';
-import {restoreHumanized,RESTORED_EDITORIAL_VERSION} from '../questionnaire-engine/individual/editorial/restore-humanized';
+import {composeIntegratedHumanized,INTEGRATED_EDITORIAL_VERSION} from '../questionnaire-engine/individual/editorial/integrated-humanized';
 import {profileDisplaySummary} from '../questionnaire-engine/integration/profile-summary';
 import type {IntegratedJourney} from '../questionnaire-engine/integration/journey';
 import {buildCourseMatrix} from '../questionnaire-engine/careers/build-course-matrix';
 import edition from './published-edition.json';
 
-export const PUBLIC_EDITION=RESTORED_EDITORIAL_VERSION+'.public-1';
+export const PUBLIC_EDITION=INTEGRATED_EDITORIAL_VERSION+'.public-1';
 export const PUBLIC_EDITION_SOURCE_HASH=edition.sourceHash;
 type Section={number:number;title:string;paragraphs:string[]};
 export type PublishedCourse={id:string;name:string;level:string;why:string;activity:string;investigate:string;admission:string};
@@ -19,7 +20,7 @@ function canonical(value:unknown):unknown{
 const hash=(value:unknown)=>createHash('sha256').update(JSON.stringify(canonical(value))).digest('hex');
 /** The existing restored composer and orientation engine are the single source of both audiences. */
 export function composePublishedEditorial(j:IntegratedJourney):PublishedEditorial{
- const restored=restoreHumanized(j);
+ const restored=composeIntegratedHumanized(j);
  const participant=restored.participant.map(s=>({...s,paragraphs:s.paragraphs.map(p=>p.text)}));
  const commercial=restored.commercial.map(s=>({...s,paragraphs:s.paragraphs.map(p=>p.text)}));
  const courses:PublishedCourse[]=j.orientation.exploratoryCourses.map(c=>({id:c.courseId,name:c.courseName,level:c.level,why:c.whyIncluded,activity:c.concreteActivity,investigate:c.whatToInvestigate,admission:'Possibilidade para explorar. Oferta, requisitos e elegibilidade devem ser confirmados pela instituição antes de uma matrícula.'}));
@@ -32,14 +33,14 @@ export function composePublishedEditorial(j:IntegratedJourney):PublishedEditoria
   for(const c of courses)participant[7].paragraphs.push(c.name+'. '+c.why+' Uma atividade para conhecer: '+c.activity+' '+c.investigate+' '+c.admission);
  }
  const first=j.registration.name.split(' ')[0];
- const whatsapp='Oi, '+first+'! Você conseguiu se enxergar no resultado do seu DNA da Profissão®? Teve alguma parte que parecia estar falando exatamente de você? Se quiser, podemos conversar sobre uma situação que chamou sua atenção.';
+ const whatsapp='Oi, '+first+'! Seu DNA está pronto. Você já recebeu a ficha completa ou quer ajuda para acessar? Depois de ler, me conte: conseguiu se enxergar no resultado do seu DNA da Profissão®? Teve alguma parte que parecia estar falando exatamente de você? Se quiser, podemos conversar sobre uma situação que chamou sua atenção.';
  commercial[2].paragraphs=[whatsapp];
  commercial[3].paragraphs=[
   'Comece pela identificação: “'+first+', você conseguiu se enxergar no resultado? Teve alguma parte que parecia estar falando exatamente de você?” Escute também o que não combinou.',
   'Depois, retome uma cena que a própria pessoa destacou no relatório: “Você se lembra de uma situação parecida? O que costuma fazer naquele momento?” Compare com as respostas sem atribuir sentimentos ou dificuldades que ela não relatou.',
   courses.length?'Só depois entre nas opções que ela viu: “Dos cursos que apareceram no seu DNA — '+courses.map(c=>c.name).join(', ')+' — qual chamou mais sua atenção? Com qual se identificou?”':'Nenhum curso foi apresentado como indicação neste resultado. Pergunte qual atividade ou área ela gostaria de investigar; não pergunte por uma lista que ela não recebeu.',
  ];
- commercial[5].paragraphs=courses.length?courses.map(c=>c.name+'. Esta é a mesma opção exibida à participante. '+c.activity+' '+c.investigate+' '+c.admission):['Não foram apresentados cursos neste resultado. Explore o interesse com a pessoa antes de apresentar opções. Não transforme um perfil em recomendação automática.'];
+ commercial[5].paragraphs=courses.length?courses.map(c=>c.name+'. Esta é a mesma opção exibida à pessoa participante. '+c.activity+' '+c.investigate+' '+c.admission):['Não foram apresentados cursos neste resultado. Explore o interesse com a pessoa antes de apresentar opções. Não transforme um perfil em recomendação automática.'];
  commercial[7].paragraphs=[
   'Siga a conversa nesta ordem: identificação com o resultado → reflexão sobre uma cena → escolha entre as opções realmente apresentadas → interesse pela profissão → condições para começar → matrícula, se a pessoa desejar e houver elegibilidade.',
   'Depois de uma escolha, pergunte o que chamou atenção na profissão e como imagina uma rotina nessa área. Só então conheça as condições que ela deseja compartilhar para começar. Confirme formação exigida, oferta, modalidade e condições comerciais atuais antes de falar em matrícula; não prometa vaga, salário ou aprovação.',
@@ -58,3 +59,6 @@ export function publishedParticipantReport(j:DeliveredJourney,approvedVersion:st
  const p=verifyPublishedEditorial(j,approvedVersion);
  return {audience:'participant' as const,name:j.registration.name,profiles:profileDisplaySummary(j.analysis),sections:p.participant.map(s=>({...s,paragraphs:[...s.paragraphs]})),renderHash:p.contentHash};
 }
+
+export function knownPublishedEdition(version:string,sourceHash:string){return version===PUBLIC_EDITION&&sourceHash===PUBLIC_EDITION_SOURCE_HASH||version===PREVIOUS_EDITION&&sourceHash===PREVIOUS_SOURCE_HASH;}
+export function composeEntryEditorial(j:IntegratedJourney,version:string){if(version===PUBLIC_EDITION)return composePublishedEditorial(j);if(version===PREVIOUS_EDITION)return composePreviousEditorial(j);throw Error('Unsupported entry edition');}

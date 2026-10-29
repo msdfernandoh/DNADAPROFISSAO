@@ -3,12 +3,12 @@ import {createServiceClient} from '@/lib/supabase/service';
 import {ownsParticipant} from '@/lib/security/participant-session';
 import {createJourney,INTEGRATED_REVISION,journeyQuestions,validateRegistration} from '../questionnaire-engine/integration/journey';
 import {frozenRevision} from '../questionnaire-engine/integration/frozen-revision';
-import {composePublishedEditorial,PUBLIC_EDITION,PUBLIC_EDITION_SOURCE_HASH} from './published-editorial';
+import {composeEntryEditorial,knownPublishedEdition,verifyPublishedEditorial,type DeliveredJourney} from './published-editorial';
 
 const uuid=/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 export async function publicEntryContext(){
  const db=await createServiceClient(),r=await db.rpc('dna_public_entry_context');const c=r.data;
- if(r.error||!c||c.revision!==INTEGRATED_REVISION||c.sourceHash!==frozenRevision().sourceHash||c.editorialVersion!==PUBLIC_EDITION||c.editorialSourceHash!==PUBLIC_EDITION_SOURCE_HASH)throw Error('Public journey unavailable');
+ if(r.error||!c||c.revision!==INTEGRATED_REVISION||c.sourceHash!==frozenRevision().sourceHash||!knownPublishedEdition(c.editorialVersion,c.editorialSourceHash))throw Error('Public journey unavailable');
  return c as {institutionId:string;institutionName:string;unitId:string;unitName:string;assignedUserId:string;revision:string;questionnaireId:string;sourceHash:string;editorialVersion:string;editorialSourceHash:string};
 }
 export function publicQuestions(){return journeyQuestions().map(q=>({id:q.id,text:q.situation,description:q.title,order:q.number,required:true,type:'single_choice',alternatives:q.options.map((o,i)=>({id:o.id,question_id:q.id,text:o.text,order:i+1}))}));}
@@ -31,8 +31,16 @@ export function validatePublicAnswers(input:unknown,partial=false){
 }
 export async function completeOwnPublicEvaluation(id:string,input:unknown){
  const answers=validatePublicAnswers(input),{db,context:c,participant:p,registration}=await loadOwnPublicEvaluation(id);
+ if(p.quiz_completed){
+  const r=await db.from('questionnaire_results').select('v1_snapshot,v1_snapshot_key,v1_debit_id').eq('participant_id',id).maybeSingle(),j=r.data?.v1_snapshot as DeliveredJourney;
+  if(r.error||!j?.publication||j.snapshot!==r.data?.v1_snapshot_key||j.scope.participantId!==p.id||j.scope.institutionId!==p.institution_id||j.scope.unitId!==p.unit_id||j.scope.assignedUserId!==p.assigned_user_id||answers.some(a=>!j.analysis.evidence.some(e=>e.questionId===a.questionId&&e.alternativeId===a.alternativeId)))throw Error('Conflicting historical completion');
+  verifyPublishedEditorial(j,j.publication.version);
+  const debit=await db.from('credit_events_v2').select('id').eq('id',r.data.v1_debit_id).eq('participant_id',id).eq('institution_id',p.institution_id).eq('type','v1_consume').eq('amount',-1).maybeSingle();
+  if(debit.error||!debit.data)throw Error('Inconsistent stored debit');
+  return {state:'committed' as const,url:'/meu-dna/'+p.id,replay:true};
+ }
  const journey=createJourney({revision:c.revision,registration,answers},{scope:{participantId:p.id,institutionId:p.institution_id,unitId:p.unit_id,assignedUserId:p.assigned_user_id},institutionName:c.institutionName,unitName:c.unitName,release:'released',reading:'unknown'});
- const snapshot={...journey,publication:composePublishedEditorial(journey)};
+ const snapshot={...journey,publication:composeEntryEditorial(journey,c.editorialVersion)};
  const command={actorId:null,sessionId:null,participantId:p.id,institutionId:p.institution_id,unitId:p.unit_id,questionnaireId:p.questionnaire_id,revision:p.v1_revision,revisionSourceHash:c.sourceHash,answers,scores:{...journey.analysis.scores},snapshot,snapshotKey:journey.snapshot};
  const r=await db.rpc('dna_complete_public_evaluation_v1',{p_command:command});
  if(r.error)throw Error('Completion unavailable');

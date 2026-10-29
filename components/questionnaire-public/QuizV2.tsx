@@ -3,6 +3,8 @@
 import { useMemo, useRef, useState } from "react"
 import { G } from "@/lib/dna-data"
 import type { PublicQuestion } from "@/lib/questionnaire-platform/public-funnel"
+import {questionDisplayText,questionDisplayTitle} from '@/lib/questionnaire-engine/integration/question-display'
+import styles from './quiz-conversation.module.css'
 
 type Props = {
   questions: PublicQuestion[]
@@ -133,7 +135,7 @@ export function QuizV2({ questions, participantId, onDone, submitAnswers, initia
   }
 
   return (
-    <div className="w-full max-w-lg mx-auto space-y-6">
+    <div className={styles.quiz} data-tone={index%3}>
       <div>
         <div className="flex justify-between text-xs mb-2" style={{ color: G.gray }}>
           <span>
@@ -156,18 +158,16 @@ export function QuizV2({ questions, participantId, onDone, submitAnswers, initia
       </div>
 
       <div
-        className="rounded-2xl p-6 space-y-4"
-        style={{ background: "rgba(26,32,53,.85)", border: `1px solid ${G.grayDark}` }}
+        className={styles.card}
       >
-        <p className="text-lg font-semibold text-white leading-snug">{current.text}</p>
+        {current.description&&<p className={styles.topic}>{questionDisplayTitle(current.description)}</p>}
+        <h1 className={styles.question}>{questionDisplayText(current.text)}</h1>
         {current.description ? (
-          <p className="text-sm" style={{ color: G.gray }}>
-            {current.description}
-          </p>
+          <p className={styles.hint}>Qual opção mais se aproxima do seu jeito? Toque para escolher.</p>
         ) : null}
 
         <div className="space-y-2">
-          {current.alternatives.map(alt => {
+          {current.alternatives.map((alt,optionIndex) => {
             const active = selected === alt.id
             return (
               <button
@@ -179,14 +179,9 @@ export function QuizV2({ questions, participantId, onDone, submitAnswers, initia
                   setAnswers(a => ({ ...a, [current.id]: alt.id }))
                   setErr(null)
                 }}
-                className="w-full text-left rounded-xl px-4 py-3 text-sm transition-colors"
-                style={{
-                  background: active ? `${G.gold}22` : "rgba(15,20,35,.6)",
-                  border: `1.5px solid ${active ? G.gold : G.grayDark}`,
-                  color: active ? G.goldLight : G.white,
-                }}
+                className={styles.option}
               >
-                {alt.text}
+                <span className={styles.letter} aria-hidden="true">{active?'✓':String.fromCharCode(65+optionIndex)}</span><span>{questionDisplayText(alt.text)}</span>
               </button>
             )
           })}
