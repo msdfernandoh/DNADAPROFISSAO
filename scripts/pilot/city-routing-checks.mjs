@@ -31,5 +31,7 @@ export async function cityRoutingChecks(db,{id,tenant,unit,seller,member}){
  await db.exec('SET ROLE anon');await assert.rejects(db.query('SELECT public.dna_resolve_public_route($1,NULL)',['Vera, MT']));await assert.rejects(db.query('SELECT public.dna_save_routing_unit($1)',[setup]));await db.exec('RESET ROLE');
  await db.query("SELECT set_config('request.jwt.claims',$1,false)",[JSON.stringify({sub:seller,session_id:id(109),exp:Math.floor(Date.now()/1000)+3600})]);await db.query(`INSERT INTO auth.sessions VALUES($1,$2,now()+interval '1 hour')`,[id(109),seller]);await db.exec('SET ROLE authenticated');await assert.rejects(db.query('SELECT public.dna_list_routing_units()'));await db.exec('RESET ROLE');
  // Keep the fixture's original no-credit completion and team tests unaffected.
- return {checks:15,polo,local};
+ const {stateCoverageChecks}=await import('./state-coverage-checks.mjs');
+ const stateChecks=await stateCoverageChecks(db,{id,tenant,unit,seller,admin,adminSession,polo,local,second,routedId});
+ return {checks:15+stateChecks,polo,local};
 }
