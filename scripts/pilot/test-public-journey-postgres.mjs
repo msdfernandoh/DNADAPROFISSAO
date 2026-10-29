@@ -60,4 +60,8 @@ try{
  const teamCommand={...command,actorId:seller,sessionId:id(5),participantId:teamId,snapshot:teamJourney,snapshotKey:teamJourney.snapshot};
  await db.exec('UPDATE dna_private.public_entrypoints SET enabled=false');const teamReceipt=(await call('SELECT public.dna_complete_evaluation_v1($1) AS value',[teamCommand])).rows[0].value;assert.equal(teamReceipt.state,'committed');pass('existing authenticated team completion still works independently after extracting the shared atomic transaction');
  console.log(JSON.stringify({checks,disposableDatabase:true,productionWrites:false}));
+ if(process.env.DNA_TEST_CITY_ROUTING==='true'){
+  await db.exec('UPDATE dna_private.public_entrypoints SET enabled=true');
+  const {cityRoutingChecks}=await import('./city-routing-checks.mjs');console.log('PASS city routing '+JSON.stringify(await cityRoutingChecks(db,{id,tenant,unit,seller,member})));
+ }
 }finally{await db.close();}

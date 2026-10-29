@@ -16,8 +16,10 @@ export async function loadOwnPublicEvaluation(id:string){
  if(!uuid.test(id)||!await ownsParticipant(id,'v2'))throw Error('Unavailable');
  const context=await publicEntryContext(),db=await createServiceClient();
  const {data:p,error}=await db.from('participants_v2').select('id,institution_id,unit_id,questionnaire_id,assigned_user_id,v1_revision,v1_registration,v1_draft_answers,v1_public_entry,quiz_completed').eq('id',id).maybeSingle();
- if(error||!p?.v1_public_entry||p.institution_id!==context.institutionId||p.unit_id!==context.unitId||p.assigned_user_id!==context.assignedUserId||p.v1_revision!==context.revision||p.questionnaire_id!==context.questionnaireId)throw Error('Unavailable');
- return {db,context,participant:p,registration:validateRegistration(p.v1_registration)};
+ if(error||!p?.v1_public_entry||p.institution_id!==context.institutionId||!p.unit_id||!p.assigned_user_id||p.v1_revision!==context.revision||p.questionnaire_id!==context.questionnaireId)throw Error('Unavailable');
+ const unit=await db.from('units_v2').select('id,name,active').eq('id',p.unit_id).eq('institution_id',p.institution_id).maybeSingle();
+ if(unit.error||!unit.data?.active)throw Error('Unit unavailable');
+ return {db,context:{...context,unitId:p.unit_id,unitName:unit.data.name,assignedUserId:p.assigned_user_id},participant:p,registration:validateRegistration(p.v1_registration)};
 }
 export function validatePublicAnswers(input:unknown,partial=false){
  if(!input||typeof input!=='object'||Array.isArray(input))throw Error('Invalid answers');
