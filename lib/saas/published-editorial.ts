@@ -1,16 +1,17 @@
+import {rankCourses,rankingCourseParagraphs} from '../questionnaire-engine/careers/rank-courses';
+import {composePublishedEditorial as composeIntegratedV3,PUBLIC_EDITION as V3_EDITION,PUBLIC_EDITION_SOURCE_HASH as V3_HASH} from './published-editorial-integrated-v3';
 import {composePublishedEditorial as composePreviousEditorial,PUBLIC_EDITION as PREVIOUS_EDITION,PUBLIC_EDITION_SOURCE_HASH as PREVIOUS_SOURCE_HASH} from './published-editorial-20261028';
 import {createHash} from 'node:crypto';
-import {composeIntegratedHumanized,INTEGRATED_EDITORIAL_VERSION} from '../questionnaire-engine/individual/editorial/integrated-humanized';
+import {composeIntegratedHumanized} from '../questionnaire-engine/individual/editorial/integrated-humanized';
 import {profileDisplaySummary} from '../questionnaire-engine/integration/profile-summary';
 import type {IntegratedJourney} from '../questionnaire-engine/integration/journey';
-import {buildCourseMatrix} from '../questionnaire-engine/careers/build-course-matrix';
 import edition from './published-edition.json';
 
-export const PUBLIC_EDITION=INTEGRATED_EDITORIAL_VERSION+'.public-1';
+export const PUBLIC_EDITION='dna-course-ranked-2026-10-29.v4.public-1';
 export const PUBLIC_EDITION_SOURCE_HASH=edition.sourceHash;
 type Section={number:number;title:string;paragraphs:string[]};
-export type PublishedCourse={id:string;name:string;level:string;why:string;activity:string;investigate:string;admission:string};
-export type PublishedEditorial={version:string;sourceHash:string;participant:Section[];commercial:Section[];courses:PublishedCourse[];whatsapp:string;contentHash:string};
+export type PublishedCourse={id:string;name:string;level:string;why:string;activity:string;investigate:string;admission:string;index?:number;position?:number;challenge?:string;forces?:string[]};
+export type PublishedEditorial={version:string;sourceHash:string;participant:Section[];commercial:Section[];courses:PublishedCourse[];whatsapp:string;contentHash:string;ranking?:ReturnType<typeof rankCourses>};
 export type DeliveredJourney=IntegratedJourney&{publication?:PublishedEditorial};
 function canonical(value:unknown):unknown{
  if(Array.isArray(value))return value.map(canonical);
@@ -23,15 +24,11 @@ export function composePublishedEditorial(j:IntegratedJourney):PublishedEditoria
  const restored=composeIntegratedHumanized(j);
  const participant=restored.participant.map(s=>({...s,paragraphs:s.paragraphs.map(p=>p.text)}));
  const commercial=restored.commercial.map(s=>({...s,paragraphs:s.paragraphs.map(p=>p.text)}));
- const courses:PublishedCourse[]=j.orientation.exploratoryCourses.map(c=>({id:c.courseId,name:c.courseName,level:c.level,why:c.whyIncluded,activity:c.concreteActivity,investigate:c.whatToInvestigate,admission:'Possibilidade para explorar. Oferta, requisitos e elegibilidade devem ser confirmados pela instituição antes de uma matrícula.'}));
- // An exact declared course can use its received catalog description; never infer a course from a score.
- const normalize=(s:string)=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().toLowerCase();
- const declared=j.registration.course_interest;
- if(declared&&!courses.length){const c=buildCourseMatrix().find(c=>normalize(c.name)===normalize(declared));if(c&&(c.level!=='pos_graduacao'||['graduado','pos_graduado'].includes(j.registration.escolaridade||'')))courses.push({id:c.id,name:c.name,level:c.level,why:'Você declarou interesse neste curso. A descrição recebida serve para investigar esse interesse; o resultado não é uma indicação de aptidão.',activity:c.activities[0]?.text||c.sourceDescriptions[0],investigate:'Conheça uma tarefa e uma semana comum de quem atua nessa área. Pergunte quais conhecimentos são usados e quais requisitos de formação precisam ser cumpridos.',admission:'Exploração do interesse declarado. Confirme escolaridade, requisitos e oferta vigente antes da matrícula.'});}
- if(courses.length){
-  participant[7].paragraphs.push('A partir do interesse ou da área que você declarou, estas são possibilidades para conhecer melhor. Elas não representam percentuais de compatibilidade nem uma oferta de matrícula.');
-  for(const c of courses)participant[7].paragraphs.push(c.name+'. '+c.why+' Uma atividade para conhecer: '+c.activity+' '+c.investigate+' '+c.admission);
- }
+ const ranking=rankCourses(j);
+ const courses:PublishedCourse[]=ranking.top.map(c=>({id:c.id,name:c.name,level:c.level,why:c.why,activity:c.activity,investigate:c.question,admission:c.admission,index:c.index,position:c.position,challenge:c.challenge,forces:c.forces}));
+ const declared=ranking.declared;
+ const interestText=declared?(declared.matched?'Seu interesse declarado: '+declared.name+'. '+(declared.outsideTop?'Este curso aparece na posição '+declared.rank+', com índice '+declared.index+'/100, fora dos cinco primeiros. A lista não foi alterada para colocá-lo no topo.':'Esse interesse também aparece entre as cinco opções calculadas.'):'Seu interesse declarado: '+declared.name+'. Não encontramos correspondência inequívoca na matriz de graduação. Ele fica registrado separadamente para a conversa, sem forçar equivalência ou alterar o ranking.'):'Você não informou um curso de interesse. As cinco possibilidades foram calculadas a partir das suas respostas e forças; isso não significa que você já tenha interesse nessas profissões.';
+ participant[7].paragraphs=[ranking.notice,...ranking.top.flatMap((c,i)=>rankingCourseParagraphs(c,i+1)),interestText,...(declared?.outsideTop&&declared.course?['Sobre seu interesse: '+declared.course.activity+'. '+declared.course.challenge]:[]),...(ranking.boundaryTies.length?['Há outros cursos empatados no limite da quinta opção: '+ranking.boundaryTies.join(', ')+'. A apresentação de cinco usa um critério estável de catálogo para desempate visual, sem afirmar superioridade profissional.']:[]),'Use esta lista para conhecer atividades e comparar possibilidades. '+(ranking.top[0]?.admission||'Sem evidência suficiente para ordenar cursos.')];
  const first=j.registration.name.split(' ')[0];
  const whatsapp='Oi, '+first+'! Seu DNA está pronto. Você já recebeu a ficha completa ou quer ajuda para acessar? Depois de ler, me conte: conseguiu se enxergar no resultado do seu DNA da Profissão®? Teve alguma parte que parecia estar falando exatamente de você? Se quiser, podemos conversar sobre uma situação que chamou sua atenção.';
  commercial[2].paragraphs=[whatsapp];
@@ -40,12 +37,12 @@ export function composePublishedEditorial(j:IntegratedJourney):PublishedEditoria
   'Depois, retome uma cena que a própria pessoa destacou no relatório: “Você se lembra de uma situação parecida? O que costuma fazer naquele momento?” Compare com as respostas sem atribuir sentimentos ou dificuldades que ela não relatou.',
   courses.length?'Só depois entre nas opções que ela viu: “Dos cursos que apareceram no seu DNA — '+courses.map(c=>c.name).join(', ')+' — qual chamou mais sua atenção? Com qual se identificou?”':'Nenhum curso foi apresentado como indicação neste resultado. Pergunte qual atividade ou área ela gostaria de investigar; não pergunte por uma lista que ela não recebeu.',
  ];
- commercial[5].paragraphs=courses.length?courses.map(c=>c.name+'. Esta é a mesma opção exibida à pessoa participante. '+c.activity+' '+c.investigate+' '+c.admission):['Não foram apresentados cursos neste resultado. Explore o interesse com a pessoa antes de apresentar opções. Não transforme um perfil em recomendação automática.'];
+ commercial[5].paragraphs=[ranking.notice,...ranking.top.flatMap((c,i)=>[...rankingCourseParagraphs(c,i+1),'Pergunta para conversar: '+c.question]),interestText,...(declared?.outsideTop&&declared.course?['Interesse fora dos cinco: '+declared.course.name+'. Atividade: '+declared.course.activity+'. Compare o que a pessoa deseja nessa profissão com as atividades das opções apresentadas, sem tratar o ranking como veto.']:[]),'As opções e índices acima são os mesmos do relatório individual. Pergunte o que a pessoa reconhece, qual atividade quer conhecer e o que deseja aprender. Não presuma competência, renda ou prontidão de matrícula.'];
  commercial[7].paragraphs=[
   'Siga a conversa nesta ordem: identificação com o resultado → reflexão sobre uma cena → escolha entre as opções realmente apresentadas → interesse pela profissão → condições para começar → matrícula, se a pessoa desejar e houver elegibilidade.',
   'Depois de uma escolha, pergunte o que chamou atenção na profissão e como imagina uma rotina nessa área. Só então conheça as condições que ela deseja compartilhar para começar. Confirme formação exigida, oferta, modalidade e condições comerciais atuais antes de falar em matrícula; não prometa vaga, salário ou aprovação.',
  ];
- const content={version:PUBLIC_EDITION,sourceHash:PUBLIC_EDITION_SOURCE_HASH,participant,commercial,courses,whatsapp};
+ const content={version:PUBLIC_EDITION,sourceHash:PUBLIC_EDITION_SOURCE_HASH,participant,commercial,courses,whatsapp,ranking};
  return {...content,contentHash:hash(content)};
 }
 export function verifyPublishedEditorial(j:DeliveredJourney,approvedVersion:string):PublishedEditorial{
@@ -60,5 +57,5 @@ export function publishedParticipantReport(j:DeliveredJourney,approvedVersion:st
  return {audience:'participant' as const,name:j.registration.name,profiles:profileDisplaySummary(j.analysis),sections:p.participant.map(s=>({...s,paragraphs:[...s.paragraphs]})),renderHash:p.contentHash};
 }
 
-export function knownPublishedEdition(version:string,sourceHash:string){return version===PUBLIC_EDITION&&sourceHash===PUBLIC_EDITION_SOURCE_HASH||version===PREVIOUS_EDITION&&sourceHash===PREVIOUS_SOURCE_HASH;}
-export function composeEntryEditorial(j:IntegratedJourney,version:string){if(version===PUBLIC_EDITION)return composePublishedEditorial(j);if(version===PREVIOUS_EDITION)return composePreviousEditorial(j);throw Error('Unsupported entry edition');}
+export function knownPublishedEdition(version:string,sourceHash:string){return version===PUBLIC_EDITION&&sourceHash===PUBLIC_EDITION_SOURCE_HASH||version===PREVIOUS_EDITION&&sourceHash===PREVIOUS_SOURCE_HASH||version===V3_EDITION&&sourceHash===V3_HASH;}
+export function composeEntryEditorial(j:IntegratedJourney,version:string){if(version===PUBLIC_EDITION)return composePublishedEditorial(j);if(version===PREVIOUS_EDITION)return composePreviousEditorial(j);if(version===V3_EDITION)return composeIntegratedV3(j);throw Error('Unsupported entry edition');}

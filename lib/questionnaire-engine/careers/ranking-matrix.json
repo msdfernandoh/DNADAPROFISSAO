@@ -1,0 +1,1188 @@
+{
+  "version": "dna-course-matrix-2026-10-29.v1",
+  "status": "provisional_pending_methodological_validation",
+  "catalogVerifiedAt": "2026-10-29",
+  "sources": [
+    {
+      "id": "received-catalog",
+      "title": "Catálogo e descrições recebidos no projeto",
+      "path": "lib/questionnaire-engine/__fixtures__/individual/catalog.json",
+      "status": "received_not_academic_validation"
+    },
+    {
+      "id": "mec-cncst",
+      "title": "MEC — Catálogo Nacional de Cursos Superiores de Tecnologia",
+      "url": "https://cncst.mec.gov.br/",
+      "status": "reference_framework_not_validation_of_weights"
+    },
+    {
+      "id": "mec-dcn",
+      "title": "MEC — Diretrizes Curriculares de Graduação",
+      "url": "https://portal.mec.gov.br/secretaria-de-regulacao-e-supervisao-da-educacao-superior-seres/323-secretarias-112877938/orgaos-vinculados-82187207/12991-diretrizes-curriculares-cursos-de-graduacao",
+      "status": "reference_framework_not_validation_of_weights"
+    }
+  ],
+  "courses": [
+    {
+      "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+      "name": "Administração",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 4,
+        "C": 3,
+        "E": 2,
+        "H": 2,
+        "P": 2
+      },
+      "tags": [
+        "coordination",
+        "organization",
+        "analysis"
+      ],
+      "areas": [
+        "negocios",
+        "gestao"
+      ],
+      "activity": "organizar recursos, acompanhar processos e apoiar decisões de uma organização",
+      "challenge": "Decisões envolvem restrições, indicadores e negociação; comunicação não substitui análise e conhecimento de gestão.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-dcn"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "b21f535b-db22-4177-846c-9997cce478e1",
+      "name": "Análise e Desenvolvimento de Sistemas",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 1,
+        "C": 1,
+        "E": 4,
+        "H": 1,
+        "P": 4
+      },
+      "tags": [
+        "analysis",
+        "practice",
+        "organization"
+      ],
+      "areas": [
+        "tecnologia",
+        "programacao"
+      ],
+      "activity": "analisar uma necessidade, desenvolver software e testar seu funcionamento",
+      "challenge": "Programação exige estudo contínuo, depuração, documentação e atenção a requisitos, mesmo quando o resultado demora a aparecer.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+      "name": "Arquitetura e Urbanismo",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 2,
+        "C": 2,
+        "E": 4,
+        "H": 2,
+        "P": 3
+      },
+      "tags": [
+        "creativity",
+        "analysis",
+        "organization"
+      ],
+      "areas": [
+        "design",
+        "construcao"
+      ],
+      "activity": "projetar espaços considerando uso, contexto, materiais e necessidades das pessoas",
+      "challenge": "Projetos exigem fundamentação técnica, revisão, normas e conciliação de restrições; criatividade não dispensa precisão.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-dcn"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+      "name": "Biomedicina",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 1,
+        "C": 1,
+        "E": 4,
+        "H": 3,
+        "P": 3
+      },
+      "tags": [
+        "analysis",
+        "care",
+        "practice"
+      ],
+      "areas": [
+        "saude",
+        "ciencias"
+      ],
+      "activity": "realizar atividades laboratoriais e investigar processos biológicos dentro da formação e habilitação correspondentes",
+      "challenge": "Exige base científica, procedimentos de qualidade e cuidado com amostras e resultados; tarefas variam conforme habilitação.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-dcn"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+      "name": "Ciências Contábeis",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 2,
+        "C": 1,
+        "E": 4,
+        "H": 1,
+        "P": 2
+      },
+      "tags": [
+        "analysis",
+        "organization"
+      ],
+      "areas": [
+        "financas",
+        "negocios"
+      ],
+      "activity": "organizar informações contábeis, interpretar registros e apoiar controles e decisões",
+      "challenge": "Pede precisão, estudo de normas e responsabilidade com prazos e dados; o perfil não comprova domínio de números.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-dcn"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+      "name": "Ciências de Dados",
+      "level": "graduacao",
+      "aliases": [
+        "Ciência de Dados"
+      ],
+      "weights": {
+        "L": 2,
+        "C": 1,
+        "E": 4,
+        "H": 1,
+        "P": 3
+      },
+      "tags": [
+        "analysis",
+        "practice"
+      ],
+      "areas": [
+        "tecnologia",
+        "dados"
+      ],
+      "activity": "preparar bases de dados, analisar padrões e comunicar limites das conclusões",
+      "challenge": "Exige estatística, programação, avaliação de qualidade e interpretação responsável; correlação não demonstra causalidade.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+      "name": "Computação em Nuvem",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 2,
+        "C": 1,
+        "E": 4,
+        "H": 1,
+        "P": 4
+      },
+      "tags": [
+        "analysis",
+        "practice",
+        "organization"
+      ],
+      "areas": [
+        "tecnologia",
+        "infraestrutura"
+      ],
+      "activity": "planejar e operar serviços de computação, armazenamento e redes em nuvem",
+      "challenge": "Disponibilidade, segurança e custos pedem monitoramento e documentação; a rotina inclui prevenção e incidentes.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+      "name": "Creator e Digital Influencer",
+      "level": "graduacao",
+      "aliases": [
+        "Creator & Digital Influencer"
+      ],
+      "weights": {
+        "L": 3,
+        "C": 4,
+        "E": 1,
+        "H": 1,
+        "P": 2
+      },
+      "tags": [
+        "communication",
+        "creativity",
+        "practice"
+      ],
+      "areas": [
+        "comunicacao",
+        "marketing"
+      ],
+      "activity": "planejar e produzir conteúdo, acompanhar público e avaliar resultados de canais digitais",
+      "challenge": "Consistência, análise, responsabilidade editorial e limites de exposição são parte da rotina, além da criação.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+      "name": "Defesa Cibernética",
+      "level": "graduacao",
+      "aliases": [
+        "Segurança Cibernética"
+      ],
+      "weights": {
+        "L": 2,
+        "C": 1,
+        "E": 4,
+        "H": 1,
+        "P": 4
+      },
+      "tags": [
+        "analysis",
+        "practice",
+        "organization"
+      ],
+      "areas": [
+        "tecnologia",
+        "seguranca"
+      ],
+      "activity": "analisar riscos e apoiar medidas de proteção e resposta a incidentes digitais",
+      "challenge": "Investigação exige precisão, registro, ética e atualização; interesse por tecnologia não habilita intervenções sem autorização.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+      "name": "Design de Interiores",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 2,
+        "C": 3,
+        "E": 4,
+        "H": 2,
+        "P": 3
+      },
+      "tags": [
+        "creativity",
+        "communication",
+        "practice"
+      ],
+      "areas": [
+        "design",
+        "ambientes"
+      ],
+      "activity": "desenvolver soluções de ambientes com estudo de uso, materiais, iluminação e apresentação de propostas",
+      "challenge": "É necessário compatibilizar necessidades, orçamento, medidas e limites técnicos da atuação.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+      "name": "Design Gráfico",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 1,
+        "C": 3,
+        "E": 4,
+        "H": 1,
+        "P": 3
+      },
+      "tags": [
+        "creativity",
+        "communication",
+        "practice"
+      ],
+      "areas": [
+        "design",
+        "comunicacao"
+      ],
+      "activity": "criar soluções visuais, organizar informação e desenvolver peças para diferentes meios",
+      "challenge": "Revisões, critérios de legibilidade, produção e necessidades do projeto fazem parte do trabalho além da inspiração.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+      "name": "Educação Física Bacharelado",
+      "level": "graduacao",
+      "aliases": [
+        "Educação Física",
+        "Educação Física — Bacharelado"
+      ],
+      "weights": {
+        "L": 2,
+        "C": 3,
+        "E": 3,
+        "H": 4,
+        "P": 4
+      },
+      "tags": [
+        "practice",
+        "care",
+        "communication"
+      ],
+      "areas": [
+        "saude",
+        "esporte"
+      ],
+      "activity": "planejar e acompanhar práticas corporais e atividades físicas nos campos previstos para o bacharelado",
+      "challenge": "Exige estudo do movimento, planejamento e atenção às condições das pessoas; não equivale à habilitação da licenciatura.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-dcn"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+      "name": "Educação Física Licenciatura",
+      "level": "graduacao",
+      "aliases": [
+        "Educação Física — Licenciatura"
+      ],
+      "weights": {
+        "L": 2,
+        "C": 3,
+        "E": 3,
+        "H": 4,
+        "P": 3
+      },
+      "tags": [
+        "teaching",
+        "care",
+        "practice"
+      ],
+      "areas": [
+        "educacao",
+        "esporte"
+      ],
+      "activity": "planejar experiências educativas com práticas corporais no contexto da educação escolar",
+      "challenge": "Ensinar exige didática, inclusão, avaliação e adaptação das atividades à turma e ao contexto escolar.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-dcn"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+      "name": "Engenharia Civil",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 3,
+        "C": 1,
+        "E": 4,
+        "H": 1,
+        "P": 3
+      },
+      "tags": [
+        "analysis",
+        "organization",
+        "practice"
+      ],
+      "areas": [
+        "engenharia",
+        "construcao"
+      ],
+      "activity": "planejar e acompanhar projetos e processos de construção com critérios técnicos",
+      "challenge": "Exige matemática, segurança, normas e responsabilidade técnica, além de organização das etapas.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-dcn"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+      "name": "Engenharia de Computação",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 2,
+        "C": 1,
+        "E": 4,
+        "H": 1,
+        "P": 4
+      },
+      "tags": [
+        "analysis",
+        "practice"
+      ],
+      "areas": [
+        "tecnologia",
+        "engenharia"
+      ],
+      "activity": "desenvolver e integrar sistemas de computação, componentes e soluções de hardware e software",
+      "challenge": "Requer base matemática e técnica, testes e documentação; experimentar não dispensa compreender o funcionamento.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-dcn"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+      "name": "Engenharia de Produção",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 3,
+        "C": 2,
+        "E": 4,
+        "H": 1,
+        "P": 3
+      },
+      "tags": [
+        "coordination",
+        "analysis",
+        "organization"
+      ],
+      "areas": [
+        "engenharia",
+        "gestao"
+      ],
+      "activity": "analisar operações, organizar recursos e melhorar processos produtivos",
+      "challenge": "Pede análise quantitativa, entendimento de pessoas e restrições e verificação dos efeitos das mudanças.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-dcn"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+      "name": "Engenharia Elétrica",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 2,
+        "C": 1,
+        "E": 4,
+        "H": 1,
+        "P": 4
+      },
+      "tags": [
+        "analysis",
+        "practice",
+        "organization"
+      ],
+      "areas": [
+        "engenharia",
+        "tecnologia"
+      ],
+      "activity": "projetar e analisar sistemas e instalações elétricas nos campos da formação",
+      "challenge": "Exige fundamentos matemáticos e físicos, normas, testes e atenção permanente à segurança.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-dcn"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+      "name": "Estética e Cosmética",
+      "level": "graduacao",
+      "aliases": [
+        "Estética"
+      ],
+      "weights": {
+        "L": 1,
+        "C": 2,
+        "E": 3,
+        "H": 4,
+        "P": 4
+      },
+      "tags": [
+        "care",
+        "practice",
+        "communication"
+      ],
+      "areas": [
+        "saude",
+        "beleza"
+      ],
+      "activity": "avaliar necessidades e planejar cuidados estéticos dentro dos limites da formação",
+      "challenge": "Exige biossegurança, estudo de produtos, escuta e reconhecimento dos limites e contraindicações de procedimentos.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+      "name": "Farmácia",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 1,
+        "C": 1,
+        "E": 4,
+        "H": 4,
+        "P": 3
+      },
+      "tags": [
+        "analysis",
+        "care",
+        "organization"
+      ],
+      "areas": [
+        "saude",
+        "ciencias"
+      ],
+      "activity": "atuar em atividades relacionadas a medicamentos, produtos e cuidado farmacêutico conforme formação e habilitação",
+      "challenge": "Precisão, base científica, segurança e responsabilidade com informações e procedimentos são essenciais.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-dcn"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+      "name": "Fisioterapia",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 1,
+        "C": 1,
+        "E": 3,
+        "H": 4,
+        "P": 4
+      },
+      "tags": [
+        "care",
+        "practice",
+        "communication"
+      ],
+      "areas": [
+        "saude",
+        "movimento"
+      ],
+      "activity": "avaliar aspectos do movimento e planejar acompanhamento fisioterapêutico conforme a formação",
+      "challenge": "Exige estudo científico, observação e acompanhamento de evolução; os processos não têm resultados garantidos nem sempre rápidos.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-dcn"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+      "name": "Gestão Comercial",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 4,
+        "C": 4,
+        "E": 3,
+        "H": 1,
+        "P": 2
+      },
+      "tags": [
+        "communication",
+        "coordination",
+        "organization"
+      ],
+      "areas": [
+        "vendas",
+        "negocios"
+      ],
+      "activity": "planejar ações comerciais, negociar e acompanhar relações e indicadores de vendas",
+      "challenge": "Metas precisam conviver com escuta, ética, registro e análise; entusiasmo não substitui consistência de atendimento.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+      "name": "Gestão Da Tecnologia Da Informação",
+      "level": "graduacao",
+      "aliases": [
+        "Gestão de TI",
+        "Gestão da Tecnologia da Informação"
+      ],
+      "weights": {
+        "L": 3,
+        "C": 2,
+        "E": 4,
+        "H": 1,
+        "P": 2
+      },
+      "tags": [
+        "coordination",
+        "analysis",
+        "organization"
+      ],
+      "areas": [
+        "tecnologia",
+        "gestao"
+      ],
+      "activity": "organizar serviços e recursos de TI e relacionar necessidades do negócio com soluções tecnológicas",
+      "challenge": "É preciso compreender tecnologia, prioridades, riscos e comunicação entre equipes; não se resume a gostar de computadores.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "53969e91-9019-422c-8230-500ab7407ff1",
+      "name": "Gestão de Recursos Humanos",
+      "level": "graduacao",
+      "aliases": [
+        "Recursos Humanos",
+        "RH"
+      ],
+      "weights": {
+        "L": 3,
+        "C": 3,
+        "E": 3,
+        "H": 4,
+        "P": 2
+      },
+      "tags": [
+        "care",
+        "coordination",
+        "communication"
+      ],
+      "areas": [
+        "pessoas",
+        "gestao"
+      ],
+      "activity": "organizar processos de gestão de pessoas, desenvolvimento e rotinas de trabalho",
+      "challenge": "Ouvir precisa acompanhar análise, confidencialidade, processos e manejo de situações difíceis sem decidir pela pessoa.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+      "name": "Gestão de Segurança Privada",
+      "level": "graduacao",
+      "aliases": [
+        "Segurança Privada"
+      ],
+      "weights": {
+        "L": 3,
+        "C": 2,
+        "E": 3,
+        "H": 2,
+        "P": 3
+      },
+      "tags": [
+        "organization",
+        "analysis",
+        "coordination"
+      ],
+      "areas": [
+        "seguranca",
+        "gestao"
+      ],
+      "activity": "planejar processos de proteção e prevenção de riscos em organizações no campo da segurança privada",
+      "challenge": "Exige estudo de regras, limites de atuação, avaliação de risco e responsabilidade; diploma não garante credenciamento ou cargo.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+      "name": "Gestão de Segurança Pública",
+      "level": "graduacao",
+      "aliases": [
+        "Segurança Pública"
+      ],
+      "weights": {
+        "L": 3,
+        "C": 2,
+        "E": 3,
+        "H": 3,
+        "P": 2
+      },
+      "tags": [
+        "organization",
+        "analysis",
+        "care"
+      ],
+      "areas": [
+        "seguranca",
+        "servico publico"
+      ],
+      "activity": "analisar políticas e processos de prevenção e gestão em segurança pública",
+      "challenge": "Exige compreensão de direitos, políticas, dados e contexto social; o curso não garante ingresso em carreira pública.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+      "name": "Gestão do Agronegócio",
+      "level": "graduacao",
+      "aliases": [
+        "Agronegócios",
+        "Agronegócio"
+      ],
+      "weights": {
+        "L": 3,
+        "C": 2,
+        "E": 3,
+        "H": 1,
+        "P": 3
+      },
+      "tags": [
+        "coordination",
+        "organization",
+        "practice"
+      ],
+      "areas": [
+        "agronegocio",
+        "negocios"
+      ],
+      "activity": "organizar recursos e processos das cadeias do agronegócio e acompanhar sua gestão",
+      "challenge": "Sazonalidade, custos, logística e impactos socioambientais exigem planejamento e conhecimento do setor.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+      "name": "Gestão Financeira",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 3,
+        "C": 1,
+        "E": 4,
+        "H": 1,
+        "P": 2
+      },
+      "tags": [
+        "analysis",
+        "organization",
+        "coordination"
+      ],
+      "areas": [
+        "financas",
+        "negocios"
+      ],
+      "activity": "acompanhar fluxo financeiro, analisar informações e apoiar planejamento de recursos",
+      "challenge": "Pede precisão, fundamentos financeiros e avaliação de riscos; o índice não demonstra habilidade matemática.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+      "name": "Gestão Pública",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 3,
+        "C": 2,
+        "E": 3,
+        "H": 3,
+        "P": 2
+      },
+      "tags": [
+        "organization",
+        "care",
+        "coordination"
+      ],
+      "areas": [
+        "gestao",
+        "servico publico"
+      ],
+      "activity": "organizar processos e apoiar planejamento e avaliação de serviços e políticas públicas",
+      "challenge": "Exige atenção ao interesse público, regras, prestação de contas e limites institucionais; não garante aprovação em concurso.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+      "name": "Graduação Tecnológica em Inteligência Artificial e Automação Digital",
+      "level": "graduacao",
+      "aliases": [
+        "Inteligência Artificial e Automação Digital"
+      ],
+      "weights": {
+        "L": 2,
+        "C": 1,
+        "E": 4,
+        "H": 1,
+        "P": 4
+      },
+      "tags": [
+        "analysis",
+        "practice",
+        "creativity"
+      ],
+      "areas": [
+        "tecnologia",
+        "dados"
+      ],
+      "activity": "desenvolver e avaliar soluções digitais que utilizam automação e inteligência artificial",
+      "challenge": "Programação, dados, validação, ética e compreensão dos limites de modelos são parte da formação e da prática.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+      "name": "Logística",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 3,
+        "C": 2,
+        "E": 4,
+        "H": 1,
+        "P": 4
+      },
+      "tags": [
+        "organization",
+        "analysis",
+        "practice"
+      ],
+      "areas": [
+        "operacoes",
+        "negocios"
+      ],
+      "activity": "planejar estoques, transporte e fluxo de materiais e acompanhar entregas",
+      "challenge": "Imprevistos exigem decisões com dados, coordenação e controle de custos; agir rápido não dispensa planejamento.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+      "name": "Marketing",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 3,
+        "C": 4,
+        "E": 3,
+        "H": 1,
+        "P": 2
+      },
+      "tags": [
+        "communication",
+        "creativity",
+        "analysis"
+      ],
+      "areas": [
+        "marketing",
+        "comunicacao"
+      ],
+      "activity": "investigar públicos, planejar comunicação e acompanhar estratégias e resultados de mercado",
+      "challenge": "Exige pesquisa, objetivos, análise e consistência de execução; criatividade precisa responder a uma necessidade.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+      "name": "Marketing Digital",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 2,
+        "C": 4,
+        "E": 3,
+        "H": 1,
+        "P": 3
+      },
+      "tags": [
+        "communication",
+        "creativity",
+        "analysis",
+        "practice"
+      ],
+      "areas": [
+        "marketing",
+        "tecnologia"
+      ],
+      "activity": "planejar conteúdo e campanhas digitais e analisar resultados de diferentes canais",
+      "challenge": "Requer testes, leitura de dados, rotina de produção e atenção à privacidade; resultados comerciais não são garantidos.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+      "name": "Nutrição",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 1,
+        "C": 1,
+        "E": 3,
+        "H": 4,
+        "P": 3
+      },
+      "tags": [
+        "care",
+        "analysis",
+        "communication"
+      ],
+      "areas": [
+        "saude",
+        "alimentacao"
+      ],
+      "activity": "avaliar necessidades e planejar ações de alimentação e nutrição conforme a formação",
+      "challenge": "Exige base científica, escuta e acompanhamento responsável; preferências pessoais não substituem avaliação profissional.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-dcn"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+      "name": "Pedagogia",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 2,
+        "C": 3,
+        "E": 3,
+        "H": 4,
+        "P": 2
+      },
+      "tags": [
+        "teaching",
+        "care",
+        "communication",
+        "organization"
+      ],
+      "areas": [
+        "educacao",
+        "pessoas"
+      ],
+      "activity": "planejar experiências de aprendizagem, acompanhar desenvolvimento e organizar práticas educativas",
+      "challenge": "Ensinar exige estudo, didática, avaliação e inclusão; acolhimento precisa se traduzir em planejamento e observação.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-dcn"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+      "name": "Processos Gerenciais",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 4,
+        "C": 2,
+        "E": 3,
+        "H": 1,
+        "P": 3
+      },
+      "tags": [
+        "coordination",
+        "organization",
+        "practice"
+      ],
+      "areas": [
+        "gestao",
+        "negocios"
+      ],
+      "activity": "organizar processos de uma organização e acompanhar melhorias e resultados",
+      "challenge": "É necessário compreender indicadores, recursos e pessoas; uma solução prática precisa ter continuidade e avaliação.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+      "name": "Psicopedagogia",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 1,
+        "C": 2,
+        "E": 3,
+        "H": 4,
+        "P": 2
+      },
+      "tags": [
+        "teaching",
+        "care",
+        "analysis"
+      ],
+      "areas": [
+        "educacao",
+        "pessoas"
+      ],
+      "activity": "investigar processos de aprendizagem e planejar intervenções psicopedagógicas dentro do campo de formação",
+      "challenge": "Pede observação, estudo, limites de atuação e trabalho com outros profissionais; o perfil não estabelece aptidão clínica.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-dcn"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+      "name": "Radiologia",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 1,
+        "C": 1,
+        "E": 3,
+        "H": 3,
+        "P": 4
+      },
+      "tags": [
+        "practice",
+        "analysis",
+        "care",
+        "organization"
+      ],
+      "areas": [
+        "saude",
+        "tecnologia"
+      ],
+      "activity": "realizar atividades de tecnologia radiológica conforme formação, protocolos e habilitação",
+      "challenge": "Exige precisão, proteção radiológica, procedimentos e comunicação com pessoas; segurança vem antes da rapidez.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+      "name": "Sistema de Informação",
+      "level": "graduacao",
+      "aliases": [
+        "Sistemas de Informação"
+      ],
+      "weights": {
+        "L": 2,
+        "C": 2,
+        "E": 4,
+        "H": 1,
+        "P": 3
+      },
+      "tags": [
+        "analysis",
+        "organization",
+        "practice"
+      ],
+      "areas": [
+        "tecnologia",
+        "gestao"
+      ],
+      "activity": "analisar informação e processos e desenvolver ou integrar sistemas de apoio a organizações",
+      "challenge": "É preciso combinar programação, análise de requisitos e diálogo com usuários; nomes parecidos não significam a mesma formação.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-cncst"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    },
+    {
+      "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+      "name": "Terapia Ocupacional",
+      "level": "graduacao",
+      "aliases": [],
+      "weights": {
+        "L": 1,
+        "C": 2,
+        "E": 3,
+        "H": 4,
+        "P": 4
+      },
+      "tags": [
+        "care",
+        "practice",
+        "creativity"
+      ],
+      "areas": [
+        "saude",
+        "pessoas"
+      ],
+      "activity": "avaliar participação em atividades cotidianas e planejar estratégias de autonomia conforme a formação",
+      "challenge": "Exige estudo, escuta, adaptação e acompanhamento individual; ajudar não significa fazer tudo pela outra pessoa.",
+      "sourceIds": [
+        "received-catalog",
+        "mec-dcn"
+      ],
+      "status": "provisional_pending_methodological_validation"
+    }
+  ]
+}

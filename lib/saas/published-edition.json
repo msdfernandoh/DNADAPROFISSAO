@@ -1,6 +1,6 @@
 {
-  "version": "dna-integrated-humanized-2026-10-29.v3.public-1",
-  "sourceHash": "73dfefa57b4aced5b68550a5af7ac9fbf17c3b3388ea8434f626ea3417069a4e",
+  "version": "dna-course-ranked-2026-10-29.v4.public-1",
+  "sourceHash": "f6cdf91420d2dc35c93cad51aa70db116a6ce4b1d6e197fedc8f45c7e5f7e0cd",
   "files": [
     "lib/saas/published-editorial.ts",
     "lib/questionnaire-engine/individual/editorial/restore-humanized.ts",
@@ -8,6 +8,10 @@
     "lib/questionnaire-engine/individual/editorial/restored-pairs.json",
     "lib/questionnaire-engine/individual/editorial/restored-sources.json",
     "lib/questionnaire-engine/individual/editorial/integrated-humanized.ts",
-    "lib/saas/published-editorial-20261028.ts"
+    "lib/saas/published-editorial-20261028.ts",
+    "lib/saas/published-editorial-integrated-v3.ts",
+    "lib/questionnaire-engine/careers/rank-courses.ts",
+    "lib/questionnaire-engine/careers/ranking-matrix.json",
+    "lib/questionnaire-engine/careers/ranking-pair-matrix.json"
   ]
 }

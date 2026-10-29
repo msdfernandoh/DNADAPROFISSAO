@@ -1,0 +1,3267 @@
+{
+  "version": "dna-course-matrix-2026-10-29.v1",
+  "derivedFrom": "ranking-matrix.json",
+  "formula": "(2*weight[main]+weight[secondary])/12",
+  "pairs": [
+    {
+      "code": "L+C",
+      "main": "L",
+      "secondary": "C",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 0.25
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.5
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.25
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 0.25
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 0.25
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 1
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.75
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.25
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.25
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.5
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 0.333333
+        }
+      ]
+    },
+    {
+      "code": "L+E",
+      "main": "L",
+      "secondary": "E",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 0.5
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.5
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.5
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 0.5
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.75
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.75
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.75
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.75
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.75
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.75
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 0.416667
+        }
+      ]
+    },
+    {
+      "code": "L+H",
+      "main": "L",
+      "secondary": "H",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 0.25
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.5
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.5
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.25
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 0.5
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 0.5
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 0.5
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 0.75
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.75
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.75
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.5
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.75
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.5
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 0.5
+        }
+      ]
+    },
+    {
+      "code": "L+P",
+      "main": "L",
+      "secondary": "P",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 0.5
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.5
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.75
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.75
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 0.5
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 0.5
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.75
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.75
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.5
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.5
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 0.5
+        }
+      ]
+    },
+    {
+      "code": "C+L",
+      "main": "C",
+      "secondary": "L",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 0.25
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.5
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.25
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 0.25
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 0.25
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 1
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.75
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.25
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.25
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.5
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 0.416667
+        }
+      ]
+    },
+    {
+      "code": "C+E",
+      "main": "C",
+      "secondary": "E",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 0.5
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.5
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.5
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.5
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 0.5
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.75
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 0.5
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 0.75
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.75
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.5
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 0.5
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 0.5
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 0.5
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.75
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.5
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 0.5
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.75
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 0.583333
+        }
+      ]
+    },
+    {
+      "code": "C+H",
+      "main": "C",
+      "secondary": "H",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 0.25
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.5
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.25
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.25
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 0.25
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.75
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 0.25
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.25
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 0.25
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 0.25
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 0.5
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 0.5
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 0.75
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.5
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.25
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 0.25
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.75
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.75
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.5
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 0.666667
+        }
+      ]
+    },
+    {
+      "code": "C+P",
+      "main": "C",
+      "secondary": "P",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 0.5
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 0.5
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 0.5
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.75
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.75
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.75
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 0.5
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 0.5
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 0.5
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.5
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.5
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.5
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 0.5
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.5
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.5
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 0.666667
+        }
+      ]
+    },
+    {
+      "code": "E+L",
+      "main": "E",
+      "secondary": "L",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 0.75
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.75
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.75
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 0.75
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.75
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.75
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.75
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.75
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.75
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.75
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 0.583333
+        }
+      ]
+    },
+    {
+      "code": "E+C",
+      "main": "E",
+      "secondary": "C",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 0.75
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.75
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.75
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.75
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 0.75
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.5
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 0.75
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 0.75
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.75
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.75
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 0.75
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 0.75
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 0.75
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.75
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.75
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 0.75
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.75
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 0.666667
+        }
+      ]
+    },
+    {
+      "code": "E+H",
+      "main": "E",
+      "secondary": "H",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.5
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 0.75
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.75
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.75
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 0.75
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.25
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 0.75
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.75
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.75
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 0.75
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.75
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 0.75
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 1
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.75
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.75
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.75
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.75
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 0.75
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 0.75
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.75
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.75
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 0.833333
+        }
+      ]
+    },
+    {
+      "code": "E+P",
+      "main": "E",
+      "secondary": "P",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.5
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 1
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 1
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 1
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.75
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 1
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 1
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.75
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.75
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 1
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 1
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.75
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.75
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.75
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 0.833333
+        }
+      ]
+    },
+    {
+      "code": "H+L",
+      "main": "H",
+      "secondary": "L",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 0.25
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.5
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.5
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.25
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 0.75
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 0.75
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 0.75
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 0.5
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.75
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.75
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.75
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.5
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.75
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 0.75
+        }
+      ]
+    },
+    {
+      "code": "H+C",
+      "main": "H",
+      "secondary": "C",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 0.25
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.5
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.25
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.25
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 0.25
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.5
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 0.25
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.25
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 0.25
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 0.25
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 0.75
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 0.75
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 0.5
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.5
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.25
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 0.25
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.5
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.5
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.75
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 0.833333
+        }
+      ]
+    },
+    {
+      "code": "H+E",
+      "main": "H",
+      "secondary": "E",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.5
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 0.5
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.5
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.5
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 0.5
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.25
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 0.5
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.5
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.5
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 0.5
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.5
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 0.5
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 1
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.5
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.75
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.5
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.75
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 0.5
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 0.5
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.75
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.5
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 0.916667
+        }
+      ]
+    },
+    {
+      "code": "H+P",
+      "main": "H",
+      "secondary": "P",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.5
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 0.5
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.75
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 0.5
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 0.5
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 1
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 0.5
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 0.5
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 1
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 1
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 0.5
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 0.5
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.333333
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 1
+        }
+      ]
+    },
+    {
+      "code": "P+L",
+      "main": "P",
+      "secondary": "L",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 0.75
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.5
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.75
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.75
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 0.75
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 0.75
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.75
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.75
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.5
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.75
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 0.75
+        }
+      ]
+    },
+    {
+      "code": "P+C",
+      "main": "P",
+      "secondary": "C",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 0.75
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 0.75
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 0.75
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.75
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.75
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.75
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 0.75
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 0.75
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 0.75
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.5
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.5
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.5
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 0.75
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.5
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.75
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 0.833333
+        }
+      ]
+    },
+    {
+      "code": "P+E",
+      "main": "P",
+      "secondary": "E",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.5
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 1
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 1
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 1
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.75
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 1
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 1
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.75
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.75
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 1
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 1
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.75
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.75
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.75
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 0.916667
+        }
+      ]
+    },
+    {
+      "code": "P+H",
+      "main": "P",
+      "secondary": "H",
+      "courses": [
+        {
+          "id": "2cee5aa6-b7d3-4c71-b0cb-23524b5134c9",
+          "pairFit": 0.5
+        },
+        {
+          "id": "b21f535b-db22-4177-846c-9997cce478e1",
+          "pairFit": 0.75
+        },
+        {
+          "id": "9f3807da-2367-4e2b-8f5d-7df01958cda8",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "83a5f68b-0e2b-4c9b-9e92-a5bb912b06c6",
+          "pairFit": 0.75
+        },
+        {
+          "id": "4e6103f7-4e39-47f6-8e62-86d81c837d93",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "d88ea3cf-b5f3-4ed4-a8bd-6d49cc37549a",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "bc909b53-b4ae-4704-bb35-d4b02208ed17",
+          "pairFit": 0.75
+        },
+        {
+          "id": "b6ff4c87-e9e1-472f-96c7-a3a6b502f2d2",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "cee418fa-7fc5-484e-8329-f605255e9871",
+          "pairFit": 0.75
+        },
+        {
+          "id": "128bfa1a-64ce-4b80-abaa-afc263283116",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "de76bd0d-df30-4bec-8c4c-5955e72bb125",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "164e872a-b86a-480d-bf15-27eb2cde3c6f",
+          "pairFit": 1
+        },
+        {
+          "id": "ef145b69-1add-495c-8acf-bf8ec8eb3cea",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "3be7265b-8182-419f-bbe3-1bc84c84552c",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "7aee937c-ffe1-4c9b-b271-8a9280d25001",
+          "pairFit": 0.75
+        },
+        {
+          "id": "716fa82f-dab5-4a02-8cee-8e238ac7b596",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "7f3ed5fd-b9af-445c-8178-010f5886ae6d",
+          "pairFit": 0.75
+        },
+        {
+          "id": "5f5a4d57-c664-4964-8212-6ac80abf5eaf",
+          "pairFit": 1
+        },
+        {
+          "id": "397c249d-39cb-4c6b-9657-1ffb925a293e",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "08540dbd-f735-4157-bf49-287bd9dfe577",
+          "pairFit": 1
+        },
+        {
+          "id": "913f167e-75e3-48cb-b2a9-3c7a7792ad37",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "022e47fd-e4ff-4ef0-a927-6cfb64c21fc7",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "53969e91-9019-422c-8230-500ab7407ff1",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "dce22cbc-9237-4eb7-bb14-d896a92adcca",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "d1cfc174-f54c-4a3c-9bab-6f61c699032e",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "95f74ae6-7036-44e7-988d-5f1b494bda20",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "6a0b7c46-21e2-4cef-925e-0088276b0ce2",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "28400980-27cd-420d-ac4d-85fd690ccf42",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "89501cbc-4364-4dd9-8639-e9b4599ae54a",
+          "pairFit": 0.75
+        },
+        {
+          "id": "7276c024-7b5a-433a-b2ae-37e123d0ac37",
+          "pairFit": 0.75
+        },
+        {
+          "id": "c2f2f525-c2bd-487e-8943-1424e039675b",
+          "pairFit": 0.416667
+        },
+        {
+          "id": "f5a41a3f-15cc-47d8-9f68-b1a994f1f5c0",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "ed1dad05-7531-433a-851b-deaadf41a8a8",
+          "pairFit": 0.833333
+        },
+        {
+          "id": "b355f282-ea48-4d0d-ac3c-e1189fe603e9",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "6e9f1db9-a654-42b3-be8c-03194c3dacb0",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "da994936-afa1-47fe-a015-7c9b11ad0acd",
+          "pairFit": 0.666667
+        },
+        {
+          "id": "88e95730-29b7-4400-886f-8a8edd0150eb",
+          "pairFit": 0.916667
+        },
+        {
+          "id": "db9fb8fb-ac50-445a-9567-eff040983c8a",
+          "pairFit": 0.583333
+        },
+        {
+          "id": "51ed409a-b547-4bd9-8a10-0f5ff64079e8",
+          "pairFit": 1
+        }
+      ]
+    }
+  ]
+}

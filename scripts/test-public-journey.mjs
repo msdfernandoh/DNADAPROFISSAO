@@ -8,16 +8,16 @@ for(const name of restoredReviewNames)test('Published projection: '+name,()=>{
  const j=buildRestoredReview(name).journey,before=JSON.stringify(j),publication=composePublishedEditorial(j),delivered={...j,publication};
  assert.equal(JSON.stringify(j),before);assert.equal(publication.participant.length,9);assert.equal(publication.commercial.length,9);
  assert.equal(verifyPublishedEditorial(delivered,PUBLIC_EDITION).version,PUBLIC_EDITION);
- const publicReport=publishedParticipantReport(delivered,PUBLIC_EDITION),json=JSON.stringify(publicReport);assert.doesNotMatch(json,/evidenceRefs|selectedText|whatsapp|actorId|audit|comercial|Q\d{2}/i);
- assert.equal(publicReport.profiles.compatibilityPercentage,false);assert.deepEqual(publication.courses,[]);
- assert.match(publication.commercial[3].paragraphs.join(' '),/Nenhum curso foi apresentado/);
+ const publicReport=publishedParticipantReport(delivered,PUBLIC_EDITION),json=JSON.stringify(publicReport);assert.doesNotMatch(json,/evidenceRefs|selectedText|whatsapp|actorId|"audit"|"commercial"|"comercial"|Q\d{2}/i);
+ assert.equal(publicReport.profiles.compatibilityPercentage,false);assert.equal(publication.courses.length,5);
+ assert.match(publication.commercial[3].paragraphs.join(' '),/Dos cursos que apareceram/);
 });
 test('Exactly the same declared and eligible courses appear for both audiences',()=>{
  const base=buildRestoredReview('Ana').journey;
  const j=createJourney({revision:INTEGRATED_REVISION,registration:{...base.registration,escolaridade:'ensino_medio_completo',orientationMode:'area_undecided',declaredArea:'tecnologia'},answers:base.analysis.evidence.map(e=>({questionId:e.questionId,alternativeId:e.alternativeId}))},{scope:base.scope,institutionName:'UniFECAF Sinop',release:'released',reading:'unknown'});
  const p=composePublishedEditorial(j);assert.ok(p.courses.length>=2);
  for(const c of p.courses){assert.ok(p.participant[7].paragraphs.some(t=>t.includes(c.name)));assert.ok(p.commercial[5].paragraphs.some(t=>t.includes(c.name)));assert.ok(p.commercial[3].paragraphs.some(t=>t.includes(c.name)));}
- assert.deepEqual(p.courses.map(c=>c.id),j.orientation.exploratoryCourses.map(c=>c.courseId));assert.match(p.commercial[7].paragraphs[0],/identificação.*reflexão.*escolha.*profissão.*condições.*matrícula/);
+ assert.equal(p.courses.length,5);assert.ok(p.ranking);assert.deepEqual(p.courses.map(c=>c.id),p.ranking.top.map(c=>c.id));assert.match(p.commercial[7].paragraphs[0],/identificação.*reflexão.*escolha.*profissão.*condições.*matrícula/);
 });
 test('Published edition and content cannot be replaced by a query flag or modified paragraph',()=>{
  const j=buildRestoredReview('Ana').journey,p=composePublishedEditorial(j);assert.throws(()=>verifyPublishedEditorial({...j,publication:p},'unapproved'));
